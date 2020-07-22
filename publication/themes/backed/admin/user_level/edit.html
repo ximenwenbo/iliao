@@ -1,0 +1,128 @@
+<include file="layout/iframe@header" />
+<!-- Page CSS-->
+<link rel="stylesheet" href="__ABS__/assets/admui/vendor/dropify/dropify.css">
+
+<style>
+    body {
+        padding-top: 0;
+    }
+    button{
+        margin-right: 5px;
+    }
+    /*列表*/
+    .details_table{
+        overflow: hidden;
+    }
+    .details_table>label,.details_table>div{
+        float: left;
+    }
+    .details_table>label{
+        margin-right: 20px;
+        line-height: 32px;
+        width: 100px;
+    }
+    .details_table>div{
+        width: 70%;
+    }
+    .date_sty>div{
+        float: left;
+    }
+    .effect_div {
+        margin-top: 3px;
+        margin-left: 10px;
+    }
+</style>
+<body style="margin: 0; padding: 0;overflow-x: hidden">
+<div class="page animation-fade page-forms">
+    <form  method="post" multiple="" id="exampleFullForm">
+        <div class="page-content">
+            <div class="panel">
+                <div class="panel-body container-fluid">
+                    <div class="details_table-lg details_table">
+                        <div class="col-xl-6 form-horizontal">
+                            <h3 style="padding-bottom: 20px">等级信息</h3>
+
+                            <input type="hidden" name="id" value="{$info.id}">
+
+                            <div class="form-group details_table">
+                                <label>等级：</label>
+                                <div>
+                                    <input type="text" class="form-control" name="level_id" value="{$info.level_id}" placeholder="请填写等级，1-100之间的数字">
+                                </div>
+                            </div>
+                            <div class="form-group details_table">
+                                <label>等级名称：</label>
+                                <div>
+                                    <input type="text" class="form-control" name="level_name" value="{$info.level_name}" placeholder="请填写等级名称">
+                                </div>
+                            </div>
+                            <div class="form-group details_table">
+                                <label>积分值上限：</label>
+                                <div>
+                                    <input type="text" class="form-control" name="level_point" value="{$info.level_point}" placeholder="请填写等级积分值上限">
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label></label>
+                                <div>
+                                    <button type="submit" class="btn btn-primary" id="query">保存编辑</button>&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/vendor/jquery.ui.widget.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.iframe-transport.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload-process.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload-validate.js"></script>
+<script src="__ABS__/assets/admui/js/admin/extension_edit_upload.js"></script>
+</body>
+<script>
+    /*url-uid*/
+    $("input[name=type]").click(function () {
+        let type = $(this).val();
+        if(type == 1){
+            $(".type-name").text('UID');
+            $("input[name=account_type]").attr('placeholder', '请填写推广用户的uid');
+        }else {
+            $(".type-name").text('URL');
+            $("input[name=account_type]").attr('placeholder', '请填写H5完整链接地址');
+        }
+    });
+    /*提交*/
+    $("#query").on('click',function () {
+        $.ajax({
+            type: 'POST',
+            url: "{:url('UserLevel/EditInfo');}",
+            data: {
+                data:$("#exampleFullForm").serialize(),
+            },
+
+            dataType: "json",
+            success: function(data){
+                if(data.code === 200){
+                    layer.alert(data.msg, {icon: 5},function () {
+                        window.parent.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else{
+                    layer.alert(data.msg, {icon: 7});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+</script>
+</html>

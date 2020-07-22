@@ -1,0 +1,57 @@
+/**
+ * Admui-iframe v2.0.0 (http://www.admui.com/)
+ * Copyright 2015-2018 Admui Team
+ * Licensed under the Admui License 1.1 (http://www.admui.com/about/license)
+ */
+.bootbox .modal-dialog {
+  width: 360px; }
+
+.page-projects .projects-sort-label {
+  margin-right: 3px;
+  cursor: default; }
+
+.page-projects .dropdown-toggle {
+  cursor: pointer; }
+
+.page-projects .projects-wrap {
+  padding-top: 30px; }
+
+.page-projects .panel {
+  padding: 10px;
+  margin-bottom: 0; }
+
+.page-projects .blocks > li {
+  margin-bottom: 30px; }
+
+.page-projects .overlay {
+  margin-bottom: 12px;
+  border-radius: 0.286rem;
+  overflow: visible; }
+  .page-projects .overlay .btn-group {
+    position: absolute;
+    top: 5px;
+    right: 5px; }
+  .page-projects .overlay .btn-icon {
+    color: #bdbdbd; }
+    .page-projects .overlay .btn-icon:hover {
+      color: white; }
+  .page-projects .overlay .project-button {
+    color: #fff; }
+    .page-projects .overlay .project-button:hover {
+      background-color: white;
+      color: #526069; }
+  .page-projects .overlay .dropdown .dropdown-menu > li > a {
+    padding: 6px 8px; }
+  .page-projects .overlay .dropdown:hover .dropdown-toggle {
+    color: #fff; }
+  .page-projects .overlay .dropdown:hover .dropdown-menu {
+    display: block; }
+  .page-projects .overlay .dropdown-menu {
+    color: #76838f;
+    margin-top: 0;
+    min-width: 110px; }
+    .page-projects .overlay .dropdown-menu a {
+      text-decoration: none; }
+
+.page-projects .overlay-panel {
+  background: rgba(38, 50, 56, 0.8); }

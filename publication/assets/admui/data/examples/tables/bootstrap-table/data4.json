@@ -1,0 +1,35 @@
+{
+    "total": 100,
+    "rows": [
+        {
+            "github": {
+                "name": "bootstrap-table",
+                "count": {
+                    "stargazers": 768,
+                    "forks": 183
+                },
+                "description": "基于 Bootstrap 的 jQuery 表格插件，通过简单的设置，就可以拥有强大的单选、多选、排序、分页，以及编辑、导出、过滤（扩展）等等的功能。"
+            }
+        },
+        {
+            "github": {
+                "name": "multiple-select",
+                "count": {
+                    "stargazers": 365,
+                    "forks": 166
+                },
+                "description": "一个用来选择多个元素的 jQuery 插件"
+            }
+        },
+        {
+            "github": {
+                "name": "bootstrap-show-password",
+                "count": {
+                    "stargazers": 37,
+                    "forks": 13
+                },
+                "description": "显示/隐藏密码的 Bootstrap 插件"
+            }
+        }
+    ]
+}

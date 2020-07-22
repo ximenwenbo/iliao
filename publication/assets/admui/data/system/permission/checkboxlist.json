@@ -1,0 +1,21 @@
+{
+    "success": true,
+    "msg": "success",
+    "data": [
+      {
+        "id": "15398646304590276984",
+        "text": "223",
+        "selected": false
+      },
+      {
+        "id": "8888",
+        "text": "超级系统管理",
+        "selected": false
+      },
+      {
+        "id": "9999",
+        "text": "一般人员",
+        "selected": true
+      }
+    ]
+  }

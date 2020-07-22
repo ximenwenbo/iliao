@@ -1,0 +1,207 @@
+<include file="layout/iframe@header" />
+
+<!-- 插件 CSS -->
+
+<link rel="stylesheet" href="__ABS__/assets/admui/vendor/jstree/jstree.css">
+
+<!-- Page CSS -->
+
+<!--<link rel="stylesheet" href="__ABS__/assets/admui/css/system/permission.css">-->
+
+<body data-theme="base">
+
+<div class="page animation-fade bg-white">
+	<div class="page-header">
+		<h1 class="page-title">分配权限</h1>
+	</div>
+	<hr class="m-0">
+	<div class="page-content">
+
+		<div class="col-sm-8 handle-box" data-plugin="mCustomScrollbar">
+			<h5 class="handle-title">菜单权限</h5>
+			<div id="menuTree"></div>
+		</div>
+		<div class="col-sm-4 handle-box" data-plugin="mCustomScrollbar">
+			<button class="btn btn-primary btn-outline float-right" id="savePermission">保存权限</button>
+		</div>
+	</div>
+</div>
+
+<!-- 插件 -->
+<!--<script src="__ABS__/assets/admui/vendor/matchheight/jquery.matchHeight.min.js"></script>-->
+<!--<script src="__ABS__/assets/admui/vendor/artTemplate/template-web.js"></script>-->
+<script src="__ABS__/assets/admui/vendor/jstree/jstree.min.js"></script>
+<!--<script src="__ABS__/assets/admui/vendor/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>-->
+<!--<script src="__ABS__/assets/admui/themes/base/js/app.js"></script>-->
+<script>
+    (function(document, window, $) {
+        'use strict';
+
+        /* global toastr, _ */
+        /* eslint consistent-return: "warn" */
+
+        // 获取当前页面操作权限
+        // var operationPermission = window.App.getOperPermission();
+        var operationPermission = [{'id':'110003'},{'id':'110005'}];
+
+        $(function() {
+            var $body = $('body');
+            var $permissionLists = $('#permissionLists');
+            // 项目地址
+            var ctx = $.configs.ctx;
+            var menuTree;
+            var operatePermission = [];
+            var operateType;
+
+            // 菜单树渲染
+            $('#menuTree')
+                .data('jstree', false)
+                .empty()
+                .jstree({
+                    checkbox: {
+                        keep_selected_style: false
+                    },
+                    plugins: ['checkbox', 'search'],
+                    core: {
+                        data: function(obj, callback) {
+                            $.ajax({
+                                url: "{:url('Rbac/ajaxAuthorizeList', array('role_id'=>$roleId))}",
+                                type: 'GET',
+                                traditional: true,
+                                dataType: 'JSON',
+                                success: function(res) {
+                                    if (res.success) {
+                                        callback.call(this, res.data);
+                                    } else {
+                                        toastr.error(res.msg);
+                                    }
+                                },
+                                error: function(err) {
+                                    toastr.error(err);
+                                }
+                            });
+                        }
+                    }
+                })
+                .on('ready.jstree', function() {
+                    var $item = $(this);
+                    menuTree = $item.jstree(true);
+                    menuTree.open_all();
+
+                    // 给菜单树上节点的a元素绑定点击事件 --- 点击span元素获取操作权限按钮
+                    // $item.find('a').on('click', function() {
+                    //     // 选择部门
+                    //     var $that = $(this);
+                    //     var permissionItemId = $permissionLists.find('>.list-group-item.active').attr('id');
+                    //     // var permissionItemId = 0;
+                    //     var menuId = $that.closest('li').attr('id');
+                    //     operateType = 'change';
+                    //
+                    //     // 更新当前获取操作权限按钮选中类
+                    //     $('#menuTree')
+                    //         .find('a.active')
+                    //         .removeClass('active');
+                    //
+                    //     // 当前菜单未选中时
+                    //     if (menuTree.is_selected(menuId)) {console.log(menuId);
+                    //         $('#operatePermissions').html(template('operatePermissionTpl', {type: 'deselected'}));
+                    //         return;
+                    //     }
+                    //
+                    //     $that.closest('a').addClass('active');
+                    //
+                    //     // 获取当前菜单操作权限
+                    //     $.ajax({
+                    //         url: ctx + '/assets/admui/data/system/operation/operations.json',
+                    //         type: 'GET',
+                    //         data: {permissionId: permissionItemId, menuId: menuId},
+                    //         dataType: 'JSON',
+                    //         success: function(res) {
+                    //             if (res.success) {
+                    //                 $('#operatePermissions').html(
+                    //                     template('operatePermissionTpl', {operatePermissions: res.data})
+                    //                 );
+                    //             } else {
+                    //                 toastr.err(res.msg);
+                    //             }
+                    //         },
+                    //         error: function(err) {
+                    //             toastr.error(err);
+                    //         }
+                    //     });
+                    // });
+
+                    // 权限列表项渲染
+                    // $.ajax({
+                    //     url: ctx + '/assets/admui/data/system/permission/permissions.json',
+                    //     type: 'GET',
+                    //     dataType: 'JSON',
+                    //     success: function(res) {
+                    //         if (res.success) {
+                    //             if (res.data.length > 0) {
+                    //                 // 有权限列表项时
+                    //                 // 渲染列表项 & 显示列表项操作面板
+                    //                 $permissionLists.html(template('permissionItemTpl', {permissionLists: res.data}));
+                    //                 $body
+                    //                     .addClass('page-aside-fixed page-aside-left')
+                    //                     .find('.page>.page-content')
+                    //                     .attr('hidden', true)
+                    //                     .addBack()
+                    //                     .siblings()
+                    //                     .attr('hidden', false);
+                    //
+                    //                 // 默认选中第一项
+                    //                 $permissionLists.find('.list-group-item:first').addClass('active');
+                    //
+                    //                 // 更新选中操作权限
+                    //                 operatePermission = $permissionLists
+                    //                     .find('.list-group-item:first')
+                    //                     .data('operIds');
+                    //
+                    //                 // 选中已选择菜单节点
+                    //                 menuTree.select_node(res.data[0].menuIds);
+                    //
+                    //                 // 默认触发第一个菜单项获取其操作权限项
+                    //                 $item.find('a:first>span').trigger('click');
+                    //             }
+                    //         } else {
+                    //             toastr.err(res.msg);
+                    //         }
+                    //     },
+                    //     error: function(err) {
+                    //         toastr.error(err);
+                    //     }
+                    // });
+                });
+
+            // 保存权限
+            $('#savePermission').on('click', function() {
+                $.ajax({
+                    url: "{:url('Rbac/authorizePost')}",
+                    type: 'POST',
+                    data: {
+                        menuId: menuTree.get_selected().concat(menuTree.get_undetermined()),
+                        roleId: {$roleId}
+                    },
+                    dataType: 'JSON',
+                    success: function(res) {
+                        if (res.code) {
+                            toastr.success(res.msg);
+                            setInterval(function () {
+                                window.location.reload(true);
+                            }, 1500);
+                        } else {
+                            toastr.error(res.msg);
+                        }
+                    },
+                    error: function() {
+                        toastr.error('服务器异常，请配合后端程序使用');
+                    }
+                });
+            });
+
+        });
+    })(document, window, jQuery);
+</script>
+</body>
+</html>

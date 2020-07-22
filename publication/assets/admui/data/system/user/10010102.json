@@ -1,0 +1,83 @@
+{
+    "success": true,
+    "msg": "查询成功！",
+    "data": {
+      "id": "10010102",
+      "remark": "一般用户",
+      "createDate": null,
+      "jobNum": "10010102",
+      "userName": "xiaxuan@admui_demo",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "name": "夏瑄",
+      "position": "100402",
+      "email": "xiaxuan@admui.com",
+      "mobile": "13511027451",
+      "sex": 2,
+      "telephone": "09317897654",
+      "phoneExt": "123",
+      "loginCount": 0,
+      "status": 0,
+      "lastLoginTime": null,
+      "lastLoginIp": null,
+      "executiveMode": false,
+      "userType": 2,
+      "orgIds": [
+        "100101"
+      ],
+      "sexName": null,
+      "positionName": null,
+      "orgNames": "",
+      "roleNames": "",
+      "roles": [
+        {
+          "id": "100101",
+          "remark": "系统管理员",
+          "createDate": null,
+          "roleGroupId": "1001",
+          "roleName": "系统管理员",
+          "roleType": 1,
+          "permissionIds": null,
+          "users": null,
+          "permissions": [
+            {
+              "id": "8888",
+              "remark": "超级系统管理权限",
+              "createDate": null,
+              "name": "超级系统管理",
+              "roleId": null,
+              "menuIds": [],
+              "operIds": []
+            }
+          ]
+        },
+        {
+          "id": "100102",
+          "remark": "一般操作人员",
+          "createDate": null,
+          "roleGroupId": "1001",
+          "roleName": "一般人员",
+          "roleType": 1,
+          "permissionIds": null,
+          "users": null,
+          "permissions": [
+            {
+              "id": "9999",
+              "remark": "一般人员权限",
+              "createDate": null,
+              "name": "一般人员",
+              "roleId": null,
+              "menuIds": [],
+              "operIds": []
+            }
+          ]
+        }
+      ],
+      "orgs": [
+        {
+          "userId": "10010102",
+          "orgId": "100101",
+          "orgName": "总经办"
+        }
+      ]
+    }
+  }

@@ -1,0 +1,174 @@
+<include file="layout/iframe@header" />
+<!-- Page CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/css/examples/forms/advanced.css">
+<!-- Page JS -->
+<script src="__ABS__/assets/admui/js/admin/merchant_management.js"></script>
+<style>
+    .table thead th{
+        text-align: center;
+    }
+    #logList>tbody>tr>td{
+        line-height: 40px;
+        text-align: center;
+    }
+
+    #logList>tbody>tr>td>.to_table>tbody>tr>td{
+        line-height: 40px;
+        text-align: left;
+    }
+    .sle_sty{
+        font-size: 0.9rem;
+        line-height: 1.5;
+        border-radius: 0.143rem;
+    }
+
+</style>
+<body data-theme="base" style="padding: 0">
+
+<div class="page page-full animation-fade page-logs">
+    <div class="page-header">
+        <h1 class="page-title">商户管理 &nbsp;<span style="font-size: 14px;color: #76838f">({$merchant_name})</span></h1>
+        <div class="page-header-actions">
+            <button type="button" class="btn btn-sm btn-icon btn-info btn-outline btn-round collapsed" data-toggle="collapse"
+                    data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+                <i class="icon fa-filter"></i>
+            </button>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="collapse show" id="collapseFilter" aria-expanded="true">
+            <div class="panel">
+                <div class="panel-body">
+                    <form class="form-inline" id="logForm">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="icon wb-calendar" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" id="filter-date" placeholder="选择日期范围" autocomplete="off">
+                                <input type="hidden" name="startDate" value="" id="startTime">
+                                <input type="hidden" name="endDate" value="" id="endTime">
+                                <div class="input-group-prepend">
+                                    <button type="button" class="btn btn-icon btn-default btn-outline btn-sm date-clear">
+                                        <i class="icon wb-close" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="keywords" id="keywords" placeholder="商家名称" value="{$param['keywords']|default=''}">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">
+                                <i class="icon fa-search"></i> 查找</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <header class="panel-heading">
+                <h3 class="panel-title">
+                    <button type="button" class="btn btn-sm btn-primary addInfo" data-more="#exampleMoreless" onclick="addPopup()">
+                        <i class="icon wb-plus text" aria-hidden="true"></i>
+                        <span class="text">新增商户</span>
+                    </button>&nbsp;&nbsp;&nbsp;
+                    <php>if($merchant_name == '总管理员' || $merchant_name == '未分配'){</php>
+                        <button type="button" class="btn btn-sm BecomeMerchant" disabled>
+                            <span class="text">取消商户身份</span>
+                        </button>
+                    <php>}else{</php>
+                        <button type="button" class="btn btn-sm social-youtube BecomeMerchant" onclick="BecomeMerchant(-99)">
+                            <span class="text">取消商户身份</span>
+                        </button>
+                    <php>}</php>
+                </h3>
+            </header>
+            <div class="panel-body">
+                <table class="table table-bordered table-hover dataTable table-striped w-full" id="logList">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>商家名称</th>
+                        <th>商家地址</th>
+                        <th>联系方式</th>
+                        <th>创建时间</th>
+                        <th>状态</th>
+                        <th width="20%">操作</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //打开添加页面
+    function addPopup() {
+        layer.open({
+            type: 2,    //0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+            title: '新增商户', //弹出框的标题
+            shade: 0.2,
+            area: ['60%','60%'],
+            content: "__ABS__/admin/merchant_management/AddInfo",
+        });
+    }
+
+    //打开编辑页面
+    function editPopup(obj) {
+        layer.open({
+            type: 2,    //0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+            title: '编辑信息', //弹出框的标题
+            shade: 0.2,
+            area: ['60%','60%'],
+            content: "__ABS__/admin/merchant_management/edit/id/"+obj,
+        });
+    }
+
+    /**
+     * 取消/更改为商户身份
+     */
+    function BecomeMerchant(id) {
+        let text = '警告';
+        if(id === -99){
+            text = '确定要取消当前商户身份吗?';
+            id = 0;
+        }else{
+            text = '确定要成为当前商户身份吗?';
+        }
+        layer.confirm(text,{btn:['确定','取消'],title:'提示'},function () {
+            $.ajax({
+                type: 'POST',
+                url: "{:url('Merchant_management/BecomeMerchant');}",
+                data: {
+                    id:id,
+                },
+                dataType: "json",
+                success: function(data){
+                    if(data.code === 200){
+                        layer.alert('操作成功', {icon: 5},function () {
+                            window.parent.location.reload();
+                            let index=parent.layer.getFrameIndex(window.name);
+                            parent.layer.close(index);
+                        });
+                    }else {
+                        layer.alert(data.msg, {icon: 7});
+                    }
+                },
+                error:function (data) {
+                    layer.alert('操作失败，请重新操作', {icon: 2});
+                }
+            });
+        })
+    }
+
+</script>
+</body>
+</html>
+
+
+

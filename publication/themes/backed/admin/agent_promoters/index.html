@@ -1,0 +1,95 @@
+<include file="layout/iframe@header" />
+
+
+<body data-theme="base" style="padding: 0">
+<div class="page page-full animation-fade page-logs">
+    <div class="page-header">
+        <h1 class="page-title">推广员管理</h1>
+        <div class="page-header-actions">
+            <button type="button" class="btn btn-sm btn-icon btn-info btn-outline btn-round collapsed" data-toggle="collapse"
+                    data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+                <i class="icon fa-filter"></i>
+            </button>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="collapse show" id="collapseFilter" aria-expanded="true">
+            <div class="panel">
+                <div class="panel-body">
+                    <form class="form-inline" id="table-form">
+                        <div class="form-group">
+                            <div class="input-group" style="width: 285px;">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="icon wb-calendar" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" id="filter-date" placeholder="选择创建日期范围" autocomplete="off">
+                                <input type="hidden" name="startDate" value="" id="startTime">
+                                <input type="hidden" name="endDate" value="" id="endTime">
+                                <div class="input-group-prepend">
+                                    <button type="button" class="btn btn-icon btn-default btn-outline btn-sm date-clear">
+                                        <i class="icon wb-close" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="keywords" id="keywords" placeholder="ID/UID" value="">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">
+                                <i class="icon fa-search"></i> 查找</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <header class="panel-heading">
+                <h3 class="panel-title">
+                    <button type="button" class="btn btn-sm btn-primary addInfo" data-more="#exampleMoreless" onclick="addPopup()">
+                        <i class="icon wb-plus text" aria-hidden="true"></i>
+                        <span class="text">添加推广员</span>
+                    </button>
+                </h3>
+            </header>
+            <div class="panel-body">
+                <table class="table table-bordered table-hover dataTable table-striped w-full" id="tableList">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>代理商</th>
+                        <th>推广员(uid)</th>
+                        <th>邀请新用户分成(金币)</th>
+                        <th>用户充值分成(%)</th>
+                        <th>主播奖励分成(%)</th>
+                        <th>创建时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__ABS__/assets/admui/js/admin/agent_promoters_index.js"></script>
+<script>
+    function addPopup(id) {
+        layer.open({
+            type: 2,    //0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+            title: '添加推广员', //弹出框的标题
+            shade: 0.2,
+            area: ['100%','100%'],
+            content: "__ABS__/admin/agent_promoters/addInfo/id/"+id,
+        });
+    }
+</script>
+</body>
+</html>
+
+
+

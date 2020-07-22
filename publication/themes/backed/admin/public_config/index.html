@@ -1,0 +1,340 @@
+<include file="layout/iframe@header" xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns:/>
+
+<!-- Site CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/css/admin/public-config.css">
+
+
+<body style="padding: 0">
+<div class="page animation-fade page-forms">
+
+    <form class="form-horizontal" id="exampleFullForm" enctype="multipart/form-data" method="post" autocomplete="off" novalidate="novalidate">
+        <div class="tab-content">
+            <ul class="nav nav-tabs js-tabs-nav">
+                <li class="current"><a href="javascript:void (0)">多项配置</a></li>
+                <li><a href="{:url('PublicConfig/UserAgreement')}">用户协议</a></li>
+                <li><a href="{:url('PublicConfig/PrivacyAgreement')}">隐私协议</a></li>
+                <li><a href="{:url('PublicConfig/DivideInto')}">推广分成</a></li>
+            </ul>
+        </div>
+        <div class="page-content" style="padding-top: 0">
+            <div class="panel">
+                <div class="panel-body container-fluid">
+                    <!--充值金币-->
+                    <div class="row margin-top-20 ">
+                        <div class="col-12">
+                            <h5 class="control-label title-desc">充值金币</h5>
+                        </div>
+                        <div class=" col-12">
+                            <label class="control-label">配置</label>
+                            <div class="controls col-6">
+                                <input type="text" name="RechargeCoin[poor]" class="form-control col-6" placeholder="例如 3000,6000,9000" autocomplete="off" value="{$option.RechargeCoin.poor || default = ''}">
+                                <button class="btn btn-default" style="float: left">金币</button>
+                                <label>建议配置3-5个，英文逗号分割</label>
+                            </div>
+                        </div>
+
+                        <div class="col-12" style="display: none">
+                            <label class="control-label">小康</label>
+                            <div class="controls col-6">
+                                <input type="text" name="RechargeCoin[fairly]" class="form-control col-6" placeholder="例如 9000,15000,20000" autocomplete="off" value="{$option.RechargeCoin.fairly || default = ''}">
+                                <button class="btn btn-default" style="float: left">金币</button>
+                                <label>建议配置3-5个，英文逗号分割</label>
+                            </div>
+                        </div>
+
+                        <div class=" col-12" style="display: none">
+                            <label class="control-label">富豪</label>
+                            <div class="controls col-6">
+                                <input type="text" name="RechargeCoin[volvo]" class="form-control col-6" placeholder="例如 19000,29000,59000" autocomplete="off" value="{$option.RechargeCoin.volvo || default = ''}">
+                                <button class="btn btn-default" style="float: left">金币</button>
+                                <label>建议配置3-5个，英文逗号分割</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--充值vip-->
+                    <div class="row margin-top-20">
+                        <div class="col-12">
+                            <h5 class="control-label title-desc ">充值VIP</h5>
+                        </div>
+                        <div class=" col-12">
+                            <label class="control-label">配置</label>
+                            <div class="controls col-6">
+                                <input type="text" name="RechargeVip[poor]" class="form-control col-6" placeholder="例如 39,69,199" autocomplete="off" value="{$option.RechargeVip.poor || default = ''}">
+                                <button class="btn btn-default" style="float: left">元</button>
+                                <label>只能配置3个，英文逗号分割</label>
+                            </div>
+                        </div>
+
+                        <div class=" col-12" style="display: none">
+                            <label class="control-label">小康</label>
+                            <div class="controls col-6">
+                                <input type="text" name="RechargeVip[fairly]" class="form-control col-6" placeholder="例如 99,199,399" autocomplete="off" value="{$option.RechargeVip.fairly || default = ''}">
+                                <button class="btn btn-default" style="float: left">元</button>
+                                <label>只能配置3个，英文逗号分割</label>
+                            </div>
+                        </div>
+
+                        <div class=" col-12" style="display: none">
+                            <label class="control-label">富豪</label>
+                            <div class="controls col-6">
+                                <input type="text" name="RechargeVip[volvo]" class="form-control col-6" placeholder="例如 199,299,599" autocomplete="off" value="{$option.RechargeVip.volvo || default = ''}">
+                                <button class="btn btn-default" style="float: left">元</button>
+                                <label>只能配置3个，英文逗号分割</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--提现配置-->
+                    <div class="row margin-top-20">
+                        <div class="col-12">
+                            <h5 class="control-label title-desc">提现配置</h5>
+                        </div>
+                        <div class=" col-12">
+                            <label class="control-label">提现分成</label>
+                            <div class="controls col-6">
+                                <input type="text" name="Withdraw[rate]" class="form-control col-6" placeholder="30" autocomplete="off" value="{$option.Withdraw.rate || default = ''}">
+                                <button class="btn btn-default" style="float: left">%</button>
+                                <label>平台抽成百分比</label>
+                            </div>
+                        </div>
+
+                        <div class=" col-12">
+                            <label class="control-label">提现最低额度</label>
+                            <div class="controls col-6">
+                                <input type="text" name="Withdraw[quota]" class="form-control col-6" placeholder="100" autocomplete="off" value="{$option.Withdraw.quota || default = ''}">
+                                <button class="btn btn-default" style="float: left">元</button>
+                                <label>可提现月低于该值将不允许提现</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--礼物通告金币-->
+                    <div class="row margin-top-20">
+                        <div class="col-12">
+                            <h5 class="control-label title-desc">礼物通告金币配置</h5>
+                        </div>
+                        <div class=" col-12">
+                            <label class="control-label">通告金币</label>
+                            <div class="controls col-9">
+                                <input type="text" name="GiftNotice[coin]" class="form-control col-4" placeholder="30" autocomplete="off" value="{$option.GiftNotice.coin || default = ''}">
+                                <button class="btn btn-default" style="float: left">金币</button>
+                                <label>送礼物价值超过该金币将进行全屏通告</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--手机号白名单-->
+                    <div class="row margin-top-20">
+                        <div class="col-12">
+                            <h5 class="control-label title-desc ">手机号白名单</h5>
+                        </div>
+                        <div class=" col-12">
+                            <label class="control-label">手机号</label>
+                            <div class="controls col-6">
+                                <textarea name="White[mobile]" style="height: 94px" class="col-12" placeholder="18888888888,18800000000">{$option.White.mobile || default = ''}</textarea>
+                                <span>免验证码登录手机号,多个用英文逗号","分割</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--公告文字-->
+                    <div class="row margin-top-20">
+                        <div class="col-12">
+                            <h5 class="control-label title-desc ">公告文字配置</h5>
+                        </div>
+                        <div class=" col-12">
+                            <label class="control-label">内容</label>
+                            <div class="controls col-6">
+                                <textarea name="Notice[text]" style="height: 94px" class="col-12" placeholder="最多255个字符">{$option.Notice.text || default = ''}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!--vip限制配置-->
+                    <div class="row margin-top-20">
+                        <div class="col-12">
+                            <h5 class="control-label title-desc" >vip限制配置</h5>
+                        </div>
+                        <div class=" col-12">
+                            <label class="control-label">是否开启</label>
+                            <div class="controls col-6">
+                                <div style="float: left">
+                                    <div class="radio-custom radio-default radio-inline">
+                                        <input type="radio" name="VipLimit[status]" id="VipLimit1" value="1" <?=!empty($option['VipLimit']['status']) && $option['VipLimit']['status'] == 1 ? 'checked' : ''?>>
+                                        <label for="VipLimit1">是</label>
+                                    </div>
+                                    <div class="radio-custom radio-default radio-inline">
+                                        <input type="radio" name="VipLimit[status]" id="VipLimit2" value="2"
+                                            <?php
+                                                if(empty($option['VipLimit']['status']) || (!empty($option['VipLimit']['status']) && $option['VipLimit']['status'] == 2)){
+                                                        echo 'checked';
+                                                }
+
+                                            ?>
+                                        >
+                                        <label for="VipLimit2">否</label>
+                                    </div>
+                                </div>
+                                <label>是否开启vip进入房间限制</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label class="control-label">是否开启</label>
+                            <div class="controls col-8">
+                                <div class="input-group col-md-12">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="icon wb-calendar" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control col-md-8" id="filter-date" placeholder="" autocomplete="off"
+                                           value="<?= !empty($option['VipLimit']['startDate']) && !empty($option['VipLimit']['endDate']) ? $option['VipLimit']['startDate'].'-'.$option['VipLimit']['endDate'] : ''?>"
+                                            <?php
+                                                if(empty($option['VipLimit']['status']) || (!empty($option['VipLimit']['status']) && $option['VipLimit']['status'] == 2)){
+                                                        echo 'disabled';
+                                                }
+
+                                            ?>
+                                    >
+                                    <input type="hidden" name="VipLimit[startDate]" value="{$option.VipLimit.startDate || default = ''}" id="startTime">
+                                    <input type="hidden" name="VipLimit[endDate]" value="{$option.VipLimit.endDate || default = ''}" id="endTime">
+                                    <div class="input-group-prepend">
+                                        <button type="button" class="btn btn-icon btn-default btn-outline btn-sm date-clear">
+                                            <i class="icon wb-close" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                    <label style="line-height: 32px;height: 32px;margin-left: 10px;color: #bcc2c8">vip限制开始和结束时间,精确到分钟,开启限制必选</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--聊天等级限制-->
+                    <div class="row margin-top-20">
+                        <div class="col-12">
+                            <h5 class="control-label title-desc ">聊天等级限制</h5>
+                        </div>
+                        <div class=" col-12">
+                            <label class="control-label">文字聊天等级限制</label>
+                            <div class="controls col-6">
+                                <select class="form-control col-3" name="UserLevelLimit[chat]" data-plugin="select1">
+                                    <option value=0 >禁用</option>
+                                        <?php if(!empty($user_level)){ ?>
+                                            <php>foreach($user_level as $i => $val){</php>
+                                                <option value="{$i}" <?=!empty($option['UserLevelLimit']['chat']) && $i == $option['UserLevelLimit']['chat'] ? 'selected' : ''?>>{$i}</option>
+                                            <php>}</php>
+                                        <php>}</php>
+                                </select>
+                                <label>是否开文字启聊天等级限制</label>
+                            </div>
+                        </div>
+                        <div class=" col-12">
+                            <label class="control-label">语音聊天等级限制</label>
+                            <div class="controls col-6">
+                                <select class="form-control col-3" name="UserLevelLimit[voice]" data-plugin="select1">
+                                    <option value=0 >禁用</option>
+                                    <?php if(!empty($user_level)){ ?>
+                                    <php>foreach($user_level as $i => $val){</php>
+                                    <option value="{$i}" <?=!empty($option['UserLevelLimit']['voice']) && $i == $option['UserLevelLimit']['voice'] ? 'selected' : ''?>>{$i}</option>
+                                    <php>}</php>
+                                    <php>}</php>
+                                </select>
+                                <label>是否开启语音聊天等级限制</label>
+                            </div>
+                        </div>
+                        <div class=" col-12">
+                            <label class="control-label">视频聊天等级限制</label>
+                            <div class="controls col-6">
+                                <select class="form-control col-3" name="UserLevelLimit[video]" data-plugin="select1">
+                                    <option value=0 >禁用</option>
+                                    <?php if(!empty($user_level)){ ?>
+                                    <php>foreach($user_level as $i => $val){</php>
+                                    <option value="{$i}" <?=!empty($option['UserLevelLimit']['video']) && $i == $option['UserLevelLimit']['video'] ? 'selected' : ''?>>{$i}</option>
+                                    <php>}</php>
+                                    <php>}</php>
+                                </select>
+                                <label>是否开启视频聊天等级限制</label>
+                            </div>
+                        </div>
+                        <div class=" col-12">
+                            <label class="control-label">直播间弹幕等级限制</label>
+                            <div class="controls col-6">
+                                <select class="form-control col-3" name="UserLevelLimit[barrage]" data-plugin="select1">
+                                    <option value=0 >禁用</option>
+                                    <?php if(!empty($user_level)){ ?>
+                                    <php>foreach($user_level as $i => $val){</php>
+                                    <option value="{$i}" <?=!empty($option['UserLevelLimit']['barrage']) && $i == $option['UserLevelLimit']['barrage'] ? 'selected' : ''?>>{$i}</option>
+                                    <php>}</php>
+                                    <php>}</php>
+                                </select>
+                                <label>是否开启直播间弹幕等级限制</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 form-group">
+                            <label class="control-label"></label>
+                            <div class="controls col-5" style="margin-top:20px">
+                                <button type="button" class="layui-btn btn btn-primary" id="query">保存配置</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+<script src="__ABS__/assets/admui/js/admin/config/public_config.js"></script>
+<script>
+    layui.use('upload', function(){
+        var $ = layui.jquery,upload = layui.upload;
+        upload.render({
+            elem: '#share_background_img_btn', //选择文件的按钮
+            url: '/admin/user_upload/uploadFile', //后台处理文件长传的方法
+            accept: 'images',
+            acceptMime: 'image/*', //规定打开文件选择框时，筛选出的文件类型
+            field:'share_background_img',
+            choose: function(obj){ //选择文件后的回调函数，本例中在此将选择的文件进行展示
+                //读取本地文件
+                obj.preview(function(index, file, result){
+                    $("#share_background_img").attr('src',result);
+                });
+            },
+            done:function(res,index,upload){
+                if(res.code == 1){
+                    $("input[name='share_background_img_file']").val(res.data.save_dir);
+                    layui.layer.msg('上传成功');
+                }else{
+                    layui.layer.msg('上传失败');
+                }
+            },
+            error: function(index, upload){
+            }
+        });
+    });
+
+    /*保存配置提交*/
+    $("#query").on('click',function () {
+        $.ajax({
+            type: 'POST',
+            url: "{:url('PublicConfig/indexPost');}",
+            data: {
+                data:$("#exampleFullForm").serialize(),
+            },
+
+            dataType: "json",
+            success: function(data){
+                if(data.code == 1){
+                    layer.alert(data.msg, {icon: 5},function () {
+                        window.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else{
+                    layer.alert(data.msg, {icon: 7});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+</script>

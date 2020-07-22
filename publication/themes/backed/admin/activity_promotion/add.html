@@ -1,0 +1,191 @@
+<include file="layout/iframe@header" />
+<!-- Page CSS-->
+<link rel="stylesheet" href="__ABS__/assets/admui/vendor/dropify/dropify.css">
+
+<style>
+    body {
+        padding-top: 0;
+    }
+    button{
+        margin-right: 5px;
+    }
+    /*列表*/
+    .details_table{
+        overflow: hidden;
+    }
+    .details_table>label,.details_table>div{
+        float: left;
+    }
+    .details_table>label{
+        margin-right: 20px;
+        line-height: 32px;
+        width: 100px;
+    }
+    .details_table>div{
+        width: 70%;
+    }
+    .date_sty>div{
+        float: left;
+    }
+    .effect_div {
+        margin-top: 3px;
+        margin-left: 10px;
+    }
+</style>
+<body style="margin: 0; padding: 0;overflow-x: hidden">
+<div class="page animation-fade page-forms">
+    <form  method="post" multiple="" id="exampleFullForm">
+        <div class="page-content">
+            <div class="panel">
+                <div class="panel-body container-fluid">
+                    <div class="details_table-lg details_table">
+                        <div class="col-xl-6 form-horizontal">
+                            <h3 style="padding-bottom: 20px">活动推广信息</h3>
+                            <div class="form-group details_table">
+                                <label>标题：</label>
+                                <div>
+                                    <input type="text" class="form-control" name="title" value="" placeholder="请填写标题">
+                                </div>
+                            </div>
+                            <div class="form-group details_table">
+                                <label>描述：</label>
+                                <div>
+                                    <input type="text" class="form-control" name="desc" value="" placeholder="请填写描述">
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table jquery-fileupload">
+                                <label>缩略图</label>
+                                <div>
+                                    <input type="hidden" name="user_id" value="{$user_id || default = 1}">
+                                    <!--上传的图片展示-->
+                                    <a  href="javascript:void (0);">
+                                        <img id="image_0" src="" alt="..." width="80px" height="80px" style="display: none;margin-right: 40px">
+                                    </a>
+                                    <input id="uploadImg_0" type="file" name="thumb" value="" multiple style="display: none" />
+                                    <!--存储上传后图片地址-->
+                                    <input type="hidden" id="save_path_0" name="thumb" value="{$allot_user_info.avatar || default =''}"/>
+                                    <!--按钮-->
+                                    <button type="button" class="btn btn-outline btn-primary" id="chooseFile_0">
+                                        <i class="icon wb-plus" aria-hidden="true"></i> 选择文件
+                                    </button>
+                                    <button type="button" class="btn btn-raised" id="reselectionFile_0" style="display: none;">
+                                        <i class="icon wb-pencil" aria-hidden="true"></i> 重新选择
+                                    </button>
+                                    <button type="button" class="btn btn-dark" id="uploadFile_0" style="display: none;">
+                                        <i class="icon wb-upload" aria-hidden="true"></i>确认上传
+                                    </button>
+                                    <!--<button type="button" class="btn btn-raised" id="deleteFile">
+                                        <i class="icon wb-close" aria-hidden="true"></i>删除
+                                    </button>-->
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label>场景类型：</label>
+                                <div>
+                                    <div class="radio-custom radio-default radio-inline">
+                                        <input type="radio" name="type" id="type1" value="1" checked>
+                                        <label for="type1">个人主页</label>
+                                    </div>
+                                    <div class="radio-custom radio-default radio-inline">
+                                        <input type="radio" name="type" id="type2" value="2">
+                                        <label for="type2">H5</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group details_table">
+                                <label class="type-name">场景参数：</label>
+                                <div>
+                                    <input type="text" class="form-control" name="other" value="{$trtc.account_type|default=''}" placeholder="请填写推广用户的uid">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group details_table">
+                                <label for="select2">推送方式：</label>
+                                <div>
+                                    <php>if(!empty($push_type)){</php>
+                                    <select class="form-control" name="push_type" data-plugin="select2" id="select2">
+                                        <php>foreach($push_type as $key => $val){</php>
+                                            <option value="{$key}">{$val}</option>
+                                        <php>}</php>
+                                    </select>
+                                    <php>}</php>
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label>推送时间：</label>
+                                <div>
+                                    <input type="text" name="date1" id="date1" class="form-control" placeholder="请选择推送时间">
+                                    <input type="hidden" id = "submitDate" name="push_time" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label></label>
+                                <div>
+                                    <button type="submit" class="btn btn-primary" id="query">添加</button>&nbsp;&nbsp;
+                                    <button type="reset" class="btn btn-default btn-outline">重置</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/vendor/jquery.ui.widget.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.iframe-transport.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload-process.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload-validate.js"></script>
+<script src="__ABS__/assets/admui/js/admin/extension_upload.js"></script>
+</body>
+<script>
+    /*url-uid*/
+    $("input[name=type]").click(function () {
+        let type = $(this).val();
+        if(type == 1){
+            $(".type-name").text('UID');
+            $("input[name=account_type]").attr('placeholder', '请填写推广用户的uid');
+        }else {
+            $(".type-name").text('URL');
+            $("input[name=account_type]").attr('placeholder', '请填写H5完整链接地址');
+        }
+    });
+    /*提交*/
+    $("#query").on('click',function () {
+        $.ajax({
+            type: 'POST',
+            url: "{:url('ActivityPromotion/AddInfo');}",
+            data: {
+                data:$("#exampleFullForm").serialize(),
+            },
+
+            dataType: "json",
+            success: function(data){
+                if(data.code === 200){
+                    layer.alert(data.msg, {icon: 5},function () {
+                        window.parent.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else{
+                    layer.alert(data.msg, {icon: 7});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+</script>
+</html>

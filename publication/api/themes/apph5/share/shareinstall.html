@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{$data.title|default=''}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--标准mui.css-->
+    <link rel="icon" sizes="192x192" href="{$domain}__TMPL__/apph5/static/img/login_logo.png">
+    <link rel="icon" type="image/png" href="{$domain}__TMPL__/apph5/static/img/logo.png">
+    <link rel="stylesheet" href="{$domain}__TMPL__/apph5/static/plugins/mui/css/mui.min.css">
+    <link rel="stylesheet" href="{$domain}__TMPL__/apph5/static/plugins/layer/mobile/need/layer.css">
+    <style>
+        .login_content{
+            position: absolute;
+            width: 76.54%;
+            left: 12%;
+            top: 15%;
+            height: 59.97%;
+        }
+        .login_title a>img{
+            display: block;
+            margin: 0 auto;
+        }
+        #download_btn{
+            width: 100%;
+            height: 11%;
+            border-radius: 40px;
+            background: none;
+            color: #eeeeee;
+            font-size: 5vw;
+        }
+        #download_btn:hover{
+            border: 1px solid #999;
+            background-color: #999;
+            color: #333;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+
+<body>
+<div class="mui-content" style="position: relative">
+    <div>
+        <img style="display: block;margin: 0;padding: 0;" src="{$data.background_img|default=''}" alt="..." width="100%">
+    </div>
+    <div class="login_content">
+        <div class="login_title">
+            <a href="javascript:void (0)"><img src="{$data.logo|default=''}" alt="" width="48%"></a>
+        </div>
+        <div style="font-size: 20px; margin: 30px auto 40px; text-align:center; color: #eeeeee">
+            {$data.desc|default=''}
+        </div>
+        <button id="download_btn">立即加入</button>
+    </div>
+</div>
+</body>
+
+<script src="{$domain}__TMPL__/apph5/static/js/jquery.js"></script>
+<script src="{$domain}__TMPL__/apph5/static/plugins/layer/mobile/layer.js"></script>
+
+<!-- 本WEB SDK需配合 Android、iOS SDK ver1.0.9以上版本使用 -->
+<!-- 建议直接引用下面的js链接，以便得到最及时的更新，我们将持续跟踪各种主流浏览器的变化，为您提供最好的服务-->
+<!--<script type="text/javascript" src="//www.shareinstall.com.cn/js/page/jshareinstall.min.js"></script>-->
+<script type="text/javascript" src="{$domain}__TMPL__/apph5/static/js/jshareinstall.min.js"></script>
+<script type="text/javascript">
+    //shareinstall初始化，初始化时将与shareinstall服务器交互，应尽可能早的调用
+    /*web页面向app传递的json数据(json string/js Object)，应用被拉起或是首次安装时，通过相应的android/ios api可以获取此数据*/
+    var data = ShareInstall.parseUrlParams();//shareinstall.js中提供的工具函数，解析url中的所有查询参数
+    new ShareInstall({
+        appKey : "{$data.share_install_key|default=''}",
+        // apkUrl : 'https://www.aifabu.com/dc1v1',
+        // apkDownloadHandler : function(url) {
+        //     window.location = url;
+        // },
+        //可选项，微信中打开自定义遮罩层
+        //shadow : function(){
+        //  return "<div id='shareinstall_shadow' style='position:fixed;left:0;top:0;background:rgba(0,255,0,0.5);filter:alpha(opacity=50);width:100%;height:100%;z-index:10000;'></div>"
+        // },
+        /*可选参数，是否优先考虑下载app，以牺牲唤醒为代价*/
+        //preferInstall:true,
+        /*可选参数，是否优先考虑拉起app，以牺牲下载体验为代价*/
+        //preferWakeup:true,
+        /*可选参数，微信中直接跳下载*/
+        //weChatdownload:true,
+        onready : function() {
+            //shareinstall已成功回调
+            var m = this, button = document.getElementById("download_btn");
+            button.style.visibility = "visible";
+
+            /*用户点击某个按钮时(假定按钮id为download_btn)，安装app*/
+            button.onclick = function() {
+                //loading层
+                layer.open({type: 2,time: 3});
+                //唤醒或者安装APP
+                m.wakeupOrInstall();
+            }
+        }
+    }, data);
+</script>
+</html>

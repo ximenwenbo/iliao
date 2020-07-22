@@ -1,0 +1,346 @@
+
+ul, li, p {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.dis_ab{
+    display: none;
+}
+.product-filters {
+    float: right !important;
+}
+#productOverviewWidget .nav-pills .nav-link {
+    padding: 10px 15px;
+    border-radius: 1000px;
+}
+.product-filters > li > a {
+    width: 80px;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-weight: 400;
+    color: #76838f;
+}
+#widgetLinepoint1 .ct-series-a .ct-point,#widgetLinepoint1 .ct-series-a .ct-line{
+    stroke: white;
+}
+#widgetLinepoint1 .ct-line {
+    fill: none;
+    stroke-width: 2px;
+}
+.line_sty{
+    overflow: hidden;
+}
+.line_sty>div{
+    float: left;
+}
+#widgetOverallViews .small-bar-one,#widgetOverallViews .small-bar-two{
+    height: 40px;
+}
+
+
+.graph-container {
+    padding: 30px;
+    /* border: 1px solid #ccc;*/
+    box-shadow: 1px 1px 2px #eee;
+    margin: 10px 0;
+    position: relative;
+}
+
+.graph-container .caption {
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+    color: #a9a9a9;
+}
+
+.graph-container .graph {
+    height: 280px;
+}
+.device_title{
+    padding-left: 5px;
+    line-height: 30px;
+    color: #000;
+    font-size: 16px;
+    border-left: 3px solid #00d0a9;
+}
+
+.bootbox .modal-dialog {
+    width: 360px;
+}
+
+.morris-hover {
+    position: absolute;
+    z-index: 1300;
+}
+.morris-hover.morris-default-style {
+    padding: 6px;
+    font-family: sans-serif;
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    border: solid 2px rgba(230, 230, 230, 0.8);
+    border-radius: 10px;
+}
+.morris-hover.morris-default-style .morris-hover-row-label {
+    margin: 0.25em 0;
+    font-weight: 400;
+}
+.morris-hover.morris-default-style .morris-hover-point {
+    margin: 0.1em 0;
+    white-space: nowrap;
+}
+
+
+
+.statistics.mr10 {
+    margin-right: 10px;
+}
+.statistics.w33 {
+    float: left;
+    width: calc(33.33% - 7px);
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.statistics {
+    border-radius: 10px;
+    background: #fff;
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    -moz-box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    box-shadow: 0 0 5px rgba(0,0,0,0.05);
+}
+.statistics .title {
+    padding-left: 5px;
+    line-height: 30px;
+    color: #000;
+    font-size: 16px;
+    border-left: 3px solid #00d0a9;
+}
+.list ul li {
+    padding: 10px 0 10px 90px;
+    position: relative;
+    border-bottom: 1px solid #fafafa;
+}
+.list ul li .list_order {
+    position: absolute;
+    top: 22px;
+    left: 10px;
+    width: 20px;
+}
+.list ul li .list_avatar {
+    position: absolute;
+    top: 15px;
+    left: 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+.list ul li .list_info {
+    line-height: 25px;
+}
+
+.data_list {
+    padding: 0 15px 8px;
+}
+.data_list ul li {
+    margin-bottom: 4px;
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+    border-top: 1px solid #fafafa;
+}
+.data_list ul li .data_list_left {
+    display: inline-block;
+}
+.data_list ul li .data_list_right {
+    float: right;
+    color: #4695f7;
+}
+
+.data_list ul li.last {
+    color: #fff;
+    background: url(/assets/admin/li_bg.png) repeat-x;
+}
+.data_list ul li.last .data_list_right {
+    color: #fff;
+}
+
+.bootbox .modal-dialog {
+    width: 360px; }
+
+.c3 svg {
+    font: 10px sans-serif;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+
+.c3 path,
+.c3 line {
+    fill: none;
+    stroke: #a3afb7; }
+
+.c3 text {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+
+.c3-legend-item-tile,
+.c3-xgrid-focus,
+.c3-ygrid,
+.c3-event-rect,
+.c3-bars path {
+    shape-rendering: crispEdges; }
+
+.c3-chart-arc path {
+    stroke: #fff; }
+
+.c3-chart-arc text {
+    fill: #fff;
+    font-size: 13px; }
+
+.c3-grid line {
+    stroke: #a3afb7; }
+
+.c3-grid text {
+    fill: #aaa; }
+
+.c3-xgrid,
+.c3-ygrid {
+    stroke-dasharray: 3 3; }
+
+.c3-text.c3-empty {
+    fill: #76838f;
+    font-size: 2em; }
+
+.c3-line {
+    stroke-width: 1px; }
+
+.c3-circle._expanded_ {
+    stroke-width: 1px;
+    stroke: white; }
+
+.c3-selected-circle {
+    fill: white;
+    stroke-width: 2px; }
+
+.c3-bar {
+    stroke-width: 0; }
+
+.c3-bar._expanded_ {
+    fill-opacity: 0.75; }
+
+.c3-target.c3-focused {
+    opacity: 1; }
+
+.c3-target.c3-focused path.c3-line,
+.c3-target.c3-focused path.c3-step {
+    stroke-width: 2px; }
+
+.c3-target.c3-defocused {
+    opacity: 0.3 !important; }
+
+.c3-region {
+    fill: steelblue;
+    fill-opacity: 0.1; }
+
+.c3-brush .extent {
+    fill-opacity: 0.1; }
+
+.c3-legend-item {
+    font-size: 12px; }
+
+.c3-legend-item-hidden {
+    opacity: 0.15;
+}
+
+.c3-legend-background {
+    opacity: 0.75;
+    fill: white;
+    stroke: lightgray;
+    stroke-width: 1;
+}
+
+.c3-title {
+    font: 14px sans-serif;
+}
+
+.c3-tooltip-container {
+    z-index: 10;
+}
+
+.c3-tooltip {
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: #fff;
+    empty-cells: show;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    opacity: 0.95;
+}
+
+.c3-tooltip tr {
+    border: 1px solid rgba(204, 213, 219, 0.8);
+}
+
+.c3-tooltip th {
+    background-color: #f3f7f9;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 2px 5px;
+    text-align: left;
+}
+
+.c3-tooltip td {
+    font-size: 13px;
+    padding: 3px 6px;
+    background-color: #fff;
+    border-left: 1px dotted rgba(204, 213, 219, 0.8);
+}
+
+.c3-tooltip td > span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 6px;
+}
+
+.c3-tooltip td.value {
+    text-align: right;
+}
+
+.c3-area {
+    stroke-width: 0;
+    opacity: 0.2;
+}
+
+.c3-chart-arcs-title {
+    dominant-baseline: middle;
+    font-size: 1.3em;
+}
+
+.c3-chart-arcs .c3-chart-arcs-background {
+    fill: #ccd5db;
+    stroke: none;
+}
+
+.c3-chart-arcs .c3-chart-arcs-gauge-unit {
+    fill: #000;
+    font-size: 16px;
+}
+
+.c3-chart-arcs .c3-chart-arcs-gauge-max {
+    fill: #76838f;
+}
+
+.c3-chart-arcs .c3-chart-arcs-gauge-min {
+    fill: #76838f;
+}
+
+.c3-chart-arc .c3-gauge-value {
+    fill: #000;
+    /*  font-size: 28px !important;*/
+}
+

@@ -1,0 +1,223 @@
+<include file="layout/iframe@header" />
+
+<!-- Site CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/themes/base/css/site.css">
+<link rel="stylesheet" href="__ABS__/assets/admui/vendor/icheck/icheck.css">
+<link rel="stylesheet" href="__ABS__/assets/admui/vendor/switchery/switchery.css">
+
+<style>
+    body {
+        padding-top: 0;
+    }
+    .table thead th {
+        text-align: left;
+    }
+</style>
+<body class="page-aside-fixed page-aside-left" data-theme="base">
+
+<div class="page animation-fade">
+    <div class="page-aside">
+
+        <div class="page-aside-switch">
+            <i class="icon wb-chevron-left" aria-hidden="true"></i>
+            <i class="icon wb-chevron-right" aria-hidden="true"></i>
+        </div>
+
+        <div class="page-aside-inner page-aside-scroll" data-plugin="mCustomScrollbar">
+            <div data-role="container">
+                <div data-role="content">
+                    <section class="page-aside-section">
+                        <div class="list-group">
+                            <a class="list-group-item" href="{:url('setting/login')}">
+                                登录方式
+                            </a>
+                            <a class="list-group-item active" href="{:url('setting/pay')}">
+                                支付渠道
+                            </a>
+                            <a class="list-group-item" href="{:url('setting/sms')}">
+                                短信配置
+                            </a>
+                            <a class="list-group-item" href="{:url('setting/position')}">
+                                地图定位
+                            </a>
+                            <a class="list-group-item" href="{:url('setting/trtc')}">
+                                腾讯云
+                            </a>
+                            <!--<a class="list-group-item" href="{:url('setting/aliyunOss')}">-->
+                                <!--阿里云-->
+                            <!--</a>-->
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-main">
+        <div class="page-header">
+            <h3 class="page-title">选择APP的支付渠道</h3>
+        </div>
+        <div class="page-content col-xxl-8">
+            <div class="panel">
+                <form class="form-horizontal panel-body" action="{:url('setting/payPost')}" method="post" autocomplete="off" novalidate="novalidate">
+                    <table class="table table-hover" data-selectable="selectable" data-row-selectable="true">
+                        <thead>
+                        <tr>
+                            <th class="h-50" width="40%">支付渠道</th>
+                            <th class="h-50" width="40%">配置</th>
+                            <th class="h-50">开启状态</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>微信支付</td>
+                            <td>
+                                <button type="button" class="btn btn-icon btn-default btn-outline btn-sm" onclick="setTypeOnclick(this)" data-modal="modal-wxpay">
+                                    <i class="icon wb-wrench" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                            <!--<td><i class="icon wb-wrench" aria-hidden="true" onclick="setTypeOnclick(this)" data-modal="modal-wxpay"></i></td>-->
+                            <td>
+                                <div class="float-left mr-20">
+                                    <div class="checkbox-custom checkbox-primary">
+                                        <input type="checkbox" id="input-wxpay" name="channel[wxpay]" value="wxpay" {$channel.wxpay?='checked'} >
+                                        <label for="input-wxpay">推荐开通</label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>支付宝支付</td>
+                            <td>
+                                <button type="button" class="btn btn-icon btn-default btn-outline btn-sm" onclick="setTypeOnclick(this)" data-modal="modal-alipay">
+                                    <i class="icon wb-wrench" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                            <!--<td><i class="icon wb-wrench" aria-hidden="true" onclick="setTypeOnclick(this)" data-modal="modal-alipay"></i></td>-->
+                            <td>
+                                <div class="float-left mr-20">
+                                    <div class="checkbox-custom checkbox-primary">
+                                    <input type="checkbox" id="input-alipay" name="channel[alipay]" value="alipay" {$channel.alipay?='checked'} >
+                                        <label for="input-alipay">推荐开通</label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary" id="validateButton2">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--微信支付配置-->
+<div class="modal" id="modal-wxpay" aria-hidden="true" aria-labelledby="modal-wxpay" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-center">
+        <form class="modal-content" method="post" enctype="multipart/form-data" action="{:url('setting/payChannel',['channel'=>'wxpay'])}" autocomplete="off">
+            <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
+                <h4 class="modal-title">微信支付配置</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form form-horizontal mt-20">
+                    <input type="hidden" name="id" value="">
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">app_id</label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" name="pay_wxpay[app_id]" value="{$pay_wxpay.app_id|default=''}" placeholder="请填写app_id">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">mch_id</label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" name="pay_wxpay[mch_id]" value="{$pay_wxpay.mch_id|default=''}" placeholder="请填写mch_id">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">mch_key</label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" name="pay_wxpay[mch_key]" value="{$pay_wxpay.mch_key|default=''}" placeholder="请填写mch_key">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">ssl_cer</label>
+                        <div class="col-9">
+                            <input type="file" name="ssl_cer" placeholder="请添加文件ssl_cer">
+                            {$pay_wxpay.ssl_cer|default=''}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">ssl_key</label>
+                        <div class="col-9">
+                            <input type="file" name="ssl_key" placeholder="请添加文件ssl_key">
+                            {$pay_wxpay.ssl_key|default=''}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="submit">保存</button>
+                <a class="btn btn-default" data-dismiss="modal">取消</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--支付宝支付配置-->
+<div class="modal" id="modal-alipay" aria-hidden="true" aria-labelledby="modal-alipay" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-center">
+        <form class="modal-content" method="post" action="{:url('setting/payChannel',['channel'=>'alipay'])}">
+            <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
+                <h4 class="modal-title">支付宝支付配置</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form form-horizontal mt-20">
+                    <input type="hidden" name="id" value="">
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">app_id</label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" name="pay_alipay[app_id]" value="{$pay_alipay.app_id|default=''}" placeholder="请填写app_id">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">public_key</label>
+                        <div class="col-9">
+                            <textarea class="form-control" name="pay_alipay[public_key]" rows="10" placeholder="请填写public_key">{$pay_alipay.public_key|default=''}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">private_key</label>
+                        <div class="col-9">
+                            <textarea class="form-control" name="pay_alipay[private_key]" rows="10" placeholder="请填写private_key">{$pay_alipay.private_key|default=''}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="submit">保存</button>
+                <a class="btn btn-default" data-dismiss="modal">取消</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="__ABS__/assets/admui/vendor/switchery/switchery.min.js"></script>
+<script>
+    function setTypeOnclick(obj) {
+        var modal = obj.getAttribute('data-modal');
+        $('#'+modal).modal('show');
+
+        // if (checkbox.checked == true) {
+        //     $('#'+modal).modal('show');
+        // } else {
+        //     $('#'+modal).modal('hide');
+        // }
+    }
+</script>
+</body>
+</html>

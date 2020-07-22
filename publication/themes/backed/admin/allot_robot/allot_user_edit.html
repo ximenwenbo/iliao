@@ -1,0 +1,371 @@
+<include file="layout/iframe@header" xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns:/>
+<!-- Page CSS-->
+<link rel="stylesheet" href="__ABS__/assets/admui/css/examples/forms/validation.css">
+<!-- Page CSS -->
+<style>
+    .progress{
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffebebeb', endColorstr='#fff5f5f5', GradientType=0);
+        background-repeat: repeat-x;
+        height: 20px;
+        width: 0;
+        margin-bottom: 20px;
+        overflow: hidden;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+        box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+        margin-top: 20px;
+    }
+    .bar{
+        background-image: -webkit-linear-gradient(top,#5cb85c 0,#449d44 100%);
+        background-image: -o-linear-gradient(top,#5cb85c 0,#449d44 100%);
+        background-image: -webkit-gradient(linear,left top,left bottom,from(#5cb85c),to(#449d44));
+        background-image: linear-gradient(to bottom,#5cb85c 0,#449d44 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5cb85c', endColorstr='#ff449d44', GradientType=0);
+        background-repeat: repeat-x;
+        height: 20px;
+        line-height: 20px;
+        -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+        box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+        -webkit-transition: width .6s ease;
+        -o-transition: width .6s ease;
+        transition: width .6s ease;
+    }
+    ul,li{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    /*列表*/
+    .details_table{
+        overflow: hidden;
+    }
+    .details_table>label,.details_table>div{
+        float: left;
+    }
+    .details_table>label{
+        margin-right: 20px;
+        line-height: 32px;
+        width: 100px;
+    }
+    .details_table>div{
+        width: 70%;
+    }
+    .date_sty>div{
+        float: left;
+    }
+</style>
+
+<body style="margin: 0; padding: 0;overflow-x: hidden">
+<div class="page animation-fade page-forms">
+    <form  method="post" multiple="" id="exampleFullForm">
+        <div class="page-content">
+            <div class="panel">
+                <div class="panel-body container-fluid">
+                    <div class="row row-lg">
+                        <div class="col-xl-6 form-horizontal">
+                            <h3 style="">基本信息</h3>
+                            <hr style="padding-bottom: 20px">
+
+                            <div class="details_table jquery-fileupload">
+                                <label style="line-height: 50px;">用户头像</label>
+                                <div>
+                                    <input type="hidden" name="user_id" value="{$allot_user_info.id}">
+                                    <a class="avatar avatar-lg" href="javascript:void (0);">
+                                        <img id="image_0" src="{$allot_user_info.avatar_fullurl}" alt="..." width="50px" height="50px">
+                                    </a>
+                                    <input id="uploadImg_0" type="file" name="avatar" value="{$allot_user_info.avatar}" multiple style="display: none" />
+                                    <!--存储上传后图片地址-->
+                                    <input type="hidden" id="new_album_dir_0" name="new_album_dir" value="{$allot_user_info.avatar || default =''}"/>
+                                    <input type="hidden" id="new_album_size_0" />
+                                    <button type="button" class="btn btn-outline btn-primary" id="chooseFile_0" style="display: none;">
+                                        <i class="icon wb-plus" aria-hidden="true"></i> 选择文件
+                                    </button>
+                                    <button type="button" class="btn btn-raised" id="reselectionFile_0" style="display: none;">
+                                        <i class="icon wb-pencil" aria-hidden="true"></i> 重新选择
+                                    </button>
+                                    <button type="button" class="btn btn-dark" id="uploadFile_0" style="display: none;">
+                                        <i class="icon wb-upload" aria-hidden="true"></i>确认上传
+                                    </button>
+                                    <button type="button" class="btn btn-raised" id="deleteFile">
+                                        <i class="icon wb-close" aria-hidden="true"></i>删除
+                                    </button>
+                                    <div id="progress_0" class="progress">
+                                        <div class="bar" style="width: 0;text-align: center;color: #fff;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group details_table">
+                                <label for="nickname">用户昵称</label>
+                                <div>
+                                    <input type="text" class="form-control" id="nickname" name="user_nickname" value="{$allot_user_info.user_nickname}">
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label  for="mobile">手机号</label>
+                                <div>
+                                    <input type="text" id="mobile" class="form-control" name="mobile" value="{$allot_user_info.mobile}">
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label  for="age">用户年龄</label>
+                                <div >
+                                    <input type="text" id="age" class="form-control" name="age" value="{$allot_user_info.age}">
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label  for="signature">个性签名</label>
+                                <div >
+                                    <input type="text" id="signature" class="form-control" name="signature" value="{$allot_user_info.signature|default=''}">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group details_table">
+                                <label class="col-form-label" for="cityChina">所在省市</label>
+                                <div>
+                                    <div class="form-inline" id="cityChina" data-url="__ABS__/assets/admui/data/examples/forms/cxselect/city-data.json">
+                                        <div class="form-group">
+                                            <select class="form-control province" name="province_name" data-first-title="请选择省份">
+                                                <?php if ($allot_user_info['province_name'] != '') { ?>
+                                                <option value="{$allot_user_info.province_name}" selected>{$allot_user_info.province_name}</option>
+                                                <?php }?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control city" name="city_name" data-first-title="请选择城市">
+                                                <?php if ($allot_user_info['city_name'] != '') { ?>
+                                                <option value="{$allot_user_info.city_name}" selected>{$allot_user_info.city_name}</option>
+                                                <?php }?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control area" name="district_name" data-first-title="请选择县区">
+                                                <?php if ($allot_user_info['district_name'] != '') { ?>
+                                                <option value="{$allot_user_info.district_name}" selected>{$allot_user_info.district_name}</option>
+                                                <?php }?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group details_table">
+                                <label  for="address">详细地址</label>
+                                <div >
+                                    <input type="text" id="address" class="form-control" name="address" value="{$allot_user_info.address}">
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label  for="be_follow_num">被关注人数</label>
+                                <div >
+                                    <input type="text" id="be_follow_num" class="form-control" name="be_follow_num" value="{$allot_user_info.be_follow_num}">
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label  for="be_look_num">被查看人数</label>
+                                <div >
+                                    <input type="text" id="be_look_num" class="form-control" name="be_look_num" value="{$allot_user_info.be_look_num}">
+                                </div>
+                            </div>
+                            <div class="form-group details_table">
+                                <label  for="qq">QQ</label>
+                                <div >
+                                    <input type="text" id="qq" class="form-control" name="qq" value="{$allot_user_info.qq}">
+                                </div>
+                            </div>
+                            <div class="form-group details_table">
+                                <label  for="weixin">微信</label>
+                                <div >
+                                    <input type="text" id="weixin" class="form-control" name="weixin" value="{$allot_user_info.weixin}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 form-horizontal">
+                            <h3 style="">基本信息</h3>
+                            <hr style="padding-bottom: 20px">
+
+                            <div class="form-group details_table">
+                                <label class="col-form-label" for="sex1">用户性别</label>
+                                <div style="padding-top: 5px;">
+                                    <div class="radio-custom radio-default radio-inline">
+                                        <input type="radio" name="sex" id="sex1" value="1" {:$allot_user_info['sex']==1?'checked' : ''}>
+                                        <label for="sex1">男</label>
+                                    </div>
+                                    <div class="radio-custom radio-default radio-inline">
+                                        <input type="radio" name="sex" id="sex2"  value="2" {:$allot_user_info['sex']==2?'checked' : ''}>
+                                        <label for="sex2">女</label>
+                                    </div>
+                                    <div class="radio-custom radio-default radio-inline">
+                                        <input type="radio" name="sex" id="sex3" value="0" {:$allot_user_info['sex']==0?'checked' : ''}>
+                                        <label for="sex3">保密</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label class="col-form-label">是否虚拟定位</label>
+                                <div style="padding-top: 5px;">
+                                    <div class="radio-custom radio-default radio-inline">
+                                        <input type="radio" id="virtual_pos1" name="virtual_pos" value="1" {:$allot_user_info.virtual_pos==1?'checked' : ''}>
+                                        <label for="virtual_pos1">是</label>
+                                    </div>
+                                    <div class="radio-custom radio-default radio-inline">
+                                        <input type="radio" name="virtual_pos" id="virtual_pos2" value="0" {:$allot_user_info.virtual_pos==0?'checked' : ''}>
+                                        <label for="virtual_pos2">否</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group details_table">
+                                <label class="col-form-label">是否开放位置</label>
+                                <div style="padding-top: 5px;">
+                                    <div class="radio-custom radio-default radio-inline">
+                                        <input type="radio" id="open_position1" name="open_position" value="1" {:$allot_user_info.open_position == 1 ?'checked' : ''}>
+                                        <label for="open_position1">是</label>
+                                    </div>
+                                    <div class="radio-custom radio-default radio-inline">
+                                        <input type="radio" id="open_position2" name="open_position" value="0" {:$allot_user_info.open_position == 0 ?'checked' : ''}>
+                                        <label for="open_position2">否</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label  class="col-form-label">是否主播</label>
+                                <div style="padding-top: 5px;">
+                                    <div class="radio-custom radio-default radio-inline">
+                                        <input type="radio" id="daren_status1" name="daren_status" value="2" {:$allot_user_info.daren_status==2?'checked' : ''}>
+                                        <label for="daren_status1">是</label>
+                                    </div>
+                                    <div class="radio-custom radio-default radio-inline">
+                                        <input type="radio" id="daren_status2" name="daren_status" value="0" {:$allot_user_info.daren_status!=2?'checked' : ''}>
+                                        <label for="daren_status2">否</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--<div class="form-group row">
+                                <label class="col-xl-1 col-md-1 col-form-label" for="daren_status">是否主播</label>
+                                <div class="col-xl-12 col-md-9" style="padding-top: 5px;">
+                                    <input type="radio" name="daren_status" id="daren_status" value="2" {:$allot_user_info.daren_status==2?'checked' : ''}>是&nbsp;
+                                    <input type="radio" name="daren_status"  value="0" {:$allot_user_info.daren_status!=2?'checked' : ''}>否
+                                </div>
+                            </div>-->
+
+                            <div class="form-group details_table">
+                                <label >vip到期时间</label>
+                                <div style="padding-right: 0" class="date_sty">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="icon wb-calendar" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                    <div style="width: 40%;"><input type="text" class="form-control singledatePicker " id="singledatePicker" placeholder="选择日期范围" autocomplete="off" name="singledatePicker" value="{$allot_user_info.vip_expire_time || default = ''}"></div>
+                                    <input type="hidden" name="vip_expire_time" value="{$allot_user_info.vip_expire_time || default = ''}">
+                                    <div class="input-group-prepend">
+                                        <button type="button" class="btn btn-icon btn-default btn-outline btn-sm date-clear">
+                                            <i class="icon wb-close" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="id" value="{$allot_user_info.id}">
+                        <div class="form-group col-xl-12 padding-top-m">
+                            <button type="button" class="btn btn-primary" id="query">保存修改</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- jquery file upload相关js -->
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/vendor/jquery.ui.widget.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.iframe-transport.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload-process.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload-validate.js"></script>
+<script src="__ABS__/assets/admui/vendor/jquery-cxselect/jquery.cxselect.js"></script>
+<script src="__ABS__/assets/admui/js/admin/allot_user_avatar_upload.js"></script>
+
+<script>
+    //同步时间值
+    $(function () {
+        let vip_expire_time = $("input[name='vip_expire_time']").val();
+        $("input[name='singledatePicker']").val(vip_expire_time);
+    });
+    //daterangepicker日期插件
+    $('input[name="singledatePicker"]').daterangepicker({
+        "autoApply": true, //选择日期后自动提交;只有在不显示时间的时候起作用timePicker:false
+        singleDatePicker: true, //单日历
+        showDropdowns: true, //年月份下拉框
+        timePicker: true, //显示时间
+        timePicker24Hour: true, //时间制
+        timePickerSeconds: true, //时间显示到秒
+        //startDate: moment().hours(0).minutes(0).seconds(0), //设置开始日期
+        "opens": "right",
+        showWeekNumbers: true,
+        locale: {
+            format: "YYYY-MM-DD HH:mm", //设置显示格式
+            applyLabel: '确定', //确定按钮文本
+            cancelLabel: '取消', //取消按钮文本
+            daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+            monthNames: ['一月', '二月', '三月', '四月', '五月', '六月',
+                '七月', '八月', '九月', '十月', '十一月', '十二月'
+            ],
+        },
+    }, function(start) {
+        $('input[name="vip_expire_time"]').val(start.format('YYYY-MM-DD HH:mm'));
+        //console.log(start.format('YYYY-MM-DD HH:mm:ss'));
+    });
+    // 删除选择时间
+    $('.date-clear').on('click', function() {
+        let panel = $(".panel");
+        panel.find('#singledatePicker').val('');
+        panel.find('input[name="vip_expire_time"]').val('');
+    });
+
+
+    /*提交审核*/
+    $("#query").on('click',function () {
+        $.ajax({
+            type: 'POST',
+            url: "{:url('AllotRobot/editUserInfo');}",
+            data: {
+                data:$("#exampleFullForm").serialize(),
+            },
+
+            dataType: "json",
+            success: function(data){
+                //console.log(data);return;
+                if(data.code === 200){
+                    layer.alert(data.msg, {icon: 5},function () {
+                        window.parent.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else {
+                    layer.alert(data.msg, {icon: 7});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+
+    // 省市区/县 级联选择
+    $('#cityChina').cxSelect({
+        selects: ['province', 'city', 'area'],
+        emptyStyle: 'hidden'
+    });
+</script>
+</body>

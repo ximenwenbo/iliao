@@ -1,0 +1,144 @@
+/*h5 css*/
+/*reset*/
+ul,li,dl,dt,img,dd{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+p{
+    color: #000;
+}
+
+/*支付完成css*/
+#pay_content_text{
+    overflow: hidden;
+    padding: 20px 0;
+}
+#pay_content_text p{
+    float: left;
+}
+#pay_content_text p:last-child{
+    font-size: 26px;
+    height: 48px;
+    line-height: 48px;
+    color: #009900;
+}
+#pay_content_text p.icon-success img{
+    float: right;
+    margin-right: 1em;
+}
+.pay-btn p{
+    margin-top: 20px;
+    float: left;
+    overflow: hidden;
+}
+.pay-btn #pay-back-btn button{
+    float: right;
+    margin-right: 0.5em;
+}
+.pay-order-info p{
+    overflow: hidden;
+}
+.pay-order-info p span{
+    float: left;
+}
+.pay-order-info p span:first-child{
+   text-align: center;
+}
+
+/*支付页面*/
+.pay-check-info{
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.pay-check-info p span:first-child{
+    margin-left: 0.4em;
+    margin-right: 0.7em;
+}
+
+.pay-check-btn{
+    padding: 10px;
+}
+.pay-check-btn dt{
+    padding: 0 1em;
+    font-size: 14px;
+}
+.pay-check-btn dd{
+    padding: 0 1em;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.pay-check-btn dd ul{
+    overflow: hidden;
+}
+.pay-check-btn dd ul>li{
+    float: left;
+    line-height: 23px;
+    height: 23px;
+}
+.pay-check-btn dd ul>li:nth-child(1){
+    margin-right: 0.5em;
+    line-height: 23px;
+    height: 23px;
+}
+.pay-check-btn dd ul>li:nth-child(2){
+    font-size: 14px;
+    line-height: 23px;
+    height: 23px;
+}
+.pay-check-btn dd ul>li:nth-child(3) img{
+    margin-top: 3px;
+}
+.pay-check-btn dd ul>li:nth-child(4){
+    display: none;
+}
+#pay-query-btn{
+    text-align: center;
+    color: #000;
+    line-height: 40px;
+    height: 40px;
+    border: none;
+    background: #ffd100;
+    width: 80%;
+    border-radius: 1em;
+    letter-spacing: 0.1em;
+    font-size: 17px;
+    margin: auto;
+    margin-top: 3.5em;
+}
+.back_img{
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: -1;
+ }
+.mui-content .order_header{
+    display: block;
+    position: absolute;
+    top: 40px;
+    left: 5%;
+    width: 90%;
+    color: #000;
+    font-size: 16px;
+}
+.flo_box{
+    width: 90%;
+    border-radius: 20px;
+    background: #ffffff;
+    position: absolute;
+    top: 80px;
+    left: 5%;
+    height: 400px;
+}
+.icon_order{
+    width: 25%;
+    float: left;
+    padding: 1em 0 0 1em;
+}
+.content_order{
+    width: 70%;
+    float: left;
+    padding-top: 18px;
+}

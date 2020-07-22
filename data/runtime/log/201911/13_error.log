@@ -1,0 +1,6 @@
+---------------------------------------------------------------
+[ 2019-11-13T17:52:08+08:00 ] 127.0.0.1 POST /admin/public/dologin.html
+[ error ] [1045]SQLSTATE[HY000] [1045] Access denied for user 'iliao_db'@'localhost' (using password: YES)
+---------------------------------------------------------------
+[ 2019-11-13T17:53:23+08:00 ] 127.0.0.1 POST /admin/public/dologin.html
+[ error ] [1045]SQLSTATE[HY000] [1045] Access denied for user 'iliao_db'@'localhost' (using password: YES)[E:\www\iliao\simplewind\thinkphp\library\think\db\Connection.php:295]

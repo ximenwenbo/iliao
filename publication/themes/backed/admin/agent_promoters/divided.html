@@ -1,0 +1,79 @@
+<include file="layout/iframe@header" xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns:/>
+<!-- Site CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/css/admin/public-config.css">
+
+<body style="margin: 0; padding: 0;overflow-x: hidden">
+<div class="page animation-fade page-forms">
+    <form  method="post" multiple="" id="exampleFullForm">
+        <div class="page-content">
+            <div class="panel">
+                <div class="panel-body container-fluid">
+                    <div class="row margin-top-20 ">
+                        <div class="col-12">
+                            <label class="control-label"><span style="color:red;">*</span>邀请新用户分成</label>
+                            <div class="controls col-8">
+                                <input type="text" name="invite_divide_into" class="form-control col-6" placeholder="必须为整数,单位:金币" autocomplete="off" value="{$info.invite_divide_into}">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="control-label"><span style="color:red;">*</span>用户充值分成</label>
+                            <div class="controls col-8">
+                                <input type="text" name="recharge_divide_into" class="form-control col-6" placeholder="必须为整数,单位:%" autocomplete="off" value="{$info.recharge_divide_into}">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="control-label"><span style="color:red;">*</span>主播奖励分成</label>
+                            <div class="controls col-8">
+                                <input type="text" name="anchor_divide_into" class="form-control col-6" placeholder="必须为整数,单位:%" autocomplete="off" value="{$info.anchor_divide_into}">
+                            </div>
+                        </div>
+                        <input type="hidden" name="id" value="{$info.id}">
+                    </div>
+                    <div class="row">
+                        <div class="col-12 form-group">
+                            <label class="control-label"></label>
+                            <div class="controls col-5">
+                                <button type="button" class="layui-btn btn btn-primary" id="query">保存修改</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    /*提交*/
+    $("#query").on('click',function () {
+        $.ajax({
+            type: 'POST',
+            url: "{:url('AgentPromoters/DividedSetting');}",
+            data: {
+                content:$("#exampleFullForm").serialize(),
+            },
+
+            dataType: "json",
+            success: function(data){
+                if(data.code == 200 || data.code == 1){
+                    layer.alert(data.msg, {icon: 5},function () {
+                        window.parent.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else{
+                    layer.alert(data.msg, {icon: 7});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+</script>
+</body>

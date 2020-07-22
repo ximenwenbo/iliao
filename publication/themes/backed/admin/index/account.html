@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>账户信息 - 系统设置 - Admui</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="admui.com">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止搜索引擎抓取 -->
+    <meta name="robots" content="nofollow">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Chrome浏览器添加桌面快捷方式（安卓） -->
+    <link rel="icon" type="image/png" href="__ABS__/assets/admui/images/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Safari浏览器添加到主屏幕（IOS） -->
+    <link rel="icon" sizes="192x192" href="__ABS__/assets/admui/images/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Admui">
+    <!-- Win8标题栏及ICON图标 -->
+    <link rel="apple-touch-icon-precomposed" href="__ABS__/assets/admui/images/apple-touch-icon.png">
+    <meta name="msapplication-TileImage" content="__ABS__/assets/admui/images/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#62a8ea">
+
+    <!--[if lte IE 9]>
+    <meta http-equiv="refresh" content="0; url='http://www.admui.com/ie'"/>
+    <![endif]-->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/global/css/bootstrap.css">
+
+    <!-- 字体图标 CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/fonts/font-awesome/font-awesome.css">
+    <link rel="stylesheet" href="__ABS__/assets/admui/fonts/web-icons/web-icons.css">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/base/css/site.css" id="admui-siteStyle">
+
+    <!-- 插件 CSS -->
+
+    <link rel="stylesheet" href="__ABS__/assets/admui/vendor/jquery-strength/jquery-strength.css">
+    <link rel="stylesheet" href="__ABS__/assets/admui/vendor/datatables-bootstrap/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="__ABS__/assets/admui/vendor/datatables-responsive/dataTables.responsive.css">
+    <link rel="stylesheet" href="__ABS__/assets/admui/vendor/bootstrap-select/bootstrap-select.css">
+    <link rel="stylesheet" href="__ABS__/assets/admui/vendor/switchery/switchery.css">
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/css/system/account.css">
+    <link rel="stylesheet" href="__ABS__/assets/admui/css/system/settings/display.css">
+
+    <!-- 插件 -->
+    <script src="__ABS__/assets/admui/vendor/jquery/jquery.min.js"></script>
+    <script src="__ABS__/assets/admui/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="__ABS__/assets/admui/vendor/lodash/lodash.min.js"></script>
+</head>
+<body data-theme="base">
+
+<div class="page animation-fade page-account">
+    <div class="page-content">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="card card-shadow text-center">
+                    <div class="card-header">
+                        <div class="card-header-content">
+                            <a class="avatar avatar-lg" href="javascript:;">
+                                <img src="__ABS__/assets/admui/images/avatar.svg" alt="admin">
+                            </a>
+                            <h4 class="account-user">{$user_info.user_nickname}</h4>
+                            <p>上次登录：{:date("Y-m-d",$user_info.last_login_time)}</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row no-space">
+                            <div class="col-4">
+                                <strong class="account-stat-count">{$user.login_num}</strong>
+                                <span>登录</span>
+                            </div>
+                            <div class="col-4">
+                                <strong class="account-stat-count msg-number">{$user.message_num}</strong>
+                                <span>消息</span>
+                            </div>
+                            <div class="col-4">
+                                <strong class="account-stat-count log-number">{$user.log_num}</strong>
+                                <span>日志</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="panel">
+                    <div class="panel-body nav-tabs-animate">
+                        <ul class="nav nav-tabs nav-tabs-line" role="tablist">
+                            <li class="nav-item news accout-msg" role="presentation">
+                                <a class="nav-link active" href="#message" aria-controls="message" role="tab"
+                                    data-toggle="tab">
+                                    <i class="icon fa-comment-o" aria-hidden="true"></i> 消息
+                                    <span class="badge badge-danger"></span>
+                                </a>
+                            </li>
+                            <li class="nav-item account-log">
+                                <a class="nav-link" href="#log" aria-controls="log" role="tab" data-toggle="tab">
+                                    <i class="icon fa-file-text-o" aria-hidden="true"></i> 日志
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#password" aria-controls="password" role="tab" data-toggle="tab">
+                                    <i class="icon fa-key" aria-hidden="true"></i> 密码
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#display" aria-controls="display" role="tab" data-toggle="tab">
+                                    <i class="icon fa-magic" aria-hidden="true"></i> 显示
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content mt-15">
+                            <div class="tab-pane animation-slide-left tab-message active" role="tabpanel" id="message">
+                                <div id="messageLists">
+                                    <?php if (!isset($data['total'])) { ?>
+                                        <p class="text-center h-150 w-full vertical-align">
+                                            <small class="vertical-align-middle opacity-four">消息加载中...</small>
+                                        </p>
+                                    <?php }else{ ?>
+                                    <!--<script type="text/html" id="newMessge">-->
+                                        <?php if ($data['total'] < 1) { ?>
+                                            <p class="text-center h-150 vertical-align no-message">
+                                                <small class="vertical-align-middle opacity-four">没有新消息</small>
+                                            </p>
+                                        <?php } else { ?>
+                                            <div class="list-group list-group-full">
+                                            <?php foreach($data['data'] as $item){?>
+                                            <div class="list-group-item" role="menuitem" data-message-id="<?php echo $item['id'] ?>" data-title="<?php echo $item['title'] ?>" data-content="<?php echo $item['content'] ?>">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <i class="icon <?php echo $item['type'] ?> white icon-circle" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h6 class="media-heading">
+                                                            <a class="news-list" href="#">
+                                                                <?php if ($item['read_flag'] === 0) { ?>
+                                                                <i class="icon wb-medium-point red-600" aria-hidden="true"></i>
+                                                                <?php } ?>
+                                                                <?php echo $item['title'] ?>
+                                                            </a>
+                                                        </h6>
+                                                        <time class="media-meta" datetime="<?php echo $item['create_time'] ?>"><?php echo date("Y-m-d H:i:s",$item['create_time']); ?></time>
+                                                    </div>
+                                                    <div class="media-right">
+                                                        <?php if ($item['read_flag'] === 1) { ?>
+                                                        <a title="删除" class="btn btn-pure btn-default icon wb-close" onclick="javascript:alreadyRead({$item['id']},1)"></a>
+                                                        <?php } else { ?>
+                                                        <a title="标为已读" class="btn btn-pure btn-default icon wb-check" onclick="javascript:alreadyRead({$item['id']},2)"></a>
+                                                        <?php } ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <?php } ?>
+                                        </div>
+                                            <nav id="paging" data-page="1" data-max-page="1">
+                                                <ul class="pager pager-sm mb-0">
+                                                    <?php if ($pageIndex > 0) { ?>
+                                                        <li class="previous">
+                                                            <a href="?pageIndex={$pageIndex-1}&tab=message">上一页
+                                                            </a>
+                                                        </li>
+                                                    <?php } ?>
+                                                    <?php if($pageIndex < $pageTotal){?>
+                                                    <li class="next">
+                                                        <a href="?pageIndex={$pageIndex+1}&tab=message">下一页 <?=$pageTotal?>
+                                                        </a>
+                                                    </li>
+                                                    <?php } ?>
+                                                </ul>
+                                            </nav>
+                                        <?php } ?>
+                                    <?php } ?>
+                                    <!-- </script> -->
+                                </div>
+                            </div>
+                            <div class="tab-pane animation-slide-left" role="tabpanel" id="log">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover text-nowrap dataTable table-striped w-full"
+                                        id="logList" data-column-defs='[{ "orderable": false, "targets": 2}]' data-order='[[5, "desc"]]'>
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>操作类型</th>
+                                                <th>昵称</th>
+                                                <th>操作时间</th>
+                                                <th>IP</th>
+                                                <th>备注说明</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane animation-slide-left" role="tabpanel" id="password">
+                                <form id="accountMsg" class="message-form" method="post">
+                                    <div class="form-group">
+                                        <h5>修改密码</h5>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="oldPwd" class="form-control" placeholder="请输入原来的密码" autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="newPwd" class="form-control" id="newPwd" placeholder="请输入新密码" autocomplete="off" data-plugin="strength">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="confirm" class="form-control" placeholder="请再次输入新密码" autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">确认修改</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane animation-slide-left tab-display" role="tabpanel" id="display">
+                                <form id="displayForm" class="form-horizontal py-30">
+                                    <input type="hidden" id="userId" name="userId" value="" />
+                                    <div class="form-group row pb-20">
+                                        <label class="col-md-2 col-form-label">导航条颜色：</label>
+                                        <div class="col-md-10" id="skintoolsNavbar">
+                                            <ul class="list-unstyled list-inline color-radio">
+                                                <li class="list-inline-item">
+                                                    <div class="radio-custom radio-primary">
+                                                        <input type="radio" checked="checked" name="navigationColor"
+                                                            value="bg-blue-600">
+                                                        <label></label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="radio-custom radio-brown">
+                                                        <input type="radio" name="navigationColor" value="bg-brown-600">
+                                                        <label></label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="radio-custom radio-cyan">
+                                                        <input type="radio" name="navigationColor" value="bg-cyan-600">
+                                                        <label></label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="radio-custom radio-green">
+                                                        <input type="radio" name="navigationColor" value="bg-green-600">
+                                                        <label></label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="radio-custom radio-grey">
+                                                        <input type="radio" name="navigationColor" value="bg-grey-600">
+                                                        <label></label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="radio-custom radio-indigo">
+                                                        <input type="radio" name="navigationColor" value="bg-indigo-600">
+                                                        <label></label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="radio-custom radio-orange">
+                                                        <input type="radio" name="navigationColor" value="bg-orange-600">
+                                                        <label></label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="radio-custom radio-pink">
+                                                        <input type="radio" name="navigationColor" value="bg-pink-600">
+                                                        <label></label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="radio-custom radio-purple">
+                                                        <input type="radio" name="navigationColor" value="bg-purple-600">
+                                                        <label></label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="radio-custom radio-red">
+                                                        <input type="radio" name="navigationColor" value="bg-red-600">
+                                                        <label></label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="radio-custom radio-teal">
+                                                        <input type="radio" name="navigationColor" value="bg-teal-600">
+                                                        <label></label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="radio-custom radio-yellow">
+                                                        <input type="radio" name="navigationColor" value="bg-yellow-700">
+                                                        <label></label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div class="checkbox-custom checkbox-primary mt-10">
+                                                <input type="checkbox" checked="checked" id="navbarDisplay" name="acrossFlag"
+                                                    value="navbar-inverse">
+                                                <label for="navbarDisplay">通栏显示</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row pb-20">
+                                        <label class="col-md-2 col-form-label">菜单主题：</label>
+                                        <div class="col-md-10">
+                                            <select id="skintoolsSidebar" name="menuTheme" data-plugin="selectpicker">
+                                                <option value="site-menubar-dark" selected>深色主题</option>
+                                                <option value="site-menubar-light">浅色主题</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- 与主题相关的显示设置模板 : START -->
+                                    <div class="form-group row border-bottom pb-20">
+                <label class="col-md-2 col-form-label">菜单显示：</label>
+                <div class="col-md-10">
+                    <div class="radio-inline radio-custom radio-primary">
+                        <input type="radio" id="menuUnfold" checked="checked" name="menuDisplay" value="site-menubar-unfold">
+                        <label for="menuUnfold">默认展开</label>
+                    </div>
+                    <div class="radio-inline radio-custom radio-primary">
+                        <input type="radio" id="menuFold" name="menuDisplay" value="site-menubar-fold">
+                        <label for="menuFold">默认收起</label>
+                    </div>
+                    <div class="mt-10 hidden" id="menuFoldSetting">
+                        <span>鼠标经过菜单时显示：</span>
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-xs btn-outline btn-dark active" for="textIconKeep">
+                                <input type="radio" id="textIconKeep" autocomplete="off" hidden="hidden" checked="checked"
+                                    name="menuTxtIcon" value="site-menubar-keep">文字
+                            </label>
+                            <label class="btn btn-xs btn-outline btn-dark" for="textIconAlt">
+                                <input type="radio" id="textIconAlt" autocomplete="off" hidden="hidden" name="menuTxtIcon"
+                                    value="site-menubar-fold-alt">图标
+                            </label>
+                        </div>
+                    </div>
+                    <span class="form-text">仅在可视区域宽度大于768px生效</span>
+                </div>
+            </div>
+                                    <div class="form-group row" style="display:none;">
+                                        <div class="col-md-10 offset-md-2 mt-20">
+                                            <button type="submit" class="btn btn-primary" name="save" value="true">保存</button>
+                                            <button type="button" class="btn btn-outline btn-default" name="reset" value="reset" id="skintoolsReset">恢复默认</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 插件 -->
+    <script src="__ABS__/assets/admui/vendor/matchheight/jquery.matchHeight.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/artTemplate/template-web.js"></script>
+<script src="__ABS__/assets/admui/vendor/jquery-strength/password_strength.js"></script>
+<script src="__ABS__/assets/admui/vendor/jquery-strength/jquery-strength.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/datatables-bootstrap/dataTables.bootstrap4.js"></script>
+<script src="__ABS__/assets/admui/vendor/datatables-responsive/dataTables.responsive.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/jquery-validation/jquery.validate.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/jquery-validation/localization/messages_zh.js"></script>
+<script src="__ABS__/assets/admui/vendor/switchery/switchery.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/layer/layer.min.js"></script>
+    <script src="__ABS__/assets/admui/themes/base/js/app.js"></script>
+
+<!-- Page JS -->
+<script src="__ABS__/assets/admui/js/admin/index_message_log.js"></script>
+<script src="__ABS__/assets/admui/js/system/account/account.js"></script>
+<!--<script src="__ABS__/assets/admui/js/system/account/message.js"></script>-->
+<script src="__ABS__/assets/admui/js/system/account/password.js"></script>
+<script src="__ABS__/assets/admui/js/system/settings/display.js"></script>
+<script>
+    function alreadyRead(id,type){
+        $.ajax({
+            type: 'POST',
+            url: "{:url('UserCenter/alreadyRead');}",
+            data: {
+                id: id,
+                type:type
+            },
+            dataType: "json",
+            success: function(data){
+                if(data.code === 200){
+                    window.top.layer.alert('操作成功', {icon: 5},function () {
+                        window.parent.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else {
+                    layer.alert(data.msg, {icon: 7},function () {
+                        window.parent.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+    }
+</script>
+</body>
+</html>

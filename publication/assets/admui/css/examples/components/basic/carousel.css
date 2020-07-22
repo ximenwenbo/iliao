@@ -1,0 +1,43 @@
+/**
+ * Admui-iframe v2.0.0 (http://www.admui.com/)
+ * Copyright 2015-2018 Admui Team
+ * Licensed under the Admui License 1.1 (http://www.admui.com/about/license)
+ */
+.bootbox .modal-dialog {
+  width: 360px; }
+
+.example-logos .owl-dots {
+  margin-top: 20px; }
+
+.items {
+  width: 100%; }
+
+.owl-carousel-shortcode .item {
+  text-align: center; }
+
+.slider {
+  margin: 0 25px 30px;
+  text-align: center; }
+  .slider img {
+    width: 100%;
+    border: 5px solid #fff; }
+  .slider h3 {
+    position: relative;
+    padding: 10px;
+    margin: 0 10px;
+    font-size: 36px;
+    line-height: 100px;
+    background: #f3f7f9; }
+
+#exampleCenter h3 {
+  opacity: 0.5;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95); }
+
+#exampleCenter .slick-center h3 {
+  color: #f2a654;
+  opacity: 1;
+  -webkit-transform: scale(1.08);
+          transform: scale(1.08); }

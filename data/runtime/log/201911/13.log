@@ -1,0 +1,2557 @@
+---------------------------------------------------------------
+[ 2019-11-13T17:52:44+08:00 ] 127.0.0.1 POST /admin/public/dologin.html
+[ info ] www.liao.com/admin/public/dologin.html [运行时间：0.065000s][吞吐率：15.38req/s] [内存消耗：2,551.47kb] [文件加载：67]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'dologin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'origin' => 'http://www.liao.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'content-length' => '48',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'qianduan',
+  'password' => 'sdfsdfsd',
+  'captcha' => 'vu3r',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->doLogin[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] E:\www\iliao\publication/themes/backed/tpl\error_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:52:48+08:00 ] 127.0.0.1 GET /admin/public/login.html
+[ info ] www.liao.com/admin/public/login.html [运行时间：0.066000s][吞吐率：15.15req/s] [内存消耗：2,505.14kb] [文件加载：65]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->login[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] themes/backed/admin\public\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:52:48+08:00 ] 127.0.0.1 GET /captcha/new.html?height=32&width=150&font_size=18
+[ info ] www.liao.com/captcha/new.html?height=32&width=150&font_size=18 [运行时间：0.039000s][吞吐率：25.64req/s] [内存消耗：1,936.83kb] [文件加载：50]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ E:\www\iliao\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:52:49+08:00 ] 127.0.0.1 GET /admin/public/login.html
+[ info ] www.liao.com/admin/public/login.html [运行时间：0.090000s][吞吐率：11.11req/s] [内存消耗：2,506.35kb] [文件加载：65]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.004000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.002000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->login[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] themes/backed/admin\public\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:52:49+08:00 ] 127.0.0.1 GET /captcha/new.html?height=32&width=150&font_size=18
+[ info ] www.liao.com/captcha/new.html?height=32&width=150&font_size=18 [运行时间：0.044000s][吞吐率：22.73req/s] [内存消耗：1,936.95kb] [文件加载：50]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.004000s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ E:\www\iliao\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:52:58+08:00 ] 127.0.0.1 POST /admin/public/dologin.html
+[ info ] www.liao.com/admin/public/dologin.html [运行时间：0.068000s][吞吐率：14.71req/s] [内存消耗：2,552.32kb] [文件加载：67]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.005000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'dologin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'http://www.liao.com',
+  'cache-control' => 'max-age=0',
+  'content-length' => '62',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'dfsf',
+  'password' => 'sdfsdfsdfsdfds',
+  'captcha' => 'jyxp',
+  'remember' => 'on',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->doLogin[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] E:\www\iliao\publication/themes/backed/tpl\error_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:53:01+08:00 ] 127.0.0.1 GET /admin/public/login.html
+[ info ] www.liao.com/admin/public/login.html [运行时间：0.062000s][吞吐率：16.13req/s] [内存消耗：2,505.84kb] [文件加载：65]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.005000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->login[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] themes/backed/admin\public\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:53:15+08:00 ] 127.0.0.1 GET /captcha/new.html?height=32&width=150&font_size=18?tm=0.2949560596378136
+[ info ] www.liao.com/captcha/new.html?height=32&width=150&font_size=18?tm=0.2949560596378136 [运行时间：0.040000s][吞吐率：25.00req/s] [内存消耗：1,937.20kb] [文件加载：50]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.005000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18?tm=0.2949560596378136',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ E:\www\iliao\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:53:23+08:00 ] 127.0.0.1 POST /admin/public/dologin.html
+[ info ] www.liao.com/admin/public/dologin.html [运行时间：0.082000s][吞吐率：12.20req/s] [内存消耗：3,044.80kb] [文件加载：69]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'dologin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'http://www.liao.com',
+  'cache-control' => 'max-age=0',
+  'content-length' => '61',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'dfsf',
+  'password' => 'sdfsdfsdsdfds',
+  'captcha' => 'hvjn',
+  'remember' => 'on',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->doLogin[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:54:42+08:00 ] 127.0.0.1 GET /admin/public/login.html
+[ info ] www.liao.com/admin/public/login.html [运行时间：0.073000s][吞吐率：13.70req/s] [内存消耗：2,505.11kb] [文件加载：65]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->login[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] themes/backed/admin\public\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:54:42+08:00 ] 127.0.0.1 GET /captcha/new.html?height=32&width=150&font_size=18
+[ info ] www.liao.com/captcha/new.html?height=32&width=150&font_size=18 [运行时间：0.038000s][吞吐率：26.32req/s] [内存消耗：1,936.80kb] [文件加载：50]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ E:\www\iliao\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:54:43+08:00 ] 127.0.0.1 GET /admin/public/login.html
+[ info ] www.liao.com/admin/public/login.html [运行时间：0.060000s][吞吐率：16.67req/s] [内存消耗：2,506.32kb] [文件加载：65]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.005000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->login[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] themes/backed/admin\public\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:54:43+08:00 ] 127.0.0.1 GET /captcha/new.html?height=32&width=150&font_size=18
+[ info ] www.liao.com/captcha/new.html?height=32&width=150&font_size=18 [运行时间：0.042000s][吞吐率：23.81req/s] [内存消耗：1,936.92kb] [文件加载：50]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002000s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ E:\www\iliao\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:54:47+08:00 ] 127.0.0.1 GET /captcha/new.html?height=32&width=150&font_size=18?tm=0.38924580665095254
+[ info ] www.liao.com/captcha/new.html?height=32&width=150&font_size=18?tm=0.38924580665095254 [运行时间：0.045000s][吞吐率：22.22req/s] [内存消耗：1,937.17kb] [文件加载：50]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18?tm=0.38924580665095254',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002000s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ E:\www\iliao\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:54:54+08:00 ] 127.0.0.1 POST /admin/public/dologin.html
+[ info ] www.liao.com/admin/public/dologin.html [运行时间：0.069000s][吞吐率：14.49req/s] [内存消耗：2,552.28kb] [文件加载：67]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'dologin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'http://www.liao.com',
+  'cache-control' => 'max-age=0',
+  'content-length' => '45',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'dfsf',
+  'password' => 'fsdfsdfsd',
+  'captcha' => '7fta',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->doLogin[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] E:\www\iliao\publication/themes/backed/tpl\error_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:54:56+08:00 ] 127.0.0.1 GET /admin/public/login.html
+[ info ] www.liao.com/admin/public/login.html [运行时间：0.092000s][吞吐率：10.87req/s] [内存消耗：2,505.80kb] [文件加载：65]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.004000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->login[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] themes/backed/admin\public\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:54:56+08:00 ] 127.0.0.1 GET /captcha/new.html?height=32&width=150&font_size=18
+[ info ] www.liao.com/captcha/new.html?height=32&width=150&font_size=18 [运行时间：0.043000s][吞吐率：23.26req/s] [内存消耗：1,936.92kb] [文件加载：50]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.005000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ E:\www\iliao\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:54:57+08:00 ] 127.0.0.1 GET /captcha/new.html?height=32&width=150&font_size=18?tm=0.9941112714698266
+[ info ] www.liao.com/captcha/new.html?height=32&width=150&font_size=18?tm=0.9941112714698266 [运行时间：0.049000s][吞吐率：20.41req/s] [内存消耗：1,937.17kb] [文件加载：50]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.005000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18?tm=0.9941112714698266',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ E:\www\iliao\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:55:03+08:00 ] 127.0.0.1 GET /captcha/new.html?height=32&width=150&font_size=18?tm=0.9941112714698266?tm=0.2553458317018178
+[ info ] www.liao.com/captcha/new.html?height=32&width=150&font_size=18?tm=0.9941112714698266?tm=0.2553458317018178 [运行时间：0.069000s][吞吐率：14.49req/s] [内存消耗：1,937.31kb] [文件加载：50]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.007000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18?tm=0.9941112714698266?tm=0.2553458317018178',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.005000s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ E:\www\iliao\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:55:08+08:00 ] 127.0.0.1 POST /admin/public/dologin.html
+[ info ] www.liao.com/admin/public/dologin.html [运行时间：0.110000s][吞吐率：9.09req/s] [内存消耗：3,333.92kb] [文件加载：72]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.005000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'dologin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'http://www.liao.com',
+  'cache-control' => 'max-age=0',
+  'content-length' => '47',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'dfsf',
+  'password' => 'sdfsdfdsfsd',
+  'captcha' => '4dy3',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.004000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->doLogin[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www\iliao\publication/themes/backed/tpl\error_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=iliao;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user` WHERE  `user_login` = 'dfsf' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-11-13T17:55:11+08:00 ] 127.0.0.1 GET /admin/public/login.html
+[ info ] www.liao.com/admin/public/login.html [运行时间：0.088000s][吞吐率：11.36req/s] [内存消耗：2,505.11kb] [文件加载：65]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->login[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] themes/backed/admin\public\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T17:55:11+08:00 ] 127.0.0.1 GET /captcha/new.html?height=32&width=150&font_size=18
+[ info ] www.liao.com/captcha/new.html?height=32&width=150&font_size=18 [运行时间：0.045000s][吞吐率：22.22req/s] [内存消耗：1,936.80kb] [文件加载：50]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.005000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ E:\www\iliao\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T18:02:06+08:00 ] 127.0.0.1 GET /admin/public/login.html
+[ info ] www.liao.com/admin/public/login.html [运行时间：0.086000s][吞吐率：11.63req/s] [内存消耗：2,506.38kb] [文件加载：65]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.005000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->login[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] themes/backed/admin\public\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T18:02:06+08:00 ] 127.0.0.1 GET /captcha/new.html?height=32&width=150&font_size=18
+[ info ] www.liao.com/captcha/new.html?height=32&width=150&font_size=18 [运行时间：0.036000s][吞吐率：27.78req/s] [内存消耗：1,936.92kb] [文件加载：50]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002000s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ E:\www\iliao\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T18:02:11+08:00 ] 127.0.0.1 POST /admin/public/dologin.html
+[ info ] www.liao.com/admin/public/dologin.html [运行时间：0.079000s][吞吐率：12.66req/s] [内存消耗：2,552.34kb] [文件加载：67]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'dologin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'http://www.liao.com',
+  'cache-control' => 'max-age=0',
+  'content-length' => '49',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'sdfsdfsdf',
+  'password' => 'sdfsdf',
+  'captcha' => 'sdfsdf',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->doLogin[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] E:\www\iliao\publication/themes/backed/tpl\error_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T18:02:14+08:00 ] 127.0.0.1 GET /admin/public/login.html
+[ info ] www.liao.com/admin/public/login.html [运行时间：0.081000s][吞吐率：12.35req/s] [内存消耗：2,505.86kb] [文件加载：65]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.005000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->login[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] themes/backed/admin\public\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T18:02:17+08:00 ] 127.0.0.1 GET /captcha/new.html?height=32&width=150&font_size=18?tm=0.863919709908249
+[ info ] www.liao.com/captcha/new.html?height=32&width=150&font_size=18?tm=0.863919709908249 [运行时间：0.063000s][吞吐率：15.87req/s] [内存消耗：1,937.11kb] [文件加载：50]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18?tm=0.863919709908249',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.004000s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ E:\www\iliao\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T18:02:22+08:00 ] 127.0.0.1 POST /admin/public/dologin.html
+[ info ] www.liao.com/admin/public/dologin.html [运行时间：0.086000s][吞吐率：11.63req/s] [内存消耗：3,070.00kb] [文件加载：64]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'dologin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'http://www.liao.com',
+  'cache-control' => 'max-age=0',
+  'content-length' => '47',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'sdfsdfsdf',
+  'password' => 'fsdfsd',
+  'captcha' => 'radv',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->doLogin[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=iliao;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user` WHERE  `user_login` = 'sdfsdfsdf' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-11-13T18:02:49+08:00 ] 127.0.0.1 GET /admin/public/login.html
+[ info ] www.liao.com/admin/public/login.html [运行时间：0.080000s][吞吐率：12.50req/s] [内存消耗：2,505.16kb] [文件加载：65]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->login[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] themes/backed/admin\public\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T18:02:49+08:00 ] 127.0.0.1 GET /captcha/new.html?height=32&width=150&font_size=18
+[ info ] www.liao.com/captcha/new.html?height=32&width=150&font_size=18 [运行时间：0.042000s][吞吐率：23.81req/s] [内存消耗：1,936.80kb] [文件加载：50]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002000s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ E:\www\iliao\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T18:03:06+08:00 ] 127.0.0.1 POST /admin/public/dologin.html
+[ info ] www.liao.com/admin/public/dologin.html [运行时间：0.098000s][吞吐率：10.20req/s] [内存消耗：3,335.72kb] [文件加载：72]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'dologin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'http://www.liao.com',
+  'cache-control' => 'max-age=0',
+  'content-length' => '49',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => 'sdfsdfdsfsdf',
+  'captcha' => 'xp4e',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->doLogin[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www\iliao\publication/themes/backed/tpl\error_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=iliao;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user` WHERE  `user_login` = 'admin' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-11-13T18:03:09+08:00 ] 127.0.0.1 GET /admin/public/login.html
+[ info ] www.liao.com/admin/public/login.html [运行时间：0.090000s][吞吐率：11.11req/s] [内存消耗：2,505.11kb] [文件加载：65]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.004000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->login[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] themes/backed/admin\public\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T18:06:47+08:00 ] 127.0.0.1 GET /captcha/new.html?height=32&width=150&font_size=18?tm=0.6926302294470856
+[ info ] www.liao.com/captcha/new.html?height=32&width=150&font_size=18?tm=0.6926302294470856 [运行时间：0.064000s][吞吐率：15.62req/s] [内存消耗：1,937.05kb] [文件加载：50]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18?tm=0.6926302294470856',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ E:\www\iliao\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T18:06:49+08:00 ] 127.0.0.1 GET /captcha/new.html?height=32&width=150&font_size=18?tm=0.6926302294470856?tm=0.009164195438639444
+[ info ] www.liao.com/captcha/new.html?height=32&width=150&font_size=18?tm=0.6926302294470856?tm=0.009164195438639444 [运行时间：0.066000s][吞吐率：15.15req/s] [内存消耗：1,937.31kb] [文件加载：50]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18?tm=0.6926302294470856?tm=0.009164195438639444',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.004000s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ E:\www\iliao\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T18:06:51+08:00 ] 127.0.0.1 GET /captcha/new.html?height=32&width=150&font_size=18?tm=0.6926302294470856?tm=0.009164195438639444?tm=0.8477030555039677
+[ info ] www.liao.com/captcha/new.html?height=32&width=150&font_size=18?tm=0.6926302294470856?tm=0.009164195438639444?tm=0.8477030555039677 [运行时间：0.057000s][吞吐率：17.54req/s] [内存消耗：1,937.53kb] [文件加载：50]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18?tm=0.6926302294470856?tm=0.009164195438639444?tm=0.8477030555039677',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.004000s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ E:\www\iliao\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T18:06:57+08:00 ] 127.0.0.1 POST /admin/public/dologin.html
+[ info ] www.liao.com/admin/public/dologin.html [运行时间：0.098000s][吞吐率：10.20req/s] [内存消耗：3,335.71kb] [文件加载：72]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'dologin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'http://www.liao.com',
+  'cache-control' => 'max-age=0',
+  'content-length' => '55',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => '123456',
+  'captcha' => 'qdtx',
+  'remember' => 'on',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->doLogin[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www\iliao\publication/themes/backed/tpl\error_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=iliao;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user` WHERE  `user_login` = 'admin' LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-11-13T18:07:00+08:00 ] 127.0.0.1 GET /admin/public/login.html
+[ info ] www.liao.com/admin/public/login.html [运行时间：0.083000s][吞吐率：12.05req/s] [内存消耗：2,505.11kb] [文件加载：65]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->login[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] themes/backed/admin\public\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T18:09:39+08:00 ] 127.0.0.1 GET /admin/public/login.html
+[ info ] www.liao.com/admin/public/login.html [运行时间：0.074000s][吞吐率：13.51req/s] [内存消耗：2,505.55kb] [文件加载：65]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->login[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] themes/backed/admin\public\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T18:09:39+08:00 ] 127.0.0.1 GET /captcha/new.html?height=32&width=150&font_size=18
+[ info ] www.liao.com/captcha/new.html?height=32&width=150&font_size=18 [运行时间：0.045000s][吞吐率：22.22req/s] [内存消耗：1,936.80kb] [文件加载：50]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.008000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ E:\www\iliao\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T18:09:46+08:00 ] 127.0.0.1 GET /captcha/new.html?height=32&width=150&font_size=18?tm=0.28484173687194625
+[ info ] www.liao.com/captcha/new.html?height=32&width=150&font_size=18?tm=0.28484173687194625 [运行时间：0.059000s][吞吐率：16.95req/s] [内存消耗：1,937.17kb] [文件加载：50]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18?tm=0.28484173687194625',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.004000s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ E:\www\iliao\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T18:09:47+08:00 ] 127.0.0.1 GET /captcha/new.html?height=32&width=150&font_size=18?tm=0.28484173687194625?tm=0.8649715144945838
+[ info ] www.liao.com/captcha/new.html?height=32&width=150&font_size=18?tm=0.28484173687194625?tm=0.8649715144945838 [运行时间：0.066000s][吞吐率：15.15req/s] [内存消耗：1,937.31kb] [文件加载：50]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18?tm=0.28484173687194625?tm=0.8649715144945838',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ E:\www\iliao\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-13T18:09:52+08:00 ] 127.0.0.1 POST /admin/public/dologin.html
+[ info ] www.liao.com/admin/public/dologin.html [运行时间：0.117000s][吞吐率：8.55req/s] [内存消耗：3,522.23kb] [文件加载：74]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.005000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'dologin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/login.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'http://www.liao.com',
+  'cache-control' => 'max-age=0',
+  'content-length' => '46',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => '123424332',
+  'captcha' => 'fnal',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000000s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->doLogin[ E:\www\iliao\application\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www\iliao\publication/themes/backed/tpl\success_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:host=127.0.0.1;port=3306;dbname=iliao;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user` WHERE  `user_login` = 'admin' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_role_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `role_id` FROM `t_role_user` `a` INNER JOIN `t_role` `b` ON `a`.`role_id`=`b`.`id` WHERE  `user_id` = 1  AND `status` = 1 LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user_token` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user_token` WHERE  `user_id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `t_user`  SET `user_type`=1,`virtual_pos`=0,`sex`=0,`age`=0,`birthday`=0,`last_login_time`=1573639792,`score`=0,`coin`=0,`withdraw_coin`=0,`frozen_coin`=0,`withdraw_frozen_coin`=0,`used_coin`=0,`withdraw_used_coin`=0,`bonus_coin`=0,`bonus_frozen_coin`=0,`bonus_used_coin`=0,`create_time`=1534923528,`user_status`=1,`user_login`='admin',`user_pass`='###fc8f707225c44d5b3e2c0626bef6b03c',`user_nickname`='admin',`user_email`='admin@admin.com',`user_url`='',`avatar`='https://img5.duitang.com/uploads/item/201410/17/20141017235209_MEsRe.thumb.700_0.jpeg',`signature`='',`last_login_ip`='127.0.0.1',`info_complete`=0,`mobile`='',`qq`='',`weixin`='',`province_id`='',`province_name`='',`city_id`='',`city_name`='',`district_id`='',`district_name`='',`longitude`=0,`latitude`=0,`address`='',`device_brand`='',`device_model`='',`device_os_version`='',`speech_introduction`='',`tags`='',`more`=NULL,`album`='',`video`='',`vip_expire_time`=0,`daren_status`=0,`open_position`=1,`be_follow_num`=0,`be_look_num`=2,`y_level`=5,`from_uid`=0  WHERE  `id` = 1 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_admin_log_record` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] INSERT INTO `t_admin_log_record` (`type` , `url` , `params` , `create_time` , `remark` , `admin_id` , `admin_ip`) VALUES (1 , '/Public/dologin' , '{\"username\":\"admin\",\"password\":\"123424332\",\"captcha\":\"fnal\"}' , 1573639792 , '登录成功' , 1 , '127.0.0.1') [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-11-13T18:09:55+08:00 ] 127.0.0.1 GET /admin/index/index.html
+[ info ] www.liao.com/admin/index/index.html [运行时间：0.207000s][吞吐率：4.83req/s] [内存消耗：4,724.59kb] [文件加载：80]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.007000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv; admin_username=admin',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/public/dologin.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.004000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\IndexController->index[ E:\www\iliao\application\admin\controller\IndexController.php ]
+[ info ] [ VIEW ] themes/backed/admin\index\index.html [ array (
+  0 => 'admin',
+  1 => 'submenus',
+  2 => 'menus_js_var',
+  3 => 'msgList',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:host=127.0.0.1;port=3306;dbname=iliao;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_admin_menu` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 0  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 171  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 180  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 322  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 174  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 178  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 226  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 227  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 294  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 295  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 296  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 297  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 298  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 299  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 300  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 301  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 305  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 306  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 307  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 308  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 179  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 183  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 184  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 191  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 192  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 224  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 197  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 203  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 109  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 152  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 304  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 193  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 215  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 218  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 216  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 223  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 181  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 173  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 182  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 195  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 196  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 162  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 163  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 164  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 310  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 311  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 175  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 177  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 205  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 220  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 317  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 319  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 321  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 323  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 186  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 222  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 225  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 198  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 188  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 194  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` WHERE  `parent_id` = 199  AND `status` = 1 ORDER BY `list_order` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_admin_menu` ORDER BY `app` ASC,`controller` ASC,`action` ASC [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user_message` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_user_message` WHERE  (  status=1 and receive_id =1 and read_flag = 0 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user_message` WHERE  (  status=1 and receive_id =1 and read_flag = 0 ) [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-11-13T18:09:56+08:00 ] 127.0.0.1 POST /admin/index/getmessagenumber.html
+[ info ] www.liao.com/admin/index/getmessagenumber.html [运行时间：0.075000s][吞吐率：13.33req/s] [内存消耗：3,655.75kb] [文件加载：72]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'getmessagenumber',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv; admin_username=admin',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/index/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.liao.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '0',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\IndexController->getMessageNumber[ E:\www\iliao\application\admin\controller\IndexController.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=iliao;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user_message` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_user_message` WHERE  (  status=1 and receive_id =1 and read_flag = 0 ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user_message` WHERE  (  status=1 and receive_id =1 and read_flag = 0 ) [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-11-13T18:09:56+08:00 ] 127.0.0.1 GET /admin/index/home
+[ info ] www.liao.com/admin/index/home [运行时间：0.166000s][吞吐率：6.02req/s] [内存消耗：3,912.86kb] [文件加载：77]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.003000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv; admin_username=admin',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\IndexController->home[ E:\www\iliao\application\admin\controller\IndexController.php ]
+[ info ] [ VIEW ] themes/backed/admin\index\home.html [ array (
+  0 => 'admin',
+  1 => 'consume',
+  2 => 'red_list',
+  3 => 'rich_list',
+  4 => 'coin',
+  5 => 'money',
+  6 => 'order',
+  7 => 'user',
+  8 => 'data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=iliao;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_merchant_customer` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id` FROM `t_merchant_customer` WHERE  (  user_id = 1 and user_id != 1 ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_user` WHERE  (  create_time >= 1573488000 and create_time <= 1573574399 and user_type = 2 ) LIMIT 1 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_recharge_order` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `t_recharge_order` WHERE  (  status = 2 and create_time >= 1573488000 and create_time <= 1573574399 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_vip_order` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `t_vip_order` WHERE  (  status = 2 and create_time >= 1573488000 and create_time <= 1573574399 ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user_coin_record` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id =3 and change_type = 2 and create_time >= 1573488000 and create_time <= 1573574399 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_user` WHERE  (  create_time >= 1573574400 and create_time <= 1573639796 and user_type = 2 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `t_recharge_order` WHERE  (  status = 2 and create_time >= 1573574400 and create_time <= 1573639796 ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `t_vip_order` WHERE  (  status = 2 and create_time >= 1573574400 and create_time <= 1573639796 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id =3 and change_type = 2 and create_time >= 1573574400 and create_time <= 1573639796 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_user` WHERE  (  create_time >= 1572969600 and create_time <= 1573639796 and user_type = 2 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `t_recharge_order` WHERE  (  status = 2 and create_time >= 1572969600 and create_time <= 1573639796 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `t_vip_order` WHERE  (  status = 2 and create_time >= 1572969600 and create_time <= 1573639796 ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id =3 and change_type = 2 and create_time >= 1572969600 and create_time <= 1573639796 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_user` WHERE  (  create_time >= 1572537600 and create_time <= 1575129599 and user_type = 2 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `t_recharge_order` WHERE  (  status = 2 and create_time >= 1572537600 and create_time <= 1575129599 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `t_vip_order` WHERE  (  status = 2 and create_time >= 1572537600 and create_time <= 1575129599 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id =3 and change_type = 2 and create_time >= 1572537600 and create_time <= 1575129599 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_user` WHERE  `user_type` = 2  AND `user_status` = 1 LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_user` WHERE  `user_type` = 2  AND `user_status` = 1  AND `sex` = 1 LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_user` WHERE  `user_type` = 2  AND `user_status` = 1  AND `sex` = 2 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_user` WHERE  (  vip_expire_time > 1573639796 and user_type = 2 and user_status = 1 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_user` WHERE  (  daren_status = 2 and user_type = 2 and user_status = 1 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_recharge_order` WHERE  (  status=2 ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `t_recharge_order` WHERE  (  status=2 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_vip_order` WHERE  (  status=2 ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `t_vip_order` WHERE  (  status=2 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_recharge_order` WHERE  (  status = 2 and create_time >= 1573574400 and create_time <= 1573639796 ) ORDER BY `id` DESC LIMIT 0,1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_vip_order` WHERE  (  status = 2 and create_time >= 1573574400 and create_time <= 1573639796 ) ORDER BY `id` DESC LIMIT 0,1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `t_recharge_order` WHERE  (  status = 2 and create_time >= 1573574400 and create_time <= 1573639796 ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(amount) AS tp_sum FROM `t_vip_order` WHERE  (  status = 2 and create_time >= 1573574400 and create_time <= 1573639796 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and create_time <= 1573639796 and create_time >= 1573034996 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and create_time <= 1573639796 and create_time >= 1573034996 and change_class_id = 31 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and create_time <= 1573639796 and create_time >= 1573034996 and change_class_id = 32 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_watch_order` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT sum(w.day_time) as w_day, w.receive_uid,u.user_nickname,u.avatar FROM `t_watch_order` `w` INNER JOIN `t_user` `u` ON `u`.`id`=`w`.`receive_uid` WHERE  (  w.status = 1 and u.user_type = 2 and u.user_status = 1 ) GROUP BY `w`.`receive_uid` ORDER BY `w_day` DESC LIMIT 0,3 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT distinct `lis`.user_id,`lis`.sum_coin,`lis`.user_nickname,`lis`.avatar,`lis`.sex,`lis`.city_name,`lis`.vip_expire_time FROM ( SELECT SUM(r.change_coin) sum_coin,r.user_id,u.user_nickname,u.avatar,u.sex,u.city_name,u.vip_expire_time FROM `t_user_coin_record` `r` INNER JOIN `t_user` `u` ON `u`.`id`=`r`.`user_id` WHERE  `r`.`class_id` = 3 GROUP BY `r`.`user_id` ORDER BY `sum_coin` DESC ) as lis LEFT JOIN `t_user_follow` `f` ON `f`.`be_user_id`=`lis`.`user_id` ORDER BY `lis`.`sum_coin` DESC LIMIT 0,3 [ RunTime:0.021000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and change_class_id = 32 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and change_class_id = 34 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and change_class_id = 33 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and change_class_id = 31 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_option` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `option_value` FROM `t_option` WHERE  `option_name` = 'trtc' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-11-13T18:09:56+08:00 ] 127.0.0.1 POST /admin/index/todayIncome
+[ info ] www.liao.com/admin/index/todayIncome [运行时间：0.061000s][吞吐率：16.39req/s] [内存消耗：3,191.43kb] [文件加载：70]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'todayIncome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv; admin_username=admin',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/index/home',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.liao.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '0',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.002000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\IndexController->todayIncome[ E:\www\iliao\application\admin\controller\IndexController.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=iliao;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_recharge_order` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `amount` FROM `t_recharge_order` WHERE  (  status = 2 and create_time >= 1573574400 and create_time <= 1573639796 ) ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_vip_order` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `amount` FROM `t_vip_order` WHERE  (  status = 2 and create_time >= 1573574400 and create_time <= 1573639796 ) ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-11-13T18:09:56+08:00 ] 127.0.0.1 POST /admin/index/consumeCount
+[ info ] www.liao.com/admin/index/consumeCount [运行时间：0.089000s][吞吐率：11.24req/s] [内存消耗：3,460.66kb] [文件加载：72]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.003000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'consumeCount',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv; admin_username=admin',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/index/home',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.liao.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '0',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.002000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\IndexController->consumeCount[ E:\www\iliao\application\admin\controller\IndexController.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=iliao;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user_coin_record` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and create_time <= 1573660799 and create_time >= 1573574400 and change_class_id = 31 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and create_time <= 1573660799 and create_time >= 1573574400 and change_class_id = 32 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and create_time <= 1573574399 and create_time >= 1573488000 and change_class_id = 31 ) LIMIT 1 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and create_time <= 1573574399 and create_time >= 1573488000 and change_class_id = 32 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and create_time <= 1573487999 and create_time >= 1573401600 and change_class_id = 31 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and create_time <= 1573487999 and create_time >= 1573401600 and change_class_id = 32 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and create_time <= 1573401599 and create_time >= 1573315200 and change_class_id = 31 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and create_time <= 1573401599 and create_time >= 1573315200 and change_class_id = 32 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and create_time <= 1573315199 and create_time >= 1573228800 and change_class_id = 31 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and create_time <= 1573315199 and create_time >= 1573228800 and change_class_id = 32 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and create_time <= 1573228799 and create_time >= 1573142400 and change_class_id = 31 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and create_time <= 1573228799 and create_time >= 1573142400 and change_class_id = 32 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and create_time <= 1573142399 and create_time >= 1573056000 and change_class_id = 31 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT SUM(change_coin) AS tp_sum FROM `t_user_coin_record` WHERE  (  class_id = 3 and create_time <= 1573142399 and create_time >= 1573056000 and change_class_id = 32 ) LIMIT 1 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2019-11-13T18:09:57+08:00 ] 127.0.0.1 POST /admin/index/getuserdevice.html
+[ info ] www.liao.com/admin/index/getuserdevice.html [运行时间：0.087000s][吞吐率：11.49req/s] [内存消耗：3,116.74kb] [文件加载：68]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'getuserdevice',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv; admin_username=admin',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/index/home',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.liao.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '6',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'type' => '1',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\IndexController->getUserDevice[ E:\www\iliao\application\admin\controller\IndexController.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=iliao;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_user` WHERE  (  user_status = 1 and user_type=2 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_user` WHERE  (  device_brand in('iphone','苹果') and user_type = 2 and user_status = 1 ) LIMIT 1 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2019-11-13T18:09:58+08:00 ] 127.0.0.1 POST /admin/index/getuserreg.html
+[ info ] www.liao.com/admin/index/getuserreg.html [运行时间：0.146000s][吞吐率：6.85req/s] [内存消耗：3,117.38kb] [文件加载：68]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.013000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'getuserreg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv; admin_username=admin',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/index/home',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.liao.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '6',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+  'type' => '1',
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.004000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.005000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\IndexController->getUserReg[ E:\www\iliao\application\admin\controller\IndexController.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=iliao;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_user` WHERE  (  user_status = 1 and user_type=2 and sex = 1 ) LIMIT 1 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_user` WHERE  (  user_type = 2 and user_status = 1 and sex = 2 ) LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_user` WHERE  (  user_type = 2 and user_status = 1 and sex = 0 ) LIMIT 1 [ RunTime:0.003000s ]
+---------------------------------------------------------------
+[ 2019-11-13T18:10:26+08:00 ] 127.0.0.1 POST /admin/index/getmessagenumber.html
+[ info ] www.liao.com/admin/index/getmessagenumber.html [运行时间：0.110000s][吞吐率：9.09req/s] [内存消耗：3,655.97kb] [文件加载：72]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.006000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'getmessagenumber',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv; admin_username=admin',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/index/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.liao.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '0',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.004000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\IndexController->getMessageNumber[ E:\www\iliao\application\admin\controller\IndexController.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=iliao;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user_message` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_user_message` WHERE  (  status=1 and receive_id =1 and read_flag = 0 ) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user_message` WHERE  (  status=1 and receive_id =1 and read_flag = 0 ) [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2019-11-13T18:10:56+08:00 ] 127.0.0.1 POST /admin/index/getmessagenumber.html
+[ info ] www.liao.com/admin/index/getmessagenumber.html [运行时间：0.089000s][吞吐率：11.24req/s] [内存消耗：3,655.97kb] [文件加载：72]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.005000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'getmessagenumber',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv; admin_username=admin',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/index/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.liao.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '0',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\IndexController->getMessageNumber[ E:\www\iliao\application\admin\controller\IndexController.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=iliao;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user_message` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_user_message` WHERE  (  status=1 and receive_id =1 and read_flag = 0 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user_message` WHERE  (  status=1 and receive_id =1 and read_flag = 0 ) [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-11-13T18:11:26+08:00 ] 127.0.0.1 POST /admin/index/getmessagenumber.html
+[ info ] www.liao.com/admin/index/getmessagenumber.html [运行时间：0.126000s][吞吐率：7.94req/s] [内存消耗：3,655.97kb] [文件加载：72]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.007000s ]
+[ info ] [ LANG ] E:\www\iliao\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'getmessagenumber',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=q4p5ai8t9o45jnv86p1ba8jhqv; admin_username=admin',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.liao.com/admin/index/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.liao.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '0',
+  'connection' => 'close',
+  'host' => 'www.liao.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.004000s ]
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] E:\www\iliao\publication/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.005000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\IndexController->getMessageNumber[ E:\www\iliao\application\admin\controller\IndexController.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=iliao;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user_message` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_user_message` WHERE  (  status=1 and receive_id =1 and read_flag = 0 ) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user_message` WHERE  (  status=1 and receive_id =1 and read_flag = 0 ) [ RunTime:0.002000s ]

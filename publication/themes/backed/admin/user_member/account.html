@@ -1,0 +1,99 @@
+<include file="layout/iframe@header" />
+<!-- Page CSS-->
+<link rel="stylesheet" href="__ABS__/assets/admui/vendor/dropify/dropify.css">
+<style>
+    ul,li{
+        margin: 0;
+        padding: 0;
+    }
+    ul{
+        overflow: hidden;
+        font-family: "宋体";
+        border: 1px solid #c7ddb9;
+        background: #f2ffea;
+        color: #ff7200;
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+    li{
+        float: left;
+        margin-right: 40px;
+    }
+</style>
+<body style="margin: 0; padding: 0;overflow-x: hidden">
+<div class="page animation-fade page-forms">
+    <form  method="post" multiple="" id="exampleFullForm">
+        <div class="page-content">
+            <div class="panel">
+                <div class="panel-body container-fluid">
+                    <div class="details_table-lg row">
+                        <div class="col-xl-12 col-md-12 form-horizontal">
+                            <div class="form-group row">
+                                <ul class="col-12">
+                                    <li>id: {$info.id}</li>
+                                    <li>昵称: {$info.user_nickname}</li>
+                                    <li>金币: {$info.coin}</li>
+                                </ul>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="change" class="col-2"><span class="required" style="font-size: 12px;color: red;line-height: 32px">*</span>金币变更</label>
+                                <div class="col-10 row">
+                                    <input type="text" class="form-control col-4" id="change" name="change">
+                                    <span class="col-8" style="color: #ff9600;line-height: 32px">[正数为增加，负数为减少]</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  for="description" class="col-2"><span class="required" style="font-size: 12px;color: red;line-height: 32px">*</span>变更备注</label>
+                                <div class="col-10 row">
+                                    <input type="text" id="description" class="form-control col-12" name="description">
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="id" value="{$info.id || default = 0}">
+                        </div>
+
+                        <div class="col-xl-12  padding-top-m">
+                            <button type="button" class="btn btn-primary" id="query">保存编辑</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<input type="hidden" name="admin_id" id="admin_id" value="{$admin_id|default = 0}">
+
+<script>
+    /*提交*/
+    $("#query").on('click',function () {
+        $.ajax({
+            type: 'POST',
+            url: "{:url('UserMember/AccountManagement');}",
+            data: {
+                data:$("#exampleFullForm").serialize(),
+            },
+
+            dataType: "json",
+            success: function(data){
+                //console.log(data.msg);return;
+                if(data.code === 200){
+                    layer.alert(data.msg, {icon: 5},function () {
+                        window.parent.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else{
+                    layer.alert(data.msg, {icon: 7});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+</script>
+</body>

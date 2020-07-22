@@ -1,0 +1,20 @@
+/**
+ * Admui-iframe v2.0.0 (http://www.admui.com/)
+ * Copyright 2015-2018 Admui Team
+ * Licensed under the Admui License 1.1 (http://www.admui.com/about/license)
+ */
+.bootbox .modal-dialog {
+  width: 360px; }
+
+.editable-table + input.error {
+  border: 1px solid #ff4c52;
+  outline: none;
+  outline-offset: 0; }
+
+.editable-table + input:focus, .editable-table + input {
+  border: 1px solid #3e8ef7 !important;
+  outline: none !important;
+  outline-offset: 0 !important; }
+
+.editable-table td:focus {
+  outline: none; }

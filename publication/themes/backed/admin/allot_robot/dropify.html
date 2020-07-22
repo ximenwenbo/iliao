@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传 - 表单示例 - Admui</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="admui.com">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止搜索引擎抓取 -->
+    <meta name="robots" content="nofollow">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Chrome浏览器添加桌面快捷方式（安卓） -->
+    <link rel="icon" type="image/png" href="__ABS__/assets/admui/images/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Safari浏览器添加到主屏幕（IOS） -->
+    <link rel="icon" sizes="192x192" href="__ABS__/assets/admui/images/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Admui">
+    <!-- Win8标题栏及ICON图标 -->
+    <link rel="apple-touch-icon-precomposed" href="__ABS__/assets/admui/images/apple-touch-icon.png">
+    <meta name="msapplication-TileImage" content="__ABS__/assets/admui/images/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#62a8ea">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/global/css/bootstrap.css">
+    
+    <!-- 字体图标 CSS -->
+    
+    
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/base/css/site.css" id="admui-siteStyle">
+    
+    <!-- 插件 CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/fonts/web-icons/web-icons.css">
+    <link rel="stylesheet" href="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload.css">
+    <link rel="stylesheet" href="__ABS__/assets/admui/vendor/dropify/dropify.css">
+    
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/vendor/plyr/plyr.css">
+    
+    
+    <!-- 插件 -->
+    <script src="__ABS__/assets/admui/vendor/jquery/jquery.min.js"></script>
+    <script src="__ABS__/assets/admui/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="__ABS__/assets/admui/vendor/lodash/lodash.min.js"></script>
+
+    <style>
+        .dropify-wrapper {
+            width: 80%;
+        }
+        .plyr video, .plyr audio {
+            width: 100%;
+            height: 289px;
+        }
+
+    </style>
+</head>
+<body data-theme="base">
+
+<div class="page animation-fade page-forms">
+    <div class="page-content">
+        <input type="hidden" name="id" id="id" value="{$info['id']}">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">用户： {$info['user_nickname']}</h3>
+                <h3 class="panel-title">
+                    <small>
+                    <a class="example-plugin-link" href="javascript:void (0)" target="_blank">
+                        相册
+                    </a>
+                </small>
+                </h3>
+            </div>
+            <div class="panel-body container-fluid">
+                <div class="row row-lg">
+                    <php>if(!empty($info['album'])){</php>
+                        <php>foreach($info['album'] as $a => $v){</php>
+                            <div class="col-xl-2 col-md-2">
+                                <div class="example-wrap">
+                                    <div class="fileUploader">
+                                        <input type="file" class="form-control file_upload" data-plugin="dropify" name="album" id="file_upload_{$a}"
+                                               data-height="240" data-default-file="<?=app\admin\service\MaterialService::getFullUrl($v)?>"
+                                               value="{$v}" title="">
+                                    </div>
+                                </div>
+                            </div>
+                        <php>}</php>
+                        <php>for($p = count($info['album']); $p < 9; $p++){</php>
+                            <div class="col-xl-2 col-md-2">
+                                <div class="example-wrap">
+                                    <div class="fileUploader">
+                                        <input type="file" class="form-control file_upload" name="album" id="file_upload_{$p}" data-plugin="dropify"
+                                               data-height="240" title="" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        <php>}</php>
+                    <php>}else{</php>
+                        <php>for($q = 0; $q < 9; $q++){</php>
+                            <div class="col-xl-2 col-md-3 col-6">
+                                <div class="example-wrap">
+                                    <div class="fileUploader">
+                                        <input type="file" class="form-control file_upload" data-plugin="dropify" name="album" id="file_upload_{$q}" data-height="240" title="" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        <php>}</php>
+                    <php>}</php>
+                </div>
+            </div>
+
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <small>
+                        <a class="example-plugin-link" href="javascript:void (0)" target="_blank">视频</a>
+                    </small>
+                </h3>
+            </div>
+            <div class="panel-body container-fluid">
+                <div class="row row-lg">
+                    <php>if(!empty($info['video'])){</php>
+                        <php>foreach($info['video'] as $o => $v){</php>
+                            <div class="col-xl-2 col-md-2">
+                                <div class="example-wrap">
+                                    <div class="fileUploader">
+                                        <video class="video">
+                                            <source type="video/mp4" src="<?=app\admin\service\MaterialService::getFullUrl($v)?>">
+                                        </video>
+
+                                        <div class="fileUploader pr-10" style="margin-top: 6px">
+                                            <input class="file_upload_{$o}" type="file" name="video" multiple style="display: none" value="" />
+                                            <input type="hidden" id="video_{$o}" value="{$v}">
+                                            <button type="button" class="btn btn-outline btn-primary chooseFile" id="chooseFile_{$o}">
+                                                <i class="icon wb-refresh" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <php>}</php>
+                        <php>for($i = count($info['video']); $i < 9; $i++){</php>
+                            <div class="col-xl-2 col-md-2">
+                                <div class="example-wrap">
+                                    <div class="fileUploader">
+                                        <video class="video">
+                                            <source type="video/mp4" src="">
+                                        </video>
+                                        <div class="fileUploader pr-10" style="margin-top: 6px">
+                                            <input class="file_upload_{$i}" type="file" name="video" multiple style="display: none" value="" />
+                                            <input type="hidden" id="video_{$i}" value="">
+                                            <button type="button" class="btn btn-outline btn-primary chooseFile" id="chooseFile_{$i}">
+                                                <i class="icon wb-refresh" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <php>}</php>
+                    <php>}else{</php>
+                        <php>for($j = 0; $j < 9; $j++){</php>
+                            <div class="col-xl-2 col-md-2">
+                                <div class="example-wrap">
+                                    <div class="fileUploader">
+                                        <video class="video">
+                                            <source type="video/mp4" src="">
+                                        </video>
+                                        <div class="fileUploader pr-10" style="margin-top: 6px">
+                                            <input class="file_upload_{$j}" type="file" name="video" multiple style="display: none" value="" />
+                                            <input type="hidden" id="video_{$j}" value="">
+                                            <button type="button" class="btn btn-outline btn-primary chooseFile" id="chooseFile_{$j}">
+                                                <i class="icon wb-refresh" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <php>}</php>
+                    <php>}</php>
+                </div>
+            </div>
+            <div class="col-xl-12  padding-top-m">
+                <button type="button" class="btn btn-primary" id="query">保存修改</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 插件 -->
+<script src="__ABS__/assets/admui/vendor/jquery/jquery.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/matchheight/jquery.matchHeight.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/jquery-ui/jquery-ui.min.js" ></script>
+<!--<script src="__ABS__/assets/admui/vendor/blueimp-tmpl/tmpl.min.js"></script>-->
+<script src="__ABS__/assets/admui/vendor/blueimp-canvas-to-blob/canvas-to-blob.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-load-image/load-image.all.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload-process.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload-image.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload-audio.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload-video.js"></script>
+
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload-ui.js"></script>
+<script src="__ABS__/assets/admui/vendor/dropify/dropify.min.js"></script>
+
+<script src="__ABS__/assets/admui/themes/global/js/plugins/action-btn.js"></script>
+<script src="__ABS__/assets/admui/vendor/plyr/plyr.js"></script>
+<script src="__ABS__/assets/admui/vendor/layer/layer.min.js"></script>
+    <script src="__ABS__/assets/admui/themes/base/js/app.js"></script>
+
+<!-- Page JS -->
+<!--<script src="__ABS__/assets/admui/js/examples/forms/dropify.js"></script>-->
+
+
+<script src="__ABS__/assets/admui/js/admin/common/upload.js"></script>
+<script src="__ABS__/assets/admui/js/admin/common/video_upload.js"></script>
+
+<script>
+    /*保存修改*/
+    $("#query").on('click',function () {
+        let id = $("#id").val();
+        let album = [], video = [];
+        for (let i = 0; i < 9; i++){
+            album[i] = $("#file_upload_"+i).attr('value');
+            video[i] = $("#video_"+i).attr('value');
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: "{:url('AllotRobot/SettingSourcePopup');}",
+            data: {
+                id:id,
+                album:album,
+                video:video,
+            },
+
+            dataType: "json",
+            success: function(data){
+                //console.log(data.msg);return;
+                if(data.code === 200){
+                    layer.alert(data.msg, {icon: 6},function () {
+                        window.parent.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else{
+                    layer.alert(data.msg, {icon: 5});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+</script>
+</body>
+</html>

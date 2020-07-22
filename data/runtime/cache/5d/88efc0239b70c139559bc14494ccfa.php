@@ -1,0 +1,4 @@
+<?php
+//000000000000
+ exit();?>
+a:18:{s:2:"id";s:0:"";s:8:"sdkappid";s:10:"1400261220";s:12:"account_type";s:5:"36862";s:5:"appid";s:10:"1300268553";s:5:"bizid";s:5:"62456";s:10:"tuiliu_key";s:32:"fadc9c797742c366de6c0454dbde7cbc";s:7:"api_key";s:32:"fadc9c797742c366de6c0454dbde7cbc";s:8:"t_domain";s:20:"push.i.iliaozhibo.cn";s:8:"b_domain";s:20:"play.i.iliaozhibo.cn";s:10:"identifier";s:13:"administrator";s:11:"private_pem";s:36:"publication/upload/trtc/private_key.";s:10:"public_pem";s:35:"publication/upload/trtc/public_key.";s:12:"callback_key";s:32:"530709913d985984492326cd272eb600";s:9:"cosBucket";s:16:"iliao-1300268553";s:7:"cosArea";s:11:"ap-shanghai";s:11:"cosSecretId";s:36:"AKID1f4D7m0WaP8bpoB2MRHxOZYIm7E56Hcm";s:12:"cosSecretKey";s:32:"KQ5WiiTzGI5qSp1xiDTVP5VllX5NQK1R";s:6:"cosCdn";s:43:"http://iliao-1300268553.image.myqcloud.com/";}

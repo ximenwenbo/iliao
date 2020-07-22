@@ -1,0 +1,50 @@
+[
+    {
+        "shape": "三角形",
+        "color": "红",
+        "area": 5,
+        "label": "T1"
+    },
+    {
+        "shape": "三角形",
+        "color": "绿",
+        "area": 27,
+        "label": "T2"
+    },
+    {
+        "shape": "三角形",
+        "color": "黄",
+        "area": 15,
+        "label": "T3"
+    },
+    {
+        "shape": "三角形",
+        "color": "红",
+        "area": 10,
+        "label": "T4"
+    },
+    {
+        "shape": "四边形",
+        "color": "红",
+        "area": 25,
+        "label": "Q1"
+    },
+    {
+        "shape": "四边形",
+        "color": "红",
+        "area": 44,
+        "label": "Q2"
+    },
+    {
+        "shape": "圆形",
+        "color": "红",
+        "area": 44,
+        "label": "Q2"
+    },
+    {
+        "shape": "圆形",
+        "color": "黑",
+        "area": 44,
+        "label": "Q2"
+    }
+]

@@ -1,0 +1,18 @@
+.bootstrap-table .table > tbody > tr.groupBy {
+    cursor: pointer;
+    background: #F3F7F9;
+}
+.bootstrap-table .table > tbody > tr.groupBy td::before{
+    content: "\25BA";
+    margin-right: 5px;
+    font-size: 12px;
+    opacity: .8;
+}
+.bootstrap-table .table > tbody > tr.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.bootstrap-table .table > tbody > tr.groupBy.expanded  td::before{
+    content: "\25BC";
+}

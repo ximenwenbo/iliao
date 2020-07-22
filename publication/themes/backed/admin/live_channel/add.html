@@ -1,0 +1,127 @@
+<include file="layout/iframe@header" xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns:/>
+<!-- Page CSS-->
+<link rel="stylesheet" href="__ABS__/assets/admui/vendor/dropify/dropify.css">
+
+<body style="margin: 0; padding: 0;overflow-x: hidden">
+<div class="page animation-fade page-forms">
+    <form  method="post" multiple="" id="exampleFullForm">
+        <div class="page-content">
+            <div class="panel">
+                <div class="panel-body container-fluid">
+                    <div class="details_table-lg row">
+                        <div class="col-xl-4 col-md-4 form-horizontal">
+                            <div class="details_table">
+                                <h3 style="margin: 0;padding: 0">基本信息</h3>
+                                <label style="padding: 0;margin: 0;width: 120px"><hr style="padding-bottom: 20px"></label>
+                                <div><hr></div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label for="name"><span class="required" style="font-size: 12px;color: red">*</span>频道名</label>
+                                <div>
+                                    <input type="text" class="form-control" id="name" name="name" >
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label  for="description"><span class="required" style="font-size: 12px;color: red">*</span>频道介绍</label>
+                                <div >
+                                    <input type="text" id="description" class="form-control" name="description" value="">
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label><span class="required" style="font-size: 12px;color: red">*</span>数据状态</label>
+                                <div style="padding-top: 5px;">
+                                    <div class="radio-custom radio-default radio-inline">
+                                        <input type="radio" name="status" id="status1" value="1" checked>
+                                        <label for="status1">开启</label>
+                                    </div>
+                                    <div class="radio-custom radio-default radio-inline">
+                                        <input type="radio" name="status" id="status2" value="0">
+                                        <label for="status2">停用</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group jquery-fileupload details_table">
+                                <label style="line-height: 50px;"><span class="required" style="font-size: 12px;color: red">*</span>频道图标</label>
+                                <div class="row" style="width: 80%">
+                                    <div class="col-md-12 col-xl-12 img-preview">
+                                        <img id="image" src="" alt="">
+                                    </div>
+                                    <div class="col-md-12 col-xl-12 file_btn_style" >
+                                        <input id="uploadImg" type="file" name="icon" multiple style="display: none" />
+                                        <input type="hidden" name="icon" id="avatar" required>
+                                        <button type="button" class="btn btn-outline btn-primary" id="chooseFile">
+                                            <i class="icon wb-plus" aria-hidden="true"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-dark" id="uploadFile">
+                                            <i class="icon wb-upload" aria-hidden="true"></i>确认上传
+                                        </button>
+                                        <button type="button" class="btn btn-raised" id="rechooseFile">
+                                            <i class="icon wb-reply" aria-hidden="true"></i>重新选择
+                                        </button>
+                                        <button type="button" class="btn btn-raised" id="deleteFile">
+                                            <i class="icon wb-close" aria-hidden="true"></i>删除
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-xl-12  padding-top-m">
+                            <button type="button" class="btn btn-primary" id="query">添加</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<input type="hidden" name="admin_id" id="admin_id" value="{$admin_id|default = 0}">
+<!-- jquery file upload相关js -->
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/vendor/jquery.ui.widget.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.iframe-transport.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload-process.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload-validate.js"></script>
+<script src="__ABS__/assets/admui/vendor/jquery-cxselect/jquery.cxselect.js"></script>
+<script src="__ABS__/assets/admui/vendor/dropify/dropify.min.js"></script>
+
+<!--js page-->
+<script src="__ABS__/assets/admui/js/admin/live_channel_add_upload.js"></script>
+
+<script>
+    /*提交*/
+    $("#query").on('click',function () {
+        $.ajax({
+            type: 'POST',
+            url: "{:url('LiveChannel/AddInfo');}",
+            data: {
+                data:$("#exampleFullForm").serialize(),
+            },
+
+            dataType: "json",
+            success: function(data){
+                //console.log(data.msg);return;
+                if(data.code === 200){
+                    layer.alert(data.msg, {icon: 5},function () {
+                        window.parent.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else{
+                    layer.alert(data.msg, {icon: 7});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+</script>
+</body>

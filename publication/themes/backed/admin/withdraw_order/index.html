@@ -1,0 +1,138 @@
+<include file="layout/iframe@header" />
+<!-- Page CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/css/examples/forms/advanced.css">
+<!-- Page JS -->
+<script src="__ABS__/assets/admui/js/admin/withdraw_order.js"></script>
+<style>
+    .table thead th{
+        text-align: center;
+    }
+    #logList>tbody>tr>td{
+        line-height: 40px;
+        text-align: center;
+    }
+
+    #logList>tbody>tr>td>.to_table>tbody>tr>td{
+        line-height: 40px;
+        text-align: left;
+    }
+</style>
+<body data-theme="base" style="padding: 0">
+
+<div class="page page-full animation-fade page-logs">
+    <div class="page-header">
+        <h1 class="page-title">用户提现管理</h1>
+        <div class="page-header-actions">
+            <button type="button" class="btn btn-sm btn-icon btn-info btn-outline btn-round collapsed" data-toggle="collapse"
+                    data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+                <i class="icon fa-filter"></i>
+            </button>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="collapse show" id="collapseFilter" aria-expanded="true">
+            <div class="panel">
+                <div class="panel-body">
+                    <form class="form-inline" id="logForm">
+                        <div class="form-group">
+                            <div class="input-group" style="width: 285px">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="icon wb-calendar" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" id="filter-date" placeholder="选择日期范围" autocomplete="off">
+                                <input type="hidden" name="startDate" value="" id="startTime">
+                                <input type="hidden" name="endDate" value="" id="endTime">
+                                <div class="input-group-prepend">
+                                    <button type="button" class="btn btn-icon btn-default btn-outline btn-sm date-clear">
+                                        <i class="icon wb-close" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xl-12 col-md-3 col-form-label">
+                                <select class="form-control col-xl-12" name="type" data-plugin="select2">
+                                    <option value="" >选择类型</option>
+                                    <php>if(isset($typeList) && !empty($typeList)){</php>
+                                    <php>foreach($typeList as $key=>$item){</php>
+                                    <option value="{$key}" <?php echo $key==1?'selected':''?> >{$item}</option>
+                                    <php>}</php>
+                                    <php>}</php>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xl-12 col-md-3 col-form-label">
+                                <select class="form-control col-xl-12" name="status" data-plugin="select2">
+                                    <option value="" >选择状态</option>
+                                    <php>if(isset($status) && !empty($status)){</php>
+                                    <php>foreach($status as $key=>$item){</php>
+                                    <option value="{$key}" <?php echo $key==1?'selected':''?> >{$item}</option>
+                                    <php>}</php>
+                                    <php>}</php>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="keywords" id="keywords" placeholder="订单号/提现账户" value="">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">
+                                <i class="icon fa-search"></i> 查找</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-body">
+                <table class="table table-bordered table-hover dataTable table-striped w-full" id="logList">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>ID</th>
+                        <th>订单号</th>
+                        <th>用户昵称(UID)</th>
+                        <th>提现类型</th>
+                        <th>提现金币</th>
+                        <th>提现金额</th>
+                        <th>实际到账金额</th>
+                        <th>手续费</th>
+                        <th>申请时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th colspan="6" class="text-right">总计：</th>
+                        <th colspan="6"></th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    //打开编辑页面
+    function AuthPopup(obj) {
+        layer.open({
+            type: 2,    //0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+            title: '编辑敏感词', //弹出框的标题
+            shade: 0.2,
+            area: ['100%','100%'],
+            content: "__ABS__/admin/withdraw_order/ToExamine?id="+obj,
+        });
+    }
+</script>
+</body>
+</html>
+
+
+

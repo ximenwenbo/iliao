@@ -1,0 +1,194 @@
+<include file="layout/iframe@header" />
+
+<!-- Site CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/themes/base/css/site.css">
+
+<style>
+    body {
+        padding-top: 0;
+    }
+</style>
+<body class="page-aside-fixed page-aside-left" data-theme="base">
+
+<div class="page animation-fade">
+    <div class="page-aside">
+
+        <div class="page-aside-switch">
+            <i class="icon wb-chevron-left" aria-hidden="true"></i>
+            <i class="icon wb-chevron-right" aria-hidden="true"></i>
+        </div>
+
+        <div class="page-aside-inner page-aside-scroll" data-plugin="mCustomScrollbar">
+            <div data-role="container">
+                <div data-role="content">
+                    <section class="page-aside-section">
+                        <div class="list-group">
+                            <a class="list-group-item" href="{:url('setting/login')}">
+                                登录方式
+                            </a>
+                            <a class="list-group-item" href="{:url('setting/pay')}">
+                                支付渠道
+                            </a>
+                            <a class="list-group-item" href="{:url('setting/sms')}">
+                                短信配置
+                            </a>
+                            <a class="list-group-item" href="{:url('setting/position')}">
+                                地图定位
+                            </a>
+                            <a class="list-group-item active" href="{:url('setting/trtc')}">
+                                腾讯云
+                            </a>
+                            <!--<a class="list-group-item" href="{:url('setting/aliyunOss')}">-->
+                                <!--阿里云-->
+                            <!--</a>-->
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-main">
+        <div class="page-header">
+            <h3 class="page-title">腾讯云配置</h3>
+        </div>
+        <div class="page-content col-xxl-8">
+            <div class="panel">
+                <form class="form-horizontal panel-body" enctype="multipart/form-data" action="{:url('setting/trtcPost')}" method="post" autocomplete="off" novalidate="novalidate">
+                    <div class="form form-horizontal mt-20">
+                        <input type="hidden" name="id" value="">
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">SDKAppid：</label>
+                            <div class="col-6">
+                                <input type="text" class="form-control" name="sdkappid" value="{$trtc.sdkappid|default=''}" placeholder="请填写SDKAppid">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">推流防盗链key：</label>
+                            <div class="col-6">
+                                <input type="text" class="form-control" name="tuiliu_key" value="{$trtc.tuiliu_key|default=''}" placeholder="请填写推流防盗链key">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">API鉴权key：</label>
+                            <div class="col-6">
+                                <input type="text" class="form-control" name="api_key" value="{$trtc.api_key|default=''}" placeholder="请填写API鉴权key">
+                                <p class="help-block">注：云直播>功能模版>回调密钥需要配置为该值</p>
+                            </div>
+                        </div>
+                        <!--<div class="form-group row">-->
+                            <!--<label class="col-2 col-form-label">accountType：</label>-->
+                            <!--<div class="col-6">-->
+                                <!--<input type="text" class="form-control" name="account_type" value="{$trtc.account_type|default=''}" placeholder="请填写accountType">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group row">-->
+                            <!--<label class="col-2 col-form-label">回调密钥</label>-->
+                            <!--<div class="col-9">-->
+                                <!--<input type="text" class="form-control" name="callback_key" value="{$trtc.callback_key|default=''}" placeholder="请填写回调密钥">-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <div class="form-group row">
+                            <label class="col-2 h4">云存储(COS)配置</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">空间名称：</label>
+                            <div class="col-6">
+                                <input type="text" class="form-control" name="cosBucket" value="{$trtc.cosBucket|default=''}" placeholder="请填写空间名称">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">所属地域：</label>
+                            <div class="col-6">
+                                <input type="text" class="form-control" name="cosArea" value="{$trtc.cosArea|default=''}" placeholder="请填写所属地域">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">SecretId：</label>
+                            <div class="col-6">
+                                <input type="text" class="form-control" name="cosSecretId" value="{$trtc.cosSecretId|default=''}" placeholder="请填写SecretId">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">SecretKey：</label>
+                            <div class="col-6">
+                                <input type="text" class="form-control" name="cosSecretKey" value="{$trtc.cosSecretKey|default=''}" placeholder="请填写SecretKey">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">访问域名(或加速CDN域名)：</label>
+                            <div class="col-6">
+                                <input type="text" class="form-control" name="cosCdn" value="{$trtc.cosCdn|default=''}" placeholder="请填写加速域名，可为空">
+                                <p class="help-block">注：包含"http://"，必须以"/"结尾</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-2 h4">直播信息配置</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">appid：</label>
+                            <div class="col-6">
+                                <input type="text" class="form-control" name="appid" value="{$trtc.appid|default=''}" placeholder="请填写appid">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">bizid：</label>
+                            <div class="col-6">
+                                <input type="text" class="form-control" name="bizid" value="{$trtc.bizid|default=''}" placeholder="请填写bizid">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">推流(直播)域名：</label>
+                            <div class="col-6">
+                                <input type="text" class="form-control" name="t_domain" value="{$trtc.t_domain|default=''}" placeholder="请填写推流(直播)域名">
+                                <p class="help-block">注：不包含"http://"（例如：t.005d.com）</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">播放(旁路直播)域名：</label>
+                            <div class="col-6">
+                                <input type="text" class="form-control" name="b_domain" value="{$trtc.b_domain|default=''}" placeholder="请填写播放(旁路直播)域名">
+                                <p class="help-block">注：不包含"http://"（例如：b.005d.com）</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 h4">帐号信息配置</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">帐号管理员：</label>
+                            <div class="col-6">
+                                <input type="text" class="form-control" name="identifier" value="{$trtc.identifier|default=''}" placeholder="请填写identifier">
+                                <p class="help-block">注：用于发送系统消息，设置敏感词，解散群等特殊操作</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">公钥：</label>
+                            <div class="col-9">
+                                <input type="file" name="public_pem" placeholder="请添加文件public_key">
+                                <p class="help-block">注：在腾讯云中下载</p>
+
+                                存储路径：{$trtc.public_pem|default=''}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">私钥：</label>
+                            <div class="col-9">
+                                <input type="file" name="private_pem" placeholder="请添加文件private_key">
+                                <p class="help-block">注：在腾讯云中下载</p>
+
+                                存储路径：{$trtc.private_pem|default=''}
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">提交</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

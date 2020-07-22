@@ -1,0 +1,2302 @@
+{
+    "success": true,
+    "msg": "success",
+    "data": [
+      {
+        "id": "22",
+        "createDate": null,
+        "name": "UI 示例",
+        "parentId": "0",
+        "layer": "01",
+        "icon": "wb-library",
+        "url": null,
+        "type": null,
+        "children": [
+          {
+            "id": "72",
+            "createDate": null,
+            "name": "UI 示例",
+            "parentId": "22",
+            "layer": "0101",
+            "icon": "",
+            "url": "",
+            "type": null,
+            "children": [
+              {
+                "id": "73",
+                "createDate": null,
+                "name": "布局",
+                "parentId": "72",
+                "layer": "010101",
+                "icon": "fa-laptop",
+                "url": "",
+                "type": null,
+                "children": [
+                  {
+                    "id": "74",
+                    "createDate": null,
+                    "name": "栅格",
+                    "parentId": "73",
+                    "layer": "01010101",
+                    "icon": "",
+                    "url": "",
+                    "type": null,
+                    "children": [
+                      {
+                        "id": "75",
+                        "createDate": null,
+                        "name": "基本栅格",
+                        "parentId": "74",
+                        "layer": "0101010101",
+                        "icon": "",
+                        "url": "/components/layouts/grids",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      },
+                      {
+                        "id": "76",
+                        "createDate": null,
+                        "name": "布局栅格",
+                        "parentId": "74",
+                        "layer": "0101010102",
+                        "icon": "",
+                        "url": "/components/layouts/layout-grid",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      }
+                    ],
+                    "permissionId": null
+                  },
+                  {
+                    "id": "77",
+                    "createDate": null,
+                    "name": "标题栏",
+                    "parentId": "73",
+                    "layer": "01010102",
+                    "icon": "",
+                    "url": "",
+                    "type": null,
+                    "children": [
+                      {
+                        "id": "78",
+                        "createDate": null,
+                        "name": "普通",
+                        "parentId": "77",
+                        "layer": "0101010201",
+                        "icon": "",
+                        "url": "/components/layouts/headers",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      },
+                      {
+                        "id": "79",
+                        "createDate": null,
+                        "name": "带边框",
+                        "parentId": "77",
+                        "layer": "0101010202",
+                        "icon": "",
+                        "url": "/components/layouts/bordered-header",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      }
+                    ],
+                    "permissionId": null
+                  },
+                  {
+                    "id": "80",
+                    "createDate": null,
+                    "name": "面板动画",
+                    "parentId": "73",
+                    "layer": "01010103",
+                    "icon": "",
+                    "url": "/components/layouts/panel-transition",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "81",
+                    "createDate": null,
+                    "name": "盒式布局",
+                    "parentId": "73",
+                    "layer": "01010104",
+                    "icon": "",
+                    "url": "/components/layouts/boxed",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "82",
+                    "createDate": null,
+                    "name": "侧边栏",
+                    "parentId": "73",
+                    "layer": "01010105",
+                    "icon": "",
+                    "url": "",
+                    "type": null,
+                    "children": [
+                      {
+                        "id": "822",
+                        "createDate": null,
+                        "name": "左侧普通",
+                        "parentId": "82",
+                        "layer": "0101010501",
+                        "icon": "",
+                        "url": "/components/layouts/aside/left-static",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      },
+                      {
+                        "id": "823",
+                        "createDate": null,
+                        "name": "左侧浮动",
+                        "parentId": "82",
+                        "layer": "0101010502",
+                        "icon": "",
+                        "url": "/components/layouts/aside/left-fixed",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      },
+                      {
+                        "id": "824",
+                        "createDate": null,
+                        "name": "右侧普通",
+                        "parentId": "82",
+                        "layer": "0101010503",
+                        "icon": "",
+                        "url": "/components/layouts/aside/right-static",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      },
+                      {
+                        "id": "825",
+                        "createDate": null,
+                        "name": "右侧浮动",
+                        "parentId": "82",
+                        "layer": "0101010504",
+                        "icon": "",
+                        "url": "/components/layouts/aside/right-fixed",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      }
+                    ],
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11242",
+                    "createDate": null,
+                    "name": "两栏式布局",
+                    "parentId": "73",
+                    "layer": "01010106",
+                    "icon": "",
+                    "url": "/components/layouts/two-columns",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  }
+                ],
+                "permissionId": null
+              },
+              {
+                "id": "83",
+                "createDate": null,
+                "name": "基本",
+                "parentId": "72",
+                "layer": "010102",
+                "icon": "fa-cube",
+                "url": "",
+                "type": null,
+                "children": [
+                  {
+                    "id": "84",
+                    "createDate": null,
+                    "name": "面板",
+                    "parentId": "83",
+                    "layer": "01010201",
+                    "icon": "",
+                    "url": "",
+                    "type": null,
+                    "children": [
+                      {
+                        "id": "85",
+                        "createDate": null,
+                        "name": "面板结构",
+                        "parentId": "84",
+                        "layer": "0101020101",
+                        "icon": "",
+                        "url": "/components/basic/panel/structure",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      },
+                      {
+                        "id": "86",
+                        "createDate": null,
+                        "name": "面板操作",
+                        "parentId": "84",
+                        "layer": "0101020102",
+                        "icon": "",
+                        "url": "/components/basic/panel/actions",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      },
+                      {
+                        "id": "87",
+                        "createDate": null,
+                        "name": "面板组件",
+                        "parentId": "84",
+                        "layer": "0101020103",
+                        "icon": "",
+                        "url": "/components/basic/panel/portlets",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      }
+                    ],
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11112",
+                    "createDate": null,
+                    "name": "按钮",
+                    "parentId": "83",
+                    "layer": "01010202",
+                    "icon": "",
+                    "url": "/components/basic/buttons",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11113",
+                    "createDate": null,
+                    "name": "矢量图标",
+                    "parentId": "83",
+                    "layer": "01010203",
+                    "icon": "",
+                    "url": "/components/basic/icons",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11114",
+                    "createDate": null,
+                    "name": "下拉菜单",
+                    "parentId": "83",
+                    "layer": "01010204",
+                    "icon": "",
+                    "url": "/components/basic/dropdowns",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11115",
+                    "createDate": null,
+                    "name": "列表组",
+                    "parentId": "83",
+                    "layer": "01010205",
+                    "icon": "",
+                    "url": "/components/basic/list",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11116",
+                    "createDate": null,
+                    "name": "气泡提示 & 弹出框",
+                    "parentId": "83",
+                    "layer": "01010206",
+                    "icon": "",
+                    "url": "/components/basic/tooltip-popover",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11117",
+                    "createDate": null,
+                    "name": "模态框",
+                    "parentId": "83",
+                    "layer": "01010207",
+                    "icon": "",
+                    "url": "/components/basic/modals",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11118",
+                    "createDate": null,
+                    "name": "选项卡 & 折叠面板",
+                    "parentId": "83",
+                    "layer": "01010208",
+                    "icon": "",
+                    "url": "/components/basic/tabs-accordions",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11119",
+                    "createDate": null,
+                    "name": "图片",
+                    "parentId": "83",
+                    "layer": "01010209",
+                    "icon": "",
+                    "url": "/components/basic/images",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11120",
+                    "createDate": null,
+                    "name": "徽章 & 标签",
+                    "parentId": "83",
+                    "layer": "01010210",
+                    "icon": "",
+                    "url": "/components/basic/badges",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11122",
+                    "createDate": null,
+                    "name": "轮播组件",
+                    "parentId": "83",
+                    "layer": "01010211",
+                    "icon": "",
+                    "url": "/components/basic/carousel",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11123",
+                    "createDate": null,
+                    "name": "排版",
+                    "parentId": "83",
+                    "layer": "01010212",
+                    "icon": "",
+                    "url": "/components/basic/typography",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11243",
+                    "createDate": null,
+                    "name": "进度条",
+                    "parentId": "83",
+                    "layer": "01010213",
+                    "icon": "",
+                    "url": "/components/basic/progress-bars",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11124",
+                    "createDate": null,
+                    "name": "配色方案",
+                    "parentId": "83",
+                    "layer": "01010214",
+                    "icon": "",
+                    "url": "/components/basic/colors",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11125",
+                    "createDate": null,
+                    "name": "辅助类",
+                    "parentId": "83",
+                    "layer": "01010215",
+                    "icon": "",
+                    "url": "/components/basic/utilities",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  }
+                ],
+                "permissionId": null
+              },
+              {
+                "id": "11126",
+                "createDate": null,
+                "name": "进阶",
+                "parentId": "72",
+                "layer": "010103",
+                "icon": "fa-cubes",
+                "url": "",
+                "type": null,
+                "children": [
+                  {
+                    "id": "11127",
+                    "createDate": null,
+                    "name": "新手指引",
+                    "parentId": "11126",
+                    "layer": "01010301",
+                    "icon": "",
+                    "url": "/components/advanced/tour",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11128",
+                    "createDate": null,
+                    "name": "动画",
+                    "parentId": "11126",
+                    "layer": "01010302",
+                    "icon": "",
+                    "url": "/components/advanced/animation",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11130",
+                    "createDate": null,
+                    "name": "灯箱",
+                    "parentId": "11126",
+                    "layer": "01010303",
+                    "icon": "",
+                    "url": "/components/advanced/lightbox",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11131",
+                    "createDate": null,
+                    "name": "滚动条",
+                    "parentId": "11126",
+                    "layer": "01010304",
+                    "icon": "",
+                    "url": "/components/advanced/scrollbar",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11132",
+                    "createDate": null,
+                    "name": "评分",
+                    "parentId": "11126",
+                    "layer": "01010305",
+                    "icon": "",
+                    "url": "/components/advanced/rating",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11133",
+                    "createDate": null,
+                    "name": "右键菜单",
+                    "parentId": "11126",
+                    "layer": "01010306",
+                    "icon": "",
+                    "url": "/components/advanced/context-menu",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11134",
+                    "createDate": null,
+                    "name": "Alertify弹框",
+                    "parentId": "11126",
+                    "layer": "01010307",
+                    "icon": "",
+                    "url": "/components/advanced/alertify",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11135",
+                    "createDate": null,
+                    "name": "瀑布流布局",
+                    "parentId": "11126",
+                    "layer": "01010308",
+                    "icon": "",
+                    "url": "/components/advanced/masonry",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11136",
+                    "createDate": null,
+                    "name": "树形控件",
+                    "parentId": "11126",
+                    "layer": "01010309",
+                    "icon": "",
+                    "url": "",
+                    "type": null,
+                    "children": [
+                      {
+                        "id": "11137",
+                        "createDate": null,
+                        "name": "JsTree",
+                        "parentId": "11136",
+                        "layer": "0101030901",
+                        "icon": "",
+                        "url": "/components/advanced/tree/jstree",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      },
+                      {
+                        "id": "11138",
+                        "createDate": null,
+                        "name": "Treeview",
+                        "parentId": "11136",
+                        "layer": "0101030902",
+                        "icon": "",
+                        "url": "/components/advanced/tree/treeview",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      }
+                    ],
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11139",
+                    "createDate": null,
+                    "name": "Toaster 通知",
+                    "parentId": "11126",
+                    "layer": "01010310",
+                    "icon": "",
+                    "url": "/components/advanced/toastr",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11143",
+                    "createDate": null,
+                    "name": "拖动排序",
+                    "parentId": "11126",
+                    "layer": "01010311",
+                    "icon": "",
+                    "url": "/components/advanced/sortable-nestable",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11144",
+                    "createDate": null,
+                    "name": "弹层组件",
+                    "parentId": "11126",
+                    "layer": "01010312",
+                    "icon": "",
+                    "url": "/components/advanced/bootbox-sweetalert",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  }
+                ],
+                "permissionId": null
+              },
+              {
+                "id": "11145",
+                "createDate": null,
+                "name": "组件",
+                "parentId": "72",
+                "layer": "010104",
+                "icon": "fa-plug",
+                "url": "",
+                "type": null,
+                "children": [
+                  {
+                    "id": "11146",
+                    "createDate": null,
+                    "name": "警告框",
+                    "parentId": "11145",
+                    "layer": "01010401",
+                    "icon": "",
+                    "url": "/components/structure/alerts",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11147",
+                    "createDate": null,
+                    "name": "彩带",
+                    "parentId": "11145",
+                    "layer": "01010402",
+                    "icon": "",
+                    "url": "/components/structure/ribbon",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11148",
+                    "createDate": null,
+                    "name": "价目表",
+                    "parentId": "11145",
+                    "layer": "01010403",
+                    "icon": "",
+                    "url": "/components/structure/pricing-tables",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11149",
+                    "createDate": null,
+                    "name": "遮罩",
+                    "parentId": "11145",
+                    "layer": "01010404",
+                    "icon": "",
+                    "url": "/components/structure/overlay",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11150",
+                    "createDate": null,
+                    "name": "覆盖层",
+                    "parentId": "11145",
+                    "layer": "01010405",
+                    "icon": "",
+                    "url": "/components/structure/cover",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11151",
+                    "createDate": null,
+                    "name": "时间轴",
+                    "parentId": "11145",
+                    "layer": "01010406",
+                    "icon": "",
+                    "url": "",
+                    "type": null,
+                    "children": [
+                      {
+                        "id": "11152",
+                        "createDate": null,
+                        "name": "简单时间轴",
+                        "parentId": "11151",
+                        "layer": "0101040601",
+                        "icon": "",
+                        "url": "/components/structure/timeline/simple",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      },
+                      {
+                        "id": "11153",
+                        "createDate": null,
+                        "name": "图标时间轴",
+                        "parentId": "11151",
+                        "layer": "0101040602",
+                        "icon": "",
+                        "url": "/components/structure/timeline/icons",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      }
+                    ],
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11154",
+                    "createDate": null,
+                    "name": "步骤条",
+                    "parentId": "11145",
+                    "layer": "01010407",
+                    "icon": "",
+                    "url": "/components/structure/step",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11155",
+                    "createDate": null,
+                    "name": "评论",
+                    "parentId": "11145",
+                    "layer": "01010408",
+                    "icon": "",
+                    "url": "/components/structure/comments",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11156",
+                    "createDate": null,
+                    "name": "媒体",
+                    "parentId": "11145",
+                    "layer": "01010409",
+                    "icon": "",
+                    "url": "/components/structure/media",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11157",
+                    "createDate": null,
+                    "name": "聊天窗口",
+                    "parentId": "11145",
+                    "layer": "01010410",
+                    "icon": "",
+                    "url": "/components/structure/chat",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11158",
+                    "createDate": null,
+                    "name": "客户评价",
+                    "parentId": "11145",
+                    "layer": "01010411",
+                    "icon": "",
+                    "url": "/components/structure/testimonials",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11159",
+                    "createDate": null,
+                    "name": "导航",
+                    "parentId": "11145",
+                    "layer": "01010412",
+                    "icon": "",
+                    "url": "/components/structure/nav",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11160",
+                    "createDate": null,
+                    "name": "导航条",
+                    "parentId": "11145",
+                    "layer": "01010413",
+                    "icon": "",
+                    "url": "/components/structure/navbars",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11161",
+                    "createDate": null,
+                    "name": "引用",
+                    "parentId": "11145",
+                    "layer": "01010414",
+                    "icon": "",
+                    "url": "/components/structure/blockquotes",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11162",
+                    "createDate": null,
+                    "name": "分页",
+                    "parentId": "11145",
+                    "layer": "01010415",
+                    "icon": "",
+                    "url": "/components/structure/pagination",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11163",
+                    "createDate": null,
+                    "name": "包屑导航",
+                    "parentId": "11145",
+                    "layer": "01010416",
+                    "icon": "",
+                    "url": "/components/structure/breadcrumbs",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  }
+                ],
+                "permissionId": null
+              },
+              {
+                "id": "11164",
+                "createDate": null,
+                "name": "卡片",
+                "parentId": "72",
+                "layer": "010105",
+                "icon": "fa-puzzle-piece",
+                "url": "",
+                "type": null,
+                "children": [
+                  {
+                    "id": "11165",
+                    "createDate": null,
+                    "name": "统计",
+                    "parentId": "11164",
+                    "layer": "01010501",
+                    "icon": "",
+                    "url": "/components/cards/statistics",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11166",
+                    "createDate": null,
+                    "name": "数据",
+                    "parentId": "11164",
+                    "layer": "01010502",
+                    "icon": "",
+                    "url": "/components/cards/data",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11167",
+                    "createDate": null,
+                    "name": "博客",
+                    "parentId": "11164",
+                    "layer": "01010503",
+                    "icon": "",
+                    "url": "/components/cards/blog",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11168",
+                    "createDate": null,
+                    "name": "图表",
+                    "parentId": "11164",
+                    "layer": "01010504",
+                    "icon": "",
+                    "url": "/components/cards/chart",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11169",
+                    "createDate": null,
+                    "name": "社交",
+                    "parentId": "11164",
+                    "layer": "01010505",
+                    "icon": "",
+                    "url": "/components/cards/social",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11170",
+                    "createDate": null,
+                    "name": "天气",
+                    "parentId": "11164",
+                    "layer": "01010506",
+                    "icon": "",
+                    "url": "/components/cards/weather",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  }
+                ],
+                "permissionId": null
+              }
+            ],
+            "permissionId": null
+          }
+        ],
+        "permissionId": null
+      },
+      {
+        "id": "11236",
+        "createDate": null,
+        "name": "页面示例",
+        "parentId": "0",
+        "layer": "02",
+        "icon": "wb-desktop",
+        "url": null,
+        "type": null,
+        "children": [
+          {
+            "id": "11171",
+            "createDate": null,
+            "name": "页面示例",
+            "parentId": "11236",
+            "layer": "0201",
+            "icon": "",
+            "url": "",
+            "type": null,
+            "children": [
+              {
+                "id": "11172",
+                "createDate": null,
+                "name": "首页示例",
+                "parentId": "11171",
+                "layer": "020101",
+                "icon": "fa-home",
+                "url": "",
+                "type": null,
+                "children": [
+                  {
+                    "id": "11173",
+                    "createDate": null,
+                    "name": "首页示例 01",
+                    "parentId": "11172",
+                    "layer": "02010101",
+                    "icon": "",
+                    "url": "/pages/home/index-v1",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11174",
+                    "createDate": null,
+                    "name": "首页示例 02",
+                    "parentId": "11172",
+                    "layer": "02010102",
+                    "icon": "",
+                    "url": "/pages/home/index-v2",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11175",
+                    "createDate": null,
+                    "name": "电商网站型",
+                    "parentId": "11172",
+                    "layer": "02010103",
+                    "icon": "",
+                    "url": "/pages/home/ecommerce",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11176",
+                    "createDate": null,
+                    "name": "数据统计型",
+                    "parentId": "11172",
+                    "layer": "02010104",
+                    "icon": "",
+                    "url": "/pages/home/analytics",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11177",
+                    "createDate": null,
+                    "name": "团队协作型",
+                    "parentId": "11172",
+                    "layer": "02010105",
+                    "icon": "",
+                    "url": "/pages/home/team",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  }
+                ],
+                "permissionId": null
+              },
+              {
+                "id": "11178",
+                "createDate": null,
+                "name": "常用页面",
+                "parentId": "11171",
+                "layer": "020102",
+                "icon": "fa-files-o",
+                "url": "",
+                "type": null,
+                "children": [
+                  {
+                    "id": "11179",
+                    "createDate": null,
+                    "name": "空白页面",
+                    "parentId": "11178",
+                    "layer": "02010201",
+                    "icon": "",
+                    "url": "/pages/general/blank",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11180",
+                    "createDate": null,
+                    "name": "帮助文档",
+                    "parentId": "11178",
+                    "layer": "02010202",
+                    "icon": "",
+                    "url": "/pages/general/faq",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11183",
+                    "createDate": null,
+                    "name": "相册",
+                    "parentId": "11178",
+                    "layer": "02010203",
+                    "icon": "",
+                    "url": "/pages/general/gallery-grid",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11187",
+                    "createDate": null,
+                    "name": "搜索",
+                    "parentId": "11178",
+                    "layer": "02010204",
+                    "icon": "",
+                    "url": "/pages/general/search-result",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11188",
+                    "createDate": null,
+                    "name": "客户列表",
+                    "parentId": "11178",
+                    "layer": "02010205",
+                    "icon": "",
+                    "url": "/pages/general/user",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11189",
+                    "createDate": null,
+                    "name": "邮件模板",
+                    "parentId": "11178",
+                    "layer": "02010206",
+                    "icon": "",
+                    "url": "/pages/general/email",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11249",
+                    "createDate": null,
+                    "name": "代码编辑器",
+                    "parentId": "11178",
+                    "layer": "02010207",
+                    "icon": "",
+                    "url": "/pages/general/code-editor",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11191",
+                    "createDate": null,
+                    "name": "错误页面",
+                    "parentId": "11178",
+                    "layer": "02010208",
+                    "icon": "",
+                    "url": "/errors",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11252",
+                    "createDate": null,
+                    "name": "没有权限",
+                    "parentId": "11178",
+                    "layer": "02010209",
+                    "icon": "",
+                    "url": "/errors/noauth",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11250",
+                    "createDate": null,
+                    "name": "网站维护中",
+                    "parentId": "11178",
+                    "layer": "02010210",
+                    "icon": "",
+                    "url": "/errors/maintenance",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11251",
+                    "createDate": null,
+                    "name": "登录超时",
+                    "parentId": "11178",
+                    "layer": "02010211",
+                    "icon": "",
+                    "url": "/locked",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  }
+                ],
+                "permissionId": null
+              },
+              {
+                "id": "11192",
+                "createDate": null,
+                "name": "团队协作",
+                "parentId": "11171",
+                "layer": "020103",
+                "icon": "fa-group",
+                "url": "",
+                "type": null,
+                "children": [
+                  {
+                    "id": "11193",
+                    "createDate": null,
+                    "name": "日历",
+                    "parentId": "11192",
+                    "layer": "02010301",
+                    "icon": "",
+                    "url": "/pages/team/calendar",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11194",
+                    "createDate": null,
+                    "name": "笔记",
+                    "parentId": "11192",
+                    "layer": "02010302",
+                    "icon": "",
+                    "url": "/pages/team/notebook",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11195",
+                    "createDate": null,
+                    "name": "任务看板",
+                    "parentId": "11192",
+                    "layer": "02010303",
+                    "icon": "",
+                    "url": "/pages/team/taskboard",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11196",
+                    "createDate": null,
+                    "name": "知识库",
+                    "parentId": "11192",
+                    "layer": "02010304",
+                    "icon": "",
+                    "url": "",
+                    "type": null,
+                    "children": [
+                      {
+                        "id": "11197",
+                        "createDate": null,
+                        "name": "列表",
+                        "parentId": "11196",
+                        "layer": "0201030401",
+                        "icon": "",
+                        "url": "/pages/team/documents/articles",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      },
+                      {
+                        "id": "11198",
+                        "createDate": null,
+                        "name": "分类",
+                        "parentId": "11196",
+                        "layer": "0201030402",
+                        "icon": "",
+                        "url": "/pages/team/documents/categories",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      },
+                      {
+                        "id": "11199",
+                        "createDate": null,
+                        "name": "详情",
+                        "parentId": "11196",
+                        "layer": "0201030403",
+                        "icon": "",
+                        "url": "/pages/team/documents/article",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      }
+                    ],
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11200",
+                    "createDate": null,
+                    "name": "论坛",
+                    "parentId": "11192",
+                    "layer": "02010305",
+                    "icon": "",
+                    "url": "/pages/team/forum",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11201",
+                    "createDate": null,
+                    "name": "即时通讯",
+                    "parentId": "11192",
+                    "layer": "02010306",
+                    "icon": "",
+                    "url": "/pages/team/message",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11202",
+                    "createDate": null,
+                    "name": "邮箱",
+                    "parentId": "11192",
+                    "layer": "02010307",
+                    "icon": "",
+                    "url": "/pages/team/mailbox",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11203",
+                    "createDate": null,
+                    "name": "文件管理",
+                    "parentId": "11192",
+                    "layer": "02010308",
+                    "icon": "",
+                    "url": "/pages/team/media",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11204",
+                    "createDate": null,
+                    "name": "项目",
+                    "parentId": "11192",
+                    "layer": "02010309",
+                    "icon": "",
+                    "url": "",
+                    "type": null,
+                    "children": [
+                      {
+                        "id": "11205",
+                        "createDate": null,
+                        "name": "项目列表 01",
+                        "parentId": "11204",
+                        "layer": "0201030901",
+                        "icon": "",
+                        "url": "/pages/team/projects",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      },
+                      {
+                        "id": "11206",
+                        "createDate": null,
+                        "name": "项目列表 02",
+                        "parentId": "11204",
+                        "layer": "0201030902",
+                        "icon": "",
+                        "url": "/pages/team/work",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      }
+                    ],
+                    "permissionId": null
+                  }
+                ],
+                "permissionId": null
+              }
+            ],
+            "permissionId": null
+          }
+        ],
+        "permissionId": null
+      },
+      {
+        "id": "11230",
+        "createDate": null,
+        "name": "表格示例",
+        "parentId": "0",
+        "layer": "03",
+        "icon": "wb-table",
+        "url": null,
+        "type": null,
+        "children": [
+          {
+            "id": "11231",
+            "createDate": null,
+            "name": "表格示例",
+            "parentId": "11230",
+            "layer": "0301",
+            "icon": "",
+            "url": "",
+            "type": null,
+            "children": [
+              {
+                "id": "11232",
+                "createDate": null,
+                "name": "基本表格",
+                "parentId": "11231",
+                "layer": "030101",
+                "icon": "fa-table",
+                "url": "/tables/basic/index",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              },
+              {
+                "id": "11254",
+                "createDate": null,
+                "name": "树形表格",
+                "parentId": "11231",
+                "layer": "030102",
+                "icon": "fa-bars",
+                "url": "/tables/treegrid/index",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              },
+              {
+                "id": "11233",
+                "createDate": null,
+                "name": "DataTables",
+                "parentId": "11231",
+                "layer": "030103",
+                "icon": "fa-list-alt",
+                "url": "",
+                "type": null,
+                "children": [
+                  {
+                    "id": "11256",
+                    "createDate": null,
+                    "name": "基本初始化",
+                    "parentId": "11233",
+                    "layer": "03010301",
+                    "icon": "",
+                    "url": "/tables/data-tables/basic-init/zero-configuration",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11257",
+                    "createDate": null,
+                    "name": "高级初始化",
+                    "parentId": "11233",
+                    "layer": "03010302",
+                    "icon": "",
+                    "url": "/tables/data-tables/advanced-init/events-live",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11258",
+                    "createDate": null,
+                    "name": "数据源",
+                    "parentId": "11233",
+                    "layer": "03010303",
+                    "icon": "",
+                    "url": "/tables/data-tables/data-sources/dom",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11259",
+                    "createDate": null,
+                    "name": "API",
+                    "parentId": "11233",
+                    "layer": "03010304",
+                    "icon": "",
+                    "url": "/tables/data-tables/api/add-row",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11260",
+                    "createDate": null,
+                    "name": "AJAX",
+                    "parentId": "11233",
+                    "layer": "03010305",
+                    "icon": "",
+                    "url": "/tables/data-tables/ajax/simple",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11261",
+                    "createDate": null,
+                    "name": "服务器模式",
+                    "parentId": "11233",
+                    "layer": "03010306",
+                    "icon": "",
+                    "url": "/tables/data-tables/server-side/simple",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11262",
+                    "createDate": null,
+                    "name": "插件",
+                    "parentId": "11233",
+                    "layer": "03010307",
+                    "icon": "",
+                    "url": "/tables/data-tables/plug-ins/api",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11263",
+                    "createDate": null,
+                    "name": "其他",
+                    "parentId": "11233",
+                    "layer": "03010308",
+                    "icon": "",
+                    "url": "/tables/data-tables/others/fixed-header",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  }
+                ],
+                "permissionId": null
+              },
+              {
+                "id": "11255",
+                "createDate": null,
+                "name": "BootstrapTable",
+                "parentId": "11231",
+                "layer": "030104",
+                "icon": "fa-list-alt",
+                "url": "",
+                "type": null,
+                "children": [
+                  {
+                    "id": "11234",
+                    "createDate": null,
+                    "name": "选项",
+                    "parentId": "11255",
+                    "layer": "03010401",
+                    "icon": null,
+                    "url": "/tables/bootstrap-table/options/boolean-options",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11235",
+                    "createDate": null,
+                    "name": "方法",
+                    "parentId": "11255",
+                    "layer": "03010403",
+                    "icon": null,
+                    "url": "/tables/bootstrap-table/methods/getOptions",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "21299",
+                    "createDate": null,
+                    "name": "扩展",
+                    "parentId": "11255",
+                    "layer": "03010405",
+                    "icon": null,
+                    "url": "/tables/bootstrap-table/extensions/export",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  }
+                ],
+                "permissionId": null
+              }
+            ],
+            "permissionId": null
+          }
+        ],
+        "permissionId": null
+      },
+      {
+        "id": "11239",
+        "createDate": null,
+        "name": "表单示例",
+        "parentId": "0",
+        "layer": "04",
+        "icon": "wb-order",
+        "url": null,
+        "type": null,
+        "children": [
+          {
+            "id": "11265",
+            "createDate": null,
+            "name": "表单相关",
+            "parentId": "11239",
+            "layer": "0401",
+            "icon": "",
+            "url": "",
+            "type": null,
+            "children": [
+              {
+                "id": "11266",
+                "createDate": null,
+                "name": "基本表单",
+                "parentId": "11265",
+                "layer": "040101",
+                "icon": "fa-circle-o",
+                "url": "/forms/general",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              },
+              {
+                "id": "11267",
+                "createDate": null,
+                "name": "质感风格",
+                "parentId": "11265",
+                "layer": "040102",
+                "icon": "fa-google",
+                "url": "/forms/material",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              },
+              {
+                "id": "11268",
+                "createDate": null,
+                "name": "高级表单元素",
+                "parentId": "11265",
+                "layer": "040103",
+                "icon": "fa-toggle-off",
+                "url": "",
+                "type": null,
+                "children": [
+                  {
+                    "id": "21268",
+                    "createDate": null,
+                    "name": "下拉选择",
+                    "parentId": "11268",
+                    "layer": "04010301",
+                    "icon": null,
+                    "url": "/forms/advanced/select",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "21269",
+                    "createDate": null,
+                    "name": "标签输入",
+                    "parentId": "11268",
+                    "layer": "04010303",
+                    "icon": null,
+                    "url": "/forms/advanced/tags-input",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "21270",
+                    "createDate": null,
+                    "name": "日期时间",
+                    "parentId": "11268",
+                    "layer": "04010305",
+                    "icon": null,
+                    "url": "/forms/advanced/date-time",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "21271",
+                    "createDate": null,
+                    "name": "复选框&单选框",
+                    "parentId": "11268",
+                    "layer": "04010307",
+                    "icon": null,
+                    "url": "/forms/advanced/checkbox-radio",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "21272",
+                    "createDate": null,
+                    "name": "颜色&图标",
+                    "parentId": "11268",
+                    "layer": "04010309",
+                    "icon": null,
+                    "url": "/forms/advanced/color-icon",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "21273",
+                    "createDate": null,
+                    "name": "其他",
+                    "parentId": "11268",
+                    "layer": "04010311",
+                    "icon": null,
+                    "url": "/forms/advanced/other",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  }
+                ],
+                "permissionId": null
+              },
+              {
+                "id": "11269",
+                "createDate": null,
+                "name": "表单布局",
+                "parentId": "11265",
+                "layer": "040104",
+                "icon": "fa-indent",
+                "url": "/forms/layouts",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              },
+              {
+                "id": "11270",
+                "createDate": null,
+                "name": "表单向导",
+                "parentId": "11265",
+                "layer": "040105",
+                "icon": "fa-arrow-right",
+                "url": "/forms/wizard",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              },
+              {
+                "id": "11271",
+                "createDate": null,
+                "name": "表单验证",
+                "parentId": "11265",
+                "layer": "040106",
+                "icon": "fa-check-square-o",
+                "url": "/forms/validation",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              },
+              {
+                "id": "11272",
+                "createDate": null,
+                "name": "格式预设",
+                "parentId": "11265",
+                "layer": "040107",
+                "icon": "fa-at",
+                "url": "/forms/masks",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              },
+              {
+                "id": "11274",
+                "createDate": null,
+                "name": "编辑器",
+                "parentId": "11265",
+                "layer": "040109",
+                "icon": "fa-list-alt",
+                "url": "",
+                "type": null,
+                "children": [
+                  {
+                    "id": "11275",
+                    "createDate": null,
+                    "name": "文本编辑器",
+                    "parentId": "11274",
+                    "layer": "04010901",
+                    "icon": "",
+                    "url": "/forms/editor/summernote",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11276",
+                    "createDate": null,
+                    "name": "Markdown编辑器",
+                    "parentId": "11274",
+                    "layer": "04010902",
+                    "icon": "",
+                    "url": "/forms/editor/markdown",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11277",
+                    "createDate": null,
+                    "name": "代码编辑器",
+                    "parentId": "11274",
+                    "layer": "04010903",
+                    "icon": "",
+                    "url": "/forms/editor/ace",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  }
+                ],
+                "permissionId": null
+              },
+              {
+                "id": "11278",
+                "createDate": null,
+                "name": "图片裁剪",
+                "parentId": "11265",
+                "layer": "040110",
+                "icon": "fa-cut",
+                "url": "/forms/image-cropping",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              },
+              {
+                "id": "11279",
+                "createDate": null,
+                "name": "文件上传",
+                "parentId": "11265",
+                "layer": "040111",
+                "icon": "fa-cloud-upload",
+                "url": "/forms/dropify",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              }
+            ],
+            "permissionId": null
+          }
+        ],
+        "permissionId": null
+      },
+      {
+        "id": "11240",
+        "createDate": null,
+        "name": "统计图表",
+        "parentId": "0",
+        "layer": "05",
+        "icon": "wb-pie-chart",
+        "url": null,
+        "type": null,
+        "children": [
+          {
+            "id": "11280",
+            "createDate": null,
+            "name": "统计图表",
+            "parentId": "11240",
+            "layer": "0501",
+            "icon": "",
+            "url": "",
+            "type": null,
+            "children": [
+              {
+                "id": "11281",
+                "createDate": null,
+                "name": "简单图表",
+                "parentId": "11280",
+                "layer": "050101",
+                "icon": "fa-pie-chart",
+                "url": "",
+                "type": null,
+                "children": [
+                  {
+                    "id": "11282",
+                    "createDate": null,
+                    "name": "Chart.js",
+                    "parentId": "11281",
+                    "layer": "05010101",
+                    "icon": "",
+                    "url": "/charts/chartjs",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11283",
+                    "createDate": null,
+                    "name": "Gauges",
+                    "parentId": "11281",
+                    "layer": "05010102",
+                    "icon": "",
+                    "url": "/charts/gauges",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11284",
+                    "createDate": null,
+                    "name": "Flot",
+                    "parentId": "11281",
+                    "layer": "05010103",
+                    "icon": "",
+                    "url": "/charts/flot",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11285",
+                    "createDate": null,
+                    "name": "Peity",
+                    "parentId": "11281",
+                    "layer": "05010104",
+                    "icon": "",
+                    "url": "/charts/peity",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11286",
+                    "createDate": null,
+                    "name": "Sparkline",
+                    "parentId": "11281",
+                    "layer": "05010105",
+                    "icon": "",
+                    "url": "/charts/sparkline",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11287",
+                    "createDate": null,
+                    "name": "Morris",
+                    "parentId": "11281",
+                    "layer": "05010106",
+                    "icon": "",
+                    "url": "/charts/morris",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11288",
+                    "createDate": null,
+                    "name": "Chartist",
+                    "parentId": "11281",
+                    "layer": "05010107",
+                    "icon": "",
+                    "url": "/charts/chartist",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11289",
+                    "createDate": null,
+                    "name": "Rickshaw",
+                    "parentId": "11281",
+                    "layer": "05010108",
+                    "icon": "",
+                    "url": "/charts/rickshaw",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11290",
+                    "createDate": null,
+                    "name": "C3",
+                    "parentId": "11281",
+                    "layer": "05010109",
+                    "icon": "",
+                    "url": "/charts/c3",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  }
+                ],
+                "permissionId": null
+              },
+              {
+                "id": "11291",
+                "createDate": null,
+                "name": "百度 Echarts",
+                "parentId": "11280",
+                "layer": "050102",
+                "icon": "fa-area-chart",
+                "url": "/charts/echarts",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              }
+            ],
+            "permissionId": null
+          }
+        ],
+        "permissionId": null
+      },
+      {
+        "id": "11241",
+        "createDate": null,
+        "name": "菜单示例",
+        "parentId": "0",
+        "layer": "06",
+        "icon": "fa-bars",
+        "url": null,
+        "type": null,
+        "children": [
+          {
+            "id": "11244",
+            "createDate": null,
+            "name": "菜单演示 01",
+            "parentId": "11241",
+            "layer": "0601",
+            "icon": "",
+            "url": "",
+            "type": null,
+            "children": [
+              {
+                "id": "11246",
+                "createDate": null,
+                "name": "一级菜单",
+                "parentId": "11244",
+                "layer": "060101",
+                "icon": "fa-bars",
+                "url": "",
+                "type": null,
+                "children": [
+                  {
+                    "id": "11296",
+                    "createDate": null,
+                    "name": "二级菜单 01",
+                    "parentId": "11246",
+                    "layer": "06010101",
+                    "icon": "",
+                    "url": "/examples/menu",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11297",
+                    "createDate": null,
+                    "name": "二级菜单 02",
+                    "parentId": "11246",
+                    "layer": "06010102",
+                    "icon": "",
+                    "url": "/examples/menu",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11294",
+                    "createDate": null,
+                    "name": "二级菜单 03",
+                    "parentId": "11246",
+                    "layer": "06010103",
+                    "icon": "",
+                    "url": "",
+                    "type": null,
+                    "children": [
+                      {
+                        "id": "11292",
+                        "createDate": null,
+                        "name": "三级菜单 001",
+                        "parentId": "11294",
+                        "layer": "0601010301",
+                        "icon": "",
+                        "url": "/examples/menu",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      },
+                      {
+                        "id": "11245",
+                        "createDate": null,
+                        "name": "三级菜单 002",
+                        "parentId": "11294",
+                        "layer": "0601010302",
+                        "icon": "",
+                        "url": "/examples/menu",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      },
+                      {
+                        "id": "11298",
+                        "createDate": null,
+                        "name": "三级菜单 003",
+                        "parentId": "11294",
+                        "layer": "0601010303",
+                        "icon": "",
+                        "url": "/examples/menu",
+                        "type": null,
+                        "children": null,
+                        "permissionId": null
+                      }
+                    ],
+                    "permissionId": null
+                  }
+                ],
+                "permissionId": null
+              },
+              {
+                "id": "11295",
+                "createDate": null,
+                "name": "独立菜单",
+                "parentId": "11244",
+                "layer": "060102",
+                "icon": "fa-bars",
+                "url": "/examples/menu",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              }
+            ],
+            "permissionId": null
+          },
+          {
+            "id": "11247",
+            "createDate": null,
+            "name": "菜单演示 02",
+            "parentId": "11241",
+            "layer": "0602",
+            "icon": "",
+            "url": "",
+            "type": null,
+            "children": [
+              {
+                "id": "11299",
+                "createDate": null,
+                "name": "独立菜单",
+                "parentId": "11247",
+                "layer": "060201",
+                "icon": "fa-bars",
+                "url": "/examples/menu",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              }
+            ],
+            "permissionId": null
+          }
+        ],
+        "permissionId": null
+      },
+      {
+        "id": "1",
+        "createDate": null,
+        "name": "系统管理",
+        "parentId": "0",
+        "layer": "07",
+        "icon": "wb-settings",
+        "url": "",
+        "type": null,
+        "children": [
+          {
+            "id": "2",
+            "createDate": null,
+            "name": "系统信息",
+            "parentId": "1",
+            "layer": "0701",
+            "icon": "",
+            "url": "",
+            "type": null,
+            "children": [
+              {
+                "id": "4",
+                "createDate": null,
+                "name": "菜单管理",
+                "parentId": "2",
+                "layer": "070101",
+                "icon": "fa-bars",
+                "url": "/system/menu",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              },
+              {
+                "id": "5",
+                "createDate": null,
+                "name": "组织机构",
+                "parentId": "2",
+                "layer": "070102",
+                "icon": "fa-street-view",
+                "url": "/system/organization",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              },
+              {
+                "id": "2999",
+                "createDate": null,
+                "name": "角色管理",
+                "parentId": "2",
+                "layer": "070103",
+                "icon": "fa-sliders",
+                "url": "/system/role",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              },
+              {
+                "id": "2998",
+                "createDate": null,
+                "name": "权限管理",
+                "parentId": "2",
+                "layer": "070104",
+                "icon": "fa-user-secret",
+                "url": "/system/permission",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              },
+              {
+                "id": "8",
+                "createDate": null,
+                "name": "系统设置",
+                "parentId": "2",
+                "layer": "070105",
+                "icon": "fa-gear",
+                "url": "",
+                "type": null,
+                "children": [
+                  {
+                    "id": "10",
+                    "createDate": null,
+                    "name": "显示设置",
+                    "parentId": "8",
+                    "layer": "07010501",
+                    "icon": "",
+                    "url": "/system/settings/display",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  },
+                  {
+                    "id": "11",
+                    "createDate": null,
+                    "name": "日志设置",
+                    "parentId": "8",
+                    "layer": "07010502",
+                    "icon": "",
+                    "url": "/system/settings/log",
+                    "type": null,
+                    "children": null,
+                    "permissionId": null
+                  }
+                ],
+                "permissionId": null
+              },
+              {
+                "id": "6",
+                "createDate": null,
+                "name": "日志信息",
+                "parentId": "2",
+                "layer": "070106",
+                "icon": "fa-file-text-o",
+                "url": "/system/log",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              },
+              {
+                "id": "7",
+                "createDate": null,
+                "name": "黑名单",
+                "parentId": "2",
+                "layer": "070107",
+                "icon": "fa-shield",
+                "url": "/system/blacklist",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              }
+            ],
+            "permissionId": null
+          },
+          {
+            "id": "3",
+            "createDate": null,
+            "name": "我的账户",
+            "parentId": "1",
+            "layer": "0702",
+            "icon": "",
+            "url": "",
+            "type": null,
+            "children": [
+              {
+                "id": "12",
+                "createDate": null,
+                "name": "账户信息",
+                "parentId": "3",
+                "layer": "070201",
+                "icon": "fa-key",
+                "url": "/system/account",
+                "type": null,
+                "children": null,
+                "permissionId": null
+              }
+            ],
+            "permissionId": null
+          }
+        ],
+        "permissionId": null
+      }
+    ]
+  }

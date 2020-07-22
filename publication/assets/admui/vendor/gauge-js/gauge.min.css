@@ -1,0 +1,6 @@
+/**
+ * Admui-iframe v2.0.0 (http://www.admui.com/)
+ * Copyright 2015-2018 Admui Team
+ * Licensed under the Admui License 1.1 (http://www.admui.com/about/license)
+ */
+.donut,.gauge{text-align:center}.donut canvas,.gauge canvas{display:inline-block;max-width:100%}.donut-label,.gauge-label{font-weight:700;color:#37474f}.bootbox .modal-dialog{width:360px}.gauge{position:relative}.gauge canvas{width:200px}.gauge-label{position:absolute;bottom:15%;width:100%;font-size:24px}.gauge-sm canvas{width:150px}.gauge-sm .gauge-label{font-size:18px}.gauge-lg canvas{width:300px}.gauge-lg .gauge-label{font-size:36px}.donut{position:relative}.donut canvas{width:200px}.donut-label{position:absolute;top:50%;width:100%;font-size:24px;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.donut-sm canvas{width:150px}.donut-sm .donut-label{font-size:18px}.donut-lg canvas{width:300px}.donut-lg .donut-label{font-size:36px}

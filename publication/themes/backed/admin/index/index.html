@@ -1,0 +1,352 @@
+<layout name="layout/index@layout" />
+
+
+<body class="site-menubar-unfold site-contabs-open" data-theme="base">
+    <!--头部导航  主菜单-->
+    <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-inverse" id="admui-siteNavbar"
+         role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggler hamburger hamburger-close navbar-toggler-left hided"
+                    data-toggle="menubar">
+                <span class="sr-only">切换菜单</span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <button type="button" class="navbar-toggler collapsed" data-target="#admui-navbarCollapse"
+                    data-toggle="collapse">
+                <i class="icon wb-more-horizontal" aria-hidden="true"></i>
+            </button>
+            <div class="navbar-brand navbar-brand-center site-gridmenu-toggle " data-toggle="gridmenu">
+                <a href="__ABS__" >
+                    <img class="navbar-brand-logo d-sm-block d-lg-block d-none navbar-logo"
+                         src="__ABS__/assets/admui/images/admin_index_logo.png" title="Xchat">
+                </a>
+
+                <!--<img class="navbar-brand-logo d-sm-block d-lg-block d-none navbar-logo"
+                     src="__ABS__/assets/admui/images/logo-white.svg" title="Xchat">
+                <img class="navbar-brand-logo d-sm-none navbar-logo-mini" src="__ABS__/assets/admui/images/logo-white-min.svg"
+                     title="Xchat">-->
+            </div>
+        </div>
+
+        <div class="navbar-container container-fluid">
+            <div class="collapse navbar-collapse navbar-collapse-toolbar" id="admui-navbarCollapse">
+                <ul class="nav navbar-toolbar navbar-left">
+                    <li class="nav-item hidden-float" id="toggleMenubar">
+                        <a class="nav-link" data-toggle="menubar" href="javascript:void (0);" role="button"
+                           id="admui-toggleMenubar">
+                            <i class="icon hamburger hamburger-arrow-left">
+                                <span class="sr-only">切换目录</span>
+                                <span class="hamburger-bar"></span>
+                            </i>
+                        </a>
+                    </li>
+                    <li class="navbar-menu nav-tabs-horizontal nav-tabs-animate is-load" id="admui-navMenu">
+                        <ul class="nav navbar-toolbar nav-tabs" role="tablist">
+                            <notempty name="submenus">
+                                <php>foreach($submenus as $menu){</php>
+                                <li class="nav-item">
+                                    <a class="nav-link {$menu.key==1?'active':''}" data-toggle="tab" href="#admui-navTabsItem-{$menu.key}"
+                                       aria-controls="admui-navTabsItem-{$menu.key+1}" role="tab" aria-expanded="false">
+                                        <i class="icon {$menu.icon}"></i>
+                                        <span>{$menu.name}</span>
+                                    </a>
+                                </li>
+                                <php>}</php>
+                                <php>$values = !empty($menu['items']) ? $menu['items'] : '';</php>
+                            </notempty>
+                            <!--导航栏更多选择-->
+                           <!-- <li class="nav-item dropdown" id="admui-navbarSubMenu">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:void (0);"
+                                   data-animation="slide-bottom">
+                                    更多
+                                </a>
+                                <div class="dropdown-menu">
+                                <a class="dropdown-item no-menu" href="/html/site-map.html" target="_blank">
+                                    <i class="icon wb-list-numbered"></i>
+                                    <span>网站地图</span>
+                                </a>
+                                <a class="dropdown-item no-menu" href="/admin/system/menu" target="_blank">
+                                    <i class="icon wb-wrench"></i>
+                                    <span>系统管理</span>
+                                </a>
+                            </div>
+                            </li>-->
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+                    <li class="nav-item dropdown" id="admui-navbarUser">
+                        <a class="nav-link navbar-avatar" data-toggle="dropdown" href="javascript:void (0);" aria-expanded="false"
+                           data-animation="scale-up"
+                           role="button">
+                            <span class="avatar avatar-online">
+                                <img src="__ABS__/assets/admui/images/avatar.svg" alt="...">
+                                <i></i>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu" role="menu">
+                            <a class="dropdown-item" href="/admin/index/headerNav?tab=display" target="_blank" role="menuitem">
+                                <i class="icon wb-layout" aria-hidden="true"></i>
+                                <span>显示设置</span>
+                            </a>
+                            <a class="dropdown-item" href="/admin/index/headerNav?tab=password" target="_blank" role="menuitem">
+                                <i class="icon wb-pencil" aria-hidden="true"></i>
+                                <span>修改密码</span>
+                            </a>
+                            <a class="dropdown-item" href="/admin/index/headerNav?tab=message" target="_blank" role="menuitem">
+                                <i class="icon wb-settings" aria-hidden="true"></i>
+                                <span>账户信息</span>
+                            </a>
+                            <div class="dropdown-divider" role="presentation"></div>
+                            <a class="dropdown-item" id="admui-signOut" data-ctx="" href="/admin/public/logout" role="menuitem">
+                                <i class="icon wb-power"></i>
+                                <span>退出</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown" id="admui-navbarMessage">
+                        <a class="nav-link msg-btn" data-toggle="dropdown" href="javascript:void (0);" aria-expanded="false"
+                           data-animation="scale-up" role="button">
+                            <php>if(empty($msgList)){</php>
+                                <img src="/assets/admin/empty_message.png" alt="" width="20px" height="20px">
+                            <php>}else{</php>
+                                <img src="/assets/admin/as_message.png" alt="" width="20px" height="20px">
+                            <php>}</php>
+                            <span class="badge badge-danger up msg-num"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media" role="menu">
+                            <li class="dropdown-menu-header" role="presentation">
+                                <h5>最新消息</h5>
+                                <span class="badge badge-round label-danger"></span>
+                            </li>
+                            <li class="list-group" role="presentation">
+
+                                <?php if(empty($msgList)){ ?>
+                                <p class="text-center h-200 vertical-align">
+                                    <small class="vertical-align-middle opacity-four">没有新消息</small>
+                                </p>
+                                <?php } else { ?>
+                                    <?php foreach($msgList as $key => $item){ ?>
+                                        <php>if($key < 3){</php>
+                                        <a class="list-group-item" href="javascript:void (0)" data-message-id="{$item.id}" onclick="alreadyRead({$item['id']},0)"
+                                           data-title="{$item.title}" data-content="{$item.content}" role="menuitem">
+                                            <div class="media">
+                                                <div class="pr-10">
+                                                    <i class="icon wb-medium-point red-600" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h6 class="media-heading">{$item.title}</h6>
+                                                    <time class="media-meta" datetime="{$item.create_time}">
+                                                        {:date("Y-m-d H:i:s",$item.create_time) }
+                                                    </time>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <?php } ?>
+                                    <?php } ?>
+                                <?php } ?>
+                            </li>
+                            <div class="dropdown-menu-footer" role="presentation">
+                                <a class="dropdown-item" href="/admin/index/headerNav?tab=message" target="_blank" role="menuitem">
+                                    <i class="icon fa-navicon"></i>所有消息
+                                </a>
+                            </div>
+                        </ul>
+                    </li>
+                    <!--<li class="nav-item d-none d-sm-block" id="admui-navbarDisplay" data-toggle="tooltip"
+                        data-placement="bottom" title="设置主题与布局等">
+                        <a class="nav-link" href="/html/system/settings/display.html" target="_blank">
+                            <i class="icon wb-layout"></i>
+                            <span class="sr-only">主题与布局</span>
+                        </a>
+                    </li>-->
+                    <li class="nav-item d-none d-sm-block" id="admui-navbarFullscreen" data-toggle="tooltip"
+                        data-placement="bottom" title="全屏">
+                        <a class="nav-link" data-toggle="fullscreen" href="javascript:void (0);" role="button">
+                            <i class="icon icon-fullscreen"></i>
+                            <span class="sr-only">全屏</span>
+                        </a>
+                    </li>
+                    <li class="nav-item d-none d-sm-block" id="admui-navbarClear" data-toggle="tooltip"
+                        data-placement="bottom" title="清除缓存">
+                        <a class="nav-link" href="javascript:void (0)">
+                            <i class="icon fa-trash"></i>
+                            <span class="sr-only">清除缓存</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 右侧栏菜单 START -->
+    <nav class="site-menubar" id="admui-siteMenubar">
+        <div class="site-menubar-body">
+            <div class="tab-content h-full" id="admui-navTabs">
+                <!--左侧菜单栏数据遍历-->
+                <notempty name="submenus">
+                    <foreach name="submenus" item="menus">
+                        <div class="tab-pane animation-fade h-full {$menus.key==1?'active':''}" id="admui-navTabsItem-{$menus.key}" role="tabpanel">
+                            <ul class="site-menu">
+                                <li class="site-menu-category"></li>
+                                <php>if(!empty($menus['items'])){</php>
+                                <php>foreach($menus['items'] as $value){;</php>
+                                    <php>if(!empty($value['items'])){</php>
+                                        <li class="site-menu-item has-sub">
+                                            <a href="javascript:void (0);">
+                                                <i class="site-menu-icon {$value.icon}" aria-hidden="true"></i>
+                                                <span class="site-menu-title">{$value.name}</span>
+                                                <span class="site-menu-arrow"></span>
+                                            </a>
+                                            <ul class="site-menu-sub">
+                                                <php>if(!empty($value['items'])){</php>
+                                                    <php>foreach($value['items'] as $val){</php>
+                                                        <li class="site-menu-item">
+                                                            <a href="{$val.url}" target="_blank">
+                                                                <span class="site-menu-title">{$val.name}</span>
+                                                            </a>
+                                                        </li>
+                                                    <php>}</php>
+                                                <php>}</php>
+                                            </ul>
+                                        </li>
+                                    <php>}else{</php>
+                                        <li class="site-menu-item">
+                                            <a href="{$value.url}" target="_blank">
+                                                <i class="site-menu-icon {$value.icon}" aria-hidden="true"></i>
+                                                <span class="site-menu-title">{$value.name}</span>
+                                            </a>
+                                        </li>
+                                    <php>}</php>
+                                <php>}</php>
+                                <php>}</php>
+                            </ul>
+                        </div>
+                    </foreach>
+                </notempty>
+                <!--左侧菜单栏数据遍历 end-->
+            </div>
+        </div>
+    </nav>
+    <!-- 右侧栏菜单 END -->
+
+    <!--内容区菜单栏 START-->
+    <nav class="site-contabs" id="admui-siteConTabs">
+        <button type="button" class="btn btn-icon btn-default float-left hide" id="admui-tabL">
+            <i class="icon fa-angle-double-left"></i>
+        </button>
+        <div class="contabs-scroll float-left">
+            <ul class="nav con-tabs">
+                <li>
+                    <a href="/admin/index/home" target="frame-0" title="首页"><span>首页</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="btn-group float-right">
+            <button type="button" class="btn btn-icon btn-default hide" id="admui-tabR">
+                <i class="icon fa-angle-double-right"></i>
+            </button>
+            <button type="button" class="btn btn-default dropdown-toggle btn-outline" data-toggle="dropdown" aria-expanded="false">
+                <span class="caret"></span> <span class="sr-only">切换菜单</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="conTabsDropdown" role="menu">
+                <a class="dropdown-item reload-page" href="javascript:void (0);" role="menuitem"><i class="icon wb-reload"></i> 刷新当前</a>
+                <a class="dropdown-item close-other" href="javascript:void (0);" role="menuitem"><i class="icon wb-close"></i> 关闭其他</a>
+                <a class="dropdown-item close-all" href="javascript:void (0);" role="menuitem"><i class="icon wb-power"></i> 关闭所有</a>
+            </div>
+        </div>
+    </nav>
+    <!--内容区菜单栏 END -->
+
+    <!--内容区 START-->
+    <main class="site-page">
+        <div class="page-container" id="admui-pageContent">
+            <iframe src="" frameborder="0" id="admui-pageContent1" name="frame-0" class="page-frame animation-fade"></iframe>
+        </div>
+        <div class="page-loading vertical-align text-center">
+            <div class="page-loader loader-default loader vertical-align-middle" data-type="default"></div>
+        </div>
+    </main>
+    <!--内容区 END -->
+</body>
+<script>
+    var status = true;
+    DiGui = function (param) {
+        $.ajax({
+            type: 'POST',
+            url: "{:url('Index/getMessageNumber');}",
+            dataType: "json",
+            data: {},
+            success: function (data) {
+                var message_length = data.num;
+                if (data.code === 200 && message_length > 0) {
+                    layer.msg('您有' +message_length +'条未读消息',{time:5000,offset:'80px'});
+                }
+                return  false;
+            }
+        })
+    };
+    if (status) {
+        window.setInterval("DiGui()", 30000);
+    }
+    DiGui();
+
+
+
+    $(".site-menu>li").click(function () {
+       $(this).addClass('active');
+       $(this).siblings('li').removeClass('active');
+    });
+    $("#admui-navbarClear").on('click',function () {
+        layer.confirm('确定要清除缓存吗？', {icon: 3, title:'提示'}, function(index) {
+            $.ajax({
+                type: 'POST',
+                url: "{:url('ClearCache/action');}",
+                data: {},
+                dataType: "json",
+                success: function (data) {
+                    if (data.code === 200) {
+                        layer.alert('清除缓存成功', {icon: 5}, function () {
+                            window.parent.location.reload();
+                            var index = parent.layer.getFrameIndex(window.name);
+                            parent.layer.close(index);
+                        });
+                    } else {
+                        layer.alert(data.msg, {icon: 7}, function () {
+                            var index = parent.layer.getFrameIndex(window.name);
+                            parent.layer.close(index);
+                        });
+                    }
+                },
+                error: function (data) {
+                    layer.alert('操作失败，请重新操作', {icon: 2});
+                }
+            })
+        })
+    });
+
+    //已读
+    function alreadyRead(id,type){
+        $.ajax({
+            type: 'POST',
+            url: "{:url('UserCenter/alreadyRead');}",
+            data: {
+                id: id,
+                type:type
+            },
+            dataType: "json",
+            success: function(data){
+                if(data.code === 200){
+                    layer.msg('已读成功', {icon: 5});
+                }else{
+                    layer.msg('已读失败');
+                }
+                window.parent.location.reload();
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 7});
+            }
+
+        });
+    }
+</script>

@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>添加礼物 - 礼物管理 - 直播系统</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="admui.com">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止搜索引擎抓取 -->
+    <meta name="robots" content="nofollow">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Chrome浏览器添加桌面快捷方式（安卓） -->
+    <link rel="icon" type="image/png" href="__ABS__/assets/admui/images/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Safari浏览器添加到主屏幕（IOS） -->
+    <link rel="icon" sizes="192x192" href="__ABS__/assets/admui/images/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Admui">
+    <!-- Win8标题栏及ICON图标 -->
+    <link rel="apple-touch-icon-precomposed" href="__ABS__/assets/admui/images/apple-touch-icon.png">
+    <meta name="msapplication-TileImage" content="__ABS__/assets/admui/images/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#62a8ea">
+    
+    <!--[if lte IE 9]>
+    <meta http-equiv="refresh" content="0; url='http://www.admui.com/ie'"/>
+    <![endif]-->
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/global/css/bootstrap.css">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/base/css/site.css" id="admui-siteStyle">
+    
+    <!-- 插件 CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/fonts/web-icons/web-icons.css">
+
+    <link rel="stylesheet" href="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload.css">
+    <link rel="stylesheet" href="__ABS__/assets/admui/vendor/dropify/dropify.css">
+
+
+    <!-- Page CSS-->
+    <link rel="stylesheet" href="__ABS__/assets/admui/css/examples/forms/validation.css">
+
+    <!-- 插件 -->
+    <script src="__ABS__/assets/admui/vendor/jquery/jquery.min.js"></script>
+    <script src="__ABS__/assets/admui/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="__ABS__/assets/admui/vendor/lodash/lodash.min.js"></script>
+
+    <style>
+        /* input样式 */
+        #uploadImg,#uploadImg_1{
+            display: none;
+        }
+
+        #uploadFile,#rechooseFile,#uploadFile_1,#rechooseFile_1 {
+            display: none;
+        }
+
+        #image,#image_1{
+            width:200px;
+            height:200px;
+        }
+
+        /* 进度条样式 */
+        .bar {
+            background-image: -webkit-linear-gradient(top,#5cb85c 0,#449d44 100%);
+            background-image: -o-linear-gradient(top,#5cb85c 0,#449d44 100%);
+            background-image: -webkit-gradient(linear,left top,left bottom,from(#5cb85c),to(#449d44));
+            background-image: linear-gradient(to bottom,#5cb85c 0,#449d44 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5cb85c', endColorstr='#ff449d44', GradientType=0);
+            background-repeat: repeat-x;
+            height: 20px;
+            line-height: 20px;
+            -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+            box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+            -webkit-transition: width .6s ease;
+            -o-transition: width .6s ease;
+            transition: width .6s ease;
+        }
+        #progress,#progress_1 {
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffebebeb', endColorstr='#fff5f5f5', GradientType=0);
+            background-repeat: repeat-x;
+            height: 20px;
+            width: 0%;
+            margin-bottom: 20px;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+            box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+            margin-top: 20px;
+        }
+        .effect_div{
+            margin-bottom: 10px;
+        }
+        </style>
+</head>
+<body data-theme="base">
+
+<div class="page animation-fade page-forms">
+    <form  method="post" multiple="" id="exampleFullForm" autocomplete="off" novalidate="novalidate">
+    <div class="page-content">
+        <div class="panel">
+            <div class="panel-body container-fluid">
+                <div class="row row-lg">
+                    <div class="col-xxl-4 col-xl-6 form-horizontal">
+                        <div class="form-group row">
+                            <label class="col-xl-3 col-md-3 col-form-label">
+                                <span class="required" style="font-size: 12px;color: red">*</span>礼物名称
+                            </label>
+                            <div class="col-xl-6 col-md-6">
+                                <input type="text" class="form-control" name="name" placeholder="请输入礼物名称" required="required">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-xl-3 col-md-3 col-form-label">
+                                <span class="required" style="font-size: 12px;color: red">*</span>礼物价值金币
+                            </label>
+                            <div class="col-xl-6 col-md-6">
+                                <input type="text" class="form-control" name="coin" placeholder="请输入金币数额" required="required">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-xl-3 col-md-3 col-form-label"><span class="required" style="font-size: 12px;color: red">*</span>是否使用</label>
+                            <div class="col-xl-6 col-md-6">
+                                <div class="radio-custom radio-default radio-inline">
+                                    <input type="radio" id="inputMale" name="status" value="1" checked>
+                                    <label for="inputMale">使用</label>
+                                </div>
+                                <div class="radio-custom radio-default radio-inline">
+                                    <input type="radio" id="inputFemale" name="status" value="0">
+                                    <label for="inputFemale">暂停</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-xl-3 col-md-3 col-form-label"><span class="required" style="font-size: 12px;color: red">*</span>使用场景</label>
+                            <div class="col-xl-6 col-md-6">
+                                <select class="form-control" name="type" id="type" data-plugin="select2">
+                                    <php>if(isset($type) && !empty($type)){</php>
+                                        <php>foreach($type as $key=>$item){</php>
+                                            <option value="{$key}" class="form-control">{$item}</option>
+                                        <php>}</php>
+                                    <php>}</php>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-xl-3 col-md-3 col-form-label"><span class="required" style="font-size: 12px;color: red">*</span>礼物样式</label>
+                            <div class="col-xl-6 col-md-6">
+                                <select class="form-control" name="style" id="style" data-plugin="select2">
+                                    <php>if(isset($style) && !empty($style)){</php>
+                                        <php>foreach($style as $key=>$item){</php>
+                                            <option value="{$key}" class="form-control">{$item}</option>
+                                        <php>}</php>
+                                    <php>}</php>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-xl-3 col-md-3 col-form-label">排序</label>
+                            <div class="col-xl-6 col-md-6">
+                                <input type="text" class="form-control" name="sort" placeholder="" required="required" value="0">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-xl-3 col-md-3 col-form-label">备注说明</label>
+                            <div class="col-xl-6 col-md-6">
+                                <textarea class="form-control" id="remark" name="remark" rows="3" placeholder="请输入1-255个字符" required=""></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xxl-4 col-xl-6 form-horizontal">
+                        <div class="row form-horizontal">
+                            <div class="col-xl-12 form-horizontal">
+                                <div class="form-group row">
+                                    <label class="col-xl-12 col-md-3 col-form-label"><span style="font-size: 12px;color: red">*</span>icon缩略图</label>
+                                    <!--<hr class="col-xl-12 col-md-12" style="margin-top: 0;padding-top: 0;">-->
+                                    <div class="jquery-fileupload col-xl-9 col-md-6">
+                                        <div class="effect_div">
+                                            <input id="uploadImg" type="file" name="gift_thumb" multiple style="display: none" />
+                                            <input type="hidden" name="gift_thumb_dir" id="gift_thumb_dir" required>
+                                            <button type="button" class="btn btn-outline btn-primary" id="chooseFile">
+                                                <i class="icon wb-plus" aria-hidden="true"></i> 选择文件
+                                            </button>
+                                            <button type="button" class="btn btn-dark" id="uploadFile">
+                                                <i class="icon wb-upload" aria-hidden="true"></i> 开始上传
+                                            </button>
+                                            <button type="button" class="btn btn-raised" id="rechooseFile">
+                                                <i class="icon wb-pencil" aria-hidden="true"></i> 重新选择
+                                            </button>
+                                        </div>
+                                        <div>
+                                            <img id="image" src="" alt="">
+                                        </div>
+                                        <div id="progress">
+                                            <div class="bar" style="width: 0;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-horizontal">
+                            <div class="col-xl-12 form-horizontal">
+                                <div class="form-group row">
+                                    <label class="col-xl-12 col-md-3 col-form-label"><span style="font-size: 12px;color: red">*</span>Gif图片</label>
+                                    <!--<hr class="col-xl-12 col-md-12" style="margin-top: 0;padding-top: 0;">-->
+                                    <div class="jquery-fileupload col-xl-9 col-md-6">
+                                        <div class="effect_div">
+                                            <input id="uploadImg_1" type="file" name="gift_gif" multiple style="display: none" />
+                                            <input type="hidden" name="gift_gif_dir" id="gift_gif_dir" required>
+                                            <button type="button" class="btn btn-outline btn-primary" id="chooseFile_1">
+                                                <i class="icon wb-plus" aria-hidden="true"></i> 选择文件
+                                            </button>
+                                            <button type="button" class="btn btn-dark" id="uploadFile_1">
+                                                <i class="icon wb-upload" aria-hidden="true"></i> 开始上传
+                                            </button>
+                                            <button type="button" class="btn btn-raised" id="rechooseFile_1">
+                                                <i class="icon wb-pencil" aria-hidden="true"></i> 重新选择
+                                            </button>
+                                        </div>
+                                        <div>
+                                            <img id="image_1" src="" alt="">
+                                        </div>
+                                        <div id="progress_1">
+                                            <div class="bar" style="width: 0;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-12 col-xl-12">
+                        <button type="button" class="btn btn-primary" id="query">提交</button>
+                        <button type="reset" class="btn btn-default btn-outline">重置</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+
+<script src="__ABS__/assets/admui/vendor/jquery/jquery.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/layer/layer.min.js"></script>
+<!-- jquery file upload相关js -->
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/vendor/jquery.ui.widget.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.iframe-transport.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload-process.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload-validate.js"></script>
+
+<script src="__ABS__/assets/admui/js/admin/gift_upload.js"></script>
+
+<script>
+    /*表单提交*/
+    $("#query").on('click',function () {
+        let name = $("input[name='name']").val(),
+            coin = $("input[name='coin']").val(),
+            sort = $("input[name='sort']").val(),
+            type = $("#type option:selected").val(),
+            style = $("#style option:selected").val(),
+            status = $("input[type=radio][name='status']:checked").val(),
+            gift_thumb_dir = $("input[name='gift_thumb_dir']").val(),
+            gift_gif_dir = $("input[name='gift_gif_dir']").val(),
+            remark = $("#remark").val();
+        $.ajax({
+            type: 'POST',
+            url: "{:url('gift/AddGift');}",
+            data: {
+                name:name,
+                coin:coin,
+                status:status,
+                sort:sort,
+                type:type,
+                style:style,
+                gift_thumb_dir:gift_thumb_dir,
+                gift_gif_dir:gift_gif_dir,
+                remark:remark,
+            },
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+                if(data.code === 200){
+                    layer.alert('操作成功', {icon: 6},function () {
+                        window.parent.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else {
+                    layer.alert(data.msg, {icon: 5});
+                }
+            },
+            error:function (data) {
+                console.log(data);
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>管理后台</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="admui.com">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止搜索引擎抓取 -->
+    <meta name="robots" content="nofollow">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Chrome浏览器添加桌面快捷方式（安卓） -->
+    <link rel="icon" type="image/png" href="__ABS__/assets/admui/images/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Safari浏览器添加到主屏幕（IOS） -->
+    <link rel="icon" sizes="192x192" href="__ABS__/assets/admui/images/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Admui">
+    <!-- Win8标题栏及ICON图标 -->
+    <link rel="apple-touch-icon-precomposed" href="__ABS__/assets/admui/images/apple-touch-icon.png">
+    <meta name="msapplication-TileImage" content="__ABS__/assets/admui/images/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#62a8ea">
+
+    <!--[if lte IE 9]>
+    <meta http-equiv="refresh" content="0; url='http://www.admui.com/ie'"/>
+    <![endif]-->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/global/css/bootstrap.css">
+
+    <!-- 字体图标 CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/fonts/web-icons/web-icons.css">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/base/css/site.css" id="admui-siteStyle">
+
+    <!-- 插件 CSS -->
+
+
+    <link rel="stylesheet" href="__ABS__/assets/admui/vendor/plyr/plyr.css">
+
+    <!-- Page CSS -->
+
+
+    <!-- 插件 -->
+    <script src="__ABS__/assets/admui/vendor/jquery/jquery.min.js"></script>
+    <script src="__ABS__/assets/admui/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="__ABS__/assets/admui/vendor/lodash/lodash.min.js"></script>
+    <style>
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        .user_info li{
+            margin-top: 1rem;
+            margin-left: 0.2rem;
+        }
+        .from_value{
+            overflow: hidden;
+        }
+        .from_value li{
+            float: left;
+            margin-right: 0.5rem;
+            line-height: 30px;
+        }
+        input,audio,button{
+            outline: none;
+        }
+    </style>
+</head>
+<body data-theme="base">
+
+<div class="page animation-fade">
+    <div class="page-content">
+        <div class="panel">
+            <div class="panel-body container-fluid">
+                <div class="row row-lg">
+                    <div class="col-md-6">
+                        <div class="example-wrap">
+                            <h4 class="example-title">发起者</h4>
+                            <div class="example">
+                                <div class="video_btn_1" style="width: 442px;height: 589px">
+                                    <video id="video1"></video>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="example-wrap">
+                            <h3 class="example-title">用户信息</h3>
+                            <hr>
+                            <div class="example">
+                                <ul class="user_info ">
+                                    <li class="row"><span class="col-md-2">UID：</span><span class="col-md-6" style="color: #0a2b1d">{$launch.user.id}</span></li>
+                                    <li class="row"><span class="col-md-2">昵称：</span><span class="col-md-6" style="color: #0a2b1d">{$launch.user.user_nickname}</span></li>
+                                    <li class="row"><span class="col-md-2">头像：</span><span class="col-md-6" style="color: #0a2b1d"><img src="{$launch.user.avatar}" alt="用户头像" height="40px" width="40px"></span></li>
+                                    <li class="row"><span class="col-md-2">性别：</span><span class="col-md-6" style="color: #0a2b1d">{$sex[$launch.user.sex]}</span></li>
+                                    <li class="row"><span class="col-md-2">年龄：</span><span class="col-md-6" style="color: #0a2b1d">{$launch.user.age}</span></li>
+                                    <li class="row"><span class="col-md-2">电话：</span><span class="col-md-6" style="color: #0a2b1d">{$launch.user.mobile}</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="example-wrap">
+                            <h4 class="example-title">接收者</h4>
+                            <div class="example">
+                                <div class="video_btn_2" style="width: 442px;height: 589px">
+                                    <video id="video2"></video>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="example-wrap">
+                            <h3 class="example-title">用户信息</h3>
+                            <hr>
+                            <div class="example">
+                                <ul class="user_info ">
+                                    <li class="row"><span class="col-md-2">UID：</span><span class="col-md-6" style="color: #0a2b1d">{$accept.user.id}</span></li>
+                                    <li class="row"><span class="col-md-2">昵称：</span><span class="col-md-6" style="color: #0a2b1d">{$accept.user.user_nickname}</span></li>
+                                    <li class="row"><span class="col-md-2">头像：</span><span class="col-md-6" style="color: #0a2b1d"><img src="{$accept.user.avatar}" alt="" height="40px" width="40px"></span></li>
+                                    <li class="row"><span class="col-md-2">性别：</span><span class="col-md-6" style="color: #0a2b1d">{$sex[$accept.user.sex]}</span></li>
+                                    <li class="row"><span class="col-md-2">年龄：</span><span class="col-md-6" style="color: #0a2b1d">{$accept.user.age}</span></li>
+                                    <li class="row"><span class="col-md-2">电话：</span><span class="col-md-6" style="color: #0a2b1d">{$accept.user.mobile}</span></li>
+                                </ul>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <hr class="col-md-12">
+                    <div class="wrap js-check-wrap col-md-12" style="padding:0 10px 0">
+                        <form class="well form-inline margin-top-10" action="#" name="form1" id="from1" enctype="multipart/form-data">
+                            <ul class="checkList">
+                                <li>
+                                    <ul class="from_value">
+                                        <li><input type="radio" name="type" id="video11" checked value="1"></li>
+                                        <li><label for="video1">警告</label></li>
+                                        <li><input type="text" name="content"  placeholder="请输入警告内容" id="content-video" class="form-control"></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul class="from_value">
+                                        <li><input type="radio" name="type" id="video22" value="2"></li>
+                                        <li><label for="video2">关闭直播</label></li>
+                                    </ul>
+                                </li>
+                                <input type="hidden" value="{$accept.home_id|default=0}" name="home_id" id="home_id">
+                                <li style="margin-top: 0.5rem">
+                                    <input type="submit" class="btn btn-primary" id="query" value="提交" />
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 插件 -->
+<script src="__ABS__/assets/admui/vendor/matchheight/jquery.matchHeight.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/plyr/plyr.js"></script>
+<script src="__ABS__/assets/admui/vendor/layer/layer.min.js"></script>
+<script src="__ABS__/assets/admui/themes/base/js/app.js"></script>
+
+<!-- Page JS -->
+
+</body>
+</html>
+
+
+<script src="__ABS__/assets/admui/js/hls.min.js"></script>
+<script>
+    $(".video_btn_1").on('click','button',function () {
+        if(Hls.isSupported()) {
+            var video = document.getElementById('video1');
+            var hls = new Hls();
+            //hls.loadSource('http://www.streambox.fr/playlists/test_001/stream.m3u8');//测试
+            hls.loadSource('{$launch.url}');
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED,function() {
+                video.play();
+            });
+        }
+    });
+
+    $(".video_btn_2").on('click','button',function () {
+        if(Hls.isSupported()) {
+            var video = document.getElementById('video2');
+            var hls = new Hls();
+            //hls.loadSource('http://www.streambox.fr/playlists/test_001/stream.m3u8');//测试
+            hls.loadSource('{$accept.url}');
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED,function() {
+                video.play();
+            });
+        }
+    });
+
+    /*警告 关闭直播*/
+    $("#query").on('click',function () {
+        var type = $("input[name=type]:checked").val();
+        var content = $("#content-video").val();
+        if(type === '1'){
+            if(content === ''){
+                layer.alert('警告内容不能为空',{icon:5});
+                return false;
+            }
+        }
+        $.ajax({
+            type: 'POST',
+            url: "{:url('OnlineVideo/setVideo');}",
+            data: {type:type,content:content,home_id:$("#home_id").val()},
+            dataType: "json",
+            success: function(data){
+                if(data.code === 200){
+                    layer.alert('操作成功', {icon: 6},function () {
+                        window.parent.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else {
+                    layer.alert(data.msg, {icon: 5});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+
+</script>

@@ -1,0 +1,6 @@
+/**
+ * Admui-iframe v2.0.0 (http://www.admui.com/)
+ * Copyright 2015-2018 Admui Team
+ * Licensed under the Admui License 1.1 (http://www.admui.com/about/license)
+ */
+.animsition-loading,.animsition-loading:after{width:32px;height:32px;position:fixed;top:50%;left:50%;margin-top:-16px;margin-left:-16px;border-radius:50%;z-index:100}.animsition-loading{background-color:transparent;border-top:5px solid rgba(0,0,0,.2);border-right:5px solid rgba(0,0,0,.2);border-bottom:5px solid rgba(0,0,0,.2);border-left:5px solid #eee;-webkit-transform:translateZ(0);transform:translateZ(0);-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;-webkit-animation-timing-function:linear;animation-timing-function:linear;-webkit-animation-duration:.8s;animation-duration:.8s;-webkit-animation-name:animsition-loading;animation-name:animsition-loading}@-webkit-keyframes animsition-loading{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes animsition-loading{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}

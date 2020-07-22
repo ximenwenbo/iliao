@@ -1,0 +1,86 @@
+<include file="layout/iframe@header" />
+
+<style>
+    body {
+        padding-top: 0;
+    }
+    #dateCss input,#dateCss div,#dateCss>small{
+        float: left;
+    }
+    #dateCss div{
+        width: 10px;
+        line-height: 32px;
+        text-align: center;
+    }
+    #dateCss input{
+        width: 20%;
+    }
+    #dateCss>small{
+        line-height: 32px;
+        padding-left: 10px;
+    }
+</style>
+<body class="page-aside-fixed page-aside-left" data-theme="base">
+
+<div class="page animation-fade">
+    <include file="admin/setting/layout@sidebar" />
+    <div class="page-main">
+            <div class="page-header">
+                <h3 class="page-title">提现配置</h3>
+            </div>
+            <div class="page-content col-xxl-8">
+                <div class="panel">
+                    <form class="form-horizontal panel-body" id="exampleStandardForm" action="{:url('setting/CashWithdrawalPost')}" method="post" autocomplete="off" novalidate="novalidate">
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">提现分成：</label>
+                        <div class="col-md-6 input-group">
+                            <input type="text" class="form-control col-6" name="withdrawRate" value="{$cashwithdrawalgrade.withdrawRate ?? ''}" placeholder="填写小于100的数字" autocomplete="off">
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-default">%</button>
+                            </span>
+                            <span class="form-text small">&nbsp;平台抽成百分比</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">提现最低额度：</label>
+                        <div class="col-md-6 input-group">
+                            <input type="text" class="form-control col-6" name="minQuota" value="{$cashwithdrawalgrade.minQuota ?? ''}" placeholder="填写数字" autocomplete="off">
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-default">元</button>
+                            </span>
+                            <span class="form-text small">&nbsp;可提现余额低于该值将不允许提现</span>
+                        </div>
+                    </div>
+                    <!--<div class="form-group row">-->
+                        <!--<label class="col-md-2 col-form-label">每月提现期：</label>-->
+                        <!--<div class="col-md-6" id="dateCss">-->
+                            <!--<input type="text" class="form-control" name="startTime" value="{$cashwithdrawalgrade.startTime ?? ''}" placeholder="1" autocomplete="off">-->
+                            <!--<div>-</div>-->
+                            <!--<input type="text" class="form-control" name="endTime" value="{$cashwithdrawalgrade.endTime ?? ''}" placeholder="31" autocomplete="off">-->
+                            <!--<small>每月提现期限,不在时间段无法提现</small>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group row">-->
+                        <!--<label class="col-md-2 col-form-label">每月提现次数：</label>-->
+                        <!--<div class="col-md-2">-->
+                            <!--<input type="text" class="form-control" name="number" value="{$cashwithdrawalgrade.number ?? ''}" placeholder="0" autocomplete="off">-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label"></label>
+                        <div class="col-md-6 input-group">
+                            <button type="submit" class="btn btn-primary">提交</button>&nbsp;&nbsp;
+                            <button type="reset" class="btn btn-default btn-outline">还原</button>
+                        </div>
+                    </div>
+                </form>
+
+                </div>
+            </div>
+        </div>
+
+</div>
+
+</body>
+</html>

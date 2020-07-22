@@ -1,0 +1,198 @@
+@CHARSET "UTF-8";
+ul,li{
+	list-style: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.input-order {
+	width: 30px;
+}
+
+.wrap {
+	padding: 0 20px 0;
+}
+
+.margin-top-10 {
+	margin-top: 10px !important;
+}
+
+.margin-top-20 {
+	margin-top: 20px !important;
+}
+
+/*搜索表单*/
+.searchTable label{
+	font-weight: normal;
+	line-height: 34px;
+	height: 28px;
+	float: left;
+	margin-right: 15px;
+	margin-left: 10px;
+	font-size: 16px;
+}
+.searchTable input{
+	float: left;
+	border-radius: 2px;
+}
+.searchTable ul>li{
+	overflow: hidden;
+}
+
+
+/*select美化*/
+.select {
+	display: inline-block;
+	width: 175px;
+	position: relative;
+	vertical-align: middle;
+	padding: 0;
+	overflow: hidden;
+	background-color: #fff;
+	color: #555;
+	border: 1px solid #aaa;
+	text-shadow: none;
+	border-radius: 4px;
+	transition: box-shadow 0.25s ease;
+	z-index: 2;
+}
+
+.select:hover {
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.select:before {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-top-color: #ccc;
+	top: 14px;
+	right: 10px;
+	cursor: pointer;
+	z-index: -2;
+}
+.select select {
+	cursor: pointer;
+	padding: 7px;
+	width: 100%;
+	border: none;
+	background: transparent;
+	background-image: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border-bottom: 1px solid;
+}
+
+.select select:focus {
+	outline: none;
+}
+.searchBtn{
+	overflow: hidden;
+}
+.searchBtn a,.searchBtn input{
+	float: left;
+	margin-right: 10px;
+}
+
+.outDiv>td {
+	background: #000000;
+	width: 100%;
+	height: 9999px;
+	position: fixed;
+	z-index: 99;
+	opacity: 0;
+	top: 0;
+	left:0;
+	display: none;
+	overflow-y: hidden;
+}
+.inDiv{
+	position: absolute;
+	top:0;
+	left: 50%;
+	z-index: 100;
+	border: none;
+	overflow-y: hidden;
+}
+.inDiv>img{
+	width: 100%;
+	height: auto;
+	border: none;
+	overflow-y: hidden;
+}
+#form1{
+	height: 400px;
+}
+.user_info>li{
+	margin-top: 8px;
+}
+.user_info>li span{
+	padding-right: 10px;
+}
+.account_info{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	margin-top: 24px;
+}
+.account_info hr{
+	margin: 0;
+}
+#file_style{
+	overflow: hidden;
+}
+#file_style>li{
+	margin-bottom: 20px;
+}
+#file_style>li>div{
+	max-width: 1100px;
+	overflow: auto;
+}
+#file_style>li>div:first-child{
+	margin-bottom: 8px;
+}
+#file_style>li>.video_file{
+	overflow: hidden;
+}
+#file_style .video_file>div:hover{
+	cursor: pointer;
+}
+#file_style .video_file>div{
+	float: left;
+	margin-right: 10px;
+}
+
+
+.current_active #addBtn{
+	float: right;
+}
+.current_active #addBtn>a{
+	display: block;
+	background: #E74C3C;
+	color: #fff;
+	margin-bottom: 5px;
+	border-radius: 4px;
+}
+#query{
+	float: left;
+}
+#back{
+	float: left;
+	margin-right: 120px;
+}
+.checkList>li:last-child{
+	margin-top: 20px;
+	overflow: hidden;
+}
+.checkList>li{
+	margin-bottom: 10px;
+}
+.checkList>li label{
+	width: 86px;
+}

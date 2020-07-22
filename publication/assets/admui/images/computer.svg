@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="559px" height="559px" viewBox="0 0 559 559" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>computer</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="13.5692308 0 112.430769 0 126 46 0 46"></polygon>
+        <rect id="path-3" x="0" y="0" width="392" height="234"></rect>
+        <rect id="path-5" x="0" y="0" width="392" height="234"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="computer">
+            <circle id="Cirlce" fill="#F2F7FE" fill-rule="nonzero" cx="279.5" cy="279.5" r="279.5"></circle>
+            <path d="M437.330078,360.796875 C437.330078,360.796875 386.458984,384.332031 411.894531,403.808594 C437.330078,423.285156 499.209222,439.634074 510.6875,467.460938" id="Mouse-Wire" stroke="#C5CFDE" stroke-width="2"></path>
+            <g id="Leg" transform="translate(235.000000, 368.000000)">
+                <rect id="Substrate" stroke="#C5CFDE" stroke-width="2" fill="#FFFFFF" fill-rule="nonzero" x="0" y="48" width="142" height="8" rx="4"></rect>
+                <polygon id="Leg-Form" stroke="#C5CFDE" stroke-width="2" fill="#FFFFFF" fill-rule="nonzero" points="20.7584604 0 7.3184604 48 134.68154 48 121.24154 0"></polygon>
+                <g id="Leg-Mask" transform="translate(8.000000, 1.000000)">
+                    <g id="Mask" fill="#FFFFFF" fill-rule="nonzero">
+                        <polygon id="path-1" points="13.5692308 0 112.430769 0 126 46 0 46"></polygon>
+                    </g>
+                    <g id="Path-2-Clipped">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="path-1"></g>
+                        <polygon id="Path-2" fill="#E0E4EC" fill-rule="nonzero" mask="url(#mask-2)" points="13 0 113 0 115 6 9 15"></polygon>
+                    </g>
+                </g>
+            </g>
+            <g id="Mouse" transform="translate(466.000000, 460.000000)" fill-rule="nonzero">
+                <path d="M21,38 C36,38 61,38 61,38 C61,38 85,38 85,23 C85,8 61,0 41,0 C21,0 1.50663784e-15,11 0,22 C0,33 6,38 21,38 Z" id="Path-5" stroke="#C5CFDE" stroke-width="2" fill="#FFFFFF"></path>
+                <path d="M1,21 C1,21 20.3677712,26.6691249 41,27 C61.6322288,27.3308751 76.9576445,22.6479658 83,18 C83,18 85.1022473,21.8877892 84,26 C82.8977527,30.1122108 80.3196871,31.9228923 76,34 C65.6353124,38.9838269 57.3224099,37 42,37 C28.412135,37 12,38 6,34 C1.11355369e-13,30 1,21 1,21 Z" id="Path-6" fill="#F5F6FA"></path>
+            </g>
+            <g id="Keyboard" transform="translate(53.000000, 473.000000)" fill-rule="nonzero">
+                <g id="Group-2" transform="translate(15.000000, 0.000000)" fill="#FFFFFF" stroke="#C5CFDE" stroke-width="2">
+                    <rect id="Rectangle-5" x="0" y="0" width="22" height="12" rx="6"></rect>
+                    <rect id="Rectangle-5-Copy" x="29" y="0" width="22" height="12" rx="6"></rect>
+                    <rect id="Rectangle-5-Copy-2" x="58" y="0" width="22" height="12" rx="6"></rect>
+                    <rect id="Rectangle-5-Copy-4" x="200" y="0" width="22" height="12" rx="6"></rect>
+                    <rect id="Rectangle-5-Copy-5" x="229" y="0" width="22" height="12" rx="6"></rect>
+                    <rect id="Rectangle-5-Copy-6" x="326" y="0" width="22" height="12" rx="6"></rect>
+                    <rect id="Rectangle-5-Copy-7" x="297" y="0" width="22" height="12" rx="6"></rect>
+                    <rect id="Rectangle-5-Copy-8" x="268" y="0" width="22" height="12" rx="6"></rect>
+                    <rect id="Rectangle-5-Copy-3" x="87" y="0" width="106" height="12" rx="6"></rect>
+                </g>
+                <g id="Group-3" transform="translate(0.000000, 7.000000)">
+                    <rect id="Rectangle-3" stroke="#C5CFDE" stroke-width="2" fill="#FFFFFF" x="0" y="0" width="378" height="18" rx="9"></rect>
+                    <rect id="Rectangle-4" fill="#C5CFDE" x="1" y="10" width="376" height="2"></rect>
+                </g>
+            </g>
+            <g id="Сup" transform="translate(1.000000, 312.000000)">
+                <g id="Group" transform="translate(0.000000, 76.000000)" fill-rule="nonzero" stroke="#C5CFDE" stroke-width="2">
+                    <rect id="Rectangle-2" fill="#F5F6FA" x="0" y="0" width="30" height="50" rx="15"></rect>
+                    <rect id="Rectangle-2-Copy" fill="#FFFFFF" x="6" y="6" width="18" height="38" rx="9"></rect>
+                </g>
+                <path d="M16,61.9979393 L16,132.00056 C16,140.28898 22.713893,147 31.0014825,147 L70.9985175,147 C79.2818594,147 86,140.283516 86,132.00056 L86,61.9979393 C86,60.3471386 84.6541886,59 83.0005854,59 L18.9994146,59 C17.3472054,59 16,60.3450476 16,61.9979393 Z" id="Rectangle" stroke="#C5CFDE" stroke-width="2" fill="#F5F6FA" fill-rule="nonzero"></path>
+                <path d="M52,0 C52,0 65,2 65,14 C65,26 40,21 40,36 C40,51 53,50 53,50" id="Path-7" stroke="#C5CFDE" stroke-width="4" stroke-linecap="round"></path>
+                <path d="M23,60 C23,60 29,93 30.1652413,122.966747 C30.7588426,138.232513 33.32054,146 34,146 C36,146 17,148 17,133 L17,62 C17,62 17,60 19,60 C21,60 23,60 23,60 Z" id="Path-8" fill="#EAECF2" fill-rule="nonzero"></path>
+            </g>
+            <g id="Monitor" transform="translate(89.000000, 62.000000)">
+                <rect id="Mac-Form" stroke="#C5CFDE" stroke-width="2" fill="#FFFFFF" fill-rule="nonzero" x="0" y="0" width="434" height="306" rx="18"></rect>
+                <rect id="Screen-Form" stroke="#C5CFDE" stroke-width="2" fill="#FFFFFF" fill-rule="nonzero" x="20" y="20" width="394" height="236"></rect>
+                <g id="Screen" transform="translate(21.000000, 21.000000)">
+                    <g id="Mask" fill="#FFFFFF" fill-rule="nonzero">
+                        <rect id="path-3" x="0" y="0" width="392" height="234"></rect>
+                    </g>
+                    <g id="Terminal-Clipped">
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <g id="path-3"></g>
+                        <g id="Terminal" mask="url(#mask-4)" fill-rule="nonzero">
+                            <rect id="Form" fill="#F3F6FA" x="0" y="0" width="196" height="234"></rect>
+                            <g id="Lines" transform="translate(15.000000, 34.000000)">
+                                <rect id="Rectangle-6" fill="#E0E4EC" x="0" y="0" width="40" height="6" rx="3"></rect>
+                                <rect id="Rectangle-6-Copy" fill="#F5F6FA" x="0" y="16" width="80" height="6" rx="3"></rect>
+                                <rect id="Rectangle-6-Copy-9" fill="#7E8FA4" x="20" y="81" width="60" height="6" rx="3"></rect>
+                                <rect id="Rectangle-6-Copy-10" fill="#5694ED" x="19" y="107" width="40" height="10" rx="5"></rect>
+                                <path d="M20,67 C20,65.3431458 21.3476562,64 22.9962474,64 L137.003753,64 C138.658534,64 140,65.3465171 140,67 C140,68.6568542 138.652344,70 137.003753,70 L22.9962474,70 C21.3414656,70 20,68.6534829 20,67 Z" id="Rectangle-6-Copy-6" fill="#7E8FA4"></path>
+                                <path d="M20,51 C20,49.3431458 21.3473186,48 23.0000191,48 L46.9999809,48 C48.6568457,48 50,49.3465171 50,51 C50,52.6568542 48.6526814,54 46.9999809,54 L23.0000191,54 C21.3431543,54 20,52.6534829 20,51 Z" id="Rectangle-6-Copy-3" fill="#E0E4EC"></path>
+                                <path d="M60,51 C60,49.3431458 61.3380125,48 62.9928014,48 L157.007199,48 C158.660077,48 160,49.3465171 160,51 C160,52.6568542 158.661987,54 157.007199,54 L62.9928014,54 C61.3399228,54 60,52.6534829 60,51 Z" id="Rectangle-6-Copy-4" fill="#E0E4EC"></path>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Text-Clipped">
+                        <mask id="mask-6" fill="white">
+                            <use xlink:href="#path-5"></use>
+                        </mask>
+                        <g id="path-3"></g>
+                        <g id="Text" mask="url(#mask-6)">
+                            <g transform="translate(234.000000, 75.000000)" id="Group">
+                                <g>
+                                    <g id="Group-5" fill-rule="nonzero">
+                                        <path d="M8.67361738e-17,4 C-1.68230461e-14,1.790861 1.79426827,0 4.00718972,0 L45.9928103,0 C48.2059201,0 50,1.79535615 50,4 C50,6.209139 48.2057317,8 45.9928103,8 L4.00718972,8 C1.79407995,8 1.69621105e-14,6.20464385 8.67361738e-17,4 Z" id="Rectangle-6-Copy-17" fill="#A2AFC0"></path>
+                                        <path d="M1.38777878e-16,20 C-2.69168738e-14,18.3431458 1.33834472,17 2.99008742,17 L77.0099126,17 C78.6612923,17 80,18.3465171 80,20 C80,21.6568542 78.6616553,23 77.0099126,23 L2.99008742,23 C1.33870774,23 2.71393768e-14,21.6534829 1.38777878e-16,20 Z" id="Rectangle-6-Copy-18" fill="#D6DEE8"></path>
+                                    </g>
+                                    <g id="Group-4" transform="translate(0.000000, 41.000000)" fill="#C5CFDE" fill-rule="nonzero">
+                                        <path d="M2.08166817e-16,4.5 C-4.03753107e-14,2.01471863 2.00751708,0 4.50320138,0 L115.496799,0 C117.983848,0 120,2.01977567 120,4.5 C120,6.98528137 117.992483,9 115.496799,9 L4.50320138,9 C2.01615193,9 4.07090652e-14,6.98022433 2.08166817e-16,4.5 Z" id="Rectangle-6-Copy-20"></path>
+                                        <path d="M2.08166817e-16,21.5 C-4.03753107e-14,19.0147186 2.00751708,17 4.50320138,17 L115.496799,17 C117.983848,17 120,19.0197757 120,21.5 C120,23.9852814 117.992483,26 115.496799,26 L4.50320138,26 C2.01615193,26 4.07090652e-14,23.9802243 2.08166817e-16,21.5 Z" id="Rectangle-6-Copy-19"></path>
+                                    </g>
+                                    <path d="M6.9388939e-17,91 C-1.34584369e-14,88.2385763 2.23628439,86 5.00532213,86 L34.9946779,86 C37.759041,86 40,88.2441952 40,91 C40,93.7614237 37.7637156,96 34.9946779,96 L5.00532213,96 C2.24095905,96 1.35696884e-14,93.7558048 6.9388939e-17,91 Z" id="Rectangle-6-Copy-21" fill="#5694ED" fill-rule="nonzero"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <circle id="Apple-Logo" stroke="#C5CFDE" stroke-width="2" fill="#F5F6FA" fill-rule="nonzero" cx="217" cy="281" r="9"></circle>
+                <circle id="Camera" fill="#7E8FA4" fill-rule="nonzero" cx="217" cy="10" r="2"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

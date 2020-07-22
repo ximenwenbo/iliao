@@ -1,0 +1,77 @@
+<include file="layout/iframe@header" />
+
+<style>
+    .table thead th{
+        text-align: center;
+    }
+    #logList>tbody>tr>td{
+        line-height: 40px;
+        text-align: center;
+    }
+
+    #logList>tbody>tr>td>.to_table>tbody>tr>td{
+        line-height: 40px;
+        text-align: left;
+    }
+</style>
+<body data-theme="base" style="padding: 0">
+
+<div class="page page-full animation-fade page-logs">
+    <div class="page-header">
+        <h1 class="page-title">消息发送设置</h1>
+        <div class="page-header-actions">
+            <button type="button" class="btn btn-sm btn-icon btn-info btn-outline btn-round collapsed" data-toggle="collapse"
+                    data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+                <i class="icon fa-filter"></i>
+            </button>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('SendMsgTemplate/msgTemplateList')}">模版管理</a></li>
+        <li class="active"><a href="{:url('SendMsgTemplate/msgTemplateAdd')}">添加模版</a></li>
+    </ul>
+    <form action="{:url('SendMsgTemplate/msgTemplateAdd')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-bordered">
+                    <tr>
+                        <th width="120">选择消息编码<span class="form-required">*</span></th>
+                        <td>
+                            <select name="post[tmp_code]" class="form-control">
+                                <option value="">选择消息编码</option>
+                                <?php foreach ($msg_code_list as $code => $value) {?>
+                                <option value="{$value['code']}">{$value['code']}（{$value['desc']}）</option>
+                                <?php }?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>模版内容<span class="form-required">*</span></th>
+                        <td>
+                            <input class="form-control" type="text" name="post[content]" id="content" required value="" placeholder="请输入模版内容"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>备注</th>
+                        <td>
+                            <textarea class="form-control" name="post[note]" style="height: 50px;" placeholder="请填写备注说明"></textarea>
+                        </td>
+                    </tr>
+                </table>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+                        <a class="btn btn-default" href="{:url('SendMsgTemplate/msgTemplateList')}">{:lang('BACK')}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+    </div>
+</div>
+</body>
+</html>

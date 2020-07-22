@@ -1,0 +1,157 @@
+<include file="layout/iframe@header"/>
+<!-- Page CSS-->
+
+<body style="margin: 0; padding: 0;">
+<div class="page-content container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel">
+                <div class="panel-body">
+                    <form class="form-horizontal">
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" for="user_nickname">用户昵称</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="user_nickname" data-plugin="formatter" disabled value="{$user_setting.user_nickname || default = ''}">
+                                <p class="form-text">user_id: {$user_setting.user_id || default = 0}</p>
+                                <input type="hidden" name="user_id" id="user_id" value="{$user_setting.user_id || default = 0}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">视频</label>
+                            <div class="col-md-9">
+                                <div class="radio-custom radio-default radio-inline">
+                                    <input type="radio" id="open_video1" name="open_video" value="1"
+                                        <?php
+                                            if(!isset($user_setting['open_video'])){
+                                                echo 'checked';
+                                            }else{
+                                                if($user_setting['open_video'] == 1){
+                                                    echo 'checked';
+                                                }
+                                            }
+                                        ?>
+                                    >
+                                    <label for="open_video1">开启</label>
+                                </div>
+                                <div class="radio-custom radio-default radio-inline">
+                                    <input type="radio" name="open_video" id="open_video2" value="0"
+                                        <?php
+                                            if(isset($user_setting['open_video']) && $user_setting['open_video'] == 0){
+                                                  echo 'checked';
+                                            }
+                                        ?>
+                                    >
+                                    <label for="open_video2">关闭</label>
+                                </div>
+                                <p class="form-text">是否开启视频聊天</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">语音</label>
+                            <div class="col-md-9">
+                                <div class="radio-custom radio-default radio-inline">
+                                    <input type="radio" id="open_speech1" name="open_speech" value="1"
+                                        <?php
+                                            if(!isset($user_setting['open_speech'])){
+                                                echo 'checked';
+                                            }else{
+                                                if($user_setting['open_speech'] == 1){
+                                                    echo 'checked';
+                                                }
+                                            }
+                                        ?>
+                                    >
+                                    <label for="open_speech1">开启</label>
+                                </div>
+                                <div class="radio-custom radio-default radio-inline">
+                                    <input type="radio" name="open_speech" id="open_speech2" value="0"
+                                        <?php
+                                            if(isset($user_setting['open_speech']) && $user_setting['open_speech'] == 0){
+                                                  echo 'checked';
+                                            }
+                                        ?>
+                                    >
+                                    <label for="open_speech2">关闭</label>
+                                </div>
+                                <p class="form-text">是否开启语音聊天</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">视频收费</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="video_cost" name="video_cost" value="{$user_setting.video_cost || default = 0}">
+                                <p class="form-text">取整,币/分钟</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">语音收费</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="speech_cost" name="speech_cost" value="{$user_setting.speech_cost || default = 0}">
+                                <p class="form-text">取整,币/分钟</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-9 offset-md-2">
+                                <button type="button" class="btn-primary btn" id="query">提交</button>
+                                <button type="button" class="btn-default btn" id="cancel">取消</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    /*提交审核*/
+    $("#query").on('click',function () {
+        var user_id = $("#user_id").val(),
+            open_video = $("input[type=radio][name='open_video']:checked").val(),
+            open_speech = $("input[type=radio][name='open_speech']:checked").val(),
+            video_cost = $("#video_cost").val(),
+            speech_cost = $("#speech_cost").val();
+
+        if(user_id.length === 0 || open_video.length === 0 || open_speech.length === 0 || video_cost.length === 0 || speech_cost.length === 0 ){
+            layer.msg('所有为必填项,不能为空');
+            return false;
+        }
+        $.ajax({
+            type: 'POST',
+            url: "{:url('AllotRobot/UserSetting');}",
+            data: {
+                user_id:user_id,
+                open_video:open_video,
+                open_speech:open_speech,
+                video_cost:video_cost,
+                speech_cost:speech_cost,
+            },
+
+            dataType: "json",
+            success: function(data){
+                //console.log(data);return;
+                if(data.code === 200){
+                    layer.alert(data.msg, {icon: 5},function () {
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else if(data.code === 201) {
+                    layer.msg(data.msg);
+                }else{
+                    layer.alert(data.msg, {icon: 7});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+
+    $("#cancel").on('click',function () {
+        let index=parent.layer.getFrameIndex(window.name);
+        parent.layer.close(index);
+    });
+</script>
+
+</body>

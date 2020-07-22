@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>举报页面</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--标准mui.css-->
+    <link rel="icon" sizes="192x192" href="{$domain}__TMPL__/apph5/static/img/login_logo.png">
+    <link rel="icon" type="image/png" href="{$domain}__TMPL__/apph5/static/img/logo.png">
+    <link rel="stylesheet" href="{$domain}__TMPL__/apph5/static/plugins/layer/skin/default/layer.css">
+    <link rel="stylesheet" href="{$domain}__TMPL__/apph5/static/plugins/mui/css/mui.min.css">
+    <style>
+        .pay-btn{
+            width: 90%;
+            height: 46px;
+            line-height: 46px;
+            left: 4%;
+            top: 50%;
+            background: rgb(255,121,41);
+            border-radius: 40px;
+            text-align: center;
+        }
+        .pay-btn a{
+            display: block;
+            width: 100%;
+            color: #000000;
+            font-size: 18px;
+            letter-spacing: 0.2em;
+        }
+        .header{
+            background-color:white;
+            padding:3% 0% 3% 0%;
+            text-align:center
+        }
+        .mui-table-view .mui-table-view-cell{
+            padding-top:4%;
+            padding-bottom: 4%
+        }
+        textarea{
+            height:150px;
+            border:none;
+        }
+    </style>
+</head>
+
+<body>
+<!--<div class="header">-->
+    <!--<span>举报</span>-->
+<!--</div>-->
+<div class="mui-content" style="position: relative">
+    <div style="padding:3% 5% 3% 5%;" >
+        <span style="font-size:15px;color:grey">选择举报理由</span>
+    </div>
+    <ul class="mui-table-view mui-table-view-radio ">
+        <volist name="list" key="k" id="v">
+        <li class="mui-table-view-cell ">
+            <a class="mui-navigate-right choice" data-id="{$v['id']}">&nbsp;&nbsp;{$v['reason']}</a>
+        </li>
+        </volist>
+    </ul>
+    <div style="margin:0% 3% 0% 3%">
+        <div style="padding:2% 5% 2% 2%;"><span style="font-size:14px;color:grey">更多详细信息请在说明框中描述(选填)</span></div>
+        <div class="mui-input-row">
+            <textarea name="" id="note" cols="25" rows="10"></textarea>
+        </div>
+        <input type="hidden" name="reason_id" value="" id="reasonid">
+        <input type="hidden" name="user_id" value="{$user_id}" id="userid">
+        <input type="hidden" name="be_user_id" value="{$be_user_id}" id="beuserid">
+        <div class="mui-col-sm-12 mui-col-xs-12 pay-btn">
+            <a href="javascript:void(0);"  style="color:white" id="submit">提交</a>
+        </div>
+    </div>
+    <br><br>
+</div>
+<script src="{$domain}__TMPL__/apph5/static/js/jquery.js"></script>
+<script src="{$domain}__TMPL__/apph5/static/plugins/layer/layer.js"></script>
+<script src="{$domain}__TMPL__/apph5/static/plugins/mui/js/mui.min.js"></script>
+
+</body>
+<script>
+    $(".choice").click(function(){
+        $('#reasonid').val(this.getAttribute("data-id"));
+    });
+    $("#submit").click(function(){
+        var reason_id = document.getElementById("reasonid").value;
+        var note = document.getElementById("note").value;
+        var user_id = document.getElementById("userid").value;
+        var be_user_id = document.getElementById("beuserid").value;
+        if(reason_id == ''){
+            layer.msg('请选择举报理由');
+        }else{
+            $.ajax({
+                type : "POST",
+                url : "{:url('apph5/inform/submitInform')}",
+                data : {reason_id:reason_id,note:note,user_id:user_id,be_user_id:be_user_id},
+                success : function(result) {
+                    if(result.code == 1){
+                        layer.msg(result.msg,{time:1000,end:function () {
+                                location.href = "{:url('apph5/inform/index')}?user_id="+user_id+"&be_user_id="+be_user_id
+                            }});
+                    }else{
+                        layer.msg(result.msg);
+                    }
+                },
+                error : function(){
+                    layer.msg('网络异常');
+                }
+            });
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,146 @@
+<include file="layout/iframe@header" xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns:/>
+<!-- Site CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/css/admin/public-config.css">
+
+<body style="margin: 0; padding: 0;overflow-x: hidden">
+<div class="page animation-fade page-forms">
+    <form  method="post" multiple="" id="exampleFullForm">
+        <div class="page-content">
+            <div class="panel">
+                <div class="panel-body container-fluid">
+                    <div class="row margin-top-20 ">
+                        <div class="col-12">
+                            <label class="control-label">代理商</label>
+                            <div class="controls col-8">
+                                <select class="form-control col-6" name="agent_id" data-plugin="select1" title="">
+                                    <option value="">请选择代理商</option>
+                                    <php>if(!empty($agent)){</php>
+                                    <php>foreach($agent as $key => $val){</php>
+                                    <option value="{$val.id}">{$val.name} </option>
+                                    <php>}</php>
+                                    <php>}</php>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="control-label"><span style="color:red;">*</span>推广员uid</label>
+                            <div class="controls col-8">
+                                <input type="text" name="user_id" class="form-control col-6" placeholder="请填写推广员的uid" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row user-info" style="display: none">
+                        <div class="col-12" style="margin-bottom: 10px">
+                            <label class="control-label"><span style="color:red;">*</span>头像</label>
+                            <div class="controls col-8 avatar-sm">
+                                <a class="images" href="javascript:void (0);">
+                                    <img src="" alt="" width="50px" height="50px">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label class="control-label"><span style="color:red;">*</span>昵称</label>
+                            <div class="controls col-8">
+                                <input type="text" class="form-control col-6 user_nickname" placeholder="" autocomplete="off" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row margin-top-20 ">
+                        <div class="col-12">
+                            <label class="control-label"><span style="color:red;">*</span>邀请新用户分成</label>
+                            <div class="controls col-8">
+                                <input type="text" name="invite_divide_into" class="form-control col-6" placeholder="必须为整数,单位:金币" autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="control-label"><span style="color:red;">*</span>用户充值分成</label>
+                            <div class="controls col-8">
+                                <input type="text" name="recharge_divide_into" class="form-control col-6" placeholder="必须为整数,单位:%" autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="control-label"><span style="color:red;">*</span>主播奖励分成</label>
+                            <div class="controls col-8">
+                                <input type="text" name="anchor_divide_into" class="form-control col-6" placeholder="必须为整数,单位:%" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 form-group">
+                            <label class="control-label"></label>
+                            <div class="controls col-5">
+                                <button type="button" class="layui-btn btn btn-primary" id="query">添加推广员</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    /*获取推广员信息*/
+    $("input[name=user_id]").blur(function () {
+        var _this = $(this);
+        $.ajax({
+            type: 'POST',
+            url: "{:url('AgentPromoters/getUserInfo');}",
+            data: {
+                id:_this.val(),
+            },
+
+            dataType: "json",
+            success: function(data){
+                if(data.code == 200 || data.code == 1){
+                    $(".user-info").show();
+                    $(".images > img").attr('src',data.data.avatar_abs);
+                    $(".user_nickname").val(data.data.user_nickname);
+                }else{
+                    layer.alert(data.msg, {icon: 7});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    }).focus(function () {
+        $(".user-info").hide();
+    });
+    /*提交*/
+    $("#query").on('click',function () {
+        $.ajax({
+            type: 'POST',
+            url: "{:url('AgentPromoters/addInfoPost');}",
+            data: {
+                data:$("#exampleFullForm").serialize(),
+            },
+
+            dataType: "json",
+            success: function(data){
+                if(data.code == 200 || data.code == 1){
+                    layer.alert(data.msg, {icon: 5},function () {
+                        window.parent.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else{
+                    layer.alert(data.msg, {icon: 7});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+</script>
+</body>

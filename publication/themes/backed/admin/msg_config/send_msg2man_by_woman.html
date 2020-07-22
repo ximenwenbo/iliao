@@ -1,0 +1,117 @@
+<include file="layout/iframe@header" />
+
+<!-- Site CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/themes/base/css/site.css">
+<link rel="stylesheet" href="__ABS__/assets/admui/vendor/icheck/icheck.css">
+<link rel="stylesheet" href="__ABS__/assets/admui/vendor/switchery/switchery.css">
+<style>
+    body {
+        padding-top: 0;
+    }
+</style>
+<body class="page-aside-fixed page-aside-left" data-theme="base">
+
+<div class="page animation-fade">
+    <div class="page-aside">
+
+        <div class="page-aside-switch">
+            <i class="icon wb-chevron-left" aria-hidden="true"></i>
+            <i class="icon wb-chevron-right" aria-hidden="true"></i>
+        </div>
+
+        <div class="page-aside-inner page-aside-scroll" data-plugin="mCustomScrollbar">
+            <div data-role="container">
+                <div data-role="content">
+                    <section class="page-aside-section">
+                        <div class="list-group">
+                            <a class="list-group-item" href="{:url('msgConfig/sendMsg2manByRobot')}">
+                                机器人给男用户发消息
+                            </a>
+                            <a class="list-group-item active" href="{:url('msgConfig/sendMsg2manByWoman')}">
+                                女主播给男用户发消息
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-main">
+        <div class="page-header">
+            <h3 class="page-title">女性用户给男用户发消息配置</h3>
+        </div>
+        <div class="page-content col-xxl-8">
+            <div class="panel">
+                <form class="form-horizontal panel-body"  action="{:url('msgConfig/sendMsg2manByWomanPost')}" method="post" autocomplete="off" novalidate="novalidate">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">女主播选择条件：</label>
+                        <div class="col-md-9">
+                            <label class="radio-inline">
+                                <input type="radio" name="woman_nearest_online" value="0" {:isset($send_msg_2_man_by_woman.woman_nearest_online) && $send_msg_2_man_by_woman.woman_nearest_online==0 ? 'checked' : ''} > 当前在线
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="woman_nearest_online" value="1" {:isset($send_msg_2_man_by_woman.woman_nearest_online) && $send_msg_2_man_by_woman.woman_nearest_online==1 ? 'checked' : ''} > 近1小时在线
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="woman_nearest_online" value="12" {:isset($send_msg_2_man_by_woman.woman_nearest_online) && $send_msg_2_man_by_woman.woman_nearest_online==6 ? 'checked' : ''} > 近6小时在线
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="woman_nearest_online" value="12" {:isset($send_msg_2_man_by_woman.woman_nearest_online) && $send_msg_2_man_by_woman.woman_nearest_online==12 ? 'checked' : ''} > 近12小时在线
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="woman_nearest_online" value="-1" {:isset($send_msg_2_man_by_woman.woman_nearest_online) && $send_msg_2_man_by_woman.woman_nearest_online==-1 ? 'checked' : ''} > 全部
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">男用户最近在线：</label>
+                        <div class="col-md-9">
+                            <label class="radio-inline">
+                                <input type="radio" name="man_nearest_online" value="0" {:isset($send_msg_2_man_by_woman.man_nearest_online)&&$send_msg_2_man_by_woman.man_nearest_online==0 ? 'checked' : ''} > 当前在线
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="man_nearest_online" value="1" {:isset($send_msg_2_man_by_woman.man_nearest_online)&&$send_msg_2_man_by_woman.man_nearest_online==1 ? 'checked' : ''} > 近1小时在线
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="man_nearest_online" value="6" {:isset($send_msg_2_man_by_woman.man_nearest_online)&&$send_msg_2_man_by_woman.man_nearest_online==6 ? 'checked' : ''} > 近6小时在线
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="man_nearest_online" value="12" {:isset($send_msg_2_man_by_woman.man_nearest_online)&&$send_msg_2_man_by_woman.man_nearest_online==12 ? 'checked' : ''} > 近12小时在线
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="man_nearest_online" value="-1" {:isset($send_msg_2_man_by_woman.man_nearest_online)&&$send_msg_2_man_by_woman.man_nearest_online==-1 ? 'checked' : ''} > 全部
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"><span class="form-required">*</span>发送频率：</label>
+                        <div class="col-md-9 col-sm-10">
+                            <label class="radio-inline">
+                                <input type="radio" name="send_frequence" value="0" {:isset($send_msg_2_man_by_woman.send_frequence)&&$send_msg_2_man_by_woman.send_frequence==0 ? 'checked' : ''} > 关闭
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="send_frequence" value="1" {:isset($send_msg_2_man_by_woman.send_frequence)&&$send_msg_2_man_by_woman.send_frequence==1 ? 'checked' : ''} > 1条/天
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="send_frequence" value="2" {:isset($send_msg_2_man_by_woman.send_frequence)&&$send_msg_2_man_by_woman.send_frequence==2 ? 'checked' : ''} > 2条/天
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="send_frequence" value="3" {:isset($send_msg_2_man_by_woman.send_frequence)&&$send_msg_2_man_by_woman.send_frequence==3 ? 'checked' : ''} > 3条/天
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary" id="validateButton2">提交</button>
+                        <button type="reset" class="btn btn-default btn-outline">重置</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

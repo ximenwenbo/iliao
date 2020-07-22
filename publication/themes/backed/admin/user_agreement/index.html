@@ -1,0 +1,87 @@
+<include file="layout/iframe@header" />
+<!-- Page CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/vendor/summernote/summernote-bs4.css">
+<!-- Page JS -->
+<script src="__ABS__/assets/admui/vendor/summernote/summernote-bs4.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/summernote/summernote-zh-CN.js"></script>
+<script src="__ABS__/assets/admui/js/examples/forms/editor-summernote.js"></script>
+<style>
+    .table thead th{
+        text-align: center;
+    }
+    #logList>tbody>tr>td{
+        line-height: 40px;
+        text-align: center;
+    }
+
+    #logList>tbody>tr>td>.to_table>tbody>tr>td{
+        line-height: 40px;
+        text-align: left;
+    }
+</style>
+<body data-theme="base" style="padding: 0">
+
+<div class="page animation-fade page-forms">
+    <div class="page-header">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a>设置</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="javascript:void (0);">用户协议</a>
+            </li>
+
+        </ol>
+    </div>
+    <div class="page-content container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="panel">
+                    <div class="panel-body">
+                        <p>
+                            <button type="button" class="btn btn-outline btn-primary" id="edit" onclick="edit()">编辑
+                            </button>
+                            <button type="button" class="btn btn-outline btn-primary" id="query">保存
+                            </button>
+                        </p>
+                        <div class="click2edit">
+                            {$userprotocol_settings|default=''}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    /*提交*/
+    $("#query").on('click',function () {
+        $.ajax({
+            type: 'POST',
+            url: "{:url('UserAgreement/edit');}",
+            data: {
+                content:$(".note-editable").html(),
+            },
+            dataType: "json",
+            success: function(data){
+                if(data.code === 200){
+                    layer.alert('操作成功', {icon: 7});
+                    window.parent.location.reload();
+                }else {
+                    layer.alert(data.msg, {icon: 5});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+        });
+        //return false;//阻止form表单提交
+    });
+</script>
+</body>
+</html>
+
+
+

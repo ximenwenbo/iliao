@@ -1,0 +1,125 @@
+<include file="layout/iframe@header" />
+
+<body class="page-aside-fixed page-aside-left" data-theme="base">
+<div class="page animation-fade">
+    <include file="admin/setting/layout@sidebar" />
+    <div class="page-main">
+        <div class="page-header">
+            <h3 class="page-title">VIP限制配置</h3>
+        </div>
+        <div class="page-content col-xxl-8">
+            <div class="panel">
+                <form class="form-horizontal panel-body" id="exampleStandardForm" action="{:url('setting/vipLimitPost')}" method="post" autocomplete="off" novalidate="novalidate">
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label">vip限制：</label>
+                    <div class="col-md-6 input-group">
+                        <div class="col-md-12">
+                            <div class="radio-custom radio-default radio-inline">
+                                <input type="radio" name="status" id="type1" value="1" {$vipLimit.checked_1}>
+                                <label for="type1">是</label>
+                            </div>
+                            <div class="radio-custom radio-default radio-inline">
+                                <input type="radio" name="status" id="type2" value="2" {$vipLimit.checked_2}>
+                                <label for="type2">否</label>
+                            </div>
+                        </div>
+                        <span class="form-text small">&nbsp;&nbsp;&nbsp;&nbsp;是否开启vip进入房间限制</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label">限制的时间段：</label>
+                    <div class="col-md-8 input-group">
+                        <div class="input-group col-md-12">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="icon wb-calendar" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control col-md-8" id="filter-date" placeholder="{$vipLimit.old_date || default = ''}" autocomplete="off"  {$vipLimit.disabled}>
+                            <input type="hidden" name="startDate" value="{$vipLimit.startDate || default = ''}" id="startTime">
+                            <input type="hidden" name="endDate" value="{$vipLimit.endDate || default = ''}" id="endTime">
+                            <div class="input-group-prepend">
+                                <button type="button" class="btn btn-icon btn-default btn-outline btn-sm date-clear">
+                                    <i class="icon wb-close" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <span class="form-text small">&nbsp;&nbsp;&nbsp;&nbsp;vip限制开始和结束时间,精确到秒,开启限制必选</span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label"></label>
+                    <div class="col-md-6 input-group">
+                        &nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-primary">提交</button>&nbsp;&nbsp;
+                        <button type="reset" class="btn btn-default btn-outline">还原</button>
+                    </div>
+                </div>
+            </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    let $filterDate = $('#filter-date');
+    //选择开关是否启用日期
+    $("input[name=status]").click(function () {
+        if($(this).val() == 1){
+            $filterDate.removeAttr('disabled');
+        }else{
+            $filterDate.attr('disabled','false');
+        }
+    });
+    // 有日期筛选按钮时 --- 日志信息页面
+    if ($filterDate.length > 0) {
+        // 日期范围选择器初始化
+        $filterDate.daterangepicker
+        (
+            {
+                // autoApply: true,
+                autoUpdateInput: false,
+                timePickerSeconds: true,
+                timePicker : true,
+                timePicker24Hour : true,
+                // alwaysShowCalendars: true,
+                ranges: {
+                    '今天': [moment(),moment()],
+                    '昨天': [moment().subtract(1, 'days'),moment().subtract(1, 'days')],
+                    '近7天': [moment().subtract(7, 'days'), moment()],
+                    '这个月': [moment().startOf('month'), moment().endOf('month')],
+                    '上个月': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                locale: {
+                    format: "MM月DD日 HH时mm分",
+                    separator: " 至 ",
+                    applyLabel: "确认",
+                    cancelLabel: "清空",
+                    fromLabel: "开始时间",
+                    toLabel: "结束时间",
+                    customRangeLabel: "自定义",
+                    daysOfWeek: ["日","一","二","三","四","五","六"],
+                    monthNames: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"]
+                }
+            }
+        ).on('cancel.daterangepicker', function(ev, picker) {
+            $("#filter-date").val('');
+            $("#startTime").val("");
+            $("#endTime").val("");
+        }).on('apply.daterangepicker', function(ev, picker) {
+            $("#startTime").val(picker.startDate.format('YYYY-MM-DD HH:mm'));
+            $("#endTime").val(picker.endDate.format('YYYY-MM-DD HH:mm'));
+            $("#filter-date").val(picker.startDate.format('YYYY-MM-DD HH:mm')+" 至 "+picker.endDate.format('YYYY-MM-DD HH:mm'));
+        });
+
+        // 删除选择时间
+        $('.date-clear').on('click', function() {
+            $filterForm.find('#filter-date').val('');
+            $(this).parent().parent().children().eq(2).val('');
+            $(this).parent().parent().children().eq(3).val('');
+        });
+    }
+</script>
+</body>
+</html>

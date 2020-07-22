@@ -1,0 +1,62 @@
+{
+    "success": true,
+    "msg": "查询成功！",
+    "data": {
+      "id": "10010101",
+      "remark": "系统管理员",
+      "createDate": null,
+      "jobNum": "10010101",
+      "userName": "admin",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "name": "系统管理员",
+      "position": "100402",
+      "email": "bsjhero@163.com",
+      "mobile": "13511027451",
+      "sex": 1,
+      "telephone": "09317897654",
+      "phoneExt": "325",
+      "loginCount": 809,
+      "status": 0,
+      "lastLoginTime": "2018-10-20 20:28:24",
+      "lastLoginIp": "192.168.0.103",
+      "executiveMode": false,
+      "userType": 2,
+      "orgIds": [
+        "100101"
+      ],
+      "sexName": null,
+      "positionName": null,
+      "orgNames": "",
+      "roleNames": "",
+      "roles": [
+        {
+          "id": "100101",
+          "remark": "系统管理员",
+          "createDate": null,
+          "roleGroupId": "1001",
+          "roleName": "系统管理员",
+          "roleType": 1,
+          "permissionIds": null,
+          "users": null,
+          "permissions": [
+            {
+              "id": "8888",
+              "remark": "超级系统管理权限",
+              "createDate": null,
+              "name": "超级系统管理",
+              "roleId": null,
+              "menuIds": [],
+              "operIds": []
+            }
+          ]
+        }
+      ],
+      "orgs": [
+        {
+          "userId": "10010101",
+          "orgId": "100101",
+          "orgName": "总经办"
+        }
+      ]
+    }
+  }

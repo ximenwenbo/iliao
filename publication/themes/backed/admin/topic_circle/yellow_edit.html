@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>涉黄等级修改</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="admui.com">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止搜索引擎抓取 -->
+    <meta name="robots" content="nofollow">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Chrome浏览器添加桌面快捷方式（安卓） -->
+    <link rel="icon" type="image/png" href="__ABS__/assets/admui/images/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Safari浏览器添加到主屏幕（IOS） -->
+    <link rel="icon" sizes="192x192" href="__ABS__/assets/admui/images/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Admui">
+    <!-- Win8标题栏及ICON图标 -->
+    <link rel="apple-touch-icon-precomposed" href="__ABS__/assets/admui/images/apple-touch-icon.png">
+    <meta name="msapplication-TileImage" content="__ABS__/assets/admui/images/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#62a8ea">
+
+    <!--[if lte IE 9]>
+    <meta http-equiv="refresh" content="0; url='http://www.admui.com/ie'"/>
+    <![endif]-->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/global/css/bootstrap.css">
+
+    <!-- 字体图标 CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/fonts/web-icons/web-icons.css">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/base/css/site.css" id="admui-siteStyle">
+
+    <!-- 插件 CSS -->
+
+
+    <link rel="stylesheet" href="__ABS__/assets/admui/vendor/plyr/plyr.css">
+
+    <!-- Page CSS -->
+
+
+    <!-- 插件 -->
+    <script src="__ABS__/assets/admui/vendor/jquery/jquery.min.js"></script>
+    <script src="__ABS__/assets/admui/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="__ABS__/assets/admui/vendor/lodash/lodash.min.js"></script>
+    <style>
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        .user_info li{
+            margin-top: 1rem;
+            margin-left: 0.2rem;
+        }
+        .from_value{
+            overflow: hidden;
+        }
+        .from_value li{
+            float: left;
+            margin-right: 0.5rem;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body data-theme="base">
+
+<div class="page animation-fade page-forms">
+    <form  method="post" multiple="" id="exampleFullForm">
+        <div class="page-content">
+            <div class="panel">
+                <div class="panel-body container-fluid">
+                    <div class="row row-lg">
+                        <div class="col-xl-12 form-horizontal">
+                            <div class="form-group">
+                                <label for="xchat_y_level">涉黄等级</label>
+                                <select class="form-control" name="xchat_y_level"  title="" id="xchat_y_level">
+                                    <php>
+                                        foreach($y_level as $key=>$item){
+                                    </php>
+                                    <option value="{$item}"  <?=!empty($info['xchat_y_level']) && $item == $info['xchat_y_level'] ? 'selected' : '';?> >{$item}</option>
+                                    <php>
+                                        }
+                                    </php>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="hidden" name="uuid" value="{$info.uuid}" id="uuid">
+
+                        <div class="form-group col-xl-12 padding-top-m">
+                            <button type="button" class="btn btn-primary" id="query">保存修改</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- 插件 -->
+<script src="__ABS__/assets/admui/vendor/matchheight/jquery.matchHeight.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/plyr/plyr.js"></script>
+<script src="__ABS__/assets/admui/vendor/layer/layer.min.js"></script>
+<script src="__ABS__/assets/admui/themes/base/js/app.js"></script>
+
+<!-- Page JS -->
+<script>
+    $("#query").click(function () {
+        $.ajax({
+            type: 'POST',
+            url: "{:url('TopicCircle/yellowEdit');}",
+            data: {
+                uuid:$("#uuid").val(),
+                xchat_y_level:$("#xchat_y_level").val(),
+            },
+            dataType: "json",
+            success: function(data){
+                if(data.code === 200){
+                    layer.alert('操作成功', {icon: 6},function () {
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else {
+                    layer.alert(data.msg, {icon: 5});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+    })
+</script>
+</body>
+</html>

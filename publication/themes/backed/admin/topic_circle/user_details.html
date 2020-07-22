@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>用户详情</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="admui.com">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止搜索引擎抓取 -->
+    <meta name="robots" content="nofollow">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Chrome浏览器添加桌面快捷方式（安卓） -->
+    <link rel="icon" type="image/png" href="__ABS__/assets/admui/images/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Safari浏览器添加到主屏幕（IOS） -->
+    <link rel="icon" sizes="192x192" href="__ABS__/assets/admui/images/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Admui">
+    <!-- Win8标题栏及ICON图标 -->
+    <link rel="apple-touch-icon-precomposed" href="__ABS__/assets/admui/images/apple-touch-icon.png">
+    <meta name="msapplication-TileImage" content="__ABS__/assets/admui/images/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#62a8ea">
+
+    <!--[if lte IE 9]>
+    <meta http-equiv="refresh" content="0; url='http://www.admui.com/ie'"/>
+    <![endif]-->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/global/css/bootstrap.css">
+
+    <!-- 字体图标 CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/fonts/web-icons/web-icons.css">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/base/css/site.css" id="admui-siteStyle">
+
+    <!-- 插件 CSS -->
+
+
+    <link rel="stylesheet" href="__ABS__/assets/admui/vendor/plyr/plyr.css">
+
+    <!-- Page CSS -->
+
+
+    <!-- 插件 -->
+    <script src="__ABS__/assets/admui/vendor/jquery/jquery.min.js"></script>
+    <script src="__ABS__/assets/admui/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="__ABS__/assets/admui/vendor/lodash/lodash.min.js"></script>
+    <style>
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        .user_info li{
+            margin-top: 1rem;
+            margin-left: 0.2rem;
+        }
+        .from_value{
+            overflow: hidden;
+        }
+        .from_value li{
+            float: left;
+            margin-right: 0.5rem;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body data-theme="base">
+
+<div class="page animation-fade">
+    <div class="page-content">
+        <div class="panel">
+            <div class="panel-body container-fluid">
+                <div class="row row-lg">
+                    <div class="col-md-12">
+                        <div class="example-wrap">
+                            <h4 class="example-title">用户UUID:  &nbsp;&nbsp;<span id="account_uuid">{$user_info.account_uuid}</span></h4>
+                            <h4 class="example-title pr-10" style="line-height: 50px">用户头像:  &nbsp;&nbsp;
+                                <a class="avatar avatar-lg" href="javascript:void (0);">
+                                    <img src="<?php echo preg_match('/^http/', $user_info['avatar']) == 0 ? 'https://avatar01.jiaoliuqu.com/'.$user_info['avatar'] : $user_info['avatar']?>" alt="..." width="50px" height="50px">
+                                </a>
+                            </h4>
+                            <h4 class="example-title">用户昵称: &nbsp;&nbsp;<span style="font-size: 14px; font-weight: 800">{$user_info.nickname}</span></h4>
+                            <h4 class="example-title">用户性别: &nbsp;&nbsp;{$user_info.sex_type}</h4>
+                            <h4 class="example-title">用户年龄: &nbsp;&nbsp;{$user_info.age}</h4>
+                            <h4 class="example-title">所在城市: &nbsp;&nbsp;{$user_info.city}</h4>
+                            <h4 class="example-title">个人介绍: &nbsp;&nbsp;{$user_info.personal_profile}</h4>
+                            <h4 class="example-title">
+                                <span>个人相册:</span>
+                                <php>if(!empty($user_info['img_list'])){</php>
+                                <div class="example" style="overflow: hidden">
+                                    <php>foreach($user_info['img_list'] as $k=>$v){</php>
+                                    <div style="float: left;margin-right: 1em;width: 15%;margin-bottom: 1em;margin-top: 0;">
+                                        <img src="<?php echo preg_match('/^http/', $v['pic_url']) == 0 ? 'https://avatar01.jiaoliuqu.com/'.$v['pic_url'] : $v['pic_url']?>" alt="..."  width="100%">
+                                    </div>
+                                    <php>}</php>
+                                </div>
+                                <php>}else{</php>
+                                    <span></span>
+                                <php>}</php>
+                            </h4>
+                            <h4 class="example-title">
+                                <span>个人视频:</span>
+                                <php>if(!empty($user_info['video_intro'])){</php>
+                                <div class="example">
+                                    <php>foreach($user_info['video_intro'] as $k=>$item){</php>
+                                        <div style="float: left;margin-right: 1em;width: 28%;margin-bottom: 1em;margin-top: 0">
+                                            <video id="video_{$k}" style="width:100%;height: 100%;">
+                                                <source type="video/mp4" src="https://mv01.jiaoliuqu.com/{$item.media_list.file_name}">
+                                            </video>
+                                        </div>
+                                    <php>}</php>
+                                </div>
+                                <php>}else{</php>
+                                    <span></span>
+                                <php>}</php>
+                            </h4>
+                            <hr>
+                            <h4 class="example-title">用户状态: &nbsp;&nbsp;{$user_info.cj_status}</h4>
+                            <h4 class="example-title">采集时间: &nbsp;&nbsp;{$user_info.cj_create_time}</h4>
+                            <h4 class="example-title">同步时间: &nbsp;&nbsp;{$user_info.trans_time}</h4>
+                            <h4 class="example-title">同步错误说明: &nbsp;&nbsp;{$user_info.trans_error}</h4>
+                            <h4 class="example-title">平台的用户ID: &nbsp;&nbsp;{$user_info.xchat_user_id}</h4>
+                            <form  method="post" multiple="" id="exampleFullForm">
+                                <h4 class="example-title">
+                                    <span style="float: left;line-height: 32px;margin-right: 5px">涉黄等级:</span>
+                                    <input type="text" class="form-control" name="xchat_y_level" style="float: left;width: 50px;text-align:center;margin-right: 5px" id="xchat_y_level" required="required" value="{$user_info.xchat_y_level}">
+                                    <button type="button" class="btn btn-primary" id="query" style="float: left">修改</button>
+                                </h4>
+                            </form>
+                        </div>
+                        <!--<hr>-->
+                        <!--<div>-->
+                            <!--<button type="button" class="btn btn-primary" id="down_all_post" style="float: left">下载该用户所有动态</button>-->
+                        <!--</div>-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 插件 -->
+<script src="__ABS__/assets/admui/vendor/matchheight/jquery.matchHeight.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/plyr/plyr.js"></script>
+<script src="__ABS__/assets/admui/vendor/layer/layer.min.js"></script>
+<script src="__ABS__/assets/admui/themes/base/js/app.js"></script>
+
+<!-- Page JS -->
+<script>
+    $("#query").click(function () {
+        $.ajax({
+            type: 'POST',
+            url: "{:url('TopicCircle/userYellowEdit');}",
+            data: {
+                account_uuid:$("#account_uuid").text(),
+                xchat_y_level:$("#xchat_y_level").val(),
+            },
+            dataType: "json",
+            success: function(data){
+                if(data.code === 200){
+                    layer.alert('操作成功', {icon: 6},function () {
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else {
+                    layer.alert(data.msg, {icon: 5});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+    });
+
+    $("#down_all_post").click(function () {
+        //loading层
+        var loading = layer.load(1, {
+            shade: [0.5,'#999'] //0.1透明度的白色背景
+        });
+
+        $.ajax({
+            type: 'POST',
+            url: "{:url('TopicCircle/downTaquAllPostByUuid');}",
+            data: {
+                account_uuid:$("#account_uuid").text(),
+            },
+            dataType: "json",
+            success: function(data){
+                layer.close(loading);
+
+                if(data.code === 200){
+                    layer.alert('操作成功' + data.msg, {icon: 6},function () {
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else {
+                    layer.alert(data.msg, {icon: 5});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+    })
+</script>
+</body>
+</html>

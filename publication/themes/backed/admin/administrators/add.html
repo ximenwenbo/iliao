@@ -1,0 +1,178 @@
+<include file="layout/iframe@header" />
+<!-- Page CSS-->
+<link rel="stylesheet" href="__ABS__/assets/admui/css/examples/forms/validation.css">
+<style>
+    .roleSelect{
+        overflow: hidden;
+    }
+    .roleSelect>div{
+        float: left;
+        margin-right: 4vh;
+    }
+    .roleSelect>div>label{
+        padding-left: 5px;
+    }
+    #tips{
+        line-height: 32px;
+        display: none;
+    }
+</style>
+<body style="margin: 0; padding: 0;overflow-x: hidden">
+<div class="page animation-fade page-forms">
+    <form  method="post" multiple="" id="exampleFullForm" autocomplete="off">
+        <div class="page-content">
+            <div class="panel">
+                <div class="panel-body container-fluid">
+                    <div class="row row-lg">
+                        <div class="col-xxl-4 col-xl-6 form-horizontal">
+                            <div class="form-group row">
+                                <label class="col-xl-12 col-md-3 col-form-label" for="user_login">
+                                    <span class="required" style="font-size: 12px;color: red">*</span> 账号
+                                </label>
+                                <div class="col-xl-9 col-md-6">
+                                    <input type="text" class="form-control" name="user_login" id="user_login" placeholder="5-20个字母或数字" required="required">
+                                    <span class="col-xl-4 col-md-3" id="tips">可以使用</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <label class="col-xl-12 col-md-3 col-form-label" for="user_pass">
+                                    <span class="required " style="font-size: 12px;color: red">*</span> 密码
+                                </label>
+                                <div class="col-xl-9 col-md-6">
+                                    <input type="password" class="form-control" name="user_pass" id="user_pass" placeholder="******" required="required" >
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-xl-12 col-md-3 col-form-label" for="user_nickname">
+                                    <span class="required " style="font-size: 12px;color: red">*</span> 昵称
+                                </label>
+                                <div class="col-xl-9 col-md-6">
+                                    <input type="text" class="form-control" name="user_nickname" id="user_nickname" placeholder="1-20个字符" required="required">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-xxl-4 col-xl-6 form-horizontal">
+
+                            <div class="form-group row">
+                                <label class="col-xl-12 col-md-3 col-form-label" for="mobile">手机号</label>
+                                <div class="col-xl-9 col-md-6">
+                                    <input type="text" class="form-control" name="mobile" id="mobile" placeholder="11位数字" required="required" >
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-xl-12 col-md-3 col-form-label" for="user_email">邮箱</label>
+                                <div class="col-xl-9 col-md-6">
+                                    <input type="text" class="form-control" name="user_email" id="user_email" placeholder="1-50个字符" required="required" >
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-xl-12 col-md-3 col-form-label"><span class="required " style="font-size: 12px;color: red">*</span> 角色</label>
+                                <div class="col-xl-9 col-md-6 roleSelect">
+                                    <php>if(!empty($role)){</php>
+                                        <php>foreach($role as $k=>$v){</php>
+                                            <div class="radio-custom radio-primary">
+                                                <input type="radio" id="inputRadiosChecked{$v.id}" name="inputRadios" value="{$v.id}">
+                                                <label for="inputRadiosChecked{$v.id}" onselectstart="return false;">{$v.name}</label>
+                                            </div>
+                                        <php>}</php>
+                                    <php>}</php>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-12 col-md-12" style="margin-top: 30px">
+                            <button type="button" class="btn btn-primary" id="query">添加</button>&nbsp;&nbsp;&nbsp;
+                            <button type="reset" class="btn btn-default btn-outline">重置</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    /*账号是否正确*/
+    $("#user_login").blur(function () {
+        let user_login = $("#user_login").val();
+        let tips = $("#tips");
+        if(user_login.length === 0){
+            layer.msg('请填写登录账号');
+            tips.show().addClass('red-600').text("请填写登录账号");
+            return;
+        }
+        $.ajax({
+            type: 'POST',
+            url: "{:url('Administrators/getUserLogin');}",
+            data: {
+                user_login:user_login,
+            },
+            dataType: "json",
+            success: function(data){
+                if(data.code === 200){
+                    tips.show().addClass('green-600').text("√ 可以使用");
+                    $("#query").attr("disabled",false);
+                }else{
+                    tips.show().addClass('red-600').text("× 账号已存在");
+                    $("#query").attr("disabled",true);
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+        });
+    }).focus(function () {
+        let tips = $("#tips");
+        tips.hide().removeClass('green-600 red-600').text("");
+    });
+
+    /*提交*/
+    $("#query").on('click',function () {
+        let user_login = $("#user_login").val(),
+            user_pass = $("#user_pass").val(),
+            user_email = $("#user_email").val(),
+            user_nickname = $("#user_nickname").val(),
+            mobile = $("#mobile").val(),
+            inputRadios = $("input:radio[name=inputRadios]:checked").val();
+        if(user_login.length === 0 || user_pass.length === 0 || inputRadios === undefined){
+            layer.msg('必填项不能为空');
+            return ;
+        }
+        $.ajax({
+            type: 'POST',
+            url: "{:url('Administrators/AddInfo');}",
+            data: {
+                user_login:user_login,
+                user_pass:user_pass,
+                user_email:user_email,
+                user_nickname:user_nickname,
+                mobile:mobile,
+                role:inputRadios,
+            },
+            dataType: "json",
+            success: function(data){
+                if(data.code === 200){
+                    layer.alert('操作成功', {icon: 5},function () {
+                        window.parent.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else {
+                    layer.alert(data.msg, {icon: 7});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+</script>
+</body>

@@ -1,0 +1,26 @@
+/**
+ * Admui-iframe v2.0.0 (http://www.admui.com/)
+ * Copyright 2015-2018 Admui Team
+ * Licensed under the Admui License 1.1 (http://www.admui.com/about/license)
+ */
+.bootbox .modal-dialog {
+  width: 360px; }
+
+.example .animation-example {
+  display: inline-block;
+  cursor: pointer; }
+
+.animation-delay-example button {
+  -webkit-animation-name: fade-scale-02;
+          animation-name: fade-scale-02;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both; }
+
+.touch .animation-delay-example:not(.hover) button,
+.animation-delay-example:not(:hover) button {
+  -webkit-animation-name: none;
+          animation-name: none; }

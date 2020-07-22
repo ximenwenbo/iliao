@@ -1,0 +1,149 @@
+{
+    "msg": "查询成功！",
+    "total": 22,
+    "data": [
+        {
+            "text": "默认",
+            "type": "D",
+            "children": [
+                {
+                    "text": "一般人员",
+                    "type": "R",
+                    "children": [
+                        {"text": "夏瑄", "type": "U", "li_attr": {"nodeId": "10010102"}},
+                        {"text": "张致远", "type": "U", "li_attr": {"nodeId": "10010103"}}
+                    ],
+                    "li_attr": {"nodeId": "100102"}
+                },
+                {
+                    "text": "系统管理员",
+                    "type": "R",
+                    "children": [
+                        {"text": "系统管理员", "type": "U", "li_attr": {"nodeId": "10010101"}},
+                        {"text": "夏瑄", "type": "U", "li_attr": {"nodeId": "10010102"}}
+                    ],
+                    "li_attr": {"nodeId": "100101"}
+                }
+            ],
+            "li_attr": {"nodeId": "1001"}
+        },
+        {
+            "text": "职务",
+            "type": "G",
+            "children": [
+                {
+                    "text": "主任",
+                    "type": "R",
+                    "children": [],
+                    "li_attr": {"nodeId": "15398501981290013155"}
+                },
+                {
+                    "text": "员工",
+                    "type": "R",
+                    "children": [],
+                    "li_attr": {"nodeId": "15398501688720378766"}
+                },
+                {
+                    "text": "总监",
+                    "type": "R",
+                    "children": [],
+                    "li_attr": {"nodeId": "15398502158933039793"}
+                },
+                {
+                    "text": "经理",
+                    "type": "R",
+                    "children": [],
+                    "li_attr": {"nodeId": "15398501777779429419"}
+                },
+                {
+                    "text": "部长",
+                    "type": "R",
+                    "children": [],
+                    "li_attr": {"nodeId": "15398502081900163928"}
+                }
+            ],
+            "li_attr": {"nodeId": "15398501098413248448"}
+        },
+        {
+            "text": "岗位",
+            "type": "G",
+            "children": [
+                {
+                    "text": "中层管理",
+                    "type": "R",
+                    "children": [],
+                    "li_attr": {"nodeId": "15398500367661764244"}
+                },
+                {
+                    "text": "普通员工",
+                    "type": "R",
+                    "children": [],
+                    "li_attr": {"nodeId": "15398500166582765360"}
+                },
+                {
+                    "text": "高层管理",
+                    "type": "R",
+                    "children": [],
+                    "li_attr": {"nodeId": "15398500445928806626"}
+                }
+            ],
+            "li_attr": {"nodeId": "2002"}
+        },
+        {
+            "text": "区域",
+            "type": "G",
+            "children": [
+                {
+                    "text": "东北地区",
+                    "type": "R",
+                    "children": [],
+                    "li_attr": {"nodeId": "15398499153181352514"}
+                },
+                {
+                    "text": "华东地区",
+                    "type": "R",
+                    "children": [],
+                    "li_attr": {"nodeId": "15398497336676438337"}
+                },
+                {
+                    "text": "华中地区",
+                    "type": "R",
+                    "children": [],
+                    "li_attr": {"nodeId": "15398497622659907692"}
+                },
+                {
+                    "text": "华北地区",
+                    "type": "R",
+                    "children": [],
+                    "li_attr": {"nodeId": "15398497773087418575"}
+                },
+                {
+                    "text": "华南地区",
+                    "type": "R",
+                    "children": [],
+                    "li_attr": {"nodeId": "15398497511764198001"}
+                },
+                {
+                    "text": "港澳台地区",
+                    "type": "R",
+                    "children": [],
+                    "li_attr": {"nodeId": "15398499246580261398"}
+                },
+                {
+                    "text": "西北地区",
+                    "type": "R",
+                    "children": [],
+                    "li_attr": {"nodeId": "15398497903953483628"}
+                },
+                {
+                    "text": "西南地区",
+                    "type": "R",
+                    "children": [],
+                    "li_attr": {"nodeId": "15398498977528993347"}
+                }
+            ],
+            "li_attr": {"nodeId": "3003"}
+        }
+    ],
+    "success": true
+}

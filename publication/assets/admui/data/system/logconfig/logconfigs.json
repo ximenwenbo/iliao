@@ -1,0 +1,22 @@
+{
+    "success": true,
+    "msg": "success",
+    "data": [
+      {
+        "id": "1001",
+        "createDate": null,
+        "modifyUserName": "系统管理员",
+        "modifyDate": "2018-09-28 23:06:33",
+        "url": "/loginValidate",
+        "type": "登录"
+      },
+      {
+        "id": "15380444307488195723",
+        "createDate": null,
+        "modifyUserName": "系统管理员",
+        "modifyDate": "2018-09-27 18:33:51",
+        "url": "/logout",
+        "type": "登出"
+      }
+    ]
+  }

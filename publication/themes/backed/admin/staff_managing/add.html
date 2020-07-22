@@ -1,0 +1,154 @@
+<include file="layout/iframe@header" />
+<!-- Page CSS-->
+<link rel="stylesheet" href="__ABS__/assets/admui/css/examples/forms/validation.css">
+<!-- Page CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/css/examples/forms/advanced.css">
+<style>
+    .display{
+        display: none;
+    }
+    #title_is{
+        color: red;
+        line-height: 20px;
+    }
+</style>
+<body style="margin: 0; padding: 0;overflow-x: hidden">
+<div class="page animation-fade page-forms">
+        <div class="page-content">
+            <div class="panel">
+                <div class="panel-body container-fluid">
+                    <div class="row row-lg">
+                        <div class="col-xl-12 form-horizontal">
+                            <div class="form-group row">
+                                <div class="form-group col-xl-2 col-md-2">
+                                    <input type="text" class="form-control" name="keywords" id="keywords" placeholder="UID/手机号码/昵称" value="">
+                                    <span id="title_is" class="display">该用户已是客服</span>
+                                </div>
+
+                                <div class="form-group col-xl-2 col-md-2">
+                                    <button type="button" class="btn btn-success" id="search">
+                                        <i class="icon fa-search"></i>搜索</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group col-xl-12 col-md-12 display" id="user_info">
+                            <div class="form-group details_table">
+                                <label class="col-xl-2 col-md-2" style="line-height: 50px">用户头像</label>
+                                <div class="pr-10 col-xl-2 col-md-2">
+                                    <a class="avatar avatar-lg" href="javascript:void (0);">
+                                        <img src="" alt="..." width="50px" height="50px">
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label class="col-xl-2 col-md-2">用户UID</label>
+                                <div class="col-xl-2 col-md-2">
+                                    <input type="text" value="" class="form-control" id="uid" disabled >
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label class="col-xl-2 col-md-2">用户昵称</label>
+                                <div class="col-xl-2 col-md-2">
+                                    <input type="text" value="" class="form-control" disabled id="user_nickname">
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label class="col-xl-2 col-md-2">用户手机号</label>
+                                <div class="col-xl-2 col-md-2">
+                                    <input type="text" value="" class="form-control" disabled id="mobile">
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <div class="col-xl-2 col-md-2">
+                                    <button type="button" class="btn btn-icon" style="width: 100%;background: #4e97d9;color: #fff;" onclick="TurnTo()">转为客服</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- jquery file upload相关js -->
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/vendor/jquery.ui.widget.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.iframe-transport.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload-process.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload-validate.js"></script>
+
+<script src="__ABS__/assets/admui/js/admin/banner_add.js"></script>
+<script>
+    /*搜索*/
+    $("#search").on('click',function () {
+        $("#user_info").addClass('display');
+        $("#title_is").addClass('display');
+        $(".avatar img").attr('src','');
+        $("#uid").val('');
+        $("#user_nickname").val('');
+        $("#mobile").val('');
+        $.ajax({
+            type: 'POST',
+            url: "{:url('StaffManaging/searchUser');}",
+            data: {
+                keywords:$("input[name='keywords']").val(),
+            },
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+                if(data.code === 200){
+                    $("#user_info").removeClass('display');
+                    $(".avatar img").attr('src',data.data.avatar_all);
+                    $("#uid").val(data.data.id);
+                    $("#user_nickname").val(data.data.user_nickname);
+                    $("#mobile").val(data.data.mobile);
+                    if(data.data.is === 1){
+                        $("#title_is").removeClass('display');
+                    }
+                }else {
+                    layer.alert(data.msg, {icon: 7});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+
+
+    function TurnTo() {
+        layer.confirm('确定要转为客服吗?',{btn: ['确定', '取消'], title: "提示"},function () {
+            $.ajax({
+                type: 'POST',
+                url: "{:url('UserMember/TurnToCustomer');}",
+                data: {
+                    id: $("#uid").val(),
+                },
+                dataType: "json",
+                success: function(data){
+                    if(data.code === 200){
+                        layer.msg('操作成功', {icon: 5},function () {
+                            window.parent.location.reload();
+                            let index=parent.layer.getFrameIndex(window.name);
+                            parent.layer.close(index);
+                        });
+                    }else {
+                        layer.alert(data.msg, {icon: 7});
+                    }
+                },
+                error:function (data) {
+                    layer.alert('操作失败，请重新操作', {icon: 2});
+                }
+            });
+        });
+    }
+</script>
+</body>

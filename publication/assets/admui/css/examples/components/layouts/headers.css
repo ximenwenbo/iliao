@@ -1,0 +1,20 @@
+/**
+ * Admui-iframe v2.0.0 (http://www.admui.com/)
+ * Copyright 2015-2018 Admui Team
+ * Licensed under the Admui License 1.1 (http://www.admui.com/about/license)
+ */
+.bootbox .modal-dialog {
+  width: 360px; }
+
+.example-well .page-header {
+  padding: 30px 20px; }
+
+@media (max-width: 767.98px) {
+  .page-header-actions {
+    position: relative;
+    right: auto;
+    top: auto;
+    padding: 5px 0;
+    -webkit-transform: none;
+    transform: none;
+    margin: auto; } }

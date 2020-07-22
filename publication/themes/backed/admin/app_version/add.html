@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>APP版本控制管理 - 新增app版本 </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="admui.com">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止搜索引擎抓取 -->
+    <meta name="robots" content="nofollow">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Chrome浏览器添加桌面快捷方式（安卓） -->
+    <link rel="icon" type="image/png" href="__ABS__/assets/admui/images/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Safari浏览器添加到主屏幕（IOS） -->
+    <link rel="icon" sizes="192x192" href="__ABS__/assets/admui/images/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Admui">
+    <!-- Win8标题栏及ICON图标 -->
+    <link rel="apple-touch-icon-precomposed" href="__ABS__/assets/admui/images/apple-touch-icon.png">
+    <meta name="msapplication-TileImage" content="__ABS__/assets/admui/images/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#62a8ea">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/global/css/bootstrap.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/base/css/site.css" id="admui-siteStyle">
+    <!-- 插件 CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="__ABS__/assets/admui/fonts/web-icons/web-icons.css">
+    <link rel="stylesheet" href="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload.css">
+    <link rel="stylesheet" href="__ABS__/assets/admui/vendor/dropify/dropify.css">
+    <!-- Page CSS-->
+    <link rel="stylesheet" href="__ABS__/assets/admui/css/examples/forms/validation.css">
+    <!-- 插件 -->
+    <script src="__ABS__/assets/admui/vendor/jquery/jquery.min.js"></script>
+    <script src="__ABS__/assets/admui/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="__ABS__/assets/admui/vendor/lodash/lodash.min.js"></script>
+
+    <style>
+        ul,li{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body data-theme="base">
+
+<div class="page animation-fade page-forms">
+    <form  method="post" multiple="" id="exampleFullForm">
+    <div class="page-content">
+        <div class="panel">
+            <div class="panel-body container-fluid">
+                <div class="row row-lg">
+                    <div class="col-xl-12 form-horizontal">
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-12 col-form-label">
+                                <span class="required" style="font-size: 12px;color: red">*</span>app版本号
+                            </label>
+                            <div class="col-xl-4 col-md-4">
+                                <input type="text" class="form-control" name="app_version" placeholder="请输入版本号" required="required">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label"><span class="required" style="font-size: 12px;color: red">*</span>系统</label>
+                            <div>
+                                <div class="radio-custom radio-default radio-inline">
+                                    <input type="radio" id="inputMale" name="system_type" value="1" checked>
+                                    <label for="inputMale">android</label>
+                                </div>
+                                <div class="radio-custom radio-default radio-inline">
+                                    <input type="radio" id="inputFemale" name="system_type" value="2">
+                                    <label for="inputFemale">ios</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label"><span class="required" style="font-size: 12px;color: red">*</span>app端类型</label>
+                            <div>
+                                <div class="radio-custom radio-default radio-inline">
+                                    <input type="radio" name="app_class" id="app_class1" value="1" checked>
+                                    <label for="app_class1">用户端</label>
+                                </div>
+                                <div class="radio-custom radio-default radio-inline">
+                                    <input type="radio" id="app_class2" name="app_class" value="2">
+                                    <label for="app_class2">客服端</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label"><span class="required" style="font-size: 12px;color: red">*</span>更新类型</label>
+                            <div>
+                                <div class="radio-custom radio-default radio-inline">
+                                    <input type="radio" id="update_status1" name="update_status" value="1" checked>
+                                    <label for="update_status1">不强制更新</label>
+                                </div>
+                                <div class="radio-custom radio-default radio-inline">
+                                    <input type="radio" name="update_status" id="update_status2" value="2">
+                                    <label for="update_status2">强制更新</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label"><span class="required" style="font-size: 12px;color: red">*</span>状态</label>
+                            <div>
+                                <div class="radio-custom radio-default radio-inline">
+                                    <input type="radio" name="status" id="status1" value="1" checked>
+                                    <label for="status1">有效</label>
+                                </div>
+                                <div class="radio-custom radio-default radio-inline">
+                                    <input type="radio" name="status" id="status2" value="0">
+                                    <label for="status2">无效</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 form-horizontal">
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-12 col-form-label" >发布时间</label>
+                            <div class="input-group col-xl-4 col-md-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="icon wb-calendar" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control singledatePicker col-xl-6 col-md-6" id="singledatePicker" placeholder="选择日期范围" autocomplete="off" name="singledatePicker" value="">
+                                <input type="hidden" name="vip_expire_time" value="">
+                                <div class="input-group-prepend">
+                                    <button type="button" class="btn btn-icon btn-default btn-outline btn-sm date-clear">
+                                        <i class="icon wb-close" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row" style="margin-bottom: 0">
+                            <label class="col-xl-12 col-md-12 col-form-label" style="margin-bottom: 6px">资源地址</label>
+                            <div class="col-xl-4">
+
+                                <div class="example-wrap">
+                                    <div class="nav-tabs-vertical">
+                                        <ul class="nav nav-tabs mr-25" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link  active show" data-toggle="tab" href="#exampleTabsLeftOne" aria-controls="exampleTabsLeftOne" role="tab" aria-selected="false">
+                                                    输入网址
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#exampleTabsLeftTwo" aria-controls="exampleTabsLeftTwo" role="tab" aria-selected="true">
+                                                    上传文件
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content py-15">
+                                            <div class="tab-pane  active show" id="exampleTabsLeftOne" role="tabpanel">
+                                                <input type="text" class="form-control" name="sdk_url" id="sdk_url" placeholder="请输入apk下载地址">
+                                            </div>
+                                            <div class="tab-pane" id="exampleTabsLeftTwo" role="tabpanel">
+                                                <div class="jquery-fileupload">
+                                                    <div>
+                                                        <span id="preview"></span>
+                                                    </div>
+                                                    <div class="effect_div" style="border-left: 10px">
+                                                        <input id="uploadImg" type="file" name="file" multiple style="display: none" />
+                                                        <button type="button" class="btn btn-outline btn-primary" id="chooseFile">
+                                                            <i class="icon wb-plus" aria-hidden="true"></i> 选择文件
+                                                        </button>
+                                                        <button type="button" class="btn btn-dark" id="uploadFile">
+                                                            <i class="icon wb-upload" aria-hidden="true"></i> 开始上传
+                                                        </button>
+                                                        <button type="button" class="btn btn-raised" id="rechooseFile">
+                                                            <i class="icon wb-pencil" aria-hidden="true"></i> 重新选择
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-xl-12 col-md-12 col-form-label">版本更新说明</label>
+                            <div class="col-xl-4 col-md-4">
+                                <textarea class="form-control" id="remark" name="update_msg" rows="3" placeholder="请输入1-255个字符"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-xl-12 padding-top-m">
+                        <button type="button" class="btn btn-primary" id="query">新增</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+
+<script src="__ABS__/assets/admui/vendor/jquery/jquery.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/layer/layer.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/moment/moment.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/daterangepicker/daterangepicker.js"></script>
+<!-- jquery file upload相关js -->
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/vendor/jquery.ui.widget.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.iframe-transport.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload-process.js"></script>
+<script src="__ABS__/assets/admui/vendor/blueimp-file-upload/jquery.fileupload-validate.js"></script>
+
+<script src="__ABS__/assets/admui/js/admin/app_version_file_add.js"></script>
+<script>
+    //同步时间值 ipa
+    $(function () {
+        let vip_expire_time = $("input[name='vip_expire_time']").val();
+        $("input[name='singledatePicker']").val(vip_expire_time);
+    });
+    //daterangepicker日期插件
+    $('input[name="singledatePicker"]').daterangepicker({
+        "autoApply": true, //选择日期后自动提交;只有在不显示时间的时候起作用timePicker:false
+        singleDatePicker: true, //单日历
+        showDropdowns: true, //年月份下拉框
+        timePicker: true, //显示时间
+        timePicker24Hour: true, //时间制
+        timePickerSeconds: true, //时间显示到秒
+        //startDate: moment().hours(0).minutes(0).seconds(0), //设置开始日期
+        "opens": "right",
+        showWeekNumbers: true,
+        locale: {
+            format: "YYYY-MM-DD HH:mm", //设置显示格式
+            applyLabel: '确定', //确定按钮文本
+            cancelLabel: '取消', //取消按钮文本
+            daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+            monthNames: ['一月', '二月', '三月', '四月', '五月', '六月',
+                '七月', '八月', '九月', '十月', '十一月', '十二月'
+            ],
+        },
+    }, function(start) {
+        $('input[name="vip_expire_time"]').val(start.format('YYYY-MM-DD'));
+        //console.log(start.format('YYYY-MM-DD HH:mm:ss'));
+    });
+
+    // 删除选择时间
+    $('.date-clear').on('click', function() {
+        let panel = $(".panel");
+        panel.find('#singledatePicker').val('');
+        panel.find('input[name="vip_expire_time"]').val('');
+    });
+    /*表单提交*/
+    $("#query").on('click',function () {
+        let app_version = $("input[name='app_version']").val(),
+            system_type = $("input[type=radio][name='system_type']:checked").val(),
+            app_class = $("input[type=radio][name='app_class']:checked").val(),
+            update_status = $("input[type=radio][name='update_status']:checked").val(),
+            status = $("input[type=radio][name='status']:checked").val(),
+            published_time = $("input[name='vip_expire_time']").val(),
+            sdk_url = $("input[name='sdk_url']").val(),
+            remark = $("#remark").val();
+        $.ajax({
+            type: 'POST',
+            url: "{:url('AppVersion/AddInfo');}",
+            data: {
+                app_version:app_version,
+                system_type:system_type,
+                app_class:app_class,
+                update_status:update_status,
+                status:status,
+                sdk_url:sdk_url,
+                published_time:published_time,
+                update_msg:remark,
+            },
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+                if(data.code === 200){
+                    layer.alert('操作成功', {icon: 6},function () {
+                        window.parent.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else {
+                    layer.alert(data.msg, {icon: 5});
+                }
+            },
+            error:function (data) {
+                console.log(data);
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+
+</script>
+</body>
+</html>

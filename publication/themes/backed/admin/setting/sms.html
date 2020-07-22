@@ -1,0 +1,202 @@
+<include file="layout/iframe@header" />
+
+<!-- Site CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/themes/base/css/site.css">
+<link rel="stylesheet" href="__ABS__/assets/admui/vendor/icheck/icheck.css">
+<style>
+    body {
+        padding-top: 0;
+    }
+    .table thead th {
+        text-align: left;
+    }
+</style>
+<body class="page-aside-fixed page-aside-left" data-theme="base">
+
+<div class="page animation-fade">
+    <div class="page-aside">
+
+        <div class="page-aside-switch">
+            <i class="icon wb-chevron-left" aria-hidden="true"></i>
+            <i class="icon wb-chevron-right" aria-hidden="true"></i>
+        </div>
+
+        <div class="page-aside-inner page-aside-scroll" data-plugin="mCustomScrollbar">
+            <div data-role="container">
+                <div data-role="content">
+                    <section class="page-aside-section">
+                        <div class="list-group">
+                            <a class="list-group-item" href="{:url('setting/login')}">
+                                登录方式
+                            </a>
+                            <a class="list-group-item" href="{:url('setting/pay')}">
+                                支付渠道
+                            </a>
+                            <a class="list-group-item active" href="{:url('setting/sms')}">
+                                短信配置
+                            </a>
+                            <a class="list-group-item" href="{:url('setting/position')}">
+                                地图定位
+                            </a>
+                            <a class="list-group-item" href="{:url('setting/trtc')}">
+                                腾讯云
+                            </a>
+                            <!--<a class="list-group-item" href="{:url('setting/aliyunOss')}">-->
+                                <!--阿里云-->
+                            <!--</a>-->
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-main">
+        <div class="page-header">
+            <h3 class="page-title">选择短信服务商</h3>
+        </div>
+        <div class="page-content col-xxl-8">
+            <div class="panel">
+                <form class="form-horizontal panel-body" action="{:url('setting/smsPost')}" method="post" autocomplete="off" novalidate="novalidate">
+                    <table class="table table-hover" data-selectable="selectable" data-row-selectable="true">
+                        <thead>
+                        <tr>
+                            <th class="h-50" width="40%">短信服务商</th>
+                            <th class="h-50" width="40%">配置</th>
+                            <th class="h-50">开启状态</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>腾讯云短信</td>
+                            <td>
+                                <button type="button" class="btn btn-icon btn-default btn-outline btn-sm" onclick="setTypeOnclick(this)" data-modal="modal-qcloud">
+                                    <i class="icon wb-wrench" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                            <td>
+                                <div class="float-left mr-20">
+                                    <div class="radio-custom radio-primary">
+                                        <input type="radio" id="id-qcloud" name="service" value="qcloud_sms" {$sms_conf.type=='qcloud_sms'?='checked'}>
+                                        <label for="id-qcloud">推荐使用</label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>阿里大鱼</td>
+                            <td>
+                                <button type="button" class="btn btn-icon btn-default btn-outline btn-sm" onclick="setTypeOnclick(this)" data-modal="modal-dayu">
+                                    <i class="icon wb-wrench" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                            <td>
+                                <div class="float-left mr-20">
+                                    <div class="radio-custom radio-primary">
+                                    <input type="radio" id="id-dayu" name="service" value="aliyun_dayu" {$sms_conf.type=='aliyun_dayu'?='checked'}>
+                                        <label for="id-dayu"></label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--腾讯云短信配置-->
+<div class="modal" id="modal-qcloud" aria-hidden="true" aria-labelledby="form_qcloud" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-center">
+        <form class="modal-content" method="post" action="{:url('setting/smsType',['type'=>'qcloud_sms'])}">
+            <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
+                <h4 class="modal-title">腾讯云短信配置</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form form-horizontal mt-20">
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label">appid</label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" name="sms_qcloud[appid]" value="{$sms_qcloud.appid|default=''}" placeholder="请填写appid">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label">appkey</label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" name="sms_qcloud[appkey]" value="{$sms_qcloud.appkey|default=''}" placeholder="请填写appkey">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label"><span class="form-required">*</span>手机登录模版</label>
+                        <div class="col-4">
+                            <input type="text" class="form-control" placeholder="手机登录签名" name="sms_qcloud[login_signName]" value="{$sms_qcloud.login_signName|default=''}">
+                        </div>
+                        <div class="col-5">
+                            <input type="text" class="form-control" placeholder="手机登录模版ID" name="sms_qcloud[login_templateCode]" value="{$sms_qcloud.login_templateCode|default=''}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="submit">保存</button>
+                <a class="btn btn-default" data-dismiss="modal">取消</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--阿里大鱼短信配置-->
+<div class="modal" id="modal-dayu" aria-hidden="true" aria-labelledby="form_dayu" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-center">
+        <form class="modal-content" method="post" action="{:url('setting/smsType',['type'=>'aliyun_dayu'])}">
+            <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
+                <h4 class="modal-title">阿里大鱼短信配置</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form form-horizontal mt-20">
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label">accessKeyId</label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" name="sms_aliyun_dayu[accessKeyId]" value="{$sms_aliyun_dayu.accessKeyId|default=''}" placeholder="请填写accessKeyId">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label">accessKeySecret</label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" name="sms_aliyun_dayu[accessKeySecret]" value="{$sms_aliyun_dayu.accessKeySecret|default=''}" placeholder="请填写accessKeySecret">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label"><span class="form-required">*</span>手机登录模版</label>
+                        <div class="col-4">
+                            <input type="text" class="form-control" placeholder="手机登录模版签名" name="sms_aliyun_dayu[login_signName]" value="{$sms_aliyun_dayu.login_signName|default=''}">
+                        </div>
+                        <div class="col-5">
+                            <input type="text" class="form-control" placeholder="手机登录模版CODE" name="sms_aliyun_dayu[login_templateCode]" value="{$sms_aliyun_dayu.login_templateCode|default=''}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="submit">保存</button>
+                <a class="btn btn-default" data-dismiss="modal">取消</a>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    function setTypeOnclick(obj) {
+        var modal = obj.getAttribute('data-modal');
+        $('#'+modal).modal('show');
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<include file="layout/iframe@header" />
+<!-- Page CSS-->
+<link rel="stylesheet" href="__ABS__/assets/admui/css/examples/forms/validation.css">
+<style>
+    .roleSelect{
+        overflow: hidden;
+    }
+    .roleSelect>div{
+        float: left;
+        margin-right: 4vh;
+    }
+    .roleSelect>div>label{
+        padding-left: 5px;
+    }
+</style>
+<body style="margin: 0; padding: 0;overflow-x: hidden">
+<div class="page animation-fade page-forms">
+    <form  method="post" multiple="" id="exampleFullForm">
+        <div class="page-content">
+            <div class="panel">
+                <div class="panel-body container-fluid">
+                    <div class="row">
+                        <div class="col-xxl-4 col-xl-6 form-horizontal">
+                            <div class="form-group row">
+                                <label class="col-xl-12 col-md-3 col-form-label" for="name">
+                                    <span class="required" style="font-size: 12px;color: red">*</span> 角色名称
+                                </label>
+                                <div class="col-xl-9 col-md-6" style="margin: 0">
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="1-20个字符" required="required">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <label class="col-xl-12 col-md-3 col-form-label" for="uni_code">
+                                    <span class="required" style="font-size: 12px;color: red">*</span> 唯一编码
+                                </label>
+                                <div class="col-xl-9 col-md-6">
+                                    <input type="text" class="form-control" name="uni_code" id="uni_code" placeholder="1-100个字符" required="required" >
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-xl-12 col-md-3 col-form-label" for="remark">角色描述</label>
+                                <div class="col-xl-9 col-md-6">
+                                    <input type="text" class="form-control" name="remark" id="remark" placeholder="1-255个字符" required="required">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <div class="col-xl-12 col-md-3 ">是否使用</div>
+                                <div class="col-xl-9 col-md-6 roleSelect">
+                                    <div class="radio-custom radio-primary">
+                                        <input type="radio" id="inputRadiosChecked" name="inputRadios" value="1" checked>
+                                        <label for="inputRadiosChecked" onselectstart="return false;">使用</label>
+                                    </div>
+                                    <div class="radio-custom radio-primary">
+                                        <input type="radio" id="inputRadiosChecked1" name="inputRadios" value="0">
+                                        <label for="inputRadiosChecked1" onselectstart="return false;">停用</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-12 col-md-12 text-center">
+                            <button type="button" class="btn btn-primary" id="query">添加</button>
+                            <button type="reset" class="btn btn-default btn-outline">重置</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    /*提交*/
+    $("#query").on('click',function () {
+        let name = $("#name").val(),
+            uni_code = $("#uni_code").val(),
+            remark = $("#remark").val(),
+            status = $("input:radio[name=inputRadios]:checked").val();
+        if(name.length === 0){
+            layer.msg('请填写角色名称');
+            return ;
+        }
+        $.ajax({
+            type: 'POST',
+            url: "{:url('RbacRole/AddInfo');}",
+            data: {
+                name:name,
+                uni_code:uni_code,
+                remark:remark,
+                status:status,
+            },
+            dataType: "json",
+            success: function(data){
+                if(data.code === 200){
+                    layer.alert('操作成功', {icon: 5},function () {
+                        window.parent.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else {
+                    layer.alert(data.msg, {icon: 7});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+</script>
+</body>

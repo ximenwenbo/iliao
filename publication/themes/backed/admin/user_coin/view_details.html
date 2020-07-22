@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>消费订单详情</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="admui.com">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止搜索引擎抓取 -->
+    <meta name="robots" content="nofollow">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Chrome浏览器添加桌面快捷方式（安卓） -->
+    <link rel="icon" type="image/png" href="__ABS__/assets/admui/images/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Safari浏览器添加到主屏幕（IOS） -->
+    <link rel="icon" sizes="192x192" href="__ABS__/assets/admui/images/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Admui">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/global/css/bootstrap.css">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/base/css/site.css" id="admui-siteStyle">
+
+    <style>
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        .user_info li{
+            margin-top: 1rem;
+            margin-left: 0.2rem;
+        }
+        .from_value{
+            overflow: hidden;
+        }
+        .from_value li{
+            float: left;
+            margin-right: 0.5rem;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body data-theme="base">
+
+<div class="page animation-fade">
+    <div class="page-content">
+        <div class="panel">
+            <div class="panel-body container-fluid">
+                <div class="row row-lg">
+                    <div class="col-xl-6 col-md-6" style="background: #f8f8f8;padding:1.0715rem;">
+                        <h4 class="color:#37474f;margin-bottom:1.5rem;font-size:1.08rem;">消费者信息</h4>
+                        <h4 class="example-title row">
+                            <span class="col-xl-2 col-md-2">用户UID:</span>
+                            <span>{$info.sid}</span>
+                        </h4>
+                        <h4 class="example-title row">
+                            <span class="col-xl-2 col-md-2">用户昵称:</span>
+                            <span>{$info.s_nickname}</span>
+                        </h4>
+                        <h4 class="example-title pr-10 row" style="line-height: 50px">
+                            <span class="col-xl-2 col-md-2">用户头像:</span>
+                            <a class="avatar avatar-lg" href="javascript:void (0);">
+                                <img src="<?php echo app\admin\service\MaterialService::getFullUrl($info['s_avatar'])?>" alt="..." width="50px" height="50px">
+                            </a>
+                        </h4>
+                        <h4 class="example-title row">
+                            <span class="col-xl-2 col-md-2">联系方式:</span>
+                            <span>{$info.s_mobile}</span>
+                        </h4>
+                    </div>
+                    <div class="col-xl-6 col-md-6" style="background: #f8f8f8;padding:1.0715rem;">
+                        <h4 class="color:#37474f;margin-bottom:1.5rem;font-size:1.08rem;">受益者信息</h4>
+                        <h4 class="example-title row">
+                            <span class="col-xl-2 col-md-2">用户UID:</span>
+                            <span>{$info.rid}</span>
+                        </h4>
+                        <h4 class="example-title row">
+                            <span class="col-xl-2 col-md-2">用户昵称:</span>
+                            <span>{$info.r_nickname}</span>
+                        </h4>
+                        <h4 class="example-title pr-10 row" style="line-height: 50px">
+                            <span class="col-xl-2 col-md-2">用户头像:</span>
+                            <a class="avatar avatar-lg" href="javascript:void (0);">
+                                <img src="<?php echo app\admin\service\MaterialService::getFullUrl($info['r_avatar'])?>" alt="..." width="50px" height="50px">
+                            </a>
+                        </h4>
+                        <h4 class="example-title row">
+                            <span class="col-xl-2 col-md-2">联系方式:</span>
+                            <span>{$info.r_mobile}</span>
+                        </h4>
+                    </div>
+
+                    <hr  class="col-xl-12 col-md-12">
+                    <php>if($change_class_id == 34){</php>
+                    <div class="col-xl-12 col-md-12">
+                        <h4 class="example-title">守护时间:  &nbsp;&nbsp;{$info.day_time} 天</h4>
+                        <h4 class="example-title">消费金币:  &nbsp;&nbsp;{$info.coin}</h4>
+                        <h4 class="example-title">消费时间:  &nbsp;&nbsp;{$info.create_time}</h4>
+                    </div>
+                    <php>}elseif($change_class_id == 33){</php>
+                    <div class="col-xl-12 col-md-12">
+                        <h4 class="example-title">房间号:  &nbsp;&nbsp;{$info.live_id}</h4>
+                        <h4 class="example-title">主播ID:  &nbsp;&nbsp;{$info.live_uid}</h4>
+                        <h4 class="example-title">消费金币:  &nbsp;&nbsp;{$info.cost}</h4>
+                        <h4 class="example-title">消费时间:  &nbsp;&nbsp;{$info.create_time}</h4>
+                    </div>
+                    <php>}elseif($change_class_id == 32){</php>
+                    <div class="col-xl-12 col-md-12">
+                        <h4 class="example-title">礼物名称:  &nbsp;&nbsp;{$info.g_name}</h4>
+                        <h4 class="example-title">礼物数量:  &nbsp;&nbsp;{$info.num}</h4>
+                        <h4 class="example-title">价值金币:  &nbsp;&nbsp;{$info.coin}</h4>
+                        <h4 class="example-title">消费金币:  &nbsp;&nbsp;{$info.total_coin}</h4>
+                        <h4 class="example-title">订单编号:  &nbsp;&nbsp;{$info.order_no}</h4>
+                        <h4 class="example-title">发送时间:  &nbsp;&nbsp;{:date("Y-m-d H:i:s",$info.send_time)}</h4>
+                        <h4 class="example-title">接收时间:  &nbsp;&nbsp;{:date("Y-m-d H:i:s",$info.receive_time)}</h4>
+                    </div>
+                    <php>}elseif ($change_class_id == 31){</php>
+                    <div class="col-xl-12 col-md-12">
+                        <h4 class="example-title">房间编号:  &nbsp;&nbsp;{$info.home_id}</h4>
+                        <h4 class="example-title">聊天类型:  &nbsp;&nbsp;{$type[$info.type]}</h4>
+                        <h4 class="example-title">聊天时长:  &nbsp;&nbsp;{$info.duration}&nbsp;分钟</h4>
+                        <h4 class="example-title">聊天收费:  &nbsp;&nbsp;{$info.per_cost}&nbsp;聊币/分</h4>
+                        <h4 class="example-title">收费总额:  &nbsp;&nbsp;{$info.cost}&nbsp;聊币</h4>
+                        <h4 class="example-title">聊天状态:  &nbsp;&nbsp;{$status[$info.status]}</h4>
+                        <h4 class="example-title">订单编号:  &nbsp;&nbsp;{$info.order_no}</h4>
+                        <h4 class="example-title">聊天创建时间:  &nbsp;&nbsp;{:date("Y-m-d H:i:s",$info.create_time)}</h4>
+                        <h4 class="example-title">聊天结束时间:  &nbsp;&nbsp;{:date("Y-m-d H:i:s",$info.finish_time)}</h4>
+                    </div>
+                    <php>}</php>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Page JS -->
+
+</body>
+</html>

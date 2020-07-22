@@ -1,0 +1,106 @@
+<include file="layout/iframe@header" />
+<style>
+
+</style>
+<body style="margin: 0; padding: 0;overflow-x: hidden">
+<div class="col-md-12 col-lg-6">
+    <div class="example-wrap">
+        <div class="example">
+            <form class="form-horizontal">
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label" style="color: #000000 ;font-size: 1.1rem;font-weight: bold;">用户信息</label>
+                    <hr class=" col-md-12">
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">记录ID：</label>
+                    <div class="col-md-9">
+                        <input type="text" disabled name="id" value="{$info.id}" id="id" class="form-control" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">用户昵称：</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="user_nickname" autocomplete="off" value="{$info.user_nickname}" disabled>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">手机号码：</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="mobile" autocomplete="off" value="{$info.mobile}" disabled>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label" style="color: #000000 ;font-size: 1.1rem;font-weight: bold;">审核信息</label>
+                    <hr class=" col-md-12">
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">是否通过：</label>
+                    <div class="col-md-9">
+                        <div class="radio-custom radio-default radio-inline">
+                            <input type="radio" id="inputHorizontalMale2" name="status" checked value="2">
+                            <label for="inputHorizontalMale2">通过</label>
+                        </div>
+                        <div class="radio-custom radio-default radio-inline">
+                            <input type="radio" id="inputHorizontalFemale2" name="status" value="10">
+                            <label for="inputHorizontalFemale2">拒绝</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">审核理由：</label>
+                    <div class="col-md-9">
+                        <textarea class="form-control" placeholder="审核理由,必填" name="remark" id="remark"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="button" class="btn btn-primary" id="query">提交 </button>
+                        <button type="reset" class="btn btn-default btn-outline">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+
+    /*提交审核*/
+    $("#query").on('click',function () {
+        let remark = $("#remark").val();
+        if(remark.length < 1){
+            layer.msg('审核理由不能为空');
+            return  false;
+        }
+        $.ajax({
+            type: 'POST',
+            url: "{:url('AlbumResources/ToExamine');}",
+            data: {
+                id:$("#id").val(),
+                status:$("input[name='status']:checked").val(),
+                remark:remark},
+            dataType: "json",
+            success: function(data){
+                if(data.code === 200){
+                    layer.alert('操作成功', {icon: 5},function () {
+                        window.parent.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else {
+                    layer.alert(data.msg, {icon: 7},function () {
+                        window.parent.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+</script>
+</body>

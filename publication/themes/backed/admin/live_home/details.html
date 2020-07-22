@@ -1,0 +1,150 @@
+<include file="layout/iframe@header" xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns:/>
+<!-- Page CSS-->
+<link rel="stylesheet" href="__ABS__/assets/admui/vendor/dropify/dropify.css">
+
+<body style="margin: 0; padding: 0;overflow-x: hidden">
+<div class="page animation-fade page-forms">
+    <form  method="post" multiple="" id="exampleFullForm">
+        <div class="page-content">
+            <div class="panel">
+                <div class="panel-body container-fluid">
+                    <div class="details_table-lg row">
+                        <div class="col-xl-4 col-md-4 form-horizontal">
+                            <div class="details_table">
+                                <h3 style="margin: 0;padding: 0">详细信息</h3>
+                                <label style="padding: 0;margin: 0;width: 120px"><hr style="padding-bottom: 20px"></label>
+                                <div><hr></div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label for="user_id">直播房间号</label>
+                                <div>
+                                    <input type="text" class="form-control" id="user_id" value="{$info.user_id}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label for="title">房间标题</label>
+                                <div>
+                                    <input type="text" class="form-control" id="title" value="{$info.title}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label for="title">房间封面</label>
+                                <div>
+                                    <img src="{$info.abs_cover_img}" alt="" width="150px" height="150px">
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label for="live_mode">直播形式</label>
+                                <div>
+                                    <input type="text" class="form-control" id="live_mode" value="{$info.live_mode == 1 ? '视频直播' : '语音直播'}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label for="type_name">直播形式</label>
+                                <div>
+                                    <input type="text" class="form-control" id="type_name" value="{$info.type_name}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label for="in_coin">门票收费金币</label>
+                                <div>
+                                    <input type="text" class="form-control" id="in_coin" value="{$info.in_coin}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label for="online_viewer">在线的观众</label>
+                                <div>
+                                    <input type="text" class="form-control" id="online_viewer" value="{$info.online_viewer}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label for="total_viewer">总的观看者</label>
+                                <div>
+                                    <input type="text" class="form-control" id="total_viewer" value="{$info.total_viewer}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label for="status">状态</label>
+                                <div>
+                                    <input type="text" class="form-control" id="status" value="{$info.status_str}" disabled>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-xl-4 col-md-4 form-horizontal">
+                            <div class="details_table">
+                                <h3 style="margin: 0;padding: 0">其它信息</h3>
+                                <label style="padding: 0;margin: 0;width: 120px"><hr style="padding-bottom: 20px"></label>
+                                <div><hr></div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label for="user_nickname">用户昵称</label>
+                                <div>
+                                    <input type="text" class="form-control" id="user_nickname" value="{$info.user_nickname}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label for="city_name">城市名称</label>
+                                <div>
+                                    <input type="text" class="form-control" id="city_name" value="{$info.city_name}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label for="error_msg">错误说明</label>
+                                <div>
+                                    <input type="text" class="form-control" id="error_msg" value="{$info.error_msg}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label for="start_time">开始时间</label>
+                                <div>
+                                    <input type="text" class="form-control" id="start_time" value="{:date('Y-m-d H:i:s',$info['start_time'])}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label for="end_time">结束时间</label>
+                                <div>
+                                    <input type="text" class="form-control" id="end_time" value="{$info['end_time']?=date('Y-m-d H:i:s',$info['end_time'])}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label for="create_time">创建时间</label>
+                                <div>
+                                    <input type="text" class="form-control" id="create_time" value="{$info.create_time}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group details_table">
+                                <label for="update_time">更新时间</label>
+                                <div>
+                                    <input type="text" class="form-control" id="update_time" value="{$info.update_time}" disabled>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>

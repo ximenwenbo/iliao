@@ -1,0 +1,25 @@
+/**
+ * Admui-iframe v2.0.0 (http://www.admui.com/)
+ * Copyright 2015-2018 Admui Team
+ * Licensed under the Admui License 1.1 (http://www.admui.com/about/license)
+ */
+.bootbox .modal-dialog {
+  width: 360px; }
+
+.introjs-tooltipbuttons {
+  text-align: left; }
+
+.introjs-skipbutton {
+  margin-left: 5px; }
+
+.introjs-tooltip {
+  direction: rtl; }
+
+.introjs-prevbutton {
+  border: 1px solid #d4d4d4;
+  border-left: none;
+  border-radius: 0 0.2em 0.2em 0; }
+
+.introjs-nextbutton {
+  border: 1px solid #d4d4d4;
+  border-radius: 0.2em 0 0 0.2em; }

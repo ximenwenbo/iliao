@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>直播管理后台</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="admui.com">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止搜索引擎抓取 -->
+    <meta name="robots" content="nofollow">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Chrome浏览器添加桌面快捷方式（安卓） -->
+    <link rel="icon" type="image/png" href="__ABS__/assets/admui/images/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Safari浏览器添加到主屏幕（IOS） -->
+    <link rel="icon" sizes="192x192" href="__ABS__/assets/admui/images/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Admui">
+    <!-- Win8标题栏及ICON图标 -->
+    <link rel="apple-touch-icon-precomposed" href="__ABS__/assets/admui/images/apple-touch-icon.png">
+    <meta name="msapplication-TileImage" content="__ABS__/assets/admui/images/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#62a8ea">
+
+    <!--[if lte IE 9]>
+    <meta http-equiv="refresh" content="0; url='http://www.admui.com/ie'"/>
+    <![endif]-->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/global/css/bootstrap.css">
+
+    <!-- 字体图标 CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/fonts/web-icons/web-icons.css">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/base/css/site.css" id="admui-siteStyle">
+
+    <!-- 插件 CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/vendor/plyr/plyr.css">
+
+    <!-- Page CSS -->
+
+    <!-- 插件 -->
+    <script src="__ABS__/assets/admui/vendor/jquery/jquery.min.js"></script>
+    <script src="__ABS__/assets/admui/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="__ABS__/assets/admui/vendor/lodash/lodash.min.js"></script>
+    <style>
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        a{
+          color: #fff;
+        }
+        .user_info li{
+            margin-top: 1rem;
+            margin-left: 0.2rem;
+        }
+        .from_value li{
+            float: left;
+            margin-right: 0.5rem;
+            line-height: 30px;
+        }
+
+        /*列表*/
+        .details_table{
+            overflow: hidden;
+        }
+        .details_table>label,.details_table>div{
+            float: left;
+        }
+        .details_table>label{
+            margin-right: 20px;
+            line-height: 32px;
+            width: 100px;
+        }
+        .details_table>div{
+            width: 70%;
+        }
+    </style>
+</head>
+<body data-theme="base">
+
+<div class="page animation-fade">
+    <div class="page-content">
+        <div class="panel">
+            <div class="panel-body container-fluid">
+                <div class="row" style="padding: 20px 0 0 20px">
+                    <div class="col-md-4 col-xl-4">
+                        <h4 class="example-title">基本信息</h4><hr>
+
+                        <div class="form-group details_table">
+                            <label style="line-height: 50px">用户头像</label>
+                            <div class="pr-10">
+                                <a class="avatar avatar-lg" href="javascript:void (0);">
+                                    <img src="{$user_info.avatar}" alt="..." width="50px" height="50px">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>用户UID</label>
+                            <div>
+                                <input type="text" value="{$user_info.id}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>用户昵称</label>
+                            <div>
+                                <input type="text" value="{$user_info.user_nickname}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>邮箱</label>
+                            <div>
+                                <input type="text" value="{$user_info.user_email || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>手机号</label>
+                            <div>
+                                <input type="text" value="{$user_info.mobile || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>性别</label>
+                            <div>
+                                <input type="text" value="{$user_info.sex_type || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>签名</label>
+                            <div>
+                                <input type="text" value="{$user_info.signature || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>资料是否完善</label>
+                            <div>
+                                <input type="text" value="{$user_info.info_complete == 1 ?'是' : '否'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>是否主播</label>
+                            <div>
+                                <input type="text" value="{$user_info.daren_status == 2 ?'是' : '否'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>开放位置</label>
+                            <div>
+                                <input type="text" value="{$user_info.open_position == 1 ?'开放' : '不开放'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>是否虚拟定位</label>
+                            <div>
+                                <input type="text" value="{$user_info.virtual_pos == 1 ?'开放' : '不开放'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>注册时间</label>
+                            <div>
+                                <input type="text" value='{:date("Y-m-d H:i:s",$user_info.create_time)}' class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>VIP到期时间</label>
+                            <div>
+                                <input type="text" value='{:empty($user_info.vip_expire_time) ? "未开通" :date("Y-m-d H:i:s",$user_info.vip_expire_time)}' class="form-control" disabled >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--金币/设备/积分-->
+                    <div class="col-md-4 col-xl-4">
+                        <h4 class="example-title">金币/积分/设备</h4><hr style="margin-bottom: 30px">
+
+                        <div class="form-group details_table">
+                            <label>金币（不可提现）</label>
+                            <div>
+                                <input type="text" value="{$user_info.coin || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>冻结的金币（不可提现）</label>
+                            <div>
+                                <input type="text" value="{$user_info.frozen_coin || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>已使用的金币（不可提现）</label>
+                            <div>
+                                <input type="text" value="{$user_info.used_coin || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>可提现金币</label>
+                            <div>
+                                <input type="text" value="{$user_info.withdraw_coin || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>冻结的可提现金币</label>
+                            <div>
+                                <input type="text" value="{$user_info.withdraw_frozen_coin || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>已使用的可提现金币</label>
+                            <div>
+                                <input type="text" value="{$user_info.withdraw_used_coin || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>设备品牌</label>
+                            <div>
+                                <input type="text" value="{$user_info.device_brand || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>设备型号</label>
+                            <div>
+                                <input type="text" value="{$user_info.device_model || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>设备系统版本</label>
+                            <div>
+                                <input type="text" value="{$user_info.device_os_version || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>经度</label>
+                            <div>
+                                <input type="text" value="{$user_info.longitude || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>纬度</label>
+                            <div>
+                                <input type="text" value="{$user_info.latitude || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!--其它-->
+                    <div class="col-md-4 col-xl-4">
+                        <h4 class="example-title">其它</h4><hr style="margin-bottom: 30px">
+
+                        <div class="form-group details_table">
+                            <label>邀请者uid</label>
+                            <div>
+                                <input type="text" value="{$user_info.from_uid || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>QQ</label>
+                            <div>
+                                <input type="text" value="{$user_info.qq || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>微信</label>
+                            <div>
+                                <input type="text" value="{$user_info.weixin || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>涉黄等级</label>
+                            <div>
+                                <input type="text" value="{$user_info.y_level || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>被关注人数</label>
+                            <div>
+                                <input type="text" value="{$user_info.be_follow_num || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>被查看人数</label>
+                            <div>
+                                <input type="text" value="{$user_info.be_look_num || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>被守护数</label>
+                            <div>
+                                <input type="text" value="{$user_info.watch_num || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+
+                        <div class="form-group details_table">
+                            <label>最后登录时间</label>
+                            <div>
+                                <input type="text" value='{:date("Y-m-d H:i:s",$user_info.last_login_time)}' class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label>最后登录IP</label>
+                            <div>
+                                <input type="text" value="{$user_info.last_login_ip || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+
+                        <div class="form-group details_table">
+                            <label>地址</label>
+                            <div>
+                                <input type="text" value="{$user_info.address || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label style="color: #D2691E;">收到礼物总数量</label>
+                            <div>
+                                <input type="text" value="{$gift.num || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label style="color: #D2691E;">收到礼物总金币</label>
+                            <div>
+                                <input type="text" value="{$gift.coin || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+                        <div class="form-group details_table">
+                            <label style="color: #D2691E;">赚取金币</label>
+                            <div>
+                                <input type="text" value="{$gold_coin || default = '空'}" class="form-control" disabled >
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="col-md-12 col-xl-12" style="margin-top: 30px">
+                        <h4 class="example-title">相册</h4>
+                        <hr>
+                        <div class="example" style="overflow: hidden">
+                            <php>if($album){</php>
+                            <ul style="overflow: hidden;height: 10%" class="row">
+                                <php>foreach($album as $k=>$v){</php>
+                                <li style="float: left;margin-bottom: 1rem;width: 180px;height: 320px; margin-right: 12px;" >
+                                    <a href="javascript:void (0)" style="width:180px;height: 260px;display: block;margin-bottom: 4px;overflow: hidden" onclick="ZoomDisplay('原图','{$v}')">
+                                        <img src="{$v}" alt="" style="display: block;margin: 0;width:180px;height: 260px;">
+                                    </a>
+                                    <button type="button" class="btn social-google-plus btn-sm" onclick="jumpEdit(1,'{$user_info.id}','{$v}')">
+                                        <i class="icon wb-warning" aria-hidden="true"></i> 违规删除
+                                    </button>'
+                                </li>
+                                <php>}</php>
+                            </ul>
+                            <php>}else{</php>
+                            <div>空</div>
+                            <php>}</php>
+                        </div>
+                        <h4 class="example-title">视频</h4>
+                        <hr>
+                        <div class="example">
+                            <php>if($video){</php>
+                            <php>foreach($video as $k=>$item){</php>
+                            <div style="float: left;margin-right: 1em;width: 240px;height:300px;margin-bottom: 12em;margin-top: 0">
+                                <video id="video_{$k}" style="width:100%;height:400px;">
+                                    <source type="video/mp4" src="{$item}">
+                                </video>
+                                <button type="button" class="btn social-google-plus btn-sm" onclick="jumpEdit(2,'{$user_info.id}','{$item}')" style="margin-top:1em;">
+                                    <i class="icon wb-warning" aria-hidden="true"></i> 违规删除
+                                </button>
+                            </div>
+                            <php>}</php>
+                            <php>}else{</php>
+                            <div>空</div>
+                            <php>}</php>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 插件 -->
+<script src="__ABS__/assets/admui/vendor/matchheight/jquery.matchHeight.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/plyr/plyr.js"></script>
+<script src="__ABS__/assets/admui/vendor/layer/layer.min.js"></script>
+<script src="__ABS__/assets/admui/themes/base/js/app.js"></script>
+
+<!-- Page JS -->
+<script>
+    /*删除*/
+    function jumpEdit(type,id,url) {
+        layer.confirm('确定要删除? 请谨慎使用！', {btn: ['确定', '取消'], title: "警告"}, function () {
+            $.ajax({
+                type: 'POST',
+                url: "{:url('UserMember/AlbumEdit');}",
+                data: {
+                    id:id,
+                    url:url,
+                    type:type
+                },
+                dataType: "json",
+                success: function(data){
+                    console.log(data);
+                    if(data.code === 200){
+                        layer.alert('操作成功', {icon: 6},function () {
+                            window.parent.location.reload();
+                            let index=parent.layer.getFrameIndex(window.name);
+                            parent.layer.close(index);
+                        });
+                    }else {
+                        layer.alert(data.msg, {icon: 5});
+                    }
+                },
+                error:function (data) {
+                    layer.alert('操作失败，请重新操作', {icon: 2});
+                }
+
+            });
+            return false;//阻止form表单提交
+        })
+    }
+
+    //图片插件
+    function ZoomDisplay(title, url) {
+        window.open(url);
+
+    }
+</script>
+</body>
+</html>

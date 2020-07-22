@@ -1,0 +1,69 @@
+<!-- Site CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/themes/base/css/site.css">
+<style>
+    body {
+        padding-top: 0;
+    }
+</style>
+
+<div class="page-aside">
+    <div class="page-aside-switch">
+        <i class="icon wb-chevron-left" aria-hidden="true"></i>
+        <i class="icon wb-chevron-right" aria-hidden="true"></i>
+    </div>
+    <div class="page-aside-inner page-aside-scroll" data-plugin="mCustomScrollbar">
+        <div data-role="container">
+            <div data-role="content">
+                <section class="page-aside-section">
+                    <div class="list-group sidebar-btn-js">
+                        <!--<a class="list-group-item" href="{:url('setting/switchCoin')}">-->
+                        <!--金币换算-->
+                        <!--</a>-->
+                        <a class="list-group-item
+                                {:isset($_GET['active']) && $_GET['active'] == 1 ? 'active' : ' '} {:isset($_GET['active']) ? '' : 'active'}
+                        " href="{:url('setting/rechargeCoin')}?active=1">
+                            充值金币
+                        </a>
+                        <a class="list-group-item {:isset($_GET['active']) && $_GET['active'] == 2 ? 'active' : ' '}" href="{:url('setting/rechargeVip')}?active=2">
+                            充值VIP
+                        </a>
+                        <a class="list-group-item {:isset($_GET['active']) && $_GET['active'] == 3 ? 'active' : ' '}" href="{:url('setting/CashWithdrawal')}?active=3">
+                            提现参数
+                        </a>
+                        <a class="list-group-item {:isset($_GET['active']) && $_GET['active'] == 4 ? 'active' : ' '}" href="{:url('setting/userProtocol')}?active=4">
+                            用户协议
+                        </a>
+                        <a class="list-group-item {:isset($_GET['active']) && $_GET['active'] == 5 ? 'active' : ' '}" href="{:url('setting/privacyProtocol')}?active=5">
+                            隐私协议
+                        </a>
+                        <!--<a class="list-group-item {:isset($_GET['active']) && $_GET['active'] == 6 ? 'active' : ' '}" href="{:url('setting/watermark')}?active=6">-->
+                        <!--水印设置-->
+                        <!--</a>-->
+                        <a class="list-group-item {:isset($_GET['active']) && $_GET['active'] == 7 ? 'active' : ' '}" href="{:url('setting/promRatio')}?active=7">
+                            推广分成比例
+                        </a>
+                        <a class="list-group-item {:isset($_GET['active']) && $_GET['active'] == 8 ? 'active' : ' '}" href="{:url('setting/mobileWhite')}?active=8">
+                            手机号白名单
+                        </a>
+                        <a class="list-group-item {:isset($_GET['active']) && $_GET['active'] == 9 ? 'active' : ' '}" href="{:url('setting/vipLimit')}?active=9">
+                            VIP限制
+                        </a>
+                        <a class="list-group-item {:isset($_GET['active']) && $_GET['active'] == 10 ? 'active' : ' '}" href="{:url('setting/levelLimit')}?active=10">
+                            聊天等级限制
+                        </a>
+                        <a class="list-group-item {:isset($_GET['active']) && $_GET['active'] == 11 ? 'active' : ' '}" href="{:url('setting/fixedText')}?active=11">
+                            公告文字
+                        </a>
+                        <a class="list-group-item {:isset($_GET['active']) && $_GET['active'] == 12 ? 'active' : ' '}" href="{:url('setting/giftAnnounce')}?active=12">
+                            礼物通告
+                        </a>
+                        <a class="list-group-item {:isset($_GET['active']) && $_GET['active'] == 13 ? 'active' : ' '}" href="{:url('setting/setCommunity')}?active=13">
+                            社区设置
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+

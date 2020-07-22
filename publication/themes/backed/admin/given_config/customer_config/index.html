@@ -1,0 +1,72 @@
+<include file="layout/iframe@header" xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns:/>
+
+<!-- Site CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/css/admin/public-config.css">
+
+
+<body style="padding: 0">
+<div class="page animation-fade page-forms">
+
+    <form class="form-horizontal" id="exampleFullForm" enctype="multipart/form-data" method="post" autocomplete="off" novalidate="novalidate">
+
+        <div class="page-content" style="padding-top: 0">
+            <div class="panel">
+                <div class="panel-body container-fluid">
+                    <!--手机号白名单-->
+                    <div class="row margin-top-20">
+                        <div class="col-12">
+                            <h5 class="control-label title-desc ">客服配置</h5>
+                        </div>
+                        <div class=" col-12">
+                            <label class="control-label">客服IDd</label>
+                            <div class="controls col-6">
+                                <textarea name="customer[uid]" style="height: 94px" class="col-12" placeholder="100001,100002">{$option.customer.uid || default = ''}</textarea>
+                                <span>填写uid,多个用英文逗号","分割</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 form-group">
+                            <label class="control-label"></label>
+                            <div class="controls col-5" style="margin-top:20px">
+                                <button type="button" class="layui-btn btn btn-primary" id="query">保存配置</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+<script>
+    /*保存配置提交*/
+    $("#query").on('click',function () {
+        $.ajax({
+            type: 'POST',
+            url: "{:url('CustomerConfig/indexPost');}",
+            data: {
+                data:$("#exampleFullForm").serialize(),
+            },
+
+            dataType: "json",
+            success: function(data){
+                if(data.code == 1){
+                    layer.alert(data.msg, {icon: 5},function () {
+                        window.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else{
+                    layer.alert(data.msg, {icon: 7});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+</script>

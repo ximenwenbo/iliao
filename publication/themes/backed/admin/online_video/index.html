@@ -1,0 +1,130 @@
+<include file="layout/iframe@header" />
+<!-- Page CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/css/system/log.css">
+<!-- Page JS -->
+<script src="__ABS__/assets/admui/js/admin/online_video.js"></script>
+<style>
+    .table thead th{
+        text-align: center;
+    }
+    #logList>tbody>tr>td{
+        text-align: center;
+    }
+    .details-control{
+        position: relative;
+    }
+    .details-control i{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -8px;
+        margin-left: -8px;
+        cursor: pointer;
+    }
+    .addTable td{
+        text-align: left;
+    }
+    input,audio,button{
+        outline: none;
+    }
+</style>
+<body style="padding: 0">
+
+<div class="page page-full animation-fade page-logs">
+    <div class="page-header">
+        <h1 class="page-title">1V1直播监控</h1>
+        <div class="page-header-actions">
+            <button type="button" class="btn btn-sm btn-icon btn-info btn-outline btn-round collapsed" data-toggle="collapse"
+                    data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+                <i class="icon fa-filter"></i>
+            </button>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="collapse show" id="collapseFilter" aria-expanded="true">
+            <div class="panel">
+                <div class="panel-body">
+                    <form class="form-inline" id="logForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="keywords" id="keywords" placeholder="房间号" value="">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">
+                                <i class="icon fa-search"></i> 查找</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <header class="panel-heading">
+                <h3 class="panel-title">直播列表</h3>
+            </header>
+            <div class="panel-body">
+                <table class="table table-bordered table-hover dataTable table-striped w-full" id="logList">
+                    <thead>
+                    <tr>
+                        <th>记录IP</th>
+                        <th>房间号</th>
+                        <th>用户</th>
+                        <th>创建时间</th>
+                        <th width="20%">操作</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    /*查看直播*/
+    function VideoPopup(home_id) {
+        $.ajax({
+            type: 'POST',
+            url: "/admin/online_video/ViewVideo",
+            data: {home_id:home_id},
+            dataType: "json",
+            success: function(data){
+                if(data.code === 200){
+                    layer.open({
+                        type: 2,    //0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+                        title: '直播中视频', //弹出框的标题
+                        shade: 0.2,
+                        maxmin: false, //开启最大化最小化按钮
+                        area: ['100%','100%'],
+                        content: "/admin/online_video/onlineVideo"+"?id="+home_id
+                    });
+                }else {
+                    layer.alert(data.msg, {icon: 5});
+                    var index=parent.layer.getFrameIndex(window.name);
+                    parent.layer.close(index);
+                }
+            },
+            error:function (data) {
+                console.log(data);
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        //return false;//阻止form表单提交
+    }
+
+    /*直播操作*/
+    function offVideo($id) {
+        layer.open({
+            type: 2,    //0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+            title: '直播操作', //弹出框的标题
+            shade: 0.2,
+            maxmin: false, //开启最大化最小化按钮
+            area: ['600px','300px'],
+            content: "{:url('OnlineVideo/setVideo')}"+"?id="+$id
+        });
+        //return false;//阻止form表单提交
+    }
+</script>
+</body>
+</html>
+
+
+

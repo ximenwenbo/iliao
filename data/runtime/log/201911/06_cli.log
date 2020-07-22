@@ -1,0 +1,91 @@
+[ 2019-11-06T11:18:39+08:00 ][ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ 2019-11-06T11:18:39+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-11-06T11:18:39+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000413s ] mysql:host=127.0.0.1;port=3306;dbname=iliao_db;charset=utf8mb4
+[ 2019-11-06T11:18:39+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `t_hook` [ RunTime:0.000655s ]
+[ 2019-11-06T11:18:39+08:00 ][ sql ] [ SQL ] SELECT `hook` FROM `t_hook` WHERE  `type` = 1 OR (  `type` = 3  AND ( `app` = '' or `app` = 'cmf' ) ) [ RunTime:0.000327s ]
+[ 2019-11-06T11:18:39+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `t_hook_plugin` [ RunTime:0.000484s ]
+[ 2019-11-06T11:18:39+08:00 ][ sql ] [ SQL ] SELECT `hook`,`plugin` FROM `t_hook_plugin` WHERE  `status` = 1  AND `hook` IN ('') ORDER BY `list_order` ASC [ RunTime:0.000266s ]
+[ 2019-11-06T11:18:39+08:00 ][ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.052767s ]
+[ 2019-11-06T11:18:39+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `t_jobs` [ RunTime:0.000683s ]
+[ 2019-11-06T11:18:39+08:00 ][ sql ] [ SQL ] UPDATE `t_jobs`  SET `reserved`=0,`reserved_at`=NULL,`attempts`=`attempts`+1  WHERE  `queue` = 'live_bullet_screen_gift_msg'  AND `reserved` = 1  AND `reserved_at` <= 1573010259 [ RunTime:0.009933s ]
+[ 2019-11-06T11:18:39+08:00 ][ sql ] [ SQL ] SELECT * FROM `t_jobs` WHERE  `queue` = 'live_bullet_screen_gift_msg'  AND `reserved` = 0  AND `available_at` <= 1573010319 ORDER BY `id` ASC LIMIT 1  FOR UPDATE [ RunTime:0.000374s ]
+[ 2019-11-06T11:18:42+08:00 ][ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ 2019-11-06T11:18:42+08:00 ][ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.001500s ]
+[ 2019-11-06T11:18:42+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-11-06T11:18:42+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000454s ] mysql:host=127.0.0.1;port=3306;dbname=iliao_db;charset=utf8mb4
+[ 2019-11-06T11:18:42+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `t_jobs` [ RunTime:0.000574s ]
+[ 2019-11-06T11:18:42+08:00 ][ sql ] [ SQL ] UPDATE `t_jobs`  SET `reserved`=0,`reserved_at`=NULL,`attempts`=`attempts`+1  WHERE  `queue` = 'live_bullet_screen_gift_msg'  AND `reserved` = 1  AND `reserved_at` <= 1573010262 [ RunTime:0.005665s ]
+[ 2019-11-06T11:18:42+08:00 ][ sql ] [ SQL ] SELECT * FROM `t_jobs` WHERE  `queue` = 'live_bullet_screen_gift_msg'  AND `reserved` = 0  AND `available_at` <= 1573010322 ORDER BY `id` ASC LIMIT 1  FOR UPDATE [ RunTime:0.000345s ]
+[ 2019-11-06T11:18:45+08:00 ][ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ 2019-11-06T11:18:45+08:00 ][ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.001496s ]
+[ 2019-11-06T11:18:45+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-11-06T11:18:45+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000375s ] mysql:host=127.0.0.1;port=3306;dbname=iliao_db;charset=utf8mb4
+[ 2019-11-06T11:18:45+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `t_jobs` [ RunTime:0.000478s ]
+[ 2019-11-06T11:18:45+08:00 ][ sql ] [ SQL ] UPDATE `t_jobs`  SET `reserved`=0,`reserved_at`=NULL,`attempts`=`attempts`+1  WHERE  `queue` = 'live_bullet_screen_gift_msg'  AND `reserved` = 1  AND `reserved_at` <= 1573010265 [ RunTime:0.016657s ]
+[ 2019-11-06T11:18:45+08:00 ][ sql ] [ SQL ] SELECT * FROM `t_jobs` WHERE  `queue` = 'live_bullet_screen_gift_msg'  AND `reserved` = 0  AND `available_at` <= 1573010325 ORDER BY `id` ASC LIMIT 1  FOR UPDATE [ RunTime:0.000351s ]
+[ 2019-11-06T11:18:48+08:00 ][ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ 2019-11-06T11:18:48+08:00 ][ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.001522s ]
+[ 2019-11-06T11:18:48+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-11-06T11:18:48+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000466s ] mysql:host=127.0.0.1;port=3306;dbname=iliao_db;charset=utf8mb4
+[ 2019-11-06T11:18:48+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `t_jobs` [ RunTime:0.000616s ]
+[ 2019-11-06T11:18:48+08:00 ][ sql ] [ SQL ] UPDATE `t_jobs`  SET `reserved`=0,`reserved_at`=NULL,`attempts`=`attempts`+1  WHERE  `queue` = 'live_bullet_screen_gift_msg'  AND `reserved` = 1  AND `reserved_at` <= 1573010268 [ RunTime:0.003534s ]
+[ 2019-11-06T11:18:48+08:00 ][ sql ] [ SQL ] SELECT * FROM `t_jobs` WHERE  `queue` = 'live_bullet_screen_gift_msg'  AND `reserved` = 0  AND `available_at` <= 1573010328 ORDER BY `id` ASC LIMIT 1  FOR UPDATE [ RunTime:0.000323s ]
+[ 2019-11-06T11:18:51+08:00 ][ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ 2019-11-06T11:18:51+08:00 ][ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.001539s ]
+[ 2019-11-06T11:18:51+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-11-06T11:18:51+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000488s ] mysql:host=127.0.0.1;port=3306;dbname=iliao_db;charset=utf8mb4
+[ 2019-11-06T11:18:51+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `t_jobs` [ RunTime:0.000616s ]
+[ 2019-11-06T11:18:51+08:00 ][ sql ] [ SQL ] UPDATE `t_jobs`  SET `reserved`=0,`reserved_at`=NULL,`attempts`=`attempts`+1  WHERE  `queue` = 'live_bullet_screen_gift_msg'  AND `reserved` = 1  AND `reserved_at` <= 1573010271 [ RunTime:0.007344s ]
+[ 2019-11-06T11:18:51+08:00 ][ sql ] [ SQL ] SELECT * FROM `t_jobs` WHERE  `queue` = 'live_bullet_screen_gift_msg'  AND `reserved` = 0  AND `available_at` <= 1573010331 ORDER BY `id` ASC LIMIT 1  FOR UPDATE [ RunTime:0.000344s ]
+[ 2019-11-06T11:18:54+08:00 ][ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ 2019-11-06T11:18:54+08:00 ][ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.001477s ]
+[ 2019-11-06T11:18:54+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-11-06T11:18:54+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000421s ] mysql:host=127.0.0.1;port=3306;dbname=iliao_db;charset=utf8mb4
+[ 2019-11-06T11:18:54+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `t_jobs` [ RunTime:0.000578s ]
+[ 2019-11-06T11:18:54+08:00 ][ sql ] [ SQL ] UPDATE `t_jobs`  SET `reserved`=0,`reserved_at`=NULL,`attempts`=`attempts`+1  WHERE  `queue` = 'live_bullet_screen_gift_msg'  AND `reserved` = 1  AND `reserved_at` <= 1573010274 [ RunTime:0.004705s ]
+[ 2019-11-06T11:18:54+08:00 ][ sql ] [ SQL ] SELECT * FROM `t_jobs` WHERE  `queue` = 'live_bullet_screen_gift_msg'  AND `reserved` = 0  AND `available_at` <= 1573010334 ORDER BY `id` ASC LIMIT 1  FOR UPDATE [ RunTime:0.000299s ]
+[ 2019-11-06T11:18:57+08:00 ][ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ 2019-11-06T11:18:57+08:00 ][ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.001514s ]
+[ 2019-11-06T11:18:57+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-11-06T11:18:57+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000474s ] mysql:host=127.0.0.1;port=3306;dbname=iliao_db;charset=utf8mb4
+[ 2019-11-06T11:18:57+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `t_jobs` [ RunTime:0.000576s ]
+[ 2019-11-06T11:18:57+08:00 ][ sql ] [ SQL ] UPDATE `t_jobs`  SET `reserved`=0,`reserved_at`=NULL,`attempts`=`attempts`+1  WHERE  `queue` = 'live_bullet_screen_gift_msg'  AND `reserved` = 1  AND `reserved_at` <= 1573010277 [ RunTime:0.004830s ]
+[ 2019-11-06T11:18:57+08:00 ][ sql ] [ SQL ] SELECT * FROM `t_jobs` WHERE  `queue` = 'live_bullet_screen_gift_msg'  AND `reserved` = 0  AND `available_at` <= 1573010337 ORDER BY `id` ASC LIMIT 1  FOR UPDATE [ RunTime:0.000326s ]
+[ 2019-11-06T11:19:00+08:00 ][ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ 2019-11-06T11:19:00+08:00 ][ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.001517s ]
+[ 2019-11-06T11:19:00+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-11-06T11:19:00+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000477s ] mysql:host=127.0.0.1;port=3306;dbname=iliao_db;charset=utf8mb4
+[ 2019-11-06T11:19:00+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `t_jobs` [ RunTime:0.000617s ]
+[ 2019-11-06T11:19:00+08:00 ][ sql ] [ SQL ] UPDATE `t_jobs`  SET `reserved`=0,`reserved_at`=NULL,`attempts`=`attempts`+1  WHERE  `queue` = 'live_bullet_screen_gift_msg'  AND `reserved` = 1  AND `reserved_at` <= 1573010280 [ RunTime:0.012499s ]
+[ 2019-11-06T11:19:00+08:00 ][ sql ] [ SQL ] SELECT * FROM `t_jobs` WHERE  `queue` = 'live_bullet_screen_gift_msg'  AND `reserved` = 0  AND `available_at` <= 1573010340 ORDER BY `id` ASC LIMIT 1  FOR UPDATE [ RunTime:0.000323s ]
+[ 2019-11-06T11:19:01+08:00 ][ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ 2019-11-06T11:19:01+08:00 ][ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.001524s ]
+[ 2019-11-06T11:19:01+08:00 ][ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ 2019-11-06T11:19:01+08:00 ][ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.001478s ]
+[ 2019-11-06T11:19:01+08:00 ][ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ 2019-11-06T11:19:01+08:00 ][ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.001458s ]
+[ 2019-11-06T11:19:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-11-06T11:19:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-11-06T11:19:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-11-06T11:19:01+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000417s ] mysql:host=127.0.0.1;port=3306;dbname=iliao_db;charset=utf8mb4
+[ 2019-11-06T11:19:01+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `t_option` [ RunTime:0.000622s ]
+[ 2019-11-06T11:19:01+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000486s ] mysql:host=127.0.0.1;port=3306;dbname=iliao_db;charset=utf8mb4
+[ 2019-11-06T11:19:01+08:00 ][ sql ] [ SQL ] SELECT `option_value` FROM `t_option` WHERE  `option_name` = 'divide_into' LIMIT 1 [ RunTime:0.000289s ]
+[ 2019-11-06T11:19:01+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `t_chat_order` [ RunTime:0.000768s ]
+[ 2019-11-06T11:19:01+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `t_user_coin_record` [ RunTime:0.000461s ]
+[ 2019-11-06T11:19:01+08:00 ][ sql ] [ SQL ] SELECT * FROM `t_user_coin_record` WHERE  `change_class_id` IN (1,41,42,43,44)  AND `prom_status` = 0 LIMIT 100 [ RunTime:0.002449s ]
+[ 2019-11-06T11:19:01+08:00 ][ sql ] [ SQL ] SELECT * FROM `t_chat_order` WHERE  (  status = 1 AND update_time+300 < 1573010341 ) LIMIT 20 [ RunTime:0.003453s ]
+[ 2019-11-06T11:19:01+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001576s ] mysql:host=127.0.0.1;port=3306;dbname=iliao_db;charset=utf8mb4
+[ 2019-11-06T11:19:01+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `t_live_home` [ RunTime:0.000658s ]
+[ 2019-11-06T11:19:01+08:00 ][ sql ] [ SQL ] SELECT `id`,`user_id` FROM `t_live_home` WHERE  `status` = 1 [ RunTime:0.000393s ]

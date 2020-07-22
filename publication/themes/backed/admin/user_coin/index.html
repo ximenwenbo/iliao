@@ -1,0 +1,137 @@
+<include file="layout/iframe@header" />
+<!-- Page CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/css/examples/forms/advanced.css">
+<!-- Page JS -->
+<script src="__ABS__/assets/admui/js/admin/user_coin.js"></script>
+<style>
+    .table thead th{
+        text-align: center;
+    }
+    #logList>tbody>tr>td{
+        line-height: 40px;
+        text-align: center;
+    }
+
+    #logList>tbody>tr>td>.to_table>tbody>tr>td{
+        line-height: 40px;
+        text-align: left;
+    }
+    .sle_sty{
+        font-size: 0.9rem;
+        line-height: 1.5;
+        border-radius: 0.143rem;
+    }
+</style>
+<body data-theme="base" style="padding: 0">
+
+<div class="page page-full animation-fade page-logs">
+    <div class="page-header">
+        <h1 class="page-title">消费记录管理</h1>
+        <div class="page-header-actions">
+            <button type="button" class="btn btn-sm btn-icon btn-info btn-outline btn-round collapsed" data-toggle="collapse"
+                    data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+                <i class="icon fa-filter"></i>
+            </button>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="collapse" id="collapseFilter" aria-expanded="true">
+            <div class="panel">
+                <div class="panel-body">
+                    <form class="form-inline" id="logForm">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="icon wb-calendar" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" id="filter-date" placeholder="选择日期范围" autocomplete="off">
+                                <input type="hidden" name="startDate" value="" id="startTime">
+                                <input type="hidden" name="endDate" value="" id="endTime">
+                                <div class="input-group-prepend">
+                                    <button type="button" class="btn btn-icon btn-default btn-outline btn-sm date-clear">
+                                        <i class="icon wb-close" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--<div class="form-group row">
+                            <div class="col-xl-12 col-md-3 col-form-label">
+                                <select class="form-control" name="status" data-plugin="select2">
+                                    <option value="" >全部</option>
+                                    <php>if(isset($status) && !empty($status)){</php>
+                                    <php>foreach($status as $key=>$item){</php>
+                                    <option value="{$key}">{$item}</option>
+                                    <php>}</php>
+                                    <php>}</php>
+                                </select>
+                            </div>
+                        </div>-->
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="keywords" id="keywords" placeholder="UID/手机号码" value="">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">
+                                <i class="icon fa-search"></i> 查找</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <!--<header class="panel-heading">
+                <h3 class="panel-title">
+                    <button type="button" class="btn btn-sm btn-primary addInfo" data-more="#exampleMoreless" onclick="addPopup()">
+                        <i class="icon wb-plus text" aria-hidden="true"></i>
+                        <span class="text">添加敏感词</span>
+                    </button>
+                </h3>
+            </header>-->
+            <div class="panel-body">
+                <table class="table table-bordered table-hover dataTable table-striped w-full" id="logList">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>序号</th>
+                        <th>UID</th>
+                        <th>昵称</th>
+                        <th>手机号</th>
+                        <th>消费金币</th>
+                        <th>消费类别</th>
+                        <th>消费说明</th>
+                        <th>消费时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th colspan="6" class="text-right">消费金币总计：</th>
+                        <th colspan="4"></th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    /*详情*/
+    function detailsPopup(id) {
+        layer.open({
+            type: 2,    //0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+            title: '消费订单详情', //弹出框的标题
+            shade: 0.2,
+            area: ['100%','100%'],
+            content: "__ABS__/admin/user_coin/ViewDetails/id/"+id,
+        });
+    }
+</script>
+</body>
+</html>
+
+
+

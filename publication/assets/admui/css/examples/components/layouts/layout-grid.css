@@ -1,0 +1,26 @@
+/**
+ * Admui-iframe v2.0.0 (http://www.admui.com/)
+ * Copyright 2015-2018 Admui Team
+ * Licensed under the Admui License 1.1 (http://www.admui.com/about/license)
+ */
+.bootbox .modal-dialog {
+  width: 360px; }
+
+.lt-body h3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: Center;
+  -webkit-align-items: Center;
+      -ms-flex-align: Center;
+          align-items: Center;
+  height: 100%;
+  color: #757575;
+  font-size: 2rem;
+  font-weight: 100;
+  text-shadow: none; }

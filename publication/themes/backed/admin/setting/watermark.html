@@ -1,0 +1,72 @@
+<include file="layout/iframe@header" />
+
+<link rel="stylesheet" href="__ABS__/assets/admui/vendor/switchery/switchery.min.css">
+<link rel="stylesheet" href="__ABS__/assets/admui/css/examples/forms/advanced.css">
+
+<body class="page-aside-fixed page-aside-left" data-theme="base">
+
+<div class="page animation-fade">
+    <include file="admin/setting/layout@sidebar" />
+    <div class="page-main">
+        <div class="page-header">
+            <h3 class="page-title">水印设置</h3>
+        </div>
+        <div class="page-content col-xxl-8">
+            <div class="panel">
+                <form class="form-horizontal panel-body" action="{:url('setting/watermarkPost')}" method="post" autocomplete="off" novalidate="novalidate">
+                    <div class="form-group row">
+                        <label class="col-2">图片水印</label>
+                        <span class="form-text small">需开通腾讯云数据万象功能，水印图片必须为存储于数据万象中的图片，切在20M以内，快速进入url: <a href="https://console.cloud.tencent.com/ci/index" target="_blank">https://console.cloud.tencent.com/ci/index</a></span>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">开启状态：</label>
+                        <div class="float-left mr-20">
+                            <input type="checkbox" class="js-switchery" name="image_status" value="1" {$watermark.image_status?="checked"} >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">图片URL：</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="image_url" value="{$watermark.image_url ?? ''}" placeholder="水印图片URL" autocomplete="off">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-2">视频水印</label>
+                        <span class="form-text small">需开通腾讯云视频处理功能，在视频处理中配置相关参数，快速进入url: <a href="https://console.cloud.tencent.com/media" target="_blank">https://console.cloud.tencent.com/media</a></span>
+
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">开启状态：</label>
+                        <div class="float-left mr-20">
+                            <input type="checkbox" class="js-switchery" name="video_status" value="1" {$watermark.video_status?="checked"} >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">后缀：</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="video_suffix" value="{$watermark.video_suffix ?? ''}" placeholder="后缀" autocomplete="off">
+                        </div>
+                        <span class="form-text small">根据输出规则>当前规则来配置</span>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">提交</button>
+                        <button type="reset" class="btn btn-default btn-outline">还原</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="__ABS__/assets/admui/vendor/switchery/switchery.min.js"></script>
+<script>
+    var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switchery'));
+
+    elems.forEach(function(html) {
+        var switchery = new Switchery(html);
+    });
+</script>
+</body>
+</html>

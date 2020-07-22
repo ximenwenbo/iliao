@@ -1,0 +1,94 @@
+<include file="layout/iframe@header" />
+
+<style>
+    .table thead th{
+        text-align: center;
+    }
+    #logList>tbody>tr>td{
+        line-height: 40px;
+        text-align: center;
+    }
+
+    #logList>tbody>tr>td>.to_table>tbody>tr>td{
+        line-height: 40px;
+        text-align: left;
+    }
+</style>
+<body data-theme="base" style="padding: 0">
+
+<div class="page page-full animation-fade page-logs">
+    <div class="page-header">
+        <h1 class="page-title">消息发送设置</h1>
+        <div class="page-header-actions">
+            <button type="button" class="btn btn-sm btn-icon btn-info btn-outline btn-round collapsed" data-toggle="collapse"
+                    data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+                <i class="icon fa-filter"></i>
+            </button>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="javascript:;">所有</a></li>
+        <li><a href="{:url('SendMsgTemplate/msgTemplateAdd')}">添加模版</a></li>
+    </ul>
+    <form class="well form-inline margin-top-20" method="post" action="{:url('SendMsgTemplate/msgTemplateList')}">
+        <input type="text" class="form-control" name="content" style="width: 300px;" value="{$content|default=''}" placeholder="请输入模版内容">&nbsp;&nbsp;
+        选择模版code:
+        <select class="form-control" name="tmp_code" style="width: 200px;">
+            <option value="0" <?php echo empty($search['tmp_code']) ? 'selected' : '';?>>全部</option>
+            <?php foreach ($msg_code_list as $value) {?>
+            <option value="{$value['code']}" <?php if(!empty($search['tmp_code']) && $search['tmp_code']==$value['code']) echo 'selected';?>>{$value['code']}</option>
+            <?php }?>
+        </select>&nbsp;&nbsp;
+        <input type="submit" class="btn btn-primary" value="搜索"/>
+        <a class="btn btn-danger" href="{:url('SendMsgTemplate/msgTemplateList')}">清空</a>
+    </form>
+    <form class="js-ajax-form" action="" method="post">
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="15">
+                    <label>
+                        <input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x">
+                    </label>
+                </th>
+                <notempty name="category">
+                    <th width="50">{:lang('SORT')}</th>
+                </notempty>
+                <th width="50">ID</th>
+                <th>模版编码</th>
+                <th>内容</th>
+                <th>备注</th>
+                <th width="130">创建时间</th>
+                <th width="90">操作</th>
+            </tr>
+            </thead>
+            <foreach name="list" item="vo">
+                <tr>
+                    <td>
+                        <input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}" title="ID:{$vo.id}">
+                    </td>
+                    <td><b>{$vo.id}</b></td>
+                    <td><b>{$vo.tmp_code}</b></td>
+                    <td><b>{$vo.content}</b></td>
+                    <td><b>{$vo.note}</b></td>
+                    <td>
+                        <notempty name="vo.create_time">
+                            {:date('Y-m-d H:i',$vo['create_time'])}
+                        </notempty>
+                    </td>
+                    <td>
+                        <a href="{:url('SendMsgTemplate/msgTemplateEdit',array('id'=>$vo['id']))}">{:lang('EDIT')}</a>
+                        <!--<a href="{:url('SendMsgTemplate/msgTemplateDelete',array('id'=>$vo['id']))}" class="js-ajax-delete">{:lang('DELETE')}</a>-->
+                    </td>
+                </tr>
+            </foreach>
+        </table>
+        <ul class="pagination">{$page|default=''}</ul>
+    </form>
+</div>
+    </div>
+</div>
+</body>
+</html>

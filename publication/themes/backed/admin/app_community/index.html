@@ -1,0 +1,464 @@
+<include file="layout/iframe@header" />
+<link rel="stylesheet" href="__ABS__/assets/admui/vendor/plyr/plyr.css">
+<style>
+    .btn_asd{
+        position: absolute;right: 10px;top: 10px;
+    }
+    .btn_asd>button{
+        display: none;
+    }
+    .btn_asd:hover,.btn_asd>button:hover,.btn_hover:hover .btn_asd>button{
+        display: inline;
+        z-index: 999;
+    }
+    .btn_hover{
+        margin: 10px 0;
+        border-bottom: none;
+        padding: 10px 10px;
+        position: relative
+    }
+    .btn_hover:hover{
+        background: #f5f5f5;
+    }
+    .post_cj_status{
+        position: absolute;
+        top:40px;
+        left: 200px;
+        font-size: 14px;
+        color: #81cef9;
+        border: 1px solid #f5f5f5;
+        padding:0 5px;
+        border-radius: 4px;
+        z-index: 999;
+        background: #f6f8f8;
+        transform-origin:right center;
+        -webkit-transform-origin:right center;/*兼容-webkit-引擎浏览器*/
+        -moz-transform-origin:right center;   /*兼容-moz-引擎浏览器*/
+        transform:rotate(30deg);
+        -webkit-transform:rotate(30deg);      /*兼容-webkit-引擎浏览器*/
+        -moz-transform:rotate(30deg);         /*兼容-moz-引擎浏览器*/
+    }
+    .cj_status{
+        position: absolute;
+        top:30px;
+        left: 350px;
+        font-size: 12px;
+        color: #81cef9;
+        border: 1px solid #f5f5f5;
+        padding:0 5px;
+        border-radius: 4px;
+        z-index: 999;
+        background: #f6f8f8;
+        transform-origin:right center;
+        -webkit-transform-origin:right center;/*兼容-webkit-引擎浏览器*/
+        -moz-transform-origin:right center;   /*兼容-moz-引擎浏览器*/
+        transform:rotate(30deg);
+        -webkit-transform:rotate(30deg);      /*兼容-webkit-引擎浏览器*/
+        -moz-transform:rotate(30deg);         /*兼容-moz-引擎浏览器*/
+    }
+    .btn_hover:hover .cj_status{
+        display: none;
+    }
+    .btn_asd_all{
+        margin: 10px 0;
+        right: 0;
+        top: -40px;
+        position: relative;
+        float:right;
+    }
+    .open_replay{
+        float: left;
+        margin-left: 8px;
+    }
+    .comments_css{
+        display: none;
+    }
+    .img_sty{
+        overflow: hidden;
+        width: 600px;
+    }
+    .img_sty>div{
+        float: left;
+        margin-right: 8px;
+        margin-bottom: 8px;
+    }
+</style>
+<body data-theme="base" style="padding: 0;">
+
+<div class="page animation-fade">
+    <div class="page-header">
+        <h1 class="page-title">社区动态</h1>
+        <div class="page-header-actions">
+            <button type="button" class="btn btn-sm btn-icon btn-info btn-outline btn-round collapsed" data-toggle="collapse"
+                    data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+                <i class="icon fa-filter"></i>
+            </button>
+        </div>
+    </div>
+    <div class="page-content" style="padding:0 20px">
+        <div class="collapse show" id="collapseFilter" aria-expanded="true">
+            <div class="panel">
+                <div class="panel-body">
+                    <form class="form-inline" id="logForm" method="post">
+                        <!--<div class="form-group">-->
+                            <!--<div class="input-group" style="width:285px">-->
+                                <!--<div class="input-group-prepend">-->
+                                    <!--<span class="input-group-text">-->
+                                        <!--<i class="icon wb-calendar" aria-hidden="true"></i>-->
+                                    <!--</span>-->
+                                <!--</div>-->
+                                <!--<input type="text" class="form-control" id="filter-date" value="<?php echo $param['start_time'] . '至' . $param['end_time'];?>" placeholder="选择发布日期范围" autocomplete="off">-->
+                                <!--<input type="hidden" name="startDate" value="<?php echo $param['start_time'];?>">-->
+                                <!--<input type="hidden" name="endDate" value="<?php echo $param['end_time'];?>">-->
+                                <!--<div class="input-group-prepend">-->
+                                    <!--<button type="button" class="btn btn-icon btn-default btn-outline btn-sm date-clear">-->
+                                        <!--<i class="icon wb-close" aria-hidden="true"></i>-->
+                                    <!--</button>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <div class="form-group">
+                            <select class="form-control" name="status"  title="" id="status">
+                                <php>
+                                    foreach($post_status as $key=>$item){
+                                </php>
+                                    <option value="{$key}" {$key === $param['status'] ? 'selected' : ''} >{$item}</option>
+                                <php>
+                                    }
+                                </php>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" name="y_level"  title="" id="xchat_y_level">
+                                <option value="" selected>涉黄等级</option>
+                                <php>
+                                    foreach($y_level as $key=>$item){
+                                </php>
+                                <option value="{$item}"
+                                <php>
+                                    if(!empty($param['y_level'])){
+                                    if($item == $param['y_level']){
+                                    echo 'selected';
+                                    }
+                                    }
+                                </php>
+                                >{$item}</option>
+                                <php>
+                                    }
+                                </php>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="users" placeholder="用户昵称\UID" value="{$param['users']|default=''}">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="keywords" id="keywords" placeholder="动态标题\内容" value="{$param['keywords']|default=''}" style="width:220px">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success" id="form_btn">
+                                <i class="icon fa-search"></i> 查找
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <php>if(!empty($data)){</php>
+    <php>foreach($data as $item){</php>
+    <div class="page-content row" style="padding:0 20px;">
+        <div class="panel col-xxl-8">
+            <div class="panel-body" style="padding-left: 0">
+                <div class="comments mx-20">
+                    <div>
+                        <!--个人信息-->
+                        <div class="media" style="padding-top: 10px">
+                            <div class="post_cj_status">{$item['cj_status_text']}</div>
+                            <div class="pr-10">
+                                <a class="avatar avatar-lg" href="javascript:void (0);" onclick="UserDetails('<?php echo $item["user_id"]?>')">
+                                <img src="{$item['avatar']}" alt="...">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <div class="comment-body">
+                                    <img src="{$item['sex_type']}" alt="..." width="20px">
+                                    <a class="comment-author" href="javascript:void (0);" onclick="UserDetails('<?php echo $item["user_id"]?>')">{$item['nickname']}</a>
+                                    <div class="comment-meta">
+                                        <span>{$item['city_name']}</span>
+                                    </div>
+                                    <div class="comment-content" style="font-size: 0.9rem;color: #a3afb7;margin-left: 7px;">
+                                            <span class="date">
+                                                <span style="font-size: 12px">发布于</span>:
+                                                <php>if(!empty($item['create_time'])){</php>
+                                                    {:date("Y-m-d H:i:s",$item['create_time'])}
+                                                <php>}</php>
+                                            </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-icon btn-warning btn-round btn-sm" onclick="yellowEdit('<?php echo $item["id"]?>')">
+                                <i class="icon fa-times" aria-hidden="true" ></i> 涉黄
+                                </button>
+                                <php>if($item['status'] != 0){</php>
+                                    <button type="button" class="btn social-google-plus btn-sm btn-round" onclick="delPost('<?php echo $item["id"]?>')">
+                                    <i class="icon wb-warning" aria-hidden="true"></i> 删除
+                                </button>
+                                <php>}</php>
+                            </div>
+                        </div>
+                        <!--标题or心情-->
+                        <php>if(!empty($item['title'])){</php>
+                            <div style="padding-top:10px">{$item['title']}</div>
+                                <php>if(!empty($item['content'])){</php>
+                                    <div style="padding-top:10px">{$item['content']}</div>
+                                <php>}</php>
+                        <php>}else{</php>
+                            <div style="padding-top:10px">{$item['content']}</div>
+                        <php>}</php>
+                        <!--图片区-->
+                        <php>if(!empty($item['img_list'])){</php>
+                        <div class="form-group img_sty">
+                            <php>foreach($item['img_list'] as $v){</php>
+                            <div>
+                                <img width="180px" height="240px" src="<?php echo preg_match('/^http/', $v) == 0 ? app\admin\service\MaterialService::getFullUrl($v) : $v?>" alt=""></div>
+                            <php>}</php>
+                        </div>
+                        <php>}else{</php>
+                        <php>if(!empty($item['media_list'])){</php>
+                        <div>
+                            <div class="example" style="margin-top: 10px">
+                                <div style="width: 320px;height: 440px">
+                                    <video id="video1" style="width: 320px;height: 440px">
+                                        <source type="video/mp4" src="{$item.media_list}">
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                        <php>}</php>
+                        <php>}</php>
+                    </div>
+                    <!--评论数-->
+                    <div class="comments" style="position: relative;height: 40px;overflow: hidden">
+                        <div style="border-bottom: 1px solid #e4eaec; padding: 10px 0;">
+                            <i class="icon wb-chat-working" aria-hidden="true" style="float: left;margin-top: 5px"></i>&nbsp;
+                            <span style="float: left;font-size: 14px;color: #999999;margin-left: 2px"><php>echo count($item['review']);</php></span>
+                            <a class="open_replay" href="javascript:void (0)">展开回复</a>
+                        </div>
+                        <div class="btn_asd_all">
+
+                        </div>
+
+                    </div>
+
+
+                    <!--回复区-->
+                    <php>if(!empty($item['review'])){</php>
+                    <div class="comments comments_css">
+                        <php>foreach($item['review'] as $val){</php>
+                        <div class="media btn_hover">
+                            <div class="cj_status">{$val['cj_status_text']}</div>
+                            <div class="pr-10">
+                                <a class="avatar avatar-lg" href="javascript:void (0);" style="width: 42px;" onclick="UserDetails('<?php echo $val["user_id"]?>')">
+                                <img src="{$val['account']['avatar']}" alt="资料不全" style="width: 42px;height: 42px;">
+                                </a>
+                            </div>
+                            <div class="comment-body">
+                                <a class="comment-author" href="javascript:void (0);" style="font-size: 0.9rem;color: #555555" onclick="UserDetails('<?php echo $val["user_id"]?>')">{$val['account']['nickname']} :</a>
+                                <span class="comment-meta" style="font-size: 0.9rem; color: #a6a6a6;margin-left: 0;display: unset">{$val['content']}</span>
+                                <div class="comment-content" style="font-size: 0.9rem;color: #a3afb7;margin-top:0;">
+                                    <span class="date">{:date("m-d H:i",$val['create_time'])}</span>
+                                </div>
+                                <php>if(empty($val['account']['avatar'])){</php>
+                                <div class="comment-content" style="font-size: 0.9rem;margin-top:0;color: red;">
+                                    <span class="date">用户资料未完善</span>
+                                </div>
+                                <php>}</php>
+                            </div>
+                            <div class="btn_asd">
+                                <php>if($val['status'] != 0){</php>
+                                    <button type="button" class="btn social-google-plus btn-sm" onclick="delReview('<?php echo $val["id"]?>')">
+                                        <i class="icon wb-warning" aria-hidden="true"></i> 删除
+                                    </button>
+                                <php>}</php>
+                            </div>
+                        </div>
+                        <php>}</php>
+                    </div>
+                    <php>}</php>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <php>}</php>
+    <div class="page-content">
+        <div class="row">
+            <div class="col-md-12 col-lg-5">
+                <div class="dataTables_info" id="logList_info" role="status" aria-live="polite">第 1 至 {$param.pageSize} 项，共 {$pageTotal} 项</div>
+            </div>
+            <div class="col-md-12 col-lg-7">
+                <div class="dataTables_paginate paging_simple_numbers" id="logList_paginate">
+                    <ul class="pagination">
+                        <li class="paginate_button page-item previous {:$param['current_page'] < 1 ? 'disabled' : ''}" onclick="JumpPage({$param['current_page']-1},{$total_pages})">
+                            <a href="javascript:void (0)" class="page-link">
+                                <i class="icon wb-chevron-left-mini"></i>
+                            </a>
+                        </li>
+                        <php>for($i = 0,$j=0; $i < $total_pages; $i++){</php>
+                        <php>if($param['current_page'] >= $i || $i+1 == $total_pages){</php>
+                        <li class="paginate_button page-item {:$i==$param['current_page'] ? 'active' : '' }" onclick="JumpPage({$i},{$total_pages})">
+                            <a href="javascript:void (0)" class="page-link">{$i+1}</a>
+                        </li>
+                        <php>if($param['current_page'] >= 3 && $j >= 3 && $param['current_page'] > 0){</php>
+                        <script>
+                            $(".pagination").children().eq(1).remove();
+                        </script>
+                        <php>}</php>
+                        <php>}else{</php>
+                        <php>if( $i == $param['current_page'] + 1 ){</php>
+
+                        <li class="paginate_button page-item disabled" id="logList_ellipsis"><a href="#" aria-controls="logList" data-dt-idx="6" tabindex="0" class="page-link">…</a></li>
+                        <php>}</php>
+                        <php>}</php>
+                        <php>$j += 1;</php>
+                        <php>}</php>
+                        <li class="paginate_button page-item next {:$total_pages - 1 == $param['current_page'] ? 'disabled' : ''} " onclick="JumpPage({$param['current_page']+1},{$total_pages})">
+                            <a href="javascript:void (0)" class="page-link">
+                                <i class="icon wb-chevron-right-mini"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <php>}</php>
+</div>
+
+<!-- Page JS -->
+<script src="__ABS__/assets/admui/js/admin/app_community.js"></script>
+<!-- 插件 -->
+<script src="__ABS__/assets/admui/vendor/matchheight/jquery.matchHeight.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/plyr/plyr.js"></script>
+<script src="__ABS__/assets/admui/vendor/layer/layer.min.js"></script>
+<script src="__ABS__/assets/admui/themes/base/js/app.js"></script>
+
+<script>
+    /*原图*/
+    $(".img_sty img").click(function () {
+        window.open($(this).attr('src'));
+    });
+
+    function JumpPage(page,total_pages){
+        if(page < 0){
+            return;
+        }
+        if(page === total_pages){
+            return;
+        }
+        let keywords = $("#keywords").val();
+        let status = $("#status").val();
+        window.location.href = "__ABS__/admin/app_community/index/current_page/"+ page + "/status/" + status + "/keywords/" + keywords;
+    }
+
+    /*展开*/
+    $(".open_replay").click(function () {
+        if($(this).text() === '收起回复'){
+            $(this).text('展开回复');
+            $(this).parent().parent().siblings(".comments_css").hide();
+        }else{
+            $(this).text('收起回复');
+            $(this).parent().parent().siblings(".comments_css").show();
+        }
+
+    });
+
+    /*删除动态*/
+    function delPost(id) {
+        layer.confirm('确定要删除该动态?', {btn: ['确定', '取消'], title: "警告"}, function () {
+            $.ajax({
+                type: 'POST',
+                url: "{:url('AppCommunity/adoptPost');}",
+                data: {
+                    id: id,
+                    type: 2
+                },
+                dataType: "json",
+                success: function (data) {
+                    if (data.code === 200) {
+                        //console.log(data);return;
+                        layer.msg('操作成功');
+                        $("#logForm").submit();
+                    } else {
+                        layer.alert(data.msg, {icon: 7},function () {
+                            $("#logForm").submit();
+                        });
+                    }
+                },
+                error: function (data) {
+                    layer.alert('操作失败，请重新操作', {icon: 2});
+                }
+
+            });
+            return false;//阻止form表单提交
+        })
+    }
+
+    /*删除回复*/
+    function delReview(uuid) {
+        layer.confirm('确定要删除该回复?', {btn: ['确定', '取消'], title: "警告"}, function () {
+            $.ajax({
+                type: 'POST',
+                url: "{:url('AppCommunity/adoptReview');}",
+                data: {
+                    id: uuid,
+                    type: 2
+                },
+                dataType: "json",
+                success: function (data) {
+                    if (data.code === 200) {
+                        layer.msg('操作成功');
+                        $("#logForm").submit();
+                    } else {
+                        layer.alert(data.msg, {icon: 7},function () {
+                            $("#logForm").submit();
+                        });
+                    }
+                },
+                error: function (data) {
+                    layer.alert('操作失败，请重新操作', {icon: 2});
+                }
+
+            });
+            return false;//阻止form表单提交
+        })
+    }
+
+
+
+
+    /*用户详情*/
+    function UserDetails(account_uuid) {
+        layer.open({
+            type: 2,    //0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+            title: '查看用户详情', //弹出框的标题
+            shade: 0.2,
+            area: ['70%','70%'],
+            content: "__ABS__/admin/app_community/UserDetails/user_id/"+account_uuid,
+        });
+    }
+
+    function yellowEdit(id) {
+        layer.open({
+            type: 2,    //0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+            title: '修改涉黄等级', //弹出框的标题
+            shade: 0.2,
+            area: ['30%','40%'],
+            content: "__ABS__/admin/app_community/yellowEdit/id/"+id,
+        });
+    }
+</script>
+</body>
+</html>

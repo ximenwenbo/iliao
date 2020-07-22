@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>支付完成页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--标准mui.css-->
+    <link rel="stylesheet" href="{$domain}__TMPL__/apph5/static/plugins/mui/css/mui.min.css">
+    <style>
+        .back_sty{
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+        }
+        #pay_content_text{
+            width: 25%;
+            position: absolute;
+            left: 37.5%;
+            top: 5%;
+        }
+        .text_com{
+            font-size: 20px;
+            width: 100%;
+            text-align: center;
+            color: #353434;
+            margin-top: 20px;
+        }
+        .pay-btn{
+            width: 76%;
+            height: 46px;
+            line-height: 46px;
+            position: absolute;
+            left: 12%;
+            top: 50%;
+            background: #ffd100;
+            border-radius: 40px;
+            text-align: center;
+        }
+        .pay-btn a{
+            display: block;
+            width: 100%;
+            color: #000000;
+            font-size: 18px;
+            letter-spacing: 0.2em;
+        }
+        #remark{
+            width: 76%;
+            position: absolute;
+            left: 12%;
+            top: 60%;
+            color:#8f8e8b;
+        }
+        #remark dt{
+            font-size: 11px;
+        }
+        #remark dd{
+            font-size: 10px;
+            margin-left: 0.2rem;
+        }
+    </style>
+</head>
+
+<body style="background: #fffef6">
+
+<div class="mui-content" style="background: none;width: 100%">
+    <div class="back_sty" style="width: 100%">
+        <img src="{$domain}__TMPL__/apph5/static/img/backsty.png" alt="" width="100%">
+    </div>
+    <div id="pay_content_text">
+        <p class="btn_div">
+            <img src="{$domain}__TMPL__/apph5/static/img/success.png" alt="" width="100%">
+        </p>
+        <p class="text_com">支付成功</p>
+    </div>
+
+    <div class="mui-col-sm-12 mui-col-xs-12 pay-btn">
+        <a href="javascript:void(0);" onclick="directUrl()">确定</a>
+    </div>
+    <dl id="remark">
+            <dt>注意事项</dt>
+            <dd>1、支付成功后因网络原因会有延迟,请耐心等待</dd>
+            <dd>2、支付成功后,请及时关注系统消息提醒</dd>
+            <dd>3、如有疑问,请立即联系客服</dd>
+    </dl>
+</div>
+<script src="{$domain}__TMPL__/apph5/static/plugins/mui/js/mui.min.js"></script>
+<script>
+    function directUrl(){
+        try {
+            window.androidPay.pay('www');
+        }catch (e) {
+            console.log(e);
+        }
+
+        try {
+            window.webkit.messageHandlers.iosMessage.postMessage({back:1});
+        } catch(error) {
+            console.log(error);
+        }
+
+        /*
+        var u = navigator.userAgent, app = navigator.appVersion;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+        var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if (isAndroid) {
+            try {
+                window.androidPay.pay('www');
+            }catch (e) {
+                console.log(e);
+            }
+        }
+        if (isIOS) {
+            try {
+                window.webkit.messageHandlers.iosPay.postMessage({back:1});
+            } catch(error) {
+                console.log(error);
+            }
+        }*/
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+/**
+ * Admui-iframe v2.0.0 (http://www.admui.com/)
+ * Copyright 2015-2018 Admui Team
+ * Licensed under the Admui License 1.1 (http://www.admui.com/about/license)
+ */
+.bootbox .modal-dialog {
+  width: 360px; }
+
+.page-forum .page-content .table {
+  table-layout: fixed; }
+  .page-forum .page-content .table .content {
+    position: relative; }
+    .page-forum .page-content .table .content > * {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+  .page-forum .page-content .table .flags {
+    display: inline-block; }
+  .page-forum .page-content .table a {
+    text-decoration: none; }
+  .page-forum .page-content .table .title {
+    line-height: 25px; }
+    .page-forum .page-content .table .title > * {
+      margin-right: 10px; }
+    .page-forum .page-content .table .title .locked {
+      color: #a3afb7; }
+  .page-forum .page-content .table .sticky-top {
+    font-size: 90%; }
+    .page-forum .page-content .table .sticky-top .icon {
+      margin-right: 4px; }
+  .page-forum .page-content .table .metas {
+    color: #a3afb7; }
+    .page-forum .page-content .table .metas > span {
+      position: relative;
+      margin-right: 10px; }
+      .page-forum .page-content .table .metas > span + span:before {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        top: 50%;
+        left: -8px;
+        background-color: #a7b0b8; }
+  .page-forum .page-content .table .forum-posts {
+    text-align: right; }
+
+.page-forum .slidePanel-header {
+  background-color: #6da611; }
+  .page-forum .slidePanel-header::after {
+    display: block;
+    clear: both;
+    content: ""; }
+
+.page-forum .slidePanel .actions-top {
+  position: absolute;
+  top: 30px;
+  right: 20px; }
+
+.page-forum .slidePanel .actions-bottom {
+  position: absolute;
+  bottom: 30px;
+  right: 20px; }
+
+.page-forum .slidePanel .avatar,
+.page-forum .slidePanel .name {
+  margin-right: 6px; }
+
+.page-forum .slidePanel .time {
+  color: #a3afb7; }
+
+.page-forum .slidePanel .forum-header, .page-forum .slidePanel .forum-content, .page-forum .slidePanel .forum-metas {
+  margin-bottom: 20px; }
+  .page-forum .slidePanel .forum-header::after, .page-forum .slidePanel .forum-content::after, .page-forum .slidePanel .forum-metas::after {
+    display: block;
+    clear: both;
+    content: ""; }
+
+.page-forum .slidePanel .forum-content:last-child {
+  margin-bottom: 0; }
+
+.page-forum .slidePanel .tags {
+  margin-bottom: 15px; }
+
+@media (max-width: 1199.98px) {
+  .page-forum .page-content .table .content {
+    padding-right: 100px; }
+  .page-forum .page-content .table .flags {
+    position: absolute;
+    top: 0;
+    right: 0; } }
+
+@media (max-width: 479.98px) {
+  .page-forum .nav-tabs-line > li > a {
+    padding: 10px; }
+  .page-forum .responsive-hide {
+    display: none !important; }
+  .page-forum .page-content .table .content {
+    padding-right: 0; } }

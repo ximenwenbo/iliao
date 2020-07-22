@@ -1,0 +1,13 @@
+{
+  "share": {/*配置应用使用分享功能，参考http://ask.dcloud.net.cn/article/27*/
+    "qq": {
+      "appid": "",/*腾讯QQ开放平台申请应用的AppID值*/
+      "description": "QQ分享"
+    },
+    "weixin": {
+      "appid": "",/*微信开放平台申请应用的AppID值*/
+      "appsecret": "",/*微信开放平台申请应用的AppSecret值*/
+      "description": "微信分享"
+    }
+  }
+}

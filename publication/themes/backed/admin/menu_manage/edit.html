@@ -1,0 +1,157 @@
+<include file="layout/iframe@header" xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns:/>
+<!-- Site CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/css/admin/public-config.css">
+
+<body style="margin: 0; padding: 0;overflow-x: hidden">
+<div class="page animation-fade page-forms">
+    <form  method="post" multiple="" id="exampleFullForm">
+        <div class="page-content">
+            <div class="panel">
+                <div class="panel-body container-fluid">
+                    <div class="row margin-top-20 ">
+                        <div class="col-12">
+                            <label class="control-label"><span style="color:red;">*</span>上级</label>
+                            <div class="controls col-8">
+                                <select class="form-control col-6" name="parent_id" id="parent_id" data-plugin="select1" title="">
+                                    <option value="0">作为一级菜单 </option>
+                                    <php>if(!empty($select_category)){</php>
+                                    {$select_category}
+                                    <php>}</php>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="control-label"><span style="color:red;">*</span>名称</label>
+                            <div class="controls col-8">
+                                <input type="text" name="name" class="form-control col-6" placeholder="" autocomplete="off" value="{$data.name || default = ''}">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="control-label"><span style="color:red;">*</span>应用</label>
+                            <div class="controls col-8">
+                                <input type="text" name="app" class="form-control col-6" placeholder="" autocomplete="off" value="{$data.app || default = ''}">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="control-label"><span style="color:red;">*</span>控制器</label>
+                            <div class="controls col-8">
+                                <input type="text" name="controller" class="form-control col-6" placeholder="" autocomplete="off" value="{$data.controller || default = ''}">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="control-label"><span style="color:red;">*</span>方法</label>
+                            <div class="controls col-8">
+                                <input type="text" name="action" class="form-control col-6" placeholder="" autocomplete="off" value="{$data.action || default = ''}">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="control-label">参数</label>
+                            <div class="controls col-8">
+                                <input type="text" name="param" class="form-control col-6" placeholder="" autocomplete="off" value="{$data.param || default = ''}">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="control-label">图标</label>
+                            <div class="controls col-8">
+                                <input type="text" name="icon" class="form-control col-6" placeholder="" autocomplete="off" value="{$data.icon  || default = ''}">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="control-label">排序</label>
+                            <div class="controls col-8">
+                                <input type="text" name="list_order" class="form-control col-6" placeholder="" autocomplete="off" value="{$data.list_order  || default = ''}">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="control-label">状态</label>
+                            <div class="controls col-8">
+                                <select class="form-control col-6" name="status" data-plugin="select1" title="">
+                                    <php>if(!empty($status)){</php>
+                                        <php>foreach($status as $key => $val){</php>
+                                            <option value="{$key}"
+                                                    <?= isset($data['status']) && $data['status'] == $key ? 'selected' : '';?>
+                                            >{$val} </option>
+                                        <php>}</php>
+                                    <php>}</php>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="control-label">类型</label>
+                            <div class="controls col-8">
+                                <select class="form-control col-6" name="type" data-plugin="select1" title="">
+                                    <php>if(!empty($type)){</php>
+                                    <php>foreach($type as $k => $val){</php>
+                                        <option value="{$key}"
+                                            <?= isset($data['type']) && $data['type'] == $k ? 'selected' : '';?>
+                                        >{$val} </option>
+                                    <php>}</php>
+                                    <php>}</php>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class=" col-12">
+                            <label class="control-label">备注</label>
+                            <div class="controls col-8">
+                                <textarea name="remark" style="height: 94px" class="col-6" placeholder="">{$data.remark || default = ''}</textarea>
+                                <!--<span>免验证码登录手机号,多个用英文逗号","分割</span>-->
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="id" value="{$data.id || default = 0}">
+                    </div>
+                    <div class="row">
+                        <div class="col-12 form-group">
+                            <label class="control-label"></label>
+                            <div class="controls col-5">
+                                <button type="button" class="layui-btn btn btn-primary" id="query">保存添加</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    /*提交*/
+    $("#query").on('click',function () {
+        $.ajax({
+            type: 'POST',
+            url: "{:url('MenuManage/editPost');}",
+            data: {
+                data:$("#exampleFullForm").serialize(),
+            },
+            dataType: "json",
+            success: function(data){
+                if(data.code == 200 || data.code == 1){
+                    layer.alert(data.msg, {icon: 5},function () {
+                        //window.parent.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else{
+                    layer.alert(data.msg, {icon: 7});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+</script>
+</body>

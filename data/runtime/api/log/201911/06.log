@@ -1,0 +1,50 @@
+---------------------------------------------------------------
+[ 2019-11-06T11:18:48+08:00 ] 58.217.34.88 POST /app/user/updatePos
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000666s ] mysql:host=127.0.0.1;port=3306;dbname=iliao_db;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_hook` [ RunTime:0.000606s ]
+[ sql ] [ SQL ] SELECT `hook` FROM `t_hook` WHERE  `type` = 1 OR (  `type` = 3  AND ( `app` = '' or `app` = 'cmf' ) ) [ RunTime:0.000311s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_hook_plugin` [ RunTime:0.000503s ]
+[ sql ] [ SQL ] SELECT `hook`,`plugin` FROM `t_hook_plugin` WHERE  `status` = 1  AND `hook` IN ('') ORDER BY `list_order` ASC [ RunTime:0.000254s ]
+[ log ] cmf\controller\RestBaseController::__construct，请求api接口，接收的数据，Header：array (
+  'xx-token' => '38aea807f028347944540a50896a47a263c64d4f597522833b880d9da08b9514',
+  'xx-store-channel' => 'gw',
+  'xx-api-version' => '1.1.2',
+  'xx-device-type' => 'android',
+  'accept-encoding' => 'gzip',
+  'user-agent' => '(Android; targetsdkversion 25;)',
+  'connection' => 'Keep-Alive',
+  'host' => 'api.i.iliaozhibo.cn',
+  'content-length' => '125',
+  'content-type' => 'application/json',
+)，Param：array (
+  'address' => '江苏省镇江市丹徒区九华山路300号靠近华府天地',
+  'latitude' => '32.144123',
+  'longitude' => '119.430429',
+)
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user_token` [ RunTime:0.000473s ]
+[ sql ] [ SQL ] SELECT `b`.* FROM `t_user_token` `a` INNER JOIN `t_user` `b` ON `a`.`user_id`=b.id AND a.expire_time >1573010328 WHERE  `token` = '38aea807f028347944540a50896a47a263c64d4f597522833b880d9da08b9514'  AND `device_type` = 'android' LIMIT 1 [ RunTime:0.000559s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user` [ RunTime:0.000608s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user` WHERE  `id` = 100631 LIMIT 1 [ RunTime:0.000357s ]
+[ sql ] [ SQL ] UPDATE `t_user`  SET `longitude`=119.430429,`latitude`=32.144123  WHERE  `id` = 100631 [ RunTime:0.007492s ]
+---------------------------------------------------------------
+[ 2019-11-06T11:18:48+08:00 ] 58.217.34.88 POST /app/user/onlineNotice
+[ log ] cmf\controller\RestBaseController::__construct，请求api接口，接收的数据，Header：array (
+  'xx-token' => '38aea807f028347944540a50896a47a263c64d4f597522833b880d9da08b9514',
+  'xx-store-channel' => 'gw',
+  'xx-api-version' => '1.1.2',
+  'xx-device-type' => 'android',
+  'accept-encoding' => 'gzip',
+  'user-agent' => '(Android; targetsdkversion 25;)',
+  'connection' => 'Keep-Alive',
+  'host' => 'api.i.iliaozhibo.cn',
+  'content-length' => '0',
+  'content-type' => 'application/json',
+)，Param：array (
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000406s ] mysql:host=127.0.0.1;port=3306;dbname=iliao_db;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user_token` [ RunTime:0.000603s ]
+[ sql ] [ SQL ] SELECT `b`.* FROM `t_user_token` `a` INNER JOIN `t_user` `b` ON `a`.`user_id`=b.id AND a.expire_time >1573010328 WHERE  `token` = '38aea807f028347944540a50896a47a263c64d4f597522833b880d9da08b9514'  AND `device_type` = 'android' LIMIT 1 [ RunTime:0.000628s ]
+[ sql ] [ SQL ] SELECT * FROM `t_user_token` WHERE  `user_id` = 100631 LIMIT 1 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_user_setting` [ RunTime:0.000436s ]
+[ sql ] [ SQL ] SELECT `open_video` FROM `t_user_setting` WHERE  `user_id` = 100631 LIMIT 1 [ RunTime:0.000200s ]
+[ sql ] [ SQL ] UPDATE `t_user_token`  SET `last_online_time`=1573010328,`total_online_times`=total_online_times+1,`last_online_times`=last_online_times+1  WHERE  `user_id` = 100631 [ RunTime:0.009960s ]

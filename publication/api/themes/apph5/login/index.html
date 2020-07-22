@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>登录页面</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--标准mui.css-->
+    <link rel="icon" sizes="192x192" href="{$domain}__TMPL__/apph5/static/img/login_logo.png">
+    <link rel="icon" type="image/png" href="{$domain}__TMPL__/apph5/static/img/logo.png">
+    <link rel="stylesheet" href="{$domain}__TMPL__/apph5/static/plugins/layer/skin/default/layer.css">
+    <link rel="stylesheet" href="{$domain}__TMPL__/apph5/static/plugins/mui/css/mui.min.css">
+    <style>
+        ul,li{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        [contenteditable = "true"], input, textarea {
+            -webkit-user-select: auto!important;
+            -khtml-user-select: auto!important;
+            -moz-user-select: auto!important;
+            -ms-user-select: auto!important;
+            -o-user-select: auto!important;
+            user-select: auto!important;
+        }
+
+        .login_content{
+            position: absolute;
+            width: 76.54%;
+            left: 12%;
+            top:10%;
+            height: 59.97%;
+        }
+        .login_title a>img{
+            display: block;
+            margin: 0 auto;
+        }
+        .login_content>ul{
+            margin-top: 11.244%;
+            height: 41.71%;
+        }
+        .login_content>ul>li{
+            overflow: hidden;
+            border-bottom: 1px solid #fff;
+            height: 15.21%;
+        }
+        .login_content>ul>li img{
+            float: left;
+        }
+        .login_content>ul>li input{
+            margin: 0 0 0 0;
+            padding: 0 0 0 13.94%;
+            background: none;
+            border: none;
+            color: #fff;
+            float: left;
+            width: 60%;
+            height: 100%;
+            font-size: 4vw;
+        }
+        .login_content>ul>li:first-child{
+            margin-bottom: 8.5vw;
+        }
+        #login_btn{
+            width: 100%;
+            height: 9.03%;
+            border-radius: 40px;
+            background: none;
+            color: #f8f9fc;
+            font-size: 4vw;
+        }
+        .login_content>ul>li span{
+            width: 25.91%;
+            height: 82.50%;
+            line-height: 82.50%;
+            float: right;
+            background: #f6f8f8;
+            border-radius: 40px;
+            text-align: center;
+            opacity: .7;
+        }
+        .login_content>ul>li:last-child{
+            position: relative;
+        }
+        .login_content>ul>li button{
+            position: absolute;
+            right: 0;
+            height: 5.61vw;
+            width: 25.91%;
+            line-height: 5.6vw;
+            top: 0;
+            opacity: 1;
+            color: #fff;
+            font-size: 3vw;
+            text-align: center;
+            background: none;
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        input::-webkit-input-placeholder {
+            /* placeholder颜色  */
+            color: #fff;
+            /* placeholder字体大小  */
+            font-size: 4vw;
+            /* placeholder位置  */
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mui-content" style="position: relative">
+        <div>
+            <img style="display: block;margin: 0;padding: 0;" src="http://zhibo005.oss-cn-beijing.aliyuncs.com/zhibo/assets/h5loginbackground5.jpg" alt="..." width="100%">
+        </div>
+        <div class="login_content">
+            <div class="login_title">
+                <a href="javascript:void (0)"><img src="{$domain}__TMPL__/apph5/static/img/login_logo.png" alt="" width="38%"></a>
+            </div>
+            <ul>
+                <li>
+                    <img src="{$domain}__TMPL__/apph5/static/img/login_user.png" alt="" width="6.3%">
+                    <input type="text" placeholder="请输入手机号" id="mobile">
+                </li>
+                <li>
+                    <img src="{$domain}__TMPL__/apph5/static/img/login_password.png" alt="" width="6.3%">
+                    <input type="text" placeholder="请输入验证码" id="code">
+                    <span></span>
+                    <button id="get_code_btn">获取验证码</button>
+                </li>
+            </ul>
+            <input type="hidden" name="from_uid" id="from_uid" value="{$from_uid|default=0}">
+            <button id="login_btn">立即加入</button>
+        </div>
+    </div>
+
+<script src="{$domain}__TMPL__/apph5/static/js/jquery.js"></script>
+<script src="{$domain}__TMPL__/apph5/static/plugins/layer/layer.js"></script>
+<script src="{$domain}__TMPL__/apph5/static/plugins/mui/js/mui.min.js"></script>
+
+</body>
+<script>
+    var code_btn= $("#get_code_btn");
+    var InterValObj; //timer变量，控制时间
+    var count = 60; //间隔函数，1秒执行
+    var curCount;//当前剩余秒数
+    //timer处理函数
+    function SetRemainTime() {
+        if (curCount == 0) {
+            window.clearInterval(InterValObj);//停止计时器
+            code_btn.removeAttr("disabled");//启用按钮
+            code_btn.text("再次发送");
+        }
+        else {
+            curCount--;
+            code_btn.text(curCount + "s");
+        }
+    }
+    //初始化
+    mui.init();
+    mui(".mui-content").on('tap','#get_code_btn',function(){
+        let mobile = $("#mobile").val();
+        if(!(/^1[34578]\d{9}$/.test(mobile))){
+            layer.msg('请填写正确的手机号');
+            return;
+        }
+        curCount = count;
+        //设置button效果，开始计时
+        code_btn.attr("disabled", "true");
+        code_btn.text( curCount + "s");
+        InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+        $.ajax({
+            type: 'POST',
+            url: "{$domain}/app/sms/sendCode",
+            data: {
+                mobile:mobile,
+                type:1,
+            },
+            dataType: "json",
+            success: function(data){
+                if(data.code === 1){
+                    console.log(data);
+                    layer.msg('发送成功');
+                }else {
+                    layer.msg('发送失败');
+                }
+            },
+            error:function (xml) {
+                layer.msg('网络异常,请稍后重试!', {icon: 2});
+            }
+        });
+    });
+    mui(".mui-content").on('tap','#login_btn',function(){
+        let mobile = $("#mobile").val(),
+            code = $("#code").val(),
+            from_uid = $("#from_uid").val();
+        $.ajax({
+            type: 'POST',
+            url: "{$domain}/apph5/login/mobileLogin",
+            data: {
+                mobile:mobile,
+                code:code,
+                from_uid:from_uid,
+            },
+            dataType: "json",
+            success: function(data){
+                if(data.code === 200){
+                    layer.msg('加入成功');
+                    //window.open('https://a.app.qq.com/o/simple.jsp?pkgname=com.aomeng.xchat','下载页');
+                    window.location.href = "https://a.app.qq.com/o/simple.jsp?pkgname=com.aomeng.xchat";
+                }else {
+                    layer.msg(data.msg);
+                }
+            },
+            error:function (xml) {
+                layer.msg('网络异常,请稍后重试!', {icon: 2});
+            }
+        });
+    });
+
+
+</script>
+</html>

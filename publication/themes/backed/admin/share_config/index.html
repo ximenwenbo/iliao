@@ -1,0 +1,159 @@
+<include file="layout/iframe@header" xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns:/>
+
+<!-- Site CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/css/admin/website-config.css">
+
+<body style="padding: 0">
+<div class="page animation-fade page-forms">
+    <form class="form-horizontal panel-body" id="exampleFullForm" enctype="multipart/form-data" action="{:url('WebsiteConfig/indexPost')}" method="post" autocomplete="off" novalidate="novalidate">
+        <div class="page-content">
+            <div class="panel">
+                <div class="panel-body container-fluid">
+                    <div class="row">
+
+                        <div class="form-group col-12">
+                            <label class="control-label">分享配置Key</label>
+                            <div class="controls col-5">
+                                <input type="text" name="share_install_key" class="form-control" placeholder="ecfaaceee" value="{$option.share_install_key || default = ''}">
+                            </div>
+                            <label class="form-text checkbox inline">分享页面配置Key（100字以内）</label>
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label class="control-label">分享标题</label>
+                            <div class="controls col-5">
+                                <input type="text" name="share_title" class="form-control" placeholder="大楚云直播" value="{$option.share_title || default = ''}">
+                            </div>
+                            <label class="form-text checkbox inline">分页页面标题（20字以内）</label>
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label class="control-label">分享描述</label>
+                            <div class="controls col-5">
+                                <textarea name="share_desc" style="height: 94px" class="col-12" placeholder="">{$option.share_desc || default = ''}</textarea>
+                            </div>
+                            <label class="form-text checkbox inline">分享页面描述（200字以内）</label>
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label class="control-label">分享地址</label>
+                            <div class="controls col-5">
+                                <input type="text" name="share_url" class="form-control" placeholder="http://www.baidu.com" value="{$option.share_url || default = ''}">
+                            </div>
+                            <label class="form-text checkbox inline">分享页面URL（100字以内）</label>
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label class="control-label">分享页面logo</label>
+                            <div class="controls col-5 layui-upload">
+                                <img src="{$option.share_logo_file_abs || default = ''}" id="share_logo" alt="" class="website_image">
+                                <button type="button" class="layui-btn" id="share_logo_btn">上传文件</button>
+                                <input type="hidden" name="share_logo_file" value="{$option.share_logo_file | default = ''}">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label class="control-label">分享页面背景图</label>
+                            <div class="controls col-5 layui-upload">
+                                <img src="{$option.share_background_img_file_abs || default = ''}" id="share_background_img" alt="" class="website_image">
+                                <button type="button" class="layui-btn" id="share_background_img_btn">上传文件</button>
+                                <input type="hidden" name="share_background_img_file" value="{$option.share_background_img_file | default = ''}">
+                            </div>
+                        </div>
+
+
+                        <div class="col-12 form-group">
+                            <label class="control-label"></label>
+                            <div class="controls col-5" style="margin-top:50px">
+                                <button type="button" class="layui-btn btn btn-primary" id="query">保存配置</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+<script>
+    layui.use('upload', function(){
+        var $ = layui.jquery,upload = layui.upload;
+        upload.render({
+            elem: '#share_background_img_btn', //选择文件的按钮
+            url: '/admin/user_upload/uploadFile', //后台处理文件长传的方法
+            accept: 'images',
+            acceptMime: 'image/*', //规定打开文件选择框时，筛选出的文件类型
+            field:'share_background_img',
+            choose: function(obj){ //选择文件后的回调函数，本例中在此将选择的文件进行展示
+                //读取本地文件
+                obj.preview(function(index, file, result){
+                    $("#share_background_img").attr('src',result);
+                });
+            },
+            done:function(res,index,upload){
+                if(res.code == 1){
+                    $("input[name='share_background_img_file']").val(res.data.save_dir);
+                    layui.layer.msg('上传成功');
+                }else{
+                    layui.layer.msg('上传失败');
+                }
+            },
+            error: function(index, upload){
+            }
+        });
+        upload.render({
+            elem: '#share_logo_btn', //选择文件的按钮
+            url: '/admin/user_upload/uploadFile', //后台处理文件长传的方法
+            accept: 'images',
+            acceptMime: 'image/*', //规定打开文件选择框时，筛选出的文件类型
+            field:'share_logo',
+            choose: function(obj){ //选择文件后的回调函数，本例中在此将选择的文件进行展示
+                //读取本地文件
+                obj.preview(function(index, file, result){
+                    $("#share_logo").attr('src',result);
+                });
+            },
+            done:function(res,index,upload){
+                if(res.code == 1){
+                    $("input[name='share_logo_file']").val(res.data.save_dir);
+                    layui.layer.msg('上传成功');
+                }else{
+                    layui.layer.msg('上传失败');
+                }
+            },
+            error: function(index, upload){
+            }
+        });
+    });
+
+
+
+    /*保存配置提交*/
+    $("#query").on('click',function () {
+        $.ajax({
+            type: 'POST',
+            url: "{:url('ShareConfig/indexPost');}",
+            data: {
+                data:$("#exampleFullForm").serialize(),
+            },
+
+            dataType: "json",
+            success: function(data){
+                if(data.code === 1){
+                    layer.alert(data.msg, {icon: 5},function () {
+                        window.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else{
+                    layer.alert(data.msg, {icon: 7});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+</script>

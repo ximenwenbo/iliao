@@ -1,0 +1,211 @@
+<include file="layout/iframe@header" xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns: xmlns:/>
+
+<!-- Site CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/css/admin/website-config.css">
+
+<body style="padding: 0">
+<div class="page animation-fade page-forms">
+    <form class="form-horizontal panel-body" id="exampleFullForm" enctype="multipart/form-data" action="{:url('WebsiteConfig/indexPost')}" method="post" autocomplete="off" novalidate="novalidate">
+        <div class="page-content">
+            <div class="panel">
+                <div class="panel-body container-fluid">
+                    <div class="row">
+
+                        <div class="form-group col-12">
+                            <label class="control-label">网站维护</label>
+                            <div class="controls radio-line-height">
+                                <div class="radio-custom radio-default radio-inline">
+                                    <input type="radio" name="maintain_switch" id="status1" value="1" {!empty($website.maintain_switch) && $website.maintain == 2 ? 'checked' : ''}>
+                                    <label for="status1">开启</label>
+                                </div>
+                                <div class="radio-custom radio-default radio-inline">
+                                    <input type="radio" name="maintain_switch" id="status2" value="2"
+                                        <?php if(!empty($website['maintain_switch'])){
+                                                if($website['maintain_switch'] == 2){
+                                                    echo 'checked';
+                                                }
+                                              }else{
+                                                   echo 'checked';
+                                              }
+                                            ?>
+                                    >
+                                    <label for="status2">关闭</label>
+                                </div>
+                            </div>
+                            <span class="form-text checkbox inline" style="margin-left: 20px">网站维护开启后，无法开启直播，进入直播间</span>
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label class="control-label">维护提示</label>
+                            <div class="controls col-5">
+                                <textarea name="maintain_tips" style="height: 94px" class="col-12" placeholder="维护通知：为了更好的为您服务，本站正在升级维护中，因此带来不便深表歉意">{$website.maintain_tips || default = ''}</textarea>
+                            </div>
+                            <label class="form-text checkbox inline">维护提示信息（200字以内）</label>
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label class="control-label">网站标题</label>
+                            <div class="controls col-5">
+                                <input type="text" name="web_title" class="form-control" placeholder="大楚云直播" value="{$website.web_title || default = ''}">
+                            </div>
+                            <label class="form-text checkbox inline">网站标题（20字以内）</label>
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label class="control-label">网站域名</label>
+                            <div class="controls col-5">
+                                <input type="text" name="domain" class="form-control" placeholder="https://www.baidu.com" value="{$website.domain || default = ''}">
+                            </div>
+                            <label class="form-text checkbox inline">网站域名，http:// 开头 尾部不带 /</label>
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label class="control-label">版权信息</label>
+                            <div class="controls col-5">
+                                <textarea name="copyright_info" style="height: 94px" class="col-12" placeholder="©2019 皖ICP备18009799号">{$website.copyright_info || default = ''}</textarea>
+                            </div>
+                            <label class="form-text checkbox inline">版权信息（200字以内）</label>
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label class="control-label">货币名称</label>
+                            <div class="controls col-5">
+                                <input type="text" name="currency_name" class="form-control" placeholder="金币" value="{$website.currency_name || default = ''}">
+                            </div>
+                            <label class="form-text checkbox inline">用户充值得到的虚拟币名称(10字以内)</label>
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label class="control-label">公司电话</label>
+                            <div class="controls col-5">
+                                <input type="text" name="office_tel" class="form-control" placeholder="0551-1234567" value="{$website.office_tel || default = ''}">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label class="control-label">公司地址</label>
+                            <div class="controls col-5">
+                                <input type="text" name="office_address" class="form-control" placeholder="安徽省合肥市蜀山区莲花路尚泽大都会B座" value="{$website.office_address || default = ''}">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label class="control-label">android版下载二维码</label>
+                            <div class="controls col-9 layui-upload">
+                                <img src="{$website.android_file_abs || default = ''}" id="android_img" alt="" class="website_image">
+                                <button type="button" class="layui-btn" id="android_chooseFile">上传文件</button>
+                                <input type="hidden" name="android_file" value="{$website.android_file || default = ''}">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label class="control-label">iPhone版下载二维码</label>
+                            <div class="controls col-9 layui-upload">
+                                <img src="{$website.iPhone_file_abs || default = ''}" id="iPhone_img" alt="" class="website_image">
+                                <button type="button" class="layui-btn" id="iPhone_chooseFile">上传文件</button>
+                                <input type="hidden" name="iPhone_file" value="{$website.iPhone_file || default = ''}">
+                            </div>
+                        </div>
+
+
+                        <div class="col-12 form-group">
+                            <label class="control-label"></label>
+                            <div class="controls col-5" style="margin-top:50px">
+                                <button type="button" class="layui-btn btn btn-primary" id="query">保存配置</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+<script>
+    layui.use('upload', function(){
+        var $ = layui.jquery,upload = layui.upload;
+        upload.render({
+            elem: '#android_chooseFile', //选择文件的按钮
+            url: '/admin/user_upload/uploadFile', //后台处理文件长传的方法
+            data:{'name':'android'},
+            accept: 'images',
+            acceptMime: 'image/*', //规定打开文件选择框时，筛选出的文件类型
+            field:'android_config',
+            choose: function(obj){ //选择文件后的回调函数，本例中在此将选择的文件进行展示
+                //读取本地文件
+                obj.preview(function(index, file, result){
+                    //console.log(result);
+                    let android = $("#android_img");
+                    android.attr('src',result);
+                });
+            },
+            done:function(res,index,upload){
+                if(res.code == 1){
+                    $("input[name='android_file']").val(res.data.save_dir);
+                    layui.layer.msg('上传成功');
+                }else{
+                    layui.layer.msg('上传失败');
+                }
+            },
+            error: function(index, upload){
+            }
+        });
+        upload.render({
+            elem: '#iPhone_chooseFile', //选择文件的按钮
+            url: '/admin/user_upload/uploadFile',
+            data:{'name':'android'},
+            accept: 'images',
+            acceptMime: 'image/*',
+            field:'iPhone_config',
+            choose: function(obj){
+                //读取本地文件
+                obj.preview(function(index, file, result){
+                    console.log(result);
+                    let android = $("#iPhone_img");
+                    android.attr('src',result);
+                });
+            },
+            done:function(res,index,upload){
+                if(res.code == 1){
+                    $("input[name='iPhone_file']").val(res.data.save_dir);
+                    layui.layer.msg('上传成功');
+                }else{
+                    layui.layer.msg('上传失败');
+                }
+            },
+            error: function(index, upload){
+            }
+        });
+    });
+
+
+
+    /*保存配置提交*/
+    $("#query").on('click',function () {
+        $.ajax({
+            type: 'POST',
+            url: "{:url('WebsiteConfig/indexPost');}",
+            data: {
+                data:$("#exampleFullForm").serialize(),
+            },
+
+            dataType: "json",
+            success: function(data){
+                if(data.code === 1){
+                    layer.alert(data.msg, {icon: 6},function () {
+                        window.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else{
+                    layer.alert(data.msg, {icon: 5});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+</script>

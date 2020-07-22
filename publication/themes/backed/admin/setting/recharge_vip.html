@@ -1,0 +1,58 @@
+<include file="layout/iframe@header" />
+
+<body class="page-aside-fixed page-aside-left" data-theme="base">
+<div class="page animation-fade">
+    <include file="admin/setting/layout@sidebar" />
+    <div class="page-main">
+        <div class="page-header">
+            <h3 class="page-title">充值VIP配置</h3>
+        </div>
+        <div class="page-content col-xxl-8">
+            <div class="panel">
+                <form class="form-horizontal panel-body" id="exampleStandardForm"  action="{:url('setting/rechargeVipPost')}" method="post" autocomplete="off" novalidate="novalidate">
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">平民：</label>
+                        <div class="col-md-6 input-group">
+                            <input type="text" class="form-control" name="list[pingmin]" value="{$rechargevipgrade.pingmin}" placeholder="例如 59,99,199" autocomplete="off">
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-default">元</button>
+                            </span>
+                            <span class="form-text small">&nbsp;只能配置3个，英文逗号分割</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">小康：</label>
+                        <div class="col-md-6 input-group">
+                            <input type="text" class="form-control" name="list[xiaokang]" value="{$rechargevipgrade.xiaokang}" placeholder="例如 99,199,399" autocomplete="off">
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-default">元</button>
+                            </span>
+                            <span class="form-text small">&nbsp;只能配置3个，英文逗号分割</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">富豪：</label>
+                        <div class="col-md-6 input-group">
+                            <input type="text" class="form-control" name="list[fuhao]" value="{$rechargevipgrade.fuhao}" placeholder="例如 199,299,599" autocomplete="off">
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-default">元</button>
+                            </span>
+                            <span class="form-text small">&nbsp;只能配置3个，英文逗号分割</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label"></label>
+                        <div class="col-md-6 input-group">
+                            <button type="submit" class="btn btn-primary">提交</button>&nbsp;&nbsp;
+                            <button type="reset" class="btn btn-default btn-outline">还原</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

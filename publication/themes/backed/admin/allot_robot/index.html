@@ -1,0 +1,444 @@
+<include file="layout/iframe@header" />
+<!-- Page CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/css/examples/forms/advanced.css">
+<!-- Page JS -->
+<script src="__ABS__/assets/admui/js/admin/allot_robot.js"></script>
+<style>
+    .table thead th{
+        text-align: center;
+    }
+    #logList>tbody>tr>td{
+        line-height: 63px;
+        text-align: center;
+    }
+
+    #logList>tbody>tr>td>.to_table>tbody>tr>td{
+        line-height: 63px;
+        text-align: left;
+    }
+    .checkall_btn{
+        overflow: hidden;
+    }
+    .checkall_btn>div{
+        float: left;
+    }
+    .checkall_btn>div:first-child{
+        margin-left: 30px;
+    }
+    .checkall_btn>div:last-child{
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+    input[type=checkbox],img,tbody tr td:nth-child(7){
+        cursor: pointer;
+    }
+</style>
+<body data-theme="base" style="padding: 0">
+
+<div class="page page-full animation-fade page-logs">
+    <div class="page-header">
+        <h1 class="page-title">机器人管理</h1>
+        <div class="page-header-actions">
+            <button type="button" class="btn btn-sm btn-icon btn-info btn-outline btn-round collapsed" data-toggle="collapse"
+                    data-target="#collapseFilter" aria-expanded="true" aria-controls="collapseFilter">
+                <i class="icon fa-filter"></i>
+            </button>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="collapse show" id="collapseFilter" aria-expanded="true">
+            <div class="panel">
+                <div class="panel-body">
+                    <form class="form-inline" id="logForm">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="icon wb-calendar" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" id="filter-date" placeholder="选择日期范围" autocomplete="off">
+                                <input type="hidden" name="startDate" value="" id="startTime">
+                                <input type="hidden" name="endDate" value="" id="endTime">
+                                <div class="input-group-prepend">
+                                    <button type="button" class="btn btn-icon btn-default btn-outline btn-sm date-clear">
+                                        <i class="icon wb-close" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" name="sex" data-plugin="select1" title="">
+                                <option value="">性别 </option>
+                                <option value="1">男 </option>
+                                <option value="2">女 </option>
+                                <option value="0">保密 </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <select class="form-control" name="virtual_pos" data-plugin="select1" title="">
+                                <option value="">是否虚拟定位</option>
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <select class="form-control" name="daren_status" data-plugin="select1" title="">
+                                <option value="">是否主播</option>
+                                <option value="2">是</option>
+                                <option value="0">否</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <select class="form-control" name="is_vip" data-plugin="select1" title="">
+                                <option value="">是否vip</option>
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group row getManagementUser" style="margin: 0">
+                            <div class="col-xl-12 col-md-3 col-form-label ">
+                                <select class="form-control col-xl-12  col-xl-4 col-md-3" name="management" data-plugin="select2">
+                                    <option value="" >请选择</option>
+                                    <option value="-1" >默认</option>
+                                    <php>if(isset($management) && !empty($management)){</php>
+                                    <php>foreach($management as $key=>$im){</php>
+                                    <option value="{$im.id}" >{$im.name}</option>
+                                    <php>}</php>
+                                    <php>}</php>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row getKF">
+                            <div class="col-xl-12 col-md-3 col-form-label ">
+                                <select class="form-control col-xl-12  col-xl-4 col-md-3" name="user_id" data-plugin="select2">
+                                    <option value="" >请选择客服</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="keywords" id="keywords" placeholder="序号/UID" value="{$param['keywords']|default=''}">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">
+                                <i class="icon fa-search"></i> 查找</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <header class="panel-heading">
+                <h3 class="panel-title">
+                    <button type="button" class="btn btn-sm btn-primary addInfo" data-more="#exampleMoreless" onclick="addPopup()">
+                        <i class="icon wb-plus text" aria-hidden="true"></i>
+                        <span class="text">添加机器人</span>
+                    </button>
+                </h3>
+            </header>
+            <div class="panel-body">
+                <table class="table table-bordered table-hover dataTable table-striped w-full" id="logList">
+                    <thead>
+                    <tr>
+                        <th class='th' width="4%">批量
+                            <div class="checkbox-custom checkbox-primary">
+                                <input type="checkbox" />
+                            </div>
+                        </th>
+                        <th width="6%">序号</th>
+                        <th width="10%">机器人ID</th>
+                        <th>机器人昵称</th>
+                        <th>性别</th>
+                        <th>头像</th>
+                        <th>所属客服</th>
+                        <th>是否主播</th>
+                        <th>是否vip</th>
+                        <th>是否虚拟定位</th>
+                        <th>用户状态</th>
+                        <th width="22%">操作</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th colspan="12" class="checkall_btn">
+                                <div class="checkbox-custom checkbox-primary" style="margin-left: 10px">
+                                    <input type="checkbox" id="inputChecked">
+                                    <label for="inputChecked">全选</label>
+                                </div>
+                                <div class="getManagementUser">
+                                    <div class="col-xl-12 col-md-12 col-form-label" style="margin-right: 0;padding-right: 0">
+                                        <select class="form-control col-xl-12  form-control-sm col-xl-4 col-md-3" id="custom_id" data-plugin="select2">
+                                            <option value="">请选择</option>
+                                            <option value="-1" >默认</option>
+                                            <php>if(isset($management) && !empty($management)){</php>
+                                            <php>foreach($management as $key=>$item){</php>
+                                            <option value="{$item.id}">{$item.name}</option>
+                                            <php>}</php>
+                                            <php>}</php>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="getKF">
+                                    <div class="col-xl-12 col-md-12 col-form-label">
+                                        <select class="form-control col-xl-12  form-control-sm col-xl-4 col-md-3" id="user_id" data-plugin="select2">
+                                            <option value="">请选择客服</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div><button type="button" class="btn btn-success btn-sm" id="BatchAll">分配客服</button></div>
+                            </th>
+
+
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--图片展示-->
+<link rel="stylesheet" href="__ABS__/assets/admui/vendor/galpop/css/jquery.galpop.css">
+<style>
+    .img-thumbnail{
+        height: 50px;
+    }
+</style>
+<div id="galpop-wrapper" style="overflow-y: scroll">
+    <div id="galpop-container" style="height: auto;width: auto">
+        <div id="galpop-ajax"></div>
+        <div id="galpop-modal">
+            <div id="galpop-content"></div>
+            <div id="galpop-info"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function NewGalpop(url) {
+        let warpper = $("#galpop-wrapper");
+        let content = $("#galpop-content");
+        let img = '<img src="'+url+'">';
+        warpper.addClass('loaded-image complete').show();
+        content.append(img).show();
+    }
+
+    $("#galpop-wrapper").click(function () {
+        $(this).removeClass('loaded-image complete').hide();
+        $("#galpop-content").empty();
+    })
+</script>
+<script>
+    /*视频相册*/
+    function SettingSourcePopup(id) {
+        layer.open({
+            type: 2,    //0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+            title: '编辑相册/视频', //弹出框的标题
+            shade: 0.2,
+            area: ['100%','100%'],
+            content: "__ABS__/admin/allot_robot/SettingSourcePopup/id/"+id,
+        });
+    }
+    /*添加机器人*/
+    function addPopup() {
+        layer.open({
+            type: 2,    //0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+            title: '修改归属客服', //弹出框的标题
+            shade: 0.2,
+            area: ['100%','100%'],
+            content: "__ABS__/admin/allot_robot/addInfo",
+        });
+    }
+
+    //修改归属客服
+    function editPopup(obj) {
+        layer.open({
+            type: 2,    //0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+            title: '修改归属客服', //弹出框的标题
+            shade: 0.2,
+            area: ['50%','50%'],
+            content: "__ABS__/admin/allot_robot/edit?id="+obj,
+            end:function () {
+                $('form').submit();
+                //$(".layui-laypage-em").next().html(); //当前页码值
+                //table.reload();
+            }
+        });
+    }
+
+    //打开详情页面
+    function sourcePopup(id) {
+        layer.open({
+            type: 2,    //0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+            title: '详情页面', //弹出框的标题
+            shade: 0.2,
+            area: ['100%','100%'],
+            content: "__ABS__/admin/allot_robot/ViewDetails/user_id/"+id,
+        });
+    }
+
+    //图片插件
+    function ZoomDisplay(title, url) {
+        layer.open({
+            type: 1,    //0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+            title: title, //弹出框的标题
+            shade: 0.2,
+            area: ['100%','100%'],
+            content: "<img src='"+url+"' alt='...'>"
+        });
+    }
+
+    //机器人信息修改
+    function editUserPopup(uid) {
+        layer.open({
+            type: 2,    //0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+            title: '机器人信息修改', //弹出框的标题
+            shade: 0.2,
+            area: ['100%','100%'],
+            content: "__ABS__/admin/allot_robot/editUserInfo/uid/"+uid,
+        });
+    }
+
+    //机器人收费设置
+    function UserSettingPopup(uid) {
+        layer.open({
+            type: 2,    //0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+            title: '机器人收费设置', //弹出框的标题
+            shade: 0.2,
+            area: ['100%','100%'],
+            content: "__ABS__/admin/allot_robot/UserSetting/user_id/"+uid,
+        });
+    }
+
+    /**
+     * 全选反选
+     */
+    $("#inputChecked").click(function () {
+        $("tbody input:checkbox").prop("checked", $(this).prop('checked'));
+    });
+    $("tbody input:checkbox").on('click', function() {
+        //当选中的长度等于checkbox的长度的时候,就让控制全选反选的checkbox设置为选中,否则就为未选中
+        if($("tbody input:checkbox").length === $("tbody input:checked").length) {
+            $("#theadInp").prop("checked", true);
+        } else {
+            $("#theadInp").prop("checked", false);
+        }
+    });
+
+    /**
+     * 批量分配
+     */
+    $("#BatchAll").click(function () {
+        let user_id = $("#user_id").val();
+        if(user_id === ''){
+            layer.msg('请选择客服');
+            return;
+        }
+        let check_num = $("tbody input[type = checkbox]:checked");
+        let id_s = '';
+        for (let i=0; i < check_num.length; i++){
+            id_s += check_num.eq(i).parent().parent().parent().children().eq(1).text() + ',';
+        }
+        if(id_s === ''){
+            layer.msg('至少选择一项');
+            return;
+        }
+        $.ajax({
+            type: 'POST',
+            url: "{:url('AllotRobot/BatchAll');}",
+            data: {
+                ids:id_s,
+                user_id:user_id,
+            },
+            dataType: "json",
+            success: function(data){
+                //console.log(data);return;
+                if(data.code === 200){
+                    layer.alert(data.msg, {icon: 5},function () {
+                        window.parent.location.reload(true);
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else {
+                    layer.alert(data.msg, {icon: 7});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+    });
+
+
+    /**
+     * 选择商户
+     */
+    $(".getManagementUser>div>select").change(function () {
+        //$("#kf option:gt(0)").remove();
+        var  select = $(this).parent().parent().next().children().children();
+        $(this).parent().parent().next().children().children().children(':gt(0)').remove();
+        //console.log($(this).parent().parent().next().children().children().children(':gt(0)').remove());
+        $.ajax({
+            type: 'POST',
+            url: "{:url('AllotRobot/getCustomer');}",
+            data: {
+                custom_id:$(this).val(),
+            },
+            dataType: "json",
+            success: function(data){
+                //console.log(select);return;
+                if(data.code === 200){
+                    if(data.data.length>0){
+                        for (var i=0; i< data.data.length; i++) {
+                            select.append('<option value="'+data.data[i].user_id+'">'+data.data[i].user_nickname+'</option>')
+                        }
+                    }
+                }else {
+                    layer.alert(data.msg, {icon: 7});
+                }
+            },
+            error:function (data) {
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+    });
+
+
+    //变更用户状态
+    function updStatus(user_id, status) {
+        $.ajax({
+            type: 'POST',
+            url: "{:url('UserMember/updateUserStatus');}",
+            data: {
+                id:user_id,
+                user_status:status,
+            },
+            dataType: "json",
+            success: function(data){
+                layer.alert(
+                    data.msg,
+                    {icon: 5},
+                    function(){
+                        location.reload();
+                    }
+                );
+            },
+            error:function (data) {
+                layer.alert('操作错误，请重新', {icon: 2});
+            }
+        });
+    }
+</script>
+</body>
+</html>
+
+
+

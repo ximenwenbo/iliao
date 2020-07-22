@@ -1,0 +1,95 @@
+<include file="layout/iframe@header" />
+
+<style>
+    .table thead th{
+        text-align: center;
+    }
+    #logList>tbody>tr>td{
+        line-height: 40px;
+        text-align: center;
+    }
+
+    #logList>tbody>tr>td>.to_table>tbody>tr>td{
+        line-height: 40px;
+        text-align: left;
+    }
+</style>
+<body data-theme="base" style="padding: 0">
+
+<div class="page page-full animation-fade page-logs">
+    <div class="page-header">
+        <h1 class="page-title">消息发送设置</h1>
+        <div class="page-header-actions">
+            <button type="button" class="btn btn-sm btn-icon btn-info btn-outline btn-round collapsed" data-toggle="collapse"
+                    data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+                <i class="icon fa-filter"></i>
+            </button>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="wrap js-check-wrap">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="{:url('SendMsgTemplate/sendSingleMsg2ManConfig')}">给男用户推送单聊消息</a></li>
+                <!--<li><a href="{:url('adminSetting/rongcloud')}">融云设置</a></li>-->
+                <!--<li><a href="{:url('adminSetting/aliyun')}">阿里云设置</a></li>-->
+                <!--<li><a href="{:url('adminSetting/mob')}">mob.com设置</a></li>-->
+            </ul>
+            <form class="form-horizontal js-ajax-form margin-top-20" role="form" action="{:url('SendMsgTemplate/sendSingleMsg2ManConfigPost')}" method="post">
+                <fieldset>
+                    <div class="tabbable">
+                        <p class="bg-info" style="padding: 10px; color:#fff">场景描述：按照规则随机选择一个女主播给所有男用户推送单聊消息</p>
+                        <div class="tab-content">
+
+                            <h4>主播选择：</h4>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><span class="form-required">*</span>女主播选择条件：</label>
+                                <div class="col-md-6 col-sm-10">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="women_user_online" value="1" {$send_single_msg_2_man.women_user_online==1 ? 'checked' : ''} > 当前在线
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="women_user_online" value="2" {$send_single_msg_2_man.women_user_online==2 ? 'checked' : ''} > 近1小时在线
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="women_user_online" value="12" {$send_single_msg_2_man.women_user_online==12 ? 'checked' : ''} > 近12小时在线
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="women_user_online" value="0" {$send_single_msg_2_man.women_user_online==0 ? 'checked' : ''} > 全部
+                                    </label>
+                                </div>
+                            </div>
+                            <h4>推送参配：</h4>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><span class="form-required">*</span>发送频率：</label>
+                                <div class="col-md-6 col-sm-10">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="send_frequence" value="1" {$send_single_msg_2_man.send_frequence==1 ? 'checked' : ''} > 1条/天
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="send_frequence" value="2" {$send_single_msg_2_man.send_frequence==2 ? 'checked' : ''} > 2条/天
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="send_frequence" value="3" {$send_single_msg_2_man.send_frequence==3 ? 'checked' : ''} > 3条/天
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-primary js-ajax-submit" data-refresh="0">
+                                            {:lang('SAVE')}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

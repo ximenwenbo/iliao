@@ -1,0 +1,76 @@
+<include file="layout/iframe@header" />
+
+<!-- Site CSS -->
+<link rel="stylesheet" href="__ABS__/assets/admui/themes/base/css/site.css">
+<style>
+    body {
+        padding-top: 0;
+    }
+</style>
+<body class="page-aside-fixed page-aside-left" data-theme="base">
+
+<div class="page animation-fade">
+    <div class="page-aside">
+
+        <div class="page-aside-switch">
+            <i class="icon wb-chevron-left" aria-hidden="true"></i>
+            <i class="icon wb-chevron-right" aria-hidden="true"></i>
+        </div>
+
+        <div class="page-aside-inner page-aside-scroll" data-plugin="mCustomScrollbar">
+            <div data-role="container">
+                <div data-role="content">
+                    <section class="page-aside-section">
+                        <div class="list-group">
+                            <a class="list-group-item active" href="{:url('setting/switchCoin')}">
+                                金币换算
+                            </a>
+                            <a class="list-group-item" href="{:url('setting/rechargeCoin')}">
+                                充值金币
+                            </a>
+                            <a class="list-group-item" href="{:url('setting/rechargeVip')}">
+                                充值VIP
+                            </a>
+                            <a class="list-group-item" href="{:url('setting/userProtocol')}">
+                                用户协议
+                            </a>
+                            <a class="list-group-item" href="{:url('setting/privacyProtocol')}">
+                                隐私协议
+                            </a>
+                            <a class="list-group-item" href="{:url('setting/promInvite')}">
+                                推广分成比例
+                            </a>
+                            <a class="list-group-item" href="{:url('setting/mobileWhite')}">
+                                手机号白名单
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-main">
+        <div class="page-header">
+            <h3 class="page-title">金币换算比例配置</h3>
+        </div>
+        <div class="page-content col-xxl-8">
+            <div class="panel">
+                <form class="form-horizontal panel-body" id="exampleStandardForm"  action="{:url('setting/switchCoinPost')}" method="post" autocomplete="off" novalidate="novalidate">
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">1元 = ? 金币</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="rate" value="{$moneytocoinrate.rate}" placeholder="默认1元=10金币" autocomplete="off">
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">提交</button>
+                        <button type="reset" class="btn btn-default btn-outline">还原</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

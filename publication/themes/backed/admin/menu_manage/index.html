@@ -1,0 +1,124 @@
+<include file="layout/iframe@header" />
+
+
+<body data-theme="base" style="padding: 0">
+<div class="page page-full animation-fade page-logs">
+    <div class="page-header">
+        <h1 class="page-title">菜单管理</h1>
+        <div class="page-header-actions">
+            <button type="button" class="btn btn-sm btn-icon btn-info btn-outline btn-round collapsed" data-toggle="collapse"
+                    data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+                <i class="icon fa-filter"></i>
+            </button>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="collapse" id="collapseFilter" aria-expanded="true">
+            <div class="panel">
+                <div class="panel-body">
+                    <form class="form-inline" id="table-form">
+                        <div class="form-group" style="display: none">
+                            <div class="input-group" style="width: 285px;">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="icon wb-calendar" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" id="filter-date" placeholder="选择创建日期范围" autocomplete="off">
+                                <input type="hidden" name="startDate" value="" id="startTime">
+                                <input type="hidden" name="endDate" value="" id="endTime">
+                                <div class="input-group-prepend">
+                                    <button type="button" class="btn btn-icon btn-default btn-outline btn-sm date-clear">
+                                        <i class="icon wb-close" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <select class="form-control" name="status" data-plugin="select1" title="">
+                                <option value="" selected>全部 </option>
+                                <php>if(!empty($status)){</php>
+                                <php>foreach($status as $key => $val){</php>
+                                <option value="{$key}">{$val} </option>
+                                <php>}</php>
+                                <php>}</php>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <select class="form-control" name="first_class" data-plugin="select1" title="">
+                                <option value="a">一级菜单选择 </option>
+                                <php>if(!empty($menu)){</php>
+                                <php>foreach($menu as $key => $val){</php>
+                                <option value="{$val.id}">{$val.name} </option>
+                                <php>}</php>
+                                <php>}</php>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="keywords" id="keywords" placeholder="ID/父id" value="">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">
+                                <i class="icon fa-search"></i> 查找</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <header class="panel-heading">
+                <h3 class="panel-title">
+                    <button type="button" class="btn btn-sm btn-primary addInfo" data-more="#exampleMoreless" onclick="addPopup()">
+                        <i class="icon wb-plus text" aria-hidden="true"></i>
+                        <span class="text">添加菜单</span>
+                    </button>
+                </h3>
+            </header>
+            <div class="panel-body">
+                <table class="table table-bordered table-hover dataTable table-striped w-full" id="tableList">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>父ID</th>
+                        <th>菜单名称</th>
+                        <th>路由</th>
+                        <th>菜单类型</th>
+                        <th>菜单图标</th>
+                        <th>状态</th>
+                        <th>排序</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__ABS__/assets/admui/js/admin/menu_manage_index.js"></script>
+<script>
+    /*$("#keywords").blur(function () {
+        console.log(1);
+        $("select[name=first_class] option").removeAttr('selected');
+        $("select[name=first_class] option:eq(0)").attr('selected','selected');
+    });*/
+
+    function addPopup(id) {
+        layer.open({
+            type: 2,    //0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+            title: '添加菜单', //弹出框的标题
+            shade: 0.2,
+            area: ['100%','100%'],
+            content: "__ABS__/admin/menu_manage/addInfo/id/"+id,
+        });
+    }
+
+</script>
+</body>
+</html>
+
+
+

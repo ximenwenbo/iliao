@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>支付页面</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--标准mui.css-->
+    <link rel="stylesheet" href="{$domain}__TMPL__/apph5/static/plugins/layer/skin/default/layer.css">
+    <link rel="stylesheet" href="{$domain}__TMPL__/apph5/static/plugins/mui/css/mui.min.css">
+    <link rel="stylesheet" href="{$domain}__TMPL__/apph5/static/css/apph5.css">
+</head>
+
+<body style="background: #f5f5f5">
+<div class="back_img" style="width: 100%"><img src="{$domain}__TMPL__/apph5/static/img/back.png" alt="" width="100%"></div>
+<div class="mui-content row"><span class="order_header">订单支付信息</span></div>
+<div class="mui-content row flo_box">
+    <div class="row" style="overflow:hidden;">
+        <div class="icon_order">
+            <img src="{$domain}__TMPL__/apph5/static/img/order.png" alt="" width="100%">
+        </div>
+        <div class="content_order pay-order-info pay-check-info">
+            <p><span>商品名称:</span><span id="pay-type-val">{$name == 1 ? $scene : $scene.$type_name}</span></p>
+            <p><span>订单金额: </span><span id="pay-money-val">{$money|default = '0'}</span>&nbsp;元</p>
+        </div>
+    </div>
+    <div class="row">
+        <dl class="pay-check-btn row">
+            <dt class="mui-col-xs-12 mui-col-sm-12">请选择支付方式</dt>
+            <dd class="mui-col-xs-12 mui-col-sm-12">
+                <!--获取支付宝配置-->
+                <php>if(isset($channel['alipay']) && $channel['alipay'] == 'alipay'){</php>
+                    <ul class="mui-col-xs-12 mui-col-sm-12 pay-check-value">
+                        <li class="mui-col-xs-1 mui-col-sm-1"><img src="{$domain}__TMPL__/apph5/static/img/alipay.png" alt="支付宝支付" width="23" height="23"></li>
+                        <li class="mui-col-xs-9 mui-col-sm-9">支付宝支付</li>
+                        <li class="mui-col-xs-1 mui-col-sm-1"><img src="{$domain}__TMPL__/apph5/static/img/check.png" alt="" width="15" height="15"></li>
+                        <li><input type="radio" name="pay_check" value="alipay" checked="checked"></li>
+                    </ul>
+                <php>}</php>
+                <hr style="opacity: 0.2">
+                <php>if(isset($channel['wxpay']) && $channel['wxpay'] == 'wxpay'){</php>
+                    <ul class="mui-col-xs-12 mui-col-sm-12 pay-check-value">
+                        <li class="mui-col-xs-1 mui-col-sm-1"><img src="{$domain}__TMPL__/apph5/static/img/wechat.png" alt="微信支付" width="23" height="23"></li>
+                        <li class="mui-col-xs-9 mui-col-sm-9">微信支付</li>
+                        <li class="mui-col-xs-1 mui-col-sm-1"><img src="{$domain}__TMPL__/apph5/static/img/check-out.png" alt="" width="15" height="15"></li>
+                        <li><input type="radio" name="pay_check" value="wxpay"></li>
+                    </ul>
+                <php>}</php>
+                <input type="hidden" name="token" id="token" value="{$token}">
+                <input type="hidden" name="type" id="type" value="{$type}">
+            </dd>
+        </dl>
+    </div>
+    <div id="pay-query-btn">确认支付</div>
+    <!--<a class="mui-bar mui-bar-footer" href="https://www.baidu.com">跳转</a>-->
+</div>
+
+<script src="{$domain}__TMPL__/apph5/static/js/jquery.js"></script>
+<script src="{$domain}__TMPL__/apph5/static/plugins/layer/layer.js"></script>
+<script src="{$domain}__TMPL__/apph5/static/plugins/mui/js/mui.min.js"></script>
+<script>
+    //初始化
+    mui.init();
+    //选择支付方式
+    mui(".mui-content").on('tap','.pay-check-value',function(){
+        $(this).children('li:eq(2)').children().attr('src',"{$domain}/themes/apph5/static/img/check.png");
+        $(this).children('li:eq(3)').children().prop('checked',"checked");
+        $(this).siblings().children('li:eq(2)').children().attr('src',"{$domain}/themes/apph5/static/img/check-out.png");
+        $(this).siblings().children('li:eq(3)').children().removeAttr('checked');
+    });
+    mui(".mui-content").on('tap','#pay-query-btn',function(){
+        var pay_check = $("input[name='pay_check']:checked").val();
+        var pay_money = $("#pay-money-val").text();
+        var token = $("#token").val();
+        var type = $("#type").val();
+        $.ajax({
+            type: 'POST',
+            url: "{$domain}/apph5/pay/payPageAjax",
+            data: {
+                pay_check:pay_check,
+                pay_money:pay_money,
+                type:type,
+                token:token,
+            },
+            dataType: "json",
+            success: function(data){
+                if(data.code === 200){
+                    var url = "{$domain}/apph5/pay/payComplete/our_trade_no/"+data.trade_no;
+                    try {
+                        window.webkit.messageHandlers.iosMessage.postMessage({url:url});
+                    } catch(error) {
+                        console.log(error)
+                    }
+                    if(data.pay_check == 'wxpay'){
+                        window.location.href = data.data.pay_data;
+                    }else{
+                        layer.open({
+                            type: 3,    //0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+                            shade: 0,
+                            content: data.data.pay_data
+                        });
+                    }
+                }else {
+                    layer.msg(data.msg);
+                }
+            },
+            error:function (xml) {
+                layer.msg('网络异常,请稍后重试!', {icon: 2});
+            }
+        });
+    });
+
+   /* $(document).ready(function(){
+        let f = $(".flo_box");
+        let o = $(".order_header");
+        let width_f = parseInt(f.css('width'))/-2;
+        let a = f.css('margin-left',width_f);
+        f.css('left','50%');
+        let width_o = parseInt(o.css('width'))/-2;
+        let b = o.css('margin-left',width_o);
+        b.css('left','50%');
+    });*/
+
+
+</script>
+</body>
+
+</html>

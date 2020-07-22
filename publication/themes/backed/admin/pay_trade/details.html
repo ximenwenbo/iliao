@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>订单支付详情</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="admui.com">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止搜索引擎抓取 -->
+    <meta name="robots" content="nofollow">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Chrome浏览器添加桌面快捷方式（安卓） -->
+    <link rel="icon" type="image/png" href="__ABS__/assets/admui/images/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Safari浏览器添加到主屏幕（IOS） -->
+    <link rel="icon" sizes="192x192" href="__ABS__/assets/admui/images/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Admui">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/global/css/bootstrap.css">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="__ABS__/assets/admui/themes/base/css/site.css" id="admui-siteStyle">
+
+    <style>
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        .user_info li{
+            margin-top: 1rem;
+            margin-left: 0.2rem;
+        }
+        .from_value{
+            overflow: hidden;
+        }
+        .from_value li{
+            float: left;
+            margin-right: 0.5rem;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body data-theme="base">
+
+<div class="page animation-fade">
+    <div class="page-content">
+        <div class="panel">
+            <div class="panel-body container-fluid">
+                <div class="row row-lg">
+                    <div class="col-xl-6 col-md-6" style="background: #f8f8f8;padding:1.0715rem;">
+                        <h4 class="color:#37474f;margin-bottom:1.5rem;font-size:1.08rem;">买家信息</h4>
+                        <h4 class="example-title row">
+                            <span class="col-xl-2 col-md-2">用户UID:</span>
+                            <span>{$info.user_id}</span>
+                        </h4>
+                        <h4 class="example-title row">
+                            <span class="col-xl-2 col-md-2">用户昵称:</span>
+                            <span>{$info.user_nickname}</span>
+                        </h4>
+                        <h4 class="example-title pr-10 row" style="line-height: 50px">
+                            <span class="col-xl-2 col-md-2">用户头像:</span>
+                            <a class="avatar avatar-lg" href="javascript:void (0);">
+                                <img src="<?php echo app\admin\service\MaterialService::getFullUrl($info['avatar'])?>" alt="..." width="50px" height="50px">
+                            </a>
+                        </h4>
+                        <h4 class="example-title row">
+                            <span class="col-xl-2 col-md-2">联系方式:</span>
+                            <span>{$info.mobile}</span>
+                        </h4>
+                    </div>
+
+                    <hr  class="col-xl-12 col-md-12">
+                    <php>if(!empty($info['trade_channel']) && $info['trade_channel'] == 'alipay'){</php>
+                    <div class="col-xl-12 col-md-12">
+                        <h4 class="example-title">订单标题:  &nbsp;&nbsp;{$info.extra.subject}</h4>
+                        <h4 class="example-title">交易状态:  &nbsp;&nbsp;{$info.extra.trade_status}</h4>
+                        <h4 class="example-title">订单金额:  &nbsp;&nbsp;{:intval($info.extra.total_amount)}</h4>
+                        <h4 class="example-title">实收金额:  &nbsp;&nbsp;{:intval($info.extra.receipt_amount)}</h4>
+                        <h4 class="example-title">付款金额:  &nbsp;&nbsp;{:intval($info.extra.buyer_pay_amount)}</h4>
+                        <h4 class="example-title">买家支付宝:  &nbsp;&nbsp;{$info.extra.buyer_logon_id}</h4>
+                        <h4 class="example-title">卖家支付宝:  &nbsp;&nbsp;{$info.extra.seller_email}</h4>
+                        <h4 class="example-title">商户订单号:  &nbsp;&nbsp;{$info.extra['out_trade_no']}</h4>
+                        <h4 class="example-title">支付宝交易号:  &nbsp;&nbsp;{$info.extra.trade_no}</h4>
+                        <h4 class="example-title">交易创建时间:  &nbsp;&nbsp;{$info.extra.gmt_create}</h4>
+                        <h4 class="example-title">交易付款时间:  &nbsp;&nbsp;{$info.extra.gmt_payment|default='无'}</h4>
+                        <h4 class="example-title">通知发送时间:  &nbsp;&nbsp;{$info.extra.notify_time}</h4>
+                        <h4 class="example-title">交易退款时间:  &nbsp;&nbsp;{$info.extra.gmt_refund|default='无'}</h4>
+                        <h4 class="example-title">交易结束时间:  &nbsp;&nbsp;{$info.extra.gmt_close|default='无'}</h4>
+                    </div>
+                    <php>}else if(!empty($info['trade_channel']) && $info['trade_channel'] == 'wxpay'){</php>
+                    <div class="col-xl-12 col-md-12">
+                        <h4 class="example-title">商户号:  &nbsp;&nbsp;{$info.extra.mch_id}</h4>
+                        <h4 class="example-title">订单金额:  &nbsp;&nbsp;{:intval($info.extra.total_fee)/100} 元</h4>
+                        <h4 class="example-title">付款银行:  &nbsp;&nbsp;{:$info.extra.bank_type=='CFT'?'零钱':$info.extra.bank_type}</h4>
+                        <h4 class="example-title">支付金额:  &nbsp;&nbsp;{$info.extra.cash_fee?intval($info.extra.cash_fee)/100 : 0} 元</h4>
+                        <h4 class="example-title">货币种类:  &nbsp;&nbsp;{$info.extra.fee_type}</h4>
+                        <h4 class="example-title">支付状态:  &nbsp;&nbsp;{:$info.extra.result_code=='SUCCESS' ? '已支付' : '未支付'}</h4>
+                        <h4 class="example-title">支付结果:  &nbsp;&nbsp;{:$info.extra.return_code=='SUCCESS' ? '支付成功' : '支付失败'}</h4>
+                        <h4 class="example-title">商户订单号:  &nbsp;&nbsp;{$info.extra.out_trade_no}</h4>
+                        <h4 class="example-title">随机字符串:  &nbsp;&nbsp;{$info.extra.nonce_str}</h4>
+                        <h4 class="example-title">支付完成时间:  &nbsp;&nbsp;{$info.extra.time_end}</h4>
+                        <h4 class="example-title">微信支付订单号:  &nbsp;&nbsp;{$info.extra.transaction_id}</h4>
+                    </div>
+                    <php>}</php>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Page JS -->
+
+</body>
+</html>

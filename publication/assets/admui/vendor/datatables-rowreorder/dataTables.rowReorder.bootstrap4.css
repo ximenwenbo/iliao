@@ -1,0 +1,23 @@
+/**
+ * Admui-iframe v2.0.0 (http://www.admui.com/)
+ * Copyright 2015-2018 Admui Team
+ * Licensed under the Admui License 1.1 (http://www.admui.com/about/license)
+ */
+table.dt-rowReorder-float {
+  position: absolute !important;
+  z-index: 2001;
+  table-layout: fixed;
+  outline: 2px solid #0275d8;
+  outline-offset: -2px;
+  opacity: 0.8; }
+
+tr.dt-rowReorder-moving {
+  outline: 2px solid #888;
+  outline-offset: -2px; }
+
+body.dt-rowReorder-noOverflow {
+  overflow-x: hidden; }
+
+table.dataTable td.reorder {
+  text-align: center;
+  cursor: move; }

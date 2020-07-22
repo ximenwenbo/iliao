@@ -1,0 +1,411 @@
+<!--
+<layout name="layout@layout" />
+
+<link rel="stylesheet" href="http://cdn.admui.com/demo/iframe/2.0.0/themes/base/css/site.css" id="admui-siteStyle">
+
+<link rel="stylesheet" href="http://cdn.admui.com/demo/iframe/2.0.0/vendor/datatables-bootstrap/dataTables.bootstrap4.css">
+
+<body data-theme="base">
+
+<div class="page animation-fade bg-white page-logs">
+	<div class="page-header">
+		<h1 class="page-title">系统日志</h1>
+		<div class="page-header-actions">
+			<button type="button" class="btn btn-sm btn-outline btn-default add-row" data-target="#logsForm"
+					data-toggle="modal" aria-hidden="true" role="button">
+				<i class="icon wb-plus"></i> 新增
+			</button>
+		</div>
+	</div>
+	<hr class="m-0">
+	<div class="page-content">
+		<table class="table table-bordered table-hover text-nowrap dataTable table-striped w-full" id="logList"
+			   data-column-defs='[{ "orderable": false, "targets": 2},{ "orderable": false, "targets": 3},{ "orderable": false, "targets": 4}]'>
+			<thead>
+			<tr>
+				<th>角色名称</th>
+				<th>角色描述</th>
+				<th>创建时间</th>
+				<th width="80">操作</th>
+			</tr>
+			</thead>
+		</table>
+	</div>
+</div>
+<div class="modal" id="logsForm" aria-hidden="true" aria-labelledby="logsForm" role="dialog" tabindex="-1">
+	<div class="modal-dialog modal-center">
+		<form class="modal-content " id="configForm">
+			<div class="modal-header">
+				<button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
+				<h4 class="modal-title">日志设置</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form form-horizontal mt-20 logs-settings">
+					<input type="hidden" name="id" value="">
+					<div class="form-group row">
+						<label class="col-2 col-form-label">路径</label>
+						<div class="col-9">
+							<input type="text" class="form-control" name="url" placeholder="请填写需要记录日志的URL">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-2 col-form-label">名称</label>
+						<div class="col-9">
+							<input type="text" class="form-control" name="type" placeholder="请填写URL对应的显示名称">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-primary" type="submit">保存</button>
+				<a class="btn btn-default" data-dismiss="modal">取消</a>
+			</div>
+		</form>
+
+	</div>
+</div>
+</body>
+</html>
+-->
+
+<layout name="layout@layout" />
+<!-- Site CSS -->
+<link rel="stylesheet" href="http://cdn.admui.com/demo/iframe/2.0.0/themes/base/css/site.css">
+<!-- CSS -->
+<link rel="stylesheet" href="http://cdn.admui.com/demo/iframe/2.0.0/vendor/datatables-bootstrap/dataTables.bootstrap4.css">
+<style>
+	.table a {
+		text-decoration: none;
+	}
+</style>
+<body data-theme="base">
+
+<div class="page animation-fade bg-white">
+	<div class="page-header">
+		<h1 class="page-title">角色管理</h1>
+		<div class="page-header-actions">
+			<button type="button" class="btn btn-sm btn-outline btn-default add-row" data-target="#logsForm"
+					data-toggle="modal" aria-hidden="true" role="button">
+				<i class="icon wb-plus"></i> 新增
+			</button>
+		</div>
+	</div>
+	<hr class="m-0">
+	<div class="page-content">
+		<!--<table class="table table-bordered table-hover text-nowrap dataTable table-striped w-full" id="logList"-->
+			   <!--data-column-defs='[{ "orderable": false, "targets": 1},{ "orderable": false, "targets": 2,{ "orderable": false, "targets": 3}]'>-->
+			<!--<thead>-->
+			<!--<tr>-->
+				<!--<th>角色名称</th>-->
+				<!--<th>角色描述</th>-->
+				<!--<th>创建时间</th>-->
+				<!--<th width="80">操作</th>-->
+			<!--</tr>-->
+			<!--</thead>-->
+		<!--</table>-->
+
+		<table class="table table-bordered table-hover dataTable table-striped w-full text-nowrap" data-plugin="dataTable">
+			<thead>
+				<tr>
+					<th>角色名称</th>
+					<th>角色描述</th>
+					<th>创建时间</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<foreach name="roles" item="vo">
+				<tr>
+					<td>{$vo.name}</td>
+					<td>{$vo.remark}</td>
+					<td>{:date('Y-m-d H:i',$vo['create_time'])}</td>
+					<td>
+						<if condition="$vo['id'] eq 1">
+							<font color="#cccccc">权限设置</font>
+							<font color="#cccccc">{:lang('EDIT')}</font>
+							<font color="#cccccc">{:lang('DELETE')}</font>
+						<else />
+							<a href="{:url('Rbac/authorize',array('id'=>$vo['id']))}">权限设置</a>
+							<button type="button" class="btn btn-xs btn-icon btn-pure btn-default edit-row"
+									data-get_url="{:url('Rbac/ajaxOne',array('id'=>$vo['id']))}"
+									data-edit_url="{:url('Rbac/roleedit',array('id'=>$vo['id']))}" data-target="#editForm" data-toggle="modal">
+								<i class="icon wb-edit" aria-hidden="true"></i></button>
+							<button type="button" class="btn btn-xs btn-icon btn-pure btn-default delete-row" data-url="{:url('Rbac/roledelete',array('id'=>$vo['id']))}">
+								<i class="icon wb-close" aria-hidden="true"></i></button>
+						</if>
+					</td>
+				</tr>
+				</foreach>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="modal" id="logsForm" aria-hidden="true" aria-labelledby="logsForm" role="dialog" tabindex="-1">
+	<div class="modal-dialog modal-center">
+		<form class="modal-content" id="configForm" method="post" action="{:url('rbac/roleAddPost')}">
+			<div class="modal-header">
+				<button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
+				<h4 class="modal-title">新增角色</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form form-horizontal mt-20">
+					<input type="hidden" name="id" value="">
+					<div class="form-group row">
+						<label class="col-2 col-form-label">角色名称</label>
+						<div class="col-9">
+							<input type="text" class="form-control" name="name" placeholder="请填写角色名称">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-2 col-form-label">角色描述</label>
+						<div class="col-9">
+							<input type="text" class="form-control" name="remark" placeholder="请填写角色描述">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-primary" type="submit">保存</button>
+				<a class="btn btn-default" data-dismiss="modal">取消</a>
+			</div>
+		</form>
+
+	</div>
+</div>
+
+<div class="modal" id="editForm" aria-hidden="true" aria-labelledby="editForm" role="dialog" tabindex="-1">
+	<div class="modal-dialog modal-center">
+		<form class="modal-content" method="post" action="{:url('rbac/roleEditPost')}">
+			<div class="modal-header">
+				<button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
+				<h4 class="modal-title">编辑角色</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form form-horizontal mt-20">
+					<input type="hidden" name="id" value="">
+					<div class="form-group row">
+						<label class="col-2 col-form-label">角色名称</label>
+						<div class="col-9">
+							<input type="text" class="form-control" name="name" placeholder="请填写角色名称">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-2 col-form-label">角色描述</label>
+						<div class="col-9">
+							<input type="text" class="form-control" name="remark" placeholder="请填写角色描述">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-primary" type="submit">保存</button>
+				<a class="btn btn-default" data-dismiss="modal">取消</a>
+			</div>
+		</form>
+
+	</div>
+</div>
+
+<!-- JS -->
+<script src="http://cdn.admui.com/demo/iframe/2.0.0/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="http://cdn.admui.com/demo/iframe/2.0.0/vendor/datatables-bootstrap/dataTables.bootstrap4.js"></script>
+<script src="__ABS__/assets/admui/vendor/datatables-responsive/dataTables.responsive.min.js"></script>
+<script src="__ABS__/assets/admui/vendor/jquery-validation/jquery.validate.min.js"></script>
+
+<script>
+    (function(document, window, $) {
+        'use strict';
+
+        /* global toastr, _ */
+        /* eslint consistent-return: "warn" */
+
+        // 获取当前页面操作权限
+        // var operationPermission = window.App.getOperPermission();
+        var operationPermission = [{'id':'110003'},{'id':'110005'}];
+
+        $(function() {
+            var $editRow;
+            var $logModal = $('#logsForm');
+            var $logForm = $('#configForm');
+            var $configId = $('[name="id"]');
+            var $configName = $('[name="name"]');
+            var $configRemark = $('[name="remark"]');
+            var logForm = null;
+            // 项目地址
+            // var ctx = $.configs.ctx;
+
+            // 表格初始化
+            // var oTable = $('.dataTable').DataTable(
+            //     $.concatCpt('dataTable', {
+            //         autoWidth: false,
+            //         processing: true,
+            //         rowId: 'id',
+            //         ajax: "{:url('Rbac/ajaxList')}",
+            //         columns: [
+            //             {data: 'name'},
+            //             {data: 'remark'},
+            //             {data: 'create_time'},
+            //             {
+            //                 render: function(data) {
+            //                     console.log(data);
+            //                     // 操作权限按钮helper方法
+            //                     var ermissionStatus = function(id) {
+            //                         var result = false;
+            //                         $.each(operationPermission, function(index, value) {
+            //                             if (value.id === id) {
+            //                                 result = true;
+            //                                 return false;
+            //                             }
+            //                         });
+            //                         return result;
+            //                     };
+            //                     var deleteBtnTpl = '';
+            //                     var editBtnTpl = '';
+            //
+            //                     // 编辑按钮
+            //                     if (ermissionStatus('110003')) {
+            //                         editBtnTpl =
+            //                             '<button type="button" class="btn btn-xs btn-icon btn-pure btn-default edit-row" ' +
+            //                             'data-target="#logsForm" data-toggle="modal"><i class="icon wb-edit" aria-hidden="true"></i></button>';
+            //                     }
+            //
+            //                     // 删除按钮
+            //                     if (ermissionStatus('110005')) {
+            //                         deleteBtnTpl =
+            //                             '<button type="button" class="btn btn-xs btn-icon btn-pure btn-default delete-row">' +
+            //                             '<i class="icon wb-close" aria-hidden="true"></i></button>';
+            //                     }
+            //
+            //                     return '<div class="btn-group">' + editBtnTpl + deleteBtnTpl + '</div>';
+            //                 }
+            //             }
+            //         ]
+            //     })
+            // );
+
+            // 日志添加 | 编辑表单验证初始化
+            logForm = $logForm.validate({
+                rules: {
+                    url: {
+                        required: true
+                    },
+                    type: {
+                        required: true
+                    }
+                },
+                messages: {
+                    url: {
+                        required: '请填写URL地址'
+                    },
+                    type: {
+                        required: '请填写URL对应名称'
+                    }
+                },
+                submitHandler: function(form) {
+                    $.ajax({
+                        url: ctx + '/logconfig',
+                        type: 'POST',
+                        data: JSON.stringify($(form).serializeObject()),
+                        dataType: 'JSON',
+                        contentType: 'application/json',
+                        success: function(res) {
+                            if (res.success) {
+                                // 隐藏模态框
+                                $logModal.modal('hide');
+
+                                if (!_.isNull($editRow)) {
+                                    // 编辑设置信息
+                                    oTable
+                                        .row($editRow)
+                                        .data(res.data)
+                                        .draw(false);
+                                } else {
+                                    // 新增日志设置
+                                    oTable.row.add(res.data).draw(false);
+                                }
+                                toastr.success(res.msg);
+                            } else {
+                                toastr.error(res.msg);
+                            }
+                        },
+                        error: function() {
+                            toastr.error('服务器异常，请配合后端程序使用');
+                        }
+                    });
+                }
+            });
+
+            // modal隐藏完成后
+            $logModal.on('hidden.bs.modal', function() {
+                // 清空表单数据
+                $logForm.find('input').val('');
+                logForm.resetForm();
+            });
+
+            // 删除一条记录
+            $(document).on('click', '.delete-row', function() {
+                var url = $(this).data('url');
+
+                // 确定删除弹框
+                window.top.layer.confirm('你确定要删除吗？', function(index) {
+                    $.ajax({
+                        url: url,
+                        type: 'DELETE',
+                        dataType: 'JSON',
+                        success: function(res) {
+                            if (res.code) {
+                                toastr.success(res.msg);
+                                window.top.layer.close(index);
+
+                                setInterval(function () {
+                                    location.href = res.url;
+                                }, 1500);
+                            } else {
+                                toastr.error(res.msg);
+                            }
+                        },
+                        error: function() {
+                            toastr.error('服务器异常，请配合后端程序使用');
+                        }
+                    });
+                });
+            });
+
+            // 新增一条记录
+            $('.add-row').on('click', function() {
+                $editRow = null;
+                $configId.val('');
+            });
+
+            // 编辑一条记录
+            $(document).on('click', '.edit-row', function() {
+                var get_url = $(this).data('get_url');
+
+                $.ajax({
+                    url: get_url,
+                    type: 'POST',
+                    dataType: 'JSON',
+                    success: function(res) {
+                        if (res.success) {
+                            $configId.val(res.data.id);
+                            $configName.val(res.data.name);
+                            $configRemark.val(res.data.remark);
+                        } else {
+                            toastr.error(res.msg);
+                        }
+                    },
+                    error: function() {
+                        toastr.error('服务器异常，请配合后端程序使用');
+                    }
+                });
+
+
+
+            });
+        });
+    })(document, window, jQuery);
+</script>
+
+</body>
+</html>

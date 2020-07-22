@@ -1,0 +1,111 @@
+<include file="layout/iframe@header" />
+<style>
+    .checkList li{
+        overflow: hidden;
+    }
+    .checkList li input,.checkList li label{
+        float: left;
+    }
+    .checkList li label{
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        cursor: pointer;
+    }
+    .checkList li input:nth-child(1){
+        height: 22px;
+        cursor: pointer;
+    }
+    #content-video{
+        float: left;
+        width: 80%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #2C3E50;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #dce4ec;
+        border-radius: 0;
+    }
+</style>
+</head>
+<body>
+<!--
+<div class="example">
+    <div class="cover plyr">
+        <div tabindex="0" class="plyr plyr&#45;&#45;video plyr&#45;&#45;fullscreen-enabled plyr&#45;&#45;ready plyr&#45;&#45;stopped"><div class="plyr__video-wrapper" style="cursor: pointer;"><div class="plyr__captions"></div><video poster="http://cdn.admui.com/media/AngryBirds.png" crossorigin="" class="plyr&#45;&#45;setup">
+
+            <source type="video/mp4" src="http://cdn.admui.com/media/AngryBirds.mp4">
+            <source type="video/webm" src="http://cdn.admui.com/media/AngryBirds.webm">
+            <a href="http://cdn.admui.com/media/AngryBirds.mp4">下载</a>
+        </video></div><button type="button" data-plyr="play" class="plyr__play-large" aria-label="Play"><svg><use xlink:href="#plyr-play"></use></svg><span class="plyr__sr-only">Play</span></button><div class="plyr__controls"><button type="button" data-plyr="play" aria-label="Play"><svg><use xlink:href="#plyr-play"></use></svg><span class="plyr__sr-only">Play</span></button><button type="button" data-plyr="pause"><svg><use xlink:href="#plyr-pause"></use></svg><span class="plyr__sr-only">Pause</span></button><span class="plyr__progress"><label for="seek2487" class="plyr__sr-only">Seek</label><input id="seek2487" class="plyr__progress&#45;&#45;seek" type="range" min="0" max="100" step="0.1" value="0" data-plyr="seek"><progress class="plyr__progress&#45;&#45;played" max="100" value="100" role="presentation"></progress><progress class="plyr__progress&#45;&#45;buffer" max="100" value="100"><span>100.00</span>% buffered</progress><span class="plyr__tooltip" style="left: 100%;">00:29</span></span><span class="plyr__time"><span class="plyr__sr-only">Current time</span><span class="plyr__time&#45;&#45;current">00:29</span></span><button type="button" data-plyr="mute" aria-pressed="false"><svg class="icon&#45;&#45;muted"><use xlink:href="#plyr-muted"></use></svg><svg><use xlink:href="#plyr-volume"></use></svg><span class="plyr__sr-only">Toggle Mute</span></button><span class="plyr__volume"><label for="volume2487" class="plyr__sr-only">Volume</label><input id="volume2487" class="plyr__volume&#45;&#45;input" type="range" min="0" max="10" value="10" data-plyr="volume"><progress class="plyr__volume&#45;&#45;display" max="10" value="10" role="presentation"></progress></span><button type="button" data-plyr="captions"><svg class="icon&#45;&#45;captions-on"><use xlink:href="#plyr-captions-on"></use></svg><svg><use xlink:href="#plyr-captions-off"></use></svg><span class="plyr__sr-only">Toggle Captions</span></button><button type="button" data-plyr="fullscreen" aria-pressed="false"><svg class="icon&#45;&#45;exit-fullscreen"><use xlink:href="#plyr-exit-fullscreen"></use></svg><svg><use xlink:href="#plyr-enter-fullscreen"></use></svg><span class="plyr__sr-only">Toggle Fullscreen</span></button></div></div>
+    </div>
+</div>-->
+
+<div class="wrap js-check-wrap" style="padding:0 10px 0">
+    <form class="well form-inline margin-top-10" action="#" name="form1" id="from1" enctype="multipart/form-data">
+        <ul class="checkList">
+            <li>
+                <input type="radio" name="type" id="video1" checked value="1">
+                <label for="video1">警告</label>
+                <input type="text" name="content"  placeholder="请输入警告内容" id="content-video" class="form-control">
+            </li>
+            <li>
+                <input type="radio" name="type" id="video2" value="2">
+                <label for="video2">关闭直播</label>
+            </li>
+            <input type="hidden" value="{$id|default=''}" name="id" id="id">
+            <li>
+                <button class="btn btn-danger" id="back">关闭</button>
+                <input type="submit" class="btn btn-primary" id="query" value="确认" />
+            </li>
+        </ul>
+    </form>
+</div>
+<script>
+    /*提交审核*/
+    $("#query").on('click',function () {
+        var type = $("input[name=type]:checked").val();
+        var content = $("#content-video").val();
+        if(type === '1'){
+            if(content === ''){
+                layer.alert('警告内容不能为空',{icon:5});
+                return false;
+            }
+        }
+        $.ajax({
+            type: 'POST',
+            url: "{:url('OnlineVideo/setVideo');}",
+            data: {type:type,content:content,id:$("#id").val()},
+            dataType: "json",
+            success: function(data){
+                if(data.code === 200){
+                    layer.alert('操作成功', {icon: 6},function () {
+                        window.parent.location.reload();
+                        let index=parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    });
+                }else {
+                    layer.alert(data.msg, {icon: 5});
+                }
+            },
+            error:function (data) {
+                console.log(data);
+                layer.alert('操作失败，请重新操作', {icon: 2});
+            }
+
+        });
+        return false;//阻止form表单提交
+    });
+    //关闭按钮
+    $("#back").click(function () {
+        window.parent.location.reload();
+        let index=parent.layer.getFrameIndex(window.name);
+        parent.layer.close(index);
+    });
+</script>
+</body>
+</html>
